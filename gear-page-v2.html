@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Setup — Steines' Second Spin</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html, body { margin: 0; padding: 0; overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --bg:      #f5f3ee;
+  --ink:     #1a1a1a;
+  --muted:   #888075;
+  --faint:   #c8c2b8;
+  --crimson: #c41e3a;
+  --warm:    #e8d4c0;
+  --surface: #fff;
+  --serif:   'Fraunces', Georgia, serif;
+  --sans:    'Work Sans', system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+/* Paper grain */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* === NAV === */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(26,26,26,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  height: clamp(52px, 7vh, 64px);
+}
+.wordmark {
+  font-family: var(--serif);
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+}
+.wordmark span { color: var(--crimson); }
+.nav-links {
+  display: flex;
+  gap: clamp(12px, 2vw, 28px);
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.nav-links a {
+  font-family: var(--sans);
+  font-size: clamp(9px, 0.85vw, 11px);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.here { color: var(--crimson); }
+
+/* === HERO === */
+.hero {
+  background: var(--ink);
+  padding: clamp(48px, 9vh, 96px) clamp(1.5rem, 6vw, 5rem);
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-word {
+  position: absolute;
+  right: -2%; bottom: -10%;
+  font-family: var(--serif);
+  font-size: clamp(100px, 22vw, 280px);
+  font-weight: 900;
+  color: rgba(255,255,255,0.022);
+  pointer-events: none; user-select: none;
+  line-height: 1; letter-spacing: -0.06em;
+}
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: clamp(8px, 0.85vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: clamp(14px, 2.5vh, 24px);
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: clamp(20px, 3vw, 36px);
+  height: 1px;
+  background: var(--crimson);
+}
+.hero-hed {
+  font-family: var(--serif);
+  font-size: clamp(32px, 6vw, 76px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: #fff;
+  max-width: 14ch;
+  margin: 0 0 clamp(12px, 2vh, 20px);
+}
+.hero-dek {
+  font-family: var(--sans);
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+  max-width: 50ch;
+  margin: 0;
+}
+
+/* === GEAR SECTION === */
+.gear-section {
+  padding: clamp(40px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem);
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: clamp(24px, 4vh, 40px);
+  border-bottom: 1px solid rgba(26,26,26,0.1);
+  padding-bottom: 14px;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+.section-count {
+  font-family: var(--sans);
+  font-size: clamp(8px, 0.8vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* === GEAR GRID === */
+.gear-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+/* === GEAR CARD === */
+.gcard {
+  background: var(--surface);
+  border: 1px solid rgba(26,26,26,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.gcard-image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--warm);
+  overflow: hidden;
+}
+.gcard-image img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 12px;
+  transition: transform 0.4s ease;
+}
+.gcard:hover .gcard-image img { transform: scale(1.04); }
+
+/* Image fallback — shown when img fails to load */
+.gcard-image img[data-loaded="false"],
+.gcard-image .img-fallback {
+  display: none;
+}
+.gcard-image.img-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gcard-image.img-error::after {
+  content: attr(data-name);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(11px, 1.1vw, 14px);
+  color: var(--muted);
+  text-align: center;
+  padding: 16px;
+}
+
+.badge-row {
+  position: absolute;
+  top: 10px; left: 10px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.badge {
+  font-family: var(--sans);
+  font-size: clamp(7px, 0.7vw, 8px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid;
+}
+.badge--tier {
+  color: var(--ink);
+  background: rgba(245,243,238,0.92);
+  border-color: rgba(26,26,26,0.2);
+}
+.badge--own {
+  color: #fff;
+  background: var(--crimson);
+  border-color: var(--crimson);
+}
+
+.gcard-body {
+  padding: clamp(14px, 2vw, 20px);
+  border-top: 3px solid var(--crimson);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.gcard-price {
+  font-family: var(--sans);
+  font-size: clamp(8px, 0.8vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+
+.gcard-name {
+  font-family: var(--serif);
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.gcard-blurb {
+  font-family: var(--sans);
+  font-size: clamp(11px, 1.05vw, 13px);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.gcard-link {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--sans);
+  font-size: clamp(8px, 0.8vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: clamp(8px, 1.2vh, 11px) clamp(14px, 2vw, 20px);
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.gcard-link:hover { background: #333; }
+
+/* === EDITORIAL NOTE === */
+.editorial-note {
+  padding: clamp(28px, 5vh, 48px) clamp(1.5rem, 6vw, 5rem);
+  background: var(--ink);
+  text-align: center;
+}
+.editorial-note p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(13px, 1.4vw, 17px);
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+  max-width: 60ch;
+  margin-inline: auto;
+}
+.editorial-note p::before,
+.editorial-note p::after {
+  content: '"';
+  color: var(--crimson);
+}
+
+/* === FOOTER === */
+.site-footer {
+  border-top: 1px solid rgba(26,26,26,0.1);
+  padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-wordmark { font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--muted); }
+.footer-wordmark span { color: var(--crimson); }
+.footer-note { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; color: var(--faint); text-transform: uppercase; }
+
+/* === RESPONSIVE === */
+@media (max-width: 960px) {
+  .gear-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .gear-grid { grid-template-columns: 1fr; }
+  .nav-links li:nth-child(n+4) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
+  <ul class="nav-links">
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="gear-page-v2.html" class="here">Hardware Recommendations</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="favorites.html">Favorites</a></li>
+    <li><a href="https://open.spotify.com/user/YOUR_SPOTIFY_USER_ID" target="_blank" rel="noopener">Spotify ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-word">SETUP</div>
+  <div class="hero-eyebrow">Hardware Recommendations</div>
+  <h1 class="hero-hed">The Setup</h1>
+  <p class="hero-dek">What I actually use and recommend for serious listening.</p>
+</section>
+
+<!-- TURNTABLES SECTION -->
+<section class="gear-section">
+  <div class="section-header">
+    <h2 class="section-title">Turntables &amp; Record Players</h2>
+    <span class="section-count">3 picks</span>
+  </div>
+  <div class="gear-grid">
+
+    <!-- AT-LP60X -->
+    <div class="gcard">
+      <div class="gcard-image" data-name="Audio-Technica AT-LP60X">
+        <div class="badge-row">
+          <span class="badge badge--tier">Budget Pick</span>
+          <span class="badge badge--own">I Own This</span>
+        </div>
+        <img
+          src="https://www.audio-technica.com/en-us/media/catalog/product/A/T/AT-LP60X-BK_sq.jpg"
+          alt="Audio-Technica AT-LP60X"
+          loading="lazy"
+          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+      </div>
+      <div class="gcard-body">
+        <p class="gcard-price">~$129</p>
+        <h3 class="gcard-name">Audio-Technica AT-LP60X</h3>
+        <p class="gcard-blurb">No frills, no fuss. If you're just getting into vinyl and aren't sure yet how deep you want to go, start here. Fully automatic, built-in preamp, sounds better than its price suggests.</p>
+        <a class="gcard-link" href="https://www.audio-technica.com/en-us/at-lp60x" target="_blank" rel="noopener">Buy / Learn More ↗</a>
+      </div>
+    </div>
+
+    <!-- AT-LP120XUSB -->
+    <div class="gcard">
+      <div class="gcard-image" data-name="Audio-Technica AT-LP120XUSB">
+        <div class="badge-row">
+          <span class="badge badge--tier">Best Value</span>
+        </div>
+        <img
+          src="https://www.audio-technica.com/en-us/media/catalog/product/A/T/AT-LP120XUSB-BK_sq.jpg"
+          alt="Audio-Technica AT-LP120XUSB"
+          loading="lazy"
+          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+      </div>
+      <div class="gcard-body">
+        <p class="gcard-price">~$299</p>
+        <h3 class="gcard-name">Audio-Technica AT-LP120XUSB</h3>
+        <p class="gcard-blurb">The workhorse entry point. Direct drive, built-in preamp, USB out for ripping — it does everything without making you choose. This is the table most people should buy.</p>
+        <a class="gcard-link" href="https://www.audio-technica.com/en-us/at-lp120xusb" target="_blank" rel="noopener">Buy / Learn More ↗</a>
+      </div>
+    </div>
+
+    <!-- Pro-Ject Debut Carbon EVO -->
+    <div class="gcard">
+      <div class="gcard-image" data-name="Pro-Ject Debut Carbon EVO">
+        <div class="badge-row">
+          <span class="badge badge--tier">Premium Pick</span>
+        </div>
+        <img
+          src="https://www.project-audio.com/app/uploads/2020/09/Debut-Carbon-EVO-web.jpg"
+          alt="Pro-Ject Debut Carbon EVO"
+          loading="lazy"
+          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+      </div>
+      <div class="gcard-body">
+        <p class="gcard-price">~$499</p>
+        <h3 class="gcard-name">Pro-Ject Debut Carbon EVO</h3>
+        <p class="gcard-blurb">Where records start sounding like records. Carbon tonearm and an Ortofon 2M Red cartridge out of the box — audiophile build without the audiophile price tag. Belt drive, low noise floor, real improvement over the AT class.</p>
+        <a class="gcard-link" href="https://www.project-audio.com/en/product/debut-carbon-evo/" target="_blank" rel="noopener">Buy / Learn More ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPEAKERS SECTION -->
+<section class="gear-section" style="padding-top: 0;">
+  <div class="section-header">
+    <h2 class="section-title">Speakers</h2>
+    <span class="section-count">3 picks</span>
+  </div>
+  <div class="gear-grid">
+
+    <!-- Edifier R1280T -->
+    <div class="gcard">
+      <div class="gcard-image" data-name="Edifier R1280T">
+        <div class="badge-row">
+          <span class="badge badge--tier">Budget Pick</span>
+        </div>
+        <img
+          src="https://www.edifier.com/globalimages/Products/Active_Speaker/R1280T/R1280T-black-side.jpg"
+          alt="Edifier R1280T"
+          loading="lazy"
+          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+      </div>
+      <div class="gcard-body">
+        <p class="gcard-price">~$99</p>
+        <h3 class="gcard-name">Edifier R1280T</h3>
+        <p class="gcard-blurb">Punches way above its price. Warm low end, clean mids — genuinely good for a desk setup. Two RCA inputs means you can run a turntable and a second source without swapping cables.</p>
+        <a class="gcard-link" href="https://www.edifier.com/us/en/speakers/r1280t.html" target="_blank" rel="noopener">Buy / Learn More ↗</a>
+      </div>
+    </div>
+
+    <!-- Klipsch R-51PM -->
+    <div class="gcard">
+      <div class="gcard-image" data-name="Klipsch R-51PM">
+        <div class="badge-row">
+          <span class="badge badge--tier">Best Value</span>
+        </div>
+        <img
+          src="https://assets.klipsch.com/product-images/R-51PM_Pair_Angle_AV.jpg"
+          alt="Klipsch R-51PM"
+          loading="lazy"
+          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+      </div>
+      <div class="gcard-body">
+        <p class="gcard-price">~$349</p>
+        <h3 class="gcard-name">Klipsch R-51PM</h3>
+        <p class="gcard-blurb">Built-in phono stage means you can plug a turntable straight in. Horn-loaded tweeter gives them a presence most bookshelf speakers can't match — dynamics are immediately obvious on anything with real percussion.</p>
+        <a class="gcard-link" href="https://www.klipsch.com/products/r-51pm-powered-speaker" target="_blank" rel="noopener">Buy / Learn More ↗</a>
+      </div>
+    </div>
+
+    <!-- KEF Q150 -->
+    <div class="gcard">
+      <div class="gcard-image" data-name="KEF Q150">
+        <div class="badge-row">
+          <span class="badge badge--tier">Premium Pick</span>
+        </div>
+        <img
+          src="https://www.kef.com/on/demandware.static/-/Sites-KEFcommerce-master-catalog/default/dw71e07d64/images/hi-res/Q150BK-hero.jpg"
+          alt="KEF Q150"
+          loading="lazy"
+          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+      </div>
+      <div class="gcard-body">
+        <p class="gcard-price">~$599</p>
+        <h3 class="gcard-name">KEF Q150</h3>
+        <p class="gcard-blurb">If you're ready to hear what your records actually sound like, these are the ones. Uni-Q driver puts the highs and mids in exactly the same place — imaging is unlike anything else at this price. Passive, so you'll need a receiver.</p>
+        <a class="gcard-link" href="https://www.kef.com/en-us/loudspeakers/q-series/q150/" target="_blank" rel="noopener">Buy / Learn More ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDITORIAL NOTE -->
+<div class="editorial-note">
+  <p>No sponsored content. No affiliate links. Just what I'd actually buy.</p>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
+  <span class="footer-note">No algorithms. No affiliation. Just records.</span>
+</footer>
+
+</body>
+</html>
