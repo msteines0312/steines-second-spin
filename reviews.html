@@ -433,8 +433,7 @@ function cardHTML(album) {
         <p class="acard-artist">${album.artist}</p>
         <div class="star-row">${starMarks(album.stars)}</div>
         <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
-        <p class="acard-blurb">${album.blurb}</p>
-        ${!hasReview ? '<span class="coming-soon">Review coming soon</span>' : ''}
+        ${!hasReview ? `<p class="acard-blurb">${album.blurb}</p><span class="coming-soon">Review coming soon</span>` : ''}
       </div>
     </${tag}>`;
 }
