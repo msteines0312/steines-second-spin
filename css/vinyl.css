@@ -1,0 +1,165 @@
+.vinyl-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.vinyl-stage {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vinyl-disc {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at center,
+    #1e1e1a 0px, #111108 1px, #1e1e1a 2px, #111108 3px
+  );
+  box-shadow: 0 0 0 2px #2a2a26, 0 8px 32px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3);
+  position: relative;
+  animation: vinylSpin 2.8s linear infinite;
+  animation-play-state: paused;
+  transition: box-shadow 0.3s ease;
+}
+
+.vinyl-disc.playing {
+  animation-play-state: running;
+  box-shadow: 0 0 0 2px #2a2a26, 0 12px 48px rgba(0,0,0,0.6), 0 0 60px rgba(212,168,83,0.12);
+}
+
+@keyframes vinylSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.vinyl-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.vinyl-label img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vinyl-label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #111108;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.1);
+  z-index: 2;
+}
+
+.tonearm-wrap {
+  position: absolute;
+  top: -16px;
+  right: -24px;
+  width: 80px;
+  height: 180px;
+  pointer-events: none;
+  transform-origin: 68px 18px;
+  transform: rotate(-22deg);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.tonearm-wrap.playing {
+  transform: rotate(-6deg);
+}
+
+.tonearm-wrap svg {
+  width: 100%;
+  height: 100%;
+}
+
+.play-hint {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: rgba(0,0,0,0.3);
+  z-index: 5;
+}
+
+.vinyl-stage:hover .play-hint {
+  opacity: 1;
+}
+
+.vinyl-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #888;
+  transition: all 0.3s ease;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+}
+
+.vinyl-status.playing {
+  color: #C84B2F;
+  border-color: rgba(200,75,47,0.3);
+  background: rgba(200,75,47,0.06);
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.vinyl-status.playing .status-dot {
+  animation: statusPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.vinyl-spotify-embed {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.vinyl-spotify-embed.open {
+  max-height: 200px;
+  opacity: 1;
+}

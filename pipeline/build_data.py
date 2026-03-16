@@ -82,6 +82,8 @@ for slug in slugs:
         "track_count":     c.get("track_count"),
         "duration_ms":     c.get("duration_ms"),
         "popularity":      c.get("popularity"),
+        "favorite_track":  e.get("favorite_track"),
+        "track_url":       e.get("track_url"),
         "recommendations": r,
     }
 

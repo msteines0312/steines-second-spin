@@ -11,7 +11,9 @@
     "spotify_url": "https://open.spotify.com/album/0eeXb23yMW6EaIgm63xxPC",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A gnarly sophomore leap — tighter hooks, bigger guitar, and more controlled chaos from Brooklyn's best post-punk export."
+    "blurb": "A gnarly sophomore leap — tighter hooks, bigger guitar, and more controlled chaos from Brooklyn's best post-punk export.",
+    "favorite_track": "Bow Down",
+    "track_url": "https://open.spotify.com/track/5jR6zOQf3HtU2mifXWg6hE"
   },
   {
     "id": "icon",
@@ -25,7 +27,9 @@
     "spotify_url": "https://open.spotify.com/album/7oBZ821DTjUc2Ky2fV6l6Q",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "Faiyaz leans fully into his persona — slick, cinematic R&B that's as seductive as it is self-aware."
+    "blurb": "Faiyaz leans fully into his persona — slick, cinematic R&B that's as seductive as it is self-aware.",
+    "favorite_track": "World Is Yours",
+    "track_url": "https://open.spotify.com/track/61LIrROTdBzB2wOsgFNODa"
   },
   {
     "id": "octane",
@@ -39,7 +43,9 @@
     "spotify_url": "https://open.spotify.com/album/131x9G87mD0hP0hGZc9qYN",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A hazy, high-octane trip through Toliver's signature psych-trap sound — melodic and menacing in equal measure."
+    "blurb": "A hazy, high-octane trip through Toliver's signature psych-trap sound — melodic and menacing in equal measure.",
+    "favorite_track": "Gemstone",
+    "track_url": "https://open.spotify.com/track/6d9Cs2D2RSIl9c0ulgnFe8"
   },
   {
     "id": "casino",
@@ -53,7 +59,9 @@
     "spotify_url": "https://open.spotify.com/album/21xGzx6HTydCnvfZTvLf6b",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "Keem doubles down on his fractured, ADD-rap style — unpredictable flows and Cactus Jack atmospherics at their most unfiltered."
+    "blurb": "Keem doubles down on his fractured, ADD-rap style — unpredictable flows and Cactus Jack atmospherics at their most unfiltered.",
+    "favorite_track": "House Money",
+    "track_url": "https://open.spotify.com/track/5Th1SPySWgYlkXXC6wLMwL"
   },
   {
     "id": "st-paul",
@@ -67,7 +75,9 @@
     "spotify_url": "https://open.spotify.com/album/6EkqdSW6mNa7c7aCKbWJ38",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A stunning debut from Birmingham's soul revivalists — Paul Janeway's voice is a force of nature over tight, punchy funk."
+    "blurb": "A stunning debut from Birmingham's soul revivalists — Paul Janeway's voice is a force of nature over tight, punchy funk.",
+    "favorite_track": "Seagulls",
+    "track_url": "https://open.spotify.com/track/0wOkGJWYWlrjlZev8jrSCD"
   },
   {
     "id": "projector",
@@ -81,7 +91,9 @@
     "spotify_url": "https://open.spotify.com/album/3agU01S9SBR3wIqjvt5xbo",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A debut that arrived fully formed — angular guitar work and Paul Doyle's howl make this one of indie rock's freshest first statements in years."
+    "blurb": "A debut that arrived fully formed — angular guitar work and Paul Doyle's howl make this one of indie rock's freshest first statements in years.",
+    "favorite_track": "Low Era",
+    "track_url": "https://open.spotify.com/track/3CiDs8Rpj0jpF9MB3cr3ve"
   },
   {
     "id": "heavy-metal",
@@ -95,7 +107,9 @@
     "spotify_url": "https://open.spotify.com/album/7mOrnQqDad3RgYQsJGaaqk",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "Quiet, unguarded, and deceptively sharp — Winter's debut turns lo-fi singer-songwriter into something genuinely literary."
+    "blurb": "Quiet, unguarded, and deceptively sharp — Winter's debut turns lo-fi singer-songwriter into something genuinely literary.",
+    "favorite_track": "Love Takes Miles",
+    "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF"
   },
   {
     "id": "imaginal-disk",
@@ -109,7 +123,9 @@
     "spotify_url": "https://open.spotify.com/album/2Htq1sHgmdGffojIBM6Q1s",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A maximalist pop odyssey that earns every synth layer — Magdalena Bay's concept album is the rare case where the ambition fully matches the execution."
+    "blurb": "A maximalist pop odyssey that earns every synth layer — Magdalena Bay's concept album is the rare case where the ambition fully matches the execution.",
+    "favorite_track": "Cry for Me",
+    "track_url": "https://open.spotify.com/track/2RhHct6gGXSrZ1zHjovhRq"
   },
   {
     "id": "hurry-up-tomorrow",
@@ -123,7 +139,9 @@
     "spotify_url": "https://open.spotify.com/album/3OxfaVgvTxUTy7276t7SPU",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "Abel's cinematic farewell to The Weeknd persona — dark, sweeping, and emotionally exhausting in the best way."
+    "blurb": "Abel's cinematic farewell to The Weeknd persona — dark, sweeping, and emotionally exhausting in the best way.",
+    "favorite_track": "Red Terror",
+    "track_url": "https://open.spotify.com/track/717s9KFmHhyy5t3xkStS56"
   },
   {
     "id": "heaven-tortured-mind",
@@ -137,6 +155,8 @@
     "spotify_url": "https://open.spotify.com/album/00R4y0gymycDUv9IVY7VvO",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A glittering, disorienting glam-rock fantasia where psychedelia and pop collide completely on their own terms."
+    "blurb": "A glittering, disorienting glam-rock fantasia where psychedelia and pop collide completely on their own terms.",
+    "favorite_track": "Romanticist",
+    "track_url": "https://open.spotify.com/track/3nRhH5u3TE6HtvBH6mNwzY"
   }
 ]

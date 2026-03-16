@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Review — Steines' Second Spin</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Space+Mono&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/vinyl.css">
 <style>
 html, body { margin: 0; padding: 0; overflow-x: hidden; }
 *, *::before, *::after { box-sizing: border-box; }
@@ -394,8 +395,47 @@ body::after {
 
 <!-- ALBUM HEADER — dynamically populated by JS -->
 <header class="album-header" id="albumHeader">
-  <div class="cover-art">
-    <img id="coverArt" src="" alt="" onerror="this.style.background='#888'">
+  <div class="vinyl-player">
+    <div class="vinyl-stage" onclick="toggleVinyl()">
+      <div class="vinyl-disc" id="vinylDisc">
+        <div class="vinyl-label">
+          <img id="vinylArt" src="" alt="" onerror="this.style.background='#C84B2F'"/>
+        </div>
+      </div>
+      <div class="tonearm-wrap" id="tonearm">
+        <svg viewBox="0 0 80 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="68" cy="18" r="7" fill="#2a2a26" stroke="#3a3a34" stroke-width="1.5"/>
+          <circle cx="68" cy="18" r="3" fill="#D4A853"/>
+          <path d="M 68 25 Q 50 60 30 140 L 26 155 L 34 157 L 36 142 Q 56 65 68 25 Z"
+                fill="#2a2a26" stroke="#3a3a34" stroke-width="0.5"/>
+          <path d="M 24 153 L 20 165 L 36 168 L 38 155 Z"
+                fill="#1e1e1a" stroke="#3a3a34" stroke-width="0.5"/>
+          <line x1="28" y1="166" x2="27" y2="174" stroke="#888" stroke-width="1.2"/>
+          <circle cx="27" cy="174" r="1.5" fill="#D4A853"/>
+        </svg>
+      </div>
+      <div class="play-hint">
+        <svg id="playIcon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+          <polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>
+        </svg>
+      </div>
+    </div>
+    <div class="vinyl-status" id="vinylStatus">
+      <div class="status-dot"></div>
+      <span id="statusText">Click to play</span>
+    </div>
+    <div class="vinyl-spotify-embed" id="vinylEmbed">
+      <iframe id="spotifyTrack"
+        style="border-radius:12px"
+        src=""
+        width="100%"
+        height="152"
+        frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
   </div>
   <div class="album-meta">
     <a class="back-link" href="../reviews.html">All Reviews</a>
@@ -487,10 +527,8 @@ fetch('../data/albums_final.json')
     // Update <title> tag
     document.title = `${album.title} — Steines' Second Spin`;
 
-    // Cover art
-    const img = document.getElementById('coverArt');
-    img.src = '../' + (album.cover_art || '');
-    img.alt = album.title;
+    // Vinyl player — sets cover art on the disc label and loads the track embed
+    initVinylPlayer(album);
 
     // Ghost background word: first word of the album title, uppercase
     document.getElementById('headerBgWord').textContent =
@@ -571,6 +609,58 @@ fetch('../data/albums_final.json')
     document.getElementById('albumArtist').textContent =
       'Run a local server: python -m http.server 8000 from the project root.';
   });
+</script>
+
+<script>
+// ── Vinyl Player ──────────────────────────────────────────────────────────────
+
+function initVinylPlayer(album) {
+  document.getElementById('vinylArt').src = '../' + album.cover_art;
+  document.getElementById('vinylArt').alt = album.title;
+
+  if (album.track_url) {
+    // Convert track URL to embed URL and append dark theme param
+    const embedUrl = album.track_url
+      .replace('open.spotify.com/track/', 'open.spotify.com/embed/track/')
+      + '?theme=0';
+    document.getElementById('spotifyTrack').src = embedUrl;
+  }
+}
+
+let vinylPlaying = false;
+
+function toggleVinyl() {
+  vinylPlaying = !vinylPlaying;
+  const disc       = document.getElementById('vinylDisc');
+  const tonearm    = document.getElementById('tonearm');
+  const status     = document.getElementById('vinylStatus');
+  const statusText = document.getElementById('statusText');
+  const embed      = document.getElementById('vinylEmbed');
+  const playIcon   = document.getElementById('playIcon');
+
+  if (vinylPlaying) {
+    disc.classList.add('playing');
+    tonearm.classList.add('playing');
+    status.classList.add('playing');
+    statusText.textContent = 'Now playing';
+    embed.classList.add('open');
+    playIcon.innerHTML = `
+      <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+      <rect x="14" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>
+      <rect x="25" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>
+    `;
+  } else {
+    disc.classList.remove('playing');
+    tonearm.classList.remove('playing');
+    status.classList.remove('playing');
+    statusText.textContent = 'Click to play';
+    embed.classList.remove('open');
+    playIcon.innerHTML = `
+      <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+      <polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>
+    `;
+  }
+}
 </script>
 </body>
 </html>
