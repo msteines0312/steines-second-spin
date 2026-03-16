@@ -1,0 +1,89 @@
+{
+  "slug": "casino",
+  "chosen_tags": [
+    "hip-hop",
+    "rap",
+    "trap",
+    "hip hop",
+    "pop rap"
+  ],
+  "album_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "2026",
+          "url": "https://www.last.fm/tag/2026"
+        },
+        {
+          "count": 100,
+          "name": "Baby Keem",
+          "url": "https://www.last.fm/tag/Baby+Keem"
+        }
+      ],
+      "@attr": {
+        "artist": "Baby Keem",
+        "album": "CA$INO"
+      }
+    }
+  },
+  "artist_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "Hip-Hop",
+          "url": "https://www.last.fm/tag/Hip-Hop"
+        },
+        {
+          "count": 100,
+          "name": "rap",
+          "url": "https://www.last.fm/tag/rap"
+        },
+        {
+          "count": 57,
+          "name": "trap",
+          "url": "https://www.last.fm/tag/trap"
+        },
+        {
+          "count": 16,
+          "name": "hip hop",
+          "url": "https://www.last.fm/tag/hip+hop"
+        },
+        {
+          "count": 4,
+          "name": "pop rap",
+          "url": "https://www.last.fm/tag/pop+rap"
+        },
+        {
+          "count": 4,
+          "name": "west coast hip hop",
+          "url": "https://www.last.fm/tag/west+coast+hip+hop"
+        },
+        {
+          "count": 2,
+          "name": "american",
+          "url": "https://www.last.fm/tag/american"
+        },
+        {
+          "count": 1,
+          "name": "los angeles",
+          "url": "https://www.last.fm/tag/los+angeles"
+        },
+        {
+          "count": 1,
+          "name": "California",
+          "url": "https://www.last.fm/tag/California"
+        },
+        {
+          "count": 1,
+          "name": "United States",
+          "url": "https://www.last.fm/tag/United+States"
+        }
+      ],
+      "@attr": {
+        "artist": "Baby Keem"
+      }
+    }
+  }
+}

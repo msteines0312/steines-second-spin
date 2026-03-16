@@ -4,12 +4,13 @@ Builds a content-based recommendation engine using cosine similarity.
 For each album in albums_clean.json, finds the 3 most similar other albums
 based on genre overlap, release year, and popularity.
 
-Genres come from the manually curated "genres" field in albums.json —
-this is more reliable and editorially accurate than the Spotify API,
-which frequently returns empty genre lists for mainstream artists.
+Genres come from albums_clean.json, which merges the manually curated tags
+from albums.json with any Last.fm tags fetched by fetch_lastfm.py. This gives
+the recommender a richer signal than either source alone.
 
 This is step 3 of the pipeline:
-    fetch_spotify.py  ->  clean_data.py  ->  recommend.py  ->  build_data.py
+    fetch_spotify.py  ->  fetch_lastfm.py  ->  clean_data.py
+                      ->  recommend.py  ->  build_data.py
 
 Run from the project root:
     python pipeline/recommend.py
@@ -24,30 +25,20 @@ from sklearn.preprocessing import MinMaxScaler, MultiLabelBinarizer
 
 
 # ── Config ───────────────────────────────────────────────────────────────────
-ROOT        = Path(__file__).resolve().parent.parent
-ALBUMS_FILE = ROOT / "data" / "albums.json"       # source of manual genre tags
-CLEAN_FILE  = ROOT / "data" / "albums_clean.json"  # source of Spotify metadata
-OUT_FILE    = ROOT / "data" / "recommendations.json"
+ROOT       = Path(__file__).resolve().parent.parent
+CLEAN_FILE = ROOT / "data" / "albums_clean.json"   # merged genres + Spotify metadata
+OUT_FILE   = ROOT / "data" / "recommendations.json"
 
 TOP_N = 3   # number of recommendations to surface per album
 # ─────────────────────────────────────────────────────────────────────────────
 
 
-# ── Step 1: Load data from both sources ─────────────────────────────────────
-# albums.json holds manually curated fields (genres, stars, second_spin, etc.)
-# albums_clean.json holds Spotify-derived metadata (popularity, track count, etc.)
-# We merge them on slug/id so each album record has everything we need.
-
-with open(ALBUMS_FILE, "r", encoding="utf-8") as f:
-    albums_manual = {a["id"]: a for a in json.load(f)}   # keyed by slug
+# ── Step 1: Load clean data ──────────────────────────────────────────────────
+# albums_clean.json already contains merged genres (manual + Last.fm) from
+# the clean_data.py step, so no secondary load of albums.json is needed here.
 
 with open(CLEAN_FILE, "r", encoding="utf-8") as f:
     albums = json.load(f)   # list ordered by slug (alphabetical from clean step)
-
-# Merge manual genres into each clean album record
-for album in albums:
-    manual = albums_manual.get(album["slug"], {})
-    album["genres"] = manual.get("genres", [])
 
 slugs = [a["slug"] for a in albums]
 print(f"Loaded {len(albums)} albums\n")

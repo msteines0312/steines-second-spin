@@ -1,0 +1,129 @@
+{
+  "slug": "heavy-metal",
+  "chosen_tags": [
+    "singer-songwriter",
+    "chamber folk",
+    "americana",
+    "contemporary folk",
+    "soul"
+  ],
+  "album_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "singer-songwriter",
+          "url": "https://www.last.fm/tag/singer-songwriter"
+        },
+        {
+          "count": 73,
+          "name": "2024",
+          "url": "https://www.last.fm/tag/2024"
+        },
+        {
+          "count": 22,
+          "name": "chamber folk",
+          "url": "https://www.last.fm/tag/chamber+folk"
+        },
+        {
+          "count": 12,
+          "name": "americana",
+          "url": "https://www.last.fm/tag/americana"
+        },
+        {
+          "count": 3,
+          "name": "contemporary folk",
+          "url": "https://www.last.fm/tag/contemporary+folk"
+        },
+        {
+          "count": 3,
+          "name": "soul",
+          "url": "https://www.last.fm/tag/soul"
+        },
+        {
+          "count": 1,
+          "name": "folk",
+          "url": "https://www.last.fm/tag/folk"
+        },
+        {
+          "count": 1,
+          "name": "beautiful",
+          "url": "https://www.last.fm/tag/beautiful"
+        },
+        {
+          "count": 1,
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
+        },
+        {
+          "count": 1,
+          "name": "fresh",
+          "url": "https://www.last.fm/tag/fresh"
+        }
+      ],
+      "@attr": {
+        "artist": "Cameron Winter",
+        "album": "Heavy Metal"
+      }
+    }
+  },
+  "artist_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "singer-songwriter",
+          "url": "https://www.last.fm/tag/singer-songwriter"
+        },
+        {
+          "count": 31,
+          "name": "indie folk",
+          "url": "https://www.last.fm/tag/indie+folk"
+        },
+        {
+          "count": 20,
+          "name": "chamber folk",
+          "url": "https://www.last.fm/tag/chamber+folk"
+        },
+        {
+          "count": 13,
+          "name": "contemporary folk",
+          "url": "https://www.last.fm/tag/contemporary+folk"
+        },
+        {
+          "count": 4,
+          "name": "acoustic",
+          "url": "https://www.last.fm/tag/acoustic"
+        },
+        {
+          "count": 2,
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
+        },
+        {
+          "count": 2,
+          "name": "folk",
+          "url": "https://www.last.fm/tag/folk"
+        },
+        {
+          "count": 1,
+          "name": "United States",
+          "url": "https://www.last.fm/tag/United+States"
+        },
+        {
+          "count": 1,
+          "name": "indie rock",
+          "url": "https://www.last.fm/tag/indie+rock"
+        },
+        {
+          "count": 1,
+          "name": "USA",
+          "url": "https://www.last.fm/tag/USA"
+        }
+      ],
+      "@attr": {
+        "artist": "Cameron Winter"
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "slug": "octane",
+  "chosen_tags": [
+    "rap",
+    "trap",
+    "hip-hop",
+    "rnb",
+    "texas"
+  ],
+  "album_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "don toliver",
+          "url": "https://www.last.fm/tag/don+toliver"
+        },
+        {
+          "count": 100,
+          "name": "2026",
+          "url": "https://www.last.fm/tag/2026"
+        }
+      ],
+      "@attr": {
+        "artist": "Don Toliver",
+        "album": "Octane"
+      }
+    }
+  },
+  "artist_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "rap",
+          "url": "https://www.last.fm/tag/rap"
+        },
+        {
+          "count": 93,
+          "name": "trap",
+          "url": "https://www.last.fm/tag/trap"
+        },
+        {
+          "count": 23,
+          "name": "Hip-Hop",
+          "url": "https://www.last.fm/tag/Hip-Hop"
+        },
+        {
+          "count": 17,
+          "name": "rnb",
+          "url": "https://www.last.fm/tag/rnb"
+        },
+        {
+          "count": 6,
+          "name": "texas",
+          "url": "https://www.last.fm/tag/texas"
+        },
+        {
+          "count": 6,
+          "name": "hip hop",
+          "url": "https://www.last.fm/tag/hip+hop"
+        },
+        {
+          "count": 2,
+          "name": "american",
+          "url": "https://www.last.fm/tag/american"
+        },
+        {
+          "count": 1,
+          "name": "United States",
+          "url": "https://www.last.fm/tag/United+States"
+        },
+        {
+          "count": 1,
+          "name": "pop rap",
+          "url": "https://www.last.fm/tag/pop+rap"
+        },
+        {
+          "count": 1,
+          "name": "my top songs",
+          "url": "https://www.last.fm/tag/my+top+songs"
+        }
+      ],
+      "@attr": {
+        "artist": "Don Toliver"
+      }
+    }
+  }
+}

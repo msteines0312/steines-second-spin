@@ -12,7 +12,10 @@
       "post-punk",
       "indie rock",
       "art rock",
-      "noise rock"
+      "noise rock",
+      "rock",
+      "alternative rock",
+      "krautrock"
     ],
     "cover_art": "assets/covers/getting-killed.jpg",
     "spotify_id": "0eeXb23yMW6EaIgm63xxPC",
@@ -41,7 +44,9 @@
       "alternative r&b",
       "neo-soul",
       "dark r&b",
-      "bedroom pop"
+      "bedroom pop",
+      "disco",
+      "sophisti-pop"
     ],
     "cover_art": "assets/covers/icon.jpg",
     "spotify_id": "7oBZ821DTjUc2Ky2fV6l6Q",
@@ -70,7 +75,11 @@
       "psychedelic trap",
       "melodic rap",
       "trap",
-      "auto-tune"
+      "auto-tune",
+      "rap",
+      "hip-hop",
+      "r&b",
+      "texas"
     ],
     "cover_art": "assets/covers/octane.jpg",
     "spotify_id": "131x9G87mD0hP0hGZc9qYN",
@@ -82,8 +91,8 @@
     "preview_url": null,
     "recommendations": [
       "casino",
-      "icon",
-      "getting-killed"
+      "st-paul",
+      "icon"
     ]
   },
   {
@@ -99,7 +108,10 @@
       "experimental hip-hop",
       "melodic rap",
       "trap",
-      "west coast rap"
+      "west coast rap",
+      "hip-hop",
+      "rap",
+      "pop rap"
     ],
     "cover_art": "assets/covers/casino.jpg",
     "spotify_id": "21xGzx6HTydCnvfZTvLf6b",
@@ -128,7 +140,10 @@
       "southern soul",
       "funk",
       "soul",
-      "r&b"
+      "r&b",
+      "blues",
+      "american",
+      "indie"
     ],
     "cover_art": "assets/covers/st-paul.jpg",
     "spotify_id": "6EkqdSW6mNa7c7aCKbWJ38",
@@ -139,9 +154,9 @@
     "track_url": "https://open.spotify.com/track/0wOkGJWYWlrjlZev8jrSCD",
     "preview_url": null,
     "recommendations": [
-      "casino",
-      "icon",
-      "octane"
+      "octane",
+      "heavy-metal",
+      "icon"
     ]
   },
   {
@@ -157,7 +172,10 @@
       "post-punk",
       "indie rock",
       "art rock",
-      "shoegaze"
+      "shoegaze",
+      "art punk",
+      "post-punk revival",
+      "dance punk"
     ],
     "cover_art": "assets/covers/projector.jpg",
     "spotify_id": "3agU01S9SBR3wIqjvt5xbo",
@@ -186,7 +204,11 @@
       "indie rock",
       "lo-fi",
       "singer-songwriter",
-      "folk rock"
+      "folk rock",
+      "chamber folk",
+      "americana",
+      "contemporary folk",
+      "soul"
     ],
     "cover_art": "assets/covers/heavy-metal.jpg",
     "spotify_id": "7mOrnQqDad3RgYQsJGaaqk",
@@ -198,8 +220,8 @@
     "preview_url": null,
     "recommendations": [
       "getting-killed",
-      "projector",
-      "casino"
+      "st-paul",
+      "projector"
     ]
   },
   {
@@ -215,7 +237,12 @@
       "synth-pop",
       "indie pop",
       "electropop",
-      "dream pop"
+      "dream pop",
+      "synthpop",
+      "neo-psychedelia",
+      "indietronica",
+      "progressive pop",
+      "pop rock"
     ],
     "cover_art": "assets/covers/imaginal-disk.jpg",
     "spotify_id": "2Htq1sHgmdGffojIBM6Q1s",
@@ -227,7 +254,7 @@
     "preview_url": null,
     "recommendations": [
       "hurry-up-tomorrow",
-      "casino",
+      "heaven-tortured-mind",
       "icon"
     ]
   },
@@ -244,7 +271,12 @@
       "dark r&b",
       "synth-pop",
       "electro-pop",
-      "cinematic pop"
+      "cinematic pop",
+      "synthwave",
+      "alternative r&b",
+      "synthpop",
+      "alt-pop",
+      "pop"
     ],
     "cover_art": "assets/covers/hurry-up-tomorrow.jpg",
     "spotify_id": "3OxfaVgvTxUTy7276t7SPU",
@@ -273,7 +305,10 @@
       "art rock",
       "glam rock",
       "noise pop",
-      "psychedelic rock"
+      "psychedelic rock",
+      "neo-psychedelia",
+      "psychedelic soul",
+      "psychedelic"
     ],
     "cover_art": "assets/covers/heaven-tortured-mind.jpg",
     "spotify_id": "00R4y0gymycDUv9IVY7VvO",
@@ -286,7 +321,7 @@
     "recommendations": [
       "projector",
       "getting-killed",
-      "casino"
+      "imaginal-disk"
     ]
   }
 ]

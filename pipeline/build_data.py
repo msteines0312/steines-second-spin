@@ -76,7 +76,7 @@ for slug in slugs:
         "second_spin":     e.get("second_spin"),
         "blurb":           e.get("blurb"),
         "review_url":      e.get("review_url"),
-        "genres":          e.get("genres", []),
+        "genres":          c.get("genres", e.get("genres", [])),  # merged (manual + Last.fm) from clean step
         "cover_art":       cover_art,
         "spotify_id":      c.get("spotify_id"),
         "track_count":     c.get("track_count"),

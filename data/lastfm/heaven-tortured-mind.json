@@ -1,0 +1,129 @@
+{
+  "slug": "heaven-tortured-mind",
+  "chosen_tags": [
+    "art rock",
+    "neo-psychedelia",
+    "glam rock",
+    "psychedelic soul",
+    "psychedelic"
+  ],
+  "album_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "2020",
+          "url": "https://www.last.fm/tag/2020"
+        },
+        {
+          "count": 80,
+          "name": "art rock",
+          "url": "https://www.last.fm/tag/art+rock"
+        },
+        {
+          "count": 28,
+          "name": "Neo-Psychedelia",
+          "url": "https://www.last.fm/tag/Neo-Psychedelia"
+        },
+        {
+          "count": 16,
+          "name": "glam rock",
+          "url": "https://www.last.fm/tag/glam+rock"
+        },
+        {
+          "count": 6,
+          "name": "Psychedelic Soul",
+          "url": "https://www.last.fm/tag/Psychedelic+Soul"
+        },
+        {
+          "count": 4,
+          "name": "psychedelic",
+          "url": "https://www.last.fm/tag/psychedelic"
+        },
+        {
+          "count": 4,
+          "name": "2020s",
+          "url": "https://www.last.fm/tag/2020s"
+        },
+        {
+          "count": 1,
+          "name": "rock",
+          "url": "https://www.last.fm/tag/rock"
+        },
+        {
+          "count": 1,
+          "name": "Funk Rock",
+          "url": "https://www.last.fm/tag/Funk+Rock"
+        },
+        {
+          "count": 1,
+          "name": "Psychedelic Rock",
+          "url": "https://www.last.fm/tag/Psychedelic+Rock"
+        }
+      ],
+      "@attr": {
+        "artist": "Yves Tumor",
+        "album": "Heaven to a Tortured Mind"
+      }
+    }
+  },
+  "artist_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "Neo-Psychedelia",
+          "url": "https://www.last.fm/tag/Neo-Psychedelia"
+        },
+        {
+          "count": 97,
+          "name": "ambient",
+          "url": "https://www.last.fm/tag/ambient"
+        },
+        {
+          "count": 59,
+          "name": "experimental",
+          "url": "https://www.last.fm/tag/experimental"
+        },
+        {
+          "count": 57,
+          "name": "hypnagogic pop",
+          "url": "https://www.last.fm/tag/hypnagogic+pop"
+        },
+        {
+          "count": 23,
+          "name": "art rock",
+          "url": "https://www.last.fm/tag/art+rock"
+        },
+        {
+          "count": 23,
+          "name": "Post-Industrial",
+          "url": "https://www.last.fm/tag/Post-Industrial"
+        },
+        {
+          "count": 17,
+          "name": "sound collage",
+          "url": "https://www.last.fm/tag/sound+collage"
+        },
+        {
+          "count": 4,
+          "name": "electronic",
+          "url": "https://www.last.fm/tag/electronic"
+        },
+        {
+          "count": 2,
+          "name": "art pop",
+          "url": "https://www.last.fm/tag/art+pop"
+        },
+        {
+          "count": 1,
+          "name": "United States",
+          "url": "https://www.last.fm/tag/United+States"
+        }
+      ],
+      "@attr": {
+        "artist": "Yves Tumor"
+      }
+    }
+  }
+}

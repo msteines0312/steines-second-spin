@@ -20,15 +20,15 @@
     "recommendations": [
       "projector",
       "getting-killed",
-      "casino"
+      "imaginal-disk"
     ]
   },
   {
     "slug": "heavy-metal",
     "recommendations": [
       "getting-killed",
-      "projector",
-      "casino"
+      "st-paul",
+      "projector"
     ]
   },
   {
@@ -51,7 +51,7 @@
     "slug": "imaginal-disk",
     "recommendations": [
       "hurry-up-tomorrow",
-      "casino",
+      "heaven-tortured-mind",
       "icon"
     ]
   },
@@ -59,8 +59,8 @@
     "slug": "octane",
     "recommendations": [
       "casino",
-      "icon",
-      "getting-killed"
+      "st-paul",
+      "icon"
     ]
   },
   {
@@ -74,9 +74,9 @@
   {
     "slug": "st-paul",
     "recommendations": [
-      "casino",
-      "icon",
-      "octane"
+      "octane",
+      "heavy-metal",
+      "icon"
     ]
   }
 ]

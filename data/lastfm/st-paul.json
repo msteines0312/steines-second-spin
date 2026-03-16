@@ -1,0 +1,84 @@
+{
+  "slug": "st-paul",
+  "chosen_tags": [
+    "soul",
+    "blues",
+    "american",
+    "funk",
+    "indie"
+  ],
+  "album_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "2025",
+          "url": "https://www.last.fm/tag/2025"
+        }
+      ],
+      "@attr": {
+        "artist": "St. Paul & The Broken Bones",
+        "album": "St. Paul & The Broken Bones"
+      }
+    }
+  },
+  "artist_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "soul",
+          "url": "https://www.last.fm/tag/soul"
+        },
+        {
+          "count": 26,
+          "name": "blues",
+          "url": "https://www.last.fm/tag/blues"
+        },
+        {
+          "count": 7,
+          "name": "american",
+          "url": "https://www.last.fm/tag/american"
+        },
+        {
+          "count": 4,
+          "name": "funk",
+          "url": "https://www.last.fm/tag/funk"
+        },
+        {
+          "count": 1,
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
+        },
+        {
+          "count": 1,
+          "name": "Alabama",
+          "url": "https://www.last.fm/tag/Alabama"
+        },
+        {
+          "count": 1,
+          "name": "rnb",
+          "url": "https://www.last.fm/tag/rnb"
+        },
+        {
+          "count": 1,
+          "name": "10s",
+          "url": "https://www.last.fm/tag/10s"
+        },
+        {
+          "count": 1,
+          "name": "funky",
+          "url": "https://www.last.fm/tag/funky"
+        },
+        {
+          "count": 1,
+          "name": "southern",
+          "url": "https://www.last.fm/tag/southern"
+        }
+      ],
+      "@attr": {
+        "artist": "St. Paul & The Broken Bones"
+      }
+    }
+  }
+}

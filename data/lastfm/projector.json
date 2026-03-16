@@ -1,0 +1,114 @@
+{
+  "slug": "projector",
+  "chosen_tags": [
+    "indie rock",
+    "post-punk",
+    "art punk",
+    "post-punk revival",
+    "dance punk"
+  ],
+  "album_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "indie rock",
+          "url": "https://www.last.fm/tag/indie+rock"
+        },
+        {
+          "count": 44,
+          "name": "post-punk",
+          "url": "https://www.last.fm/tag/post-punk"
+        },
+        {
+          "count": 29,
+          "name": "art punk",
+          "url": "https://www.last.fm/tag/art+punk"
+        },
+        {
+          "count": 29,
+          "name": "2021",
+          "url": "https://www.last.fm/tag/2021"
+        },
+        {
+          "count": 4,
+          "name": "Post-punk revival",
+          "url": "https://www.last.fm/tag/Post-punk+revival"
+        },
+        {
+          "count": 4,
+          "name": "dance punk",
+          "url": "https://www.last.fm/tag/dance+punk"
+        },
+        {
+          "count": 4,
+          "name": "3",
+          "url": "https://www.last.fm/tag/3"
+        }
+      ],
+      "@attr": {
+        "artist": "Geese",
+        "album": "Projector"
+      }
+    }
+  },
+  "artist_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "indie rock",
+          "url": "https://www.last.fm/tag/indie+rock"
+        },
+        {
+          "count": 100,
+          "name": "post-punk",
+          "url": "https://www.last.fm/tag/post-punk"
+        },
+        {
+          "count": 61,
+          "name": "art punk",
+          "url": "https://www.last.fm/tag/art+punk"
+        },
+        {
+          "count": 49,
+          "name": "Crank wave",
+          "url": "https://www.last.fm/tag/Crank+wave"
+        },
+        {
+          "count": 10,
+          "name": "dance-punk",
+          "url": "https://www.last.fm/tag/dance-punk"
+        },
+        {
+          "count": 7,
+          "name": "american",
+          "url": "https://www.last.fm/tag/american"
+        },
+        {
+          "count": 7,
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
+        },
+        {
+          "count": 2,
+          "name": "art rock",
+          "url": "https://www.last.fm/tag/art+rock"
+        },
+        {
+          "count": 2,
+          "name": "rock",
+          "url": "https://www.last.fm/tag/rock"
+        },
+        {
+          "count": 1,
+          "name": "country rock",
+          "url": "https://www.last.fm/tag/country+rock"
+        }
+      ],
+      "@attr": {
+        "artist": "Geese"
+      }
+    }
+  }
+}

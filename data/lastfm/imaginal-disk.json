@@ -1,0 +1,129 @@
+{
+  "slug": "imaginal-disk",
+  "chosen_tags": [
+    "synthpop",
+    "neo-psychedelia",
+    "indietronica",
+    "progressive pop",
+    "pop rock"
+  ],
+  "album_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "synthpop",
+          "url": "https://www.last.fm/tag/synthpop"
+        },
+        {
+          "count": 95,
+          "name": "2024",
+          "url": "https://www.last.fm/tag/2024"
+        },
+        {
+          "count": 54,
+          "name": "Neo-Psychedelia",
+          "url": "https://www.last.fm/tag/Neo-Psychedelia"
+        },
+        {
+          "count": 36,
+          "name": "indietronica",
+          "url": "https://www.last.fm/tag/indietronica"
+        },
+        {
+          "count": 18,
+          "name": "Progressive Pop",
+          "url": "https://www.last.fm/tag/Progressive+Pop"
+        },
+        {
+          "count": 12,
+          "name": "pop rock",
+          "url": "https://www.last.fm/tag/pop+rock"
+        },
+        {
+          "count": 12,
+          "name": "pop",
+          "url": "https://www.last.fm/tag/pop"
+        },
+        {
+          "count": 3,
+          "name": "dance-pop",
+          "url": "https://www.last.fm/tag/dance-pop"
+        },
+        {
+          "count": 3,
+          "name": "chillwave",
+          "url": "https://www.last.fm/tag/chillwave"
+        },
+        {
+          "count": 2,
+          "name": "alternative dance",
+          "url": "https://www.last.fm/tag/alternative+dance"
+        }
+      ],
+      "@attr": {
+        "artist": "Magdalena Bay",
+        "album": "Imaginal Disk"
+      }
+    }
+  },
+  "artist_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "synthpop",
+          "url": "https://www.last.fm/tag/synthpop"
+        },
+        {
+          "count": 58,
+          "name": "electropop",
+          "url": "https://www.last.fm/tag/electropop"
+        },
+        {
+          "count": 26,
+          "name": "indie pop",
+          "url": "https://www.last.fm/tag/indie+pop"
+        },
+        {
+          "count": 26,
+          "name": "dream pop",
+          "url": "https://www.last.fm/tag/dream+pop"
+        },
+        {
+          "count": 11,
+          "name": "pop",
+          "url": "https://www.last.fm/tag/pop"
+        },
+        {
+          "count": 11,
+          "name": "dance-pop",
+          "url": "https://www.last.fm/tag/dance-pop"
+        },
+        {
+          "count": 9,
+          "name": "american",
+          "url": "https://www.last.fm/tag/american"
+        },
+        {
+          "count": 3,
+          "name": "electronic",
+          "url": "https://www.last.fm/tag/electronic"
+        },
+        {
+          "count": 2,
+          "name": "Neo-Psychedelia",
+          "url": "https://www.last.fm/tag/Neo-Psychedelia"
+        },
+        {
+          "count": 1,
+          "name": "female vocalists",
+          "url": "https://www.last.fm/tag/female+vocalists"
+        }
+      ],
+      "@attr": {
+        "artist": "Magdalena Bay"
+      }
+    }
+  }
+}

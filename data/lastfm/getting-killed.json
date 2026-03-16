@@ -1,0 +1,129 @@
+{
+  "slug": "getting-killed",
+  "chosen_tags": [
+    "indie rock",
+    "art rock",
+    "rock",
+    "alternative rock",
+    "krautrock"
+  ],
+  "album_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "2025",
+          "url": "https://www.last.fm/tag/2025"
+        },
+        {
+          "count": 81,
+          "name": "indie rock",
+          "url": "https://www.last.fm/tag/indie+rock"
+        },
+        {
+          "count": 24,
+          "name": "art rock",
+          "url": "https://www.last.fm/tag/art+rock"
+        },
+        {
+          "count": 3,
+          "name": "rock",
+          "url": "https://www.last.fm/tag/rock"
+        },
+        {
+          "count": 1,
+          "name": "alternative rock",
+          "url": "https://www.last.fm/tag/alternative+rock"
+        },
+        {
+          "count": 1,
+          "name": "krautrock",
+          "url": "https://www.last.fm/tag/krautrock"
+        },
+        {
+          "count": 1,
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
+        },
+        {
+          "count": 1,
+          "name": "blues rock",
+          "url": "https://www.last.fm/tag/blues+rock"
+        },
+        {
+          "count": 1,
+          "name": "art punk",
+          "url": "https://www.last.fm/tag/art+punk"
+        },
+        {
+          "count": 1,
+          "name": "2020s",
+          "url": "https://www.last.fm/tag/2020s"
+        }
+      ],
+      "@attr": {
+        "artist": "Geese",
+        "album": "Getting Killed"
+      }
+    }
+  },
+  "artist_raw": {
+    "toptags": {
+      "tag": [
+        {
+          "count": 100,
+          "name": "indie rock",
+          "url": "https://www.last.fm/tag/indie+rock"
+        },
+        {
+          "count": 100,
+          "name": "post-punk",
+          "url": "https://www.last.fm/tag/post-punk"
+        },
+        {
+          "count": 61,
+          "name": "art punk",
+          "url": "https://www.last.fm/tag/art+punk"
+        },
+        {
+          "count": 49,
+          "name": "Crank wave",
+          "url": "https://www.last.fm/tag/Crank+wave"
+        },
+        {
+          "count": 10,
+          "name": "dance-punk",
+          "url": "https://www.last.fm/tag/dance-punk"
+        },
+        {
+          "count": 7,
+          "name": "american",
+          "url": "https://www.last.fm/tag/american"
+        },
+        {
+          "count": 7,
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
+        },
+        {
+          "count": 2,
+          "name": "art rock",
+          "url": "https://www.last.fm/tag/art+rock"
+        },
+        {
+          "count": 2,
+          "name": "rock",
+          "url": "https://www.last.fm/tag/rock"
+        },
+        {
+          "count": 1,
+          "name": "country rock",
+          "url": "https://www.last.fm/tag/country+rock"
+        }
+      ],
+      "@attr": {
+        "artist": "Geese"
+      }
+    }
+  }
+}
