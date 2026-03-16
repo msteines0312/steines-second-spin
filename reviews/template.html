@@ -629,6 +629,19 @@ function initVinylPlayer(album) {
       ` loading="lazy"></iframe>`;
     document.querySelector('.vinyl-player').appendChild(wrapper);
   }
+
+  // Auto-start playing state on load — disc spins and tonearm swings in
+  vinylPlaying = true;
+  document.getElementById('vinylDisc').classList.add('playing');
+  document.getElementById('tonearm').classList.add('playing');
+  document.getElementById('vinylStatus').classList.add('playing');
+  document.getElementById('statusText').textContent = 'Now playing';
+  document.getElementById('playIcon').innerHTML = `
+    <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+    <rect x="14" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>
+    <rect x="25" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>
+  `;
+  if (audio.src) audio.play();
 }
 
 let vinylPlaying = false;
