@@ -113,40 +113,4 @@
   opacity: 1;
 }
 
-.vinyl-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #888;
-  transition: all 0.3s ease;
-  padding: 4px 10px;
-  border: 1px solid transparent;
-  border-radius: 20px;
-}
-
-.vinyl-status.playing {
-  color: #C84B2F;
-  border-color: rgba(200,75,47,0.3);
-  background: rgba(200,75,47,0.06);
-}
-
-.status-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.vinyl-status.playing .status-dot {
-  animation: statusPulse 1.2s ease-in-out infinite;
-}
-
-@keyframes statusPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.7); }
-}
 
