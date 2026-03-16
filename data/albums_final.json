@@ -7,7 +7,7 @@
     "stars": 4,
     "second_spin": false,
     "blurb": "A gnarly sophomore leap — tighter hooks, bigger guitar, and more controlled chaos from Brooklyn's best post-punk export.",
-    "review_url": "#",
+    "review_url": "reviews/getting-killed.html",
     "genres": [
       "post-punk",
       "indie rock",
@@ -21,6 +21,7 @@
     "popularity": null,
     "favorite_track": "Bow Down",
     "track_url": "https://open.spotify.com/track/5jR6zOQf3HtU2mifXWg6hE",
+    "preview_url": null,
     "recommendations": [
       "projector",
       "heavy-metal",
@@ -49,6 +50,7 @@
     "popularity": null,
     "favorite_track": "World Is Yours",
     "track_url": "https://open.spotify.com/track/61LIrROTdBzB2wOsgFNODa",
+    "preview_url": null,
     "recommendations": [
       "hurry-up-tomorrow",
       "casino",
@@ -77,6 +79,7 @@
     "popularity": null,
     "favorite_track": "Gemstone",
     "track_url": "https://open.spotify.com/track/6d9Cs2D2RSIl9c0ulgnFe8",
+    "preview_url": null,
     "recommendations": [
       "casino",
       "icon",
@@ -105,6 +108,7 @@
     "popularity": null,
     "favorite_track": "House Money",
     "track_url": "https://open.spotify.com/track/5Th1SPySWgYlkXXC6wLMwL",
+    "preview_url": null,
     "recommendations": [
       "octane",
       "icon",
@@ -133,6 +137,7 @@
     "popularity": null,
     "favorite_track": "Seagulls",
     "track_url": "https://open.spotify.com/track/0wOkGJWYWlrjlZev8jrSCD",
+    "preview_url": null,
     "recommendations": [
       "casino",
       "icon",
@@ -161,6 +166,7 @@
     "popularity": null,
     "favorite_track": "Low Era",
     "track_url": "https://open.spotify.com/track/3CiDs8Rpj0jpF9MB3cr3ve",
+    "preview_url": null,
     "recommendations": [
       "getting-killed",
       "heavy-metal",
@@ -189,6 +195,7 @@
     "popularity": null,
     "favorite_track": "Love Takes Miles",
     "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF",
+    "preview_url": null,
     "recommendations": [
       "getting-killed",
       "projector",
@@ -217,6 +224,7 @@
     "popularity": null,
     "favorite_track": "Cry for Me",
     "track_url": "https://open.spotify.com/track/2RhHct6gGXSrZ1zHjovhRq",
+    "preview_url": null,
     "recommendations": [
       "hurry-up-tomorrow",
       "casino",
@@ -245,6 +253,7 @@
     "popularity": null,
     "favorite_track": "Red Terror",
     "track_url": "https://open.spotify.com/track/717s9KFmHhyy5t3xkStS56",
+    "preview_url": null,
     "recommendations": [
       "icon",
       "imaginal-disk",
@@ -273,6 +282,7 @@
     "popularity": null,
     "favorite_track": "Romanticist",
     "track_url": "https://open.spotify.com/track/3nRhH5u3TE6HtvBH6mNwzY",
+    "preview_url": null,
     "recommendations": [
       "projector",
       "getting-killed",

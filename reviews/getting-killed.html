@@ -425,7 +425,17 @@ body::after {
       <div class="status-dot"></div>
       <span id="statusText">Click to play</span>
     </div>
-    <audio id="vinylAudio" preload="none"></audio>
+    <div class="vinyl-spotify-embed" id="vinylEmbed">
+      <iframe id="spotifyTrack"
+        style="border-radius:12px"
+        src=""
+        width="100%"
+        height="152"
+        frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
   </div>
   <div class="album-meta">
     <a class="back-link" href="../reviews.html">All Reviews</a>
@@ -456,9 +466,7 @@ body::after {
 <section class="review-section">
   <div class="review-eyebrow">Review</div>
   <article class="review-body">
-    <p>Your lead paragraph goes here. This renders in Fraunces italic — use it for a strong opening line or thesis statement about the album.</p>
-    <p>Body text goes here. Subsequent paragraphs render in Work Sans at a comfortable reading size. Write as many paragraphs as you want — the layout will accommodate them.</p>
-    <p>Another paragraph. Talk about the production, the lyrics, the standout tracks, the context when it came out, what it means to you personally.</p>
+    <p>Review coming soon.</p>
   </article>
 </section>
 
@@ -608,26 +616,12 @@ function initVinylPlayer(album) {
   document.getElementById('vinylArt').src = '../' + album.cover_art;
   document.getElementById('vinylArt').alt = album.title;
 
-  const audio = document.getElementById('vinylAudio');
-
-  if (album.preview_url) {
-    // 30-second preview available — wire up the audio element
-    audio.src = album.preview_url;
-    audio.addEventListener('ended', resetVinyl);
-  } else if (album.track_url) {
-    // Spotify deprecated preview URLs — fall back to the track embed widget.
-    // The iframe is injected dynamically here rather than hard-coded in HTML
-    // so pages without a track_url stay clean.
+  if (album.track_url) {
+    // Convert track URL to embed URL and append dark theme param
     const embedUrl = album.track_url
       .replace('open.spotify.com/track/', 'open.spotify.com/embed/track/')
       + '?theme=0';
-    const wrapper = document.createElement('div');
-    wrapper.style.cssText = 'width:100%; border-radius:12px; overflow:hidden; margin-top:4px;';
-    wrapper.innerHTML =
-      `<iframe style="border-radius:12px" src="${embedUrl}" width="100%" height="152"` +
-      ` frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"` +
-      ` loading="lazy"></iframe>`;
-    document.querySelector('.vinyl-player').appendChild(wrapper);
+    document.getElementById('spotifyTrack').src = embedUrl;
   }
 }
 
@@ -639,15 +633,15 @@ function toggleVinyl() {
   const tonearm    = document.getElementById('tonearm');
   const status     = document.getElementById('vinylStatus');
   const statusText = document.getElementById('statusText');
+  const embed      = document.getElementById('vinylEmbed');
   const playIcon   = document.getElementById('playIcon');
-  const audio      = document.getElementById('vinylAudio');
 
   if (vinylPlaying) {
     disc.classList.add('playing');
     tonearm.classList.add('playing');
     status.classList.add('playing');
     statusText.textContent = 'Now playing';
-    if (audio.src) audio.play();
+    embed.classList.add('open');
     playIcon.innerHTML = `
       <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
       <rect x="14" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>
@@ -658,25 +652,12 @@ function toggleVinyl() {
     tonearm.classList.remove('playing');
     status.classList.remove('playing');
     statusText.textContent = 'Click to play';
-    if (audio.src) audio.pause();
+    embed.classList.remove('open');
     playIcon.innerHTML = `
       <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
       <polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>
     `;
   }
-}
-
-function resetVinyl() {
-  // Called when the 30-second preview ends naturally
-  vinylPlaying = false;
-  document.getElementById('vinylDisc').classList.remove('playing');
-  document.getElementById('tonearm').classList.remove('playing');
-  document.getElementById('vinylStatus').classList.remove('playing');
-  document.getElementById('statusText').textContent = 'Click to play';
-  document.getElementById('playIcon').innerHTML = `
-    <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
-    <polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>
-  `;
 }
 </script>
 </body>

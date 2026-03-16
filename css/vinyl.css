@@ -150,16 +150,3 @@
   50% { opacity: 0.4; transform: scale(0.7); }
 }
 
-.vinyl-spotify-embed {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-}
-
-.vinyl-spotify-embed.open {
-  max-height: 200px;
-  opacity: 1;
-}

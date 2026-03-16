@@ -4,23 +4,34 @@
     "title": "Getting Killed",
     "artist": "Geese",
     "year": 2025,
-    "genres": ["post-punk", "indie rock", "art rock", "noise rock"],
+    "genres": [
+      "post-punk",
+      "indie rock",
+      "art rock",
+      "noise rock"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/6/6a/Geese_-_Getting_Killed.png",
     "spotify_url": "https://open.spotify.com/album/0eeXb23yMW6EaIgm63xxPC",
-    "review_url": "#",
+    "review_url": "reviews/getting-killed.html",
     "date": "2025-01-01",
     "blurb": "A gnarly sophomore leap — tighter hooks, bigger guitar, and more controlled chaos from Brooklyn's best post-punk export.",
     "favorite_track": "Bow Down",
-    "track_url": "https://open.spotify.com/track/5jR6zOQf3HtU2mifXWg6hE"
+    "track_url": "https://open.spotify.com/track/5jR6zOQf3HtU2mifXWg6hE",
+    "preview_url": null
   },
   {
     "id": "icon",
     "title": "Icon",
     "artist": "Brent Faiyaz",
     "year": 2026,
-    "genres": ["alternative r&b", "neo-soul", "dark r&b", "bedroom pop"],
+    "genres": [
+      "alternative r&b",
+      "neo-soul",
+      "dark r&b",
+      "bedroom pop"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/0/04/Brent_Faiyaz_-_Icon.png",
@@ -29,14 +40,20 @@
     "date": "2025-01-01",
     "blurb": "Faiyaz leans fully into his persona — slick, cinematic R&B that's as seductive as it is self-aware.",
     "favorite_track": "World Is Yours",
-    "track_url": "https://open.spotify.com/track/61LIrROTdBzB2wOsgFNODa"
+    "track_url": "https://open.spotify.com/track/61LIrROTdBzB2wOsgFNODa",
+    "preview_url": null
   },
   {
     "id": "octane",
     "title": "Octane",
     "artist": "Don Toliver",
     "year": 2026,
-    "genres": ["psychedelic trap", "melodic rap", "trap", "auto-tune"],
+    "genres": [
+      "psychedelic trap",
+      "melodic rap",
+      "trap",
+      "auto-tune"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/4/4a/Don_Toliver_-_Octane.png",
@@ -45,14 +62,20 @@
     "date": "2025-01-01",
     "blurb": "A hazy, high-octane trip through Toliver's signature psych-trap sound — melodic and menacing in equal measure.",
     "favorite_track": "Gemstone",
-    "track_url": "https://open.spotify.com/track/6d9Cs2D2RSIl9c0ulgnFe8"
+    "track_url": "https://open.spotify.com/track/6d9Cs2D2RSIl9c0ulgnFe8",
+    "preview_url": null
   },
   {
     "id": "casino",
     "title": "Ca$ino",
     "artist": "Baby Keem",
     "year": 2026,
-    "genres": ["experimental hip-hop", "melodic rap", "trap", "west coast rap"],
+    "genres": [
+      "experimental hip-hop",
+      "melodic rap",
+      "trap",
+      "west coast rap"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/5/5d/Baby_Keem_-_Casino.png",
@@ -61,14 +84,20 @@
     "date": "2025-01-01",
     "blurb": "Keem doubles down on his fractured, ADD-rap style — unpredictable flows and Cactus Jack atmospherics at their most unfiltered.",
     "favorite_track": "House Money",
-    "track_url": "https://open.spotify.com/track/5Th1SPySWgYlkXXC6wLMwL"
+    "track_url": "https://open.spotify.com/track/5Th1SPySWgYlkXXC6wLMwL",
+    "preview_url": null
   },
   {
     "id": "st-paul",
     "title": "St. Paul & The Broken Bones",
     "artist": "St. Paul & The Broken Bones",
     "year": 2025,
-    "genres": ["southern soul", "funk", "soul", "r&b"],
+    "genres": [
+      "southern soul",
+      "funk",
+      "soul",
+      "r&b"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/2/2b/St._Paul_%26_the_Broken_Bones_-_Half_the_City.jpg",
@@ -77,14 +106,20 @@
     "date": "2025-01-01",
     "blurb": "A stunning debut from Birmingham's soul revivalists — Paul Janeway's voice is a force of nature over tight, punchy funk.",
     "favorite_track": "Seagulls",
-    "track_url": "https://open.spotify.com/track/0wOkGJWYWlrjlZev8jrSCD"
+    "track_url": "https://open.spotify.com/track/0wOkGJWYWlrjlZev8jrSCD",
+    "preview_url": null
   },
   {
     "id": "projector",
     "title": "Projector",
     "artist": "Geese",
     "year": 2022,
-    "genres": ["post-punk", "indie rock", "art rock", "shoegaze"],
+    "genres": [
+      "post-punk",
+      "indie rock",
+      "art rock",
+      "shoegaze"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/b/b5/Geese_-_Projector.png",
@@ -93,14 +128,20 @@
     "date": "2025-01-01",
     "blurb": "A debut that arrived fully formed — angular guitar work and Paul Doyle's howl make this one of indie rock's freshest first statements in years.",
     "favorite_track": "Low Era",
-    "track_url": "https://open.spotify.com/track/3CiDs8Rpj0jpF9MB3cr3ve"
+    "track_url": "https://open.spotify.com/track/3CiDs8Rpj0jpF9MB3cr3ve",
+    "preview_url": null
   },
   {
     "id": "heavy-metal",
     "title": "Heavy Metal",
     "artist": "Cameron Winter",
     "year": 2024,
-    "genres": ["indie rock", "lo-fi", "singer-songwriter", "folk rock"],
+    "genres": [
+      "indie rock",
+      "lo-fi",
+      "singer-songwriter",
+      "folk rock"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/4/4e/Cameron_Winter_-_Heavy_Metal.png",
@@ -109,14 +150,20 @@
     "date": "2025-01-01",
     "blurb": "Quiet, unguarded, and deceptively sharp — Winter's debut turns lo-fi singer-songwriter into something genuinely literary.",
     "favorite_track": "Love Takes Miles",
-    "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF"
+    "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF",
+    "preview_url": null
   },
   {
     "id": "imaginal-disk",
     "title": "Imaginal Disk",
     "artist": "Magdalena Bay",
     "year": 2024,
-    "genres": ["synth-pop", "indie pop", "electropop", "dream pop"],
+    "genres": [
+      "synth-pop",
+      "indie pop",
+      "electropop",
+      "dream pop"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/6/6b/Magdalena_Bay_-_Imaginal_Disk.png",
@@ -125,14 +172,20 @@
     "date": "2025-01-01",
     "blurb": "A maximalist pop odyssey that earns every synth layer — Magdalena Bay's concept album is the rare case where the ambition fully matches the execution.",
     "favorite_track": "Cry for Me",
-    "track_url": "https://open.spotify.com/track/2RhHct6gGXSrZ1zHjovhRq"
+    "track_url": "https://open.spotify.com/track/2RhHct6gGXSrZ1zHjovhRq",
+    "preview_url": null
   },
   {
     "id": "hurry-up-tomorrow",
     "title": "Hurry Up Tomorrow",
     "artist": "The Weeknd",
     "year": 2025,
-    "genres": ["dark r&b", "synth-pop", "electro-pop", "cinematic pop"],
+    "genres": [
+      "dark r&b",
+      "synth-pop",
+      "electro-pop",
+      "cinematic pop"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/8/8e/The_Weeknd_-_Hurry_Up_Tomorrow.png",
@@ -141,14 +194,20 @@
     "date": "2025-01-01",
     "blurb": "Abel's cinematic farewell to The Weeknd persona — dark, sweeping, and emotionally exhausting in the best way.",
     "favorite_track": "Red Terror",
-    "track_url": "https://open.spotify.com/track/717s9KFmHhyy5t3xkStS56"
+    "track_url": "https://open.spotify.com/track/717s9KFmHhyy5t3xkStS56",
+    "preview_url": null
   },
   {
     "id": "heaven-tortured-mind",
     "title": "Heaven to a Tortured Mind",
     "artist": "Yves Tumor",
     "year": 2020,
-    "genres": ["art rock", "glam rock", "noise pop", "psychedelic rock"],
+    "genres": [
+      "art rock",
+      "glam rock",
+      "noise pop",
+      "psychedelic rock"
+    ],
     "stars": 4,
     "second_spin": false,
     "art": "https://upload.wikimedia.org/wikipedia/en/3/3e/Yves_Tumor_-_Heaven_to_a_Tortured_Mind.png",
@@ -157,6 +216,7 @@
     "date": "2025-01-01",
     "blurb": "A glittering, disorienting glam-rock fantasia where psychedelia and pop collide completely on their own terms.",
     "favorite_track": "Romanticist",
-    "track_url": "https://open.spotify.com/track/3nRhH5u3TE6HtvBH6mNwzY"
+    "track_url": "https://open.spotify.com/track/3nRhH5u3TE6HtvBH6mNwzY",
+    "preview_url": null
   }
 ]
