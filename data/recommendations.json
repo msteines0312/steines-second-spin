@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "casino",
+    "recommendations": [
+      "octane",
+      "icon",
+      "getting-killed"
+    ]
+  },
+  {
+    "slug": "getting-killed",
+    "recommendations": [
+      "projector",
+      "heavy-metal",
+      "heaven-tortured-mind"
+    ]
+  },
+  {
+    "slug": "heaven-tortured-mind",
+    "recommendations": [
+      "projector",
+      "getting-killed",
+      "casino"
+    ]
+  },
+  {
+    "slug": "heavy-metal",
+    "recommendations": [
+      "getting-killed",
+      "projector",
+      "casino"
+    ]
+  },
+  {
+    "slug": "hurry-up-tomorrow",
+    "recommendations": [
+      "icon",
+      "imaginal-disk",
+      "casino"
+    ]
+  },
+  {
+    "slug": "icon",
+    "recommendations": [
+      "hurry-up-tomorrow",
+      "casino",
+      "octane"
+    ]
+  },
+  {
+    "slug": "imaginal-disk",
+    "recommendations": [
+      "hurry-up-tomorrow",
+      "casino",
+      "icon"
+    ]
+  },
+  {
+    "slug": "octane",
+    "recommendations": [
+      "casino",
+      "icon",
+      "getting-killed"
+    ]
+  },
+  {
+    "slug": "projector",
+    "recommendations": [
+      "getting-killed",
+      "heavy-metal",
+      "heaven-tortured-mind"
+    ]
+  },
+  {
+    "slug": "st-paul",
+    "recommendations": [
+      "casino",
+      "icon",
+      "octane"
+    ]
+  }
+]

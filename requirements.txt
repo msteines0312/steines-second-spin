@@ -1,0 +1,15 @@
+# Spotify API
+spotipy>=2.23.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.26.0
+
+# Machine learning / similarity
+scikit-learn>=1.4.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Jupyter
+notebook>=7.0.0

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steines' Second Spin</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html, body { margin: 0; padding: 0; overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --bg:      #f5f3ee;
+  --ink:     #1a1a1a;
+  --muted:   #888075;
+  --faint:   #c8c2b8;
+  --crimson: #c41e3a;
+  --warm:    #e8d4c0;
+  --surface: #fff;
+  --serif:   'Fraunces', Georgia, serif;
+  --sans:    'Work Sans', system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+/* Paper grain */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* === NAV === */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(26,26,26,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  height: clamp(52px, 7vh, 64px);
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+}
+.wordmark span { color: var(--crimson); }
+
+.nav-links {
+  display: flex;
+  gap: clamp(12px, 2vw, 28px);
+  list-style: none;
+  margin: 0; padding: 0;
+}
+
+.nav-links a {
+  font-family: var(--sans);
+  font-size: clamp(9px, 0.85vw, 11px);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.here { color: #fff; }
+.nav-links a.here { color: var(--crimson); }
+
+/* === HERO === */
+.hero {
+  background: var(--ink);
+  padding: clamp(48px, 9vh, 96px) clamp(1.5rem, 6vw, 5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-word {
+  position: absolute;
+  right: -2%;
+  bottom: -10%;
+  font-family: var(--serif);
+  font-size: clamp(100px, 22vw, 280px);
+  font-weight: 900;
+  color: rgba(255,255,255,0.022);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: clamp(8px, 0.85vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: clamp(14px, 2.5vh, 24px);
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: clamp(20px, 3vw, 36px);
+  height: 1px;
+  background: var(--crimson);
+}
+
+.hero-hed {
+  font-family: var(--serif);
+  font-size: clamp(32px, 6vw, 76px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: #fff;
+  max-width: 16ch;
+  margin: 0 0 clamp(12px, 2vh, 20px);
+}
+.hero-hed em {
+  font-style: italic;
+  color: var(--warm);
+}
+
+.hero-dek {
+  font-family: var(--sans);
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+  max-width: 50ch;
+  margin: 0 0 clamp(24px, 4vh, 40px);
+}
+
+.hero-cta {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: clamp(9px, 0.9vw, 11px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: clamp(10px,1.5vh,14px) clamp(20px,3vw,30px);
+  background: var(--crimson);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.hero-cta:hover { background: #a8182e; }
+
+/* === GRID SECTION === */
+.grid-section {
+  padding: clamp(40px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem);
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: clamp(20px, 4vh, 36px);
+  border-bottom: 1px solid rgba(26,26,26,0.1);
+  padding-bottom: 14px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.section-count {
+  font-family: var(--sans);
+  font-size: clamp(8px, 0.8vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 2.5vw, 24px);
+}
+
+/* === ALBUM CARD === */
+.acard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid rgba(26,26,26,0.08);
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease;
+}
+.acard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.acard:hover {
+  box-shadow: 0 8px 36px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+}
+.acard.visible:hover {
+  transform: translateY(-4px);
+}
+
+.acard-art {
+  aspect-ratio: 1;
+  background: var(--warm);
+  overflow: hidden;
+}
+.acard-art img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.acard:hover .acard-art img { transform: scale(1.04); }
+
+.acard-body {
+  padding: clamp(12px, 2vw, 18px);
+  border-top: 3px solid var(--crimson);
+}
+
+.acard-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.meta-pill {
+  font-family: var(--sans);
+  font-size: clamp(7px, 0.75vw, 9px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 2px 8px;
+  border: 1px solid rgba(26,26,26,0.1);
+}
+
+.acard-title {
+  font-family: var(--serif);
+  font-size: clamp(13px, 1.3vw, 16px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 3px;
+}
+
+.acard-artist {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(11px, 1.1vw, 13px);
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1;
+  color: var(--faint);
+}
+.star.filled { color: var(--crimson); }
+
+.spin-badge {
+  font-family: var(--sans);
+  font-size: clamp(7px, 0.7vw, 8px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid;
+  margin-top: 6px;
+  display: inline-block;
+}
+.spin-badge.yes { color: var(--crimson); border-color: rgba(196,30,58,0.35); }
+.spin-badge.no  { color: var(--muted);   border-color: rgba(136,128,117,0.3); }
+
+/* === EMPTY / ERROR STATE === */
+.grid-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* === FOOTER === */
+.site-footer {
+  border-top: 1px solid rgba(26,26,26,0.1);
+  padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-wordmark {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.footer-wordmark span { color: var(--crimson); }
+.footer-note {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+  text-transform: uppercase;
+}
+
+/* === RECOMMEND FORM === */
+.recommend-section {
+  padding: clamp(40px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem);
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.recommend-section .hero-bg-word {
+  font-size: clamp(80px, 18vw, 220px);
+  bottom: -8%;
+  right: -1%;
+  color: rgba(255,255,255,0.018);
+}
+
+.recommend-header {
+  margin-bottom: clamp(24px, 4vh, 40px);
+}
+
+.recommend-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: clamp(8px, 0.85vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: clamp(10px, 1.5vh, 16px);
+}
+.recommend-eyebrow::before {
+  content: '';
+  display: block;
+  width: clamp(20px, 3vw, 36px);
+  height: 1px;
+  background: var(--crimson);
+}
+
+.recommend-hed {
+  font-family: var(--serif);
+  font-size: clamp(24px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0 0 clamp(8px, 1.5vh, 14px);
+}
+
+.recommend-dek {
+  font-family: var(--sans);
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  max-width: 52ch;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.recommend-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 2vw, 18px);
+  max-width: 680px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-field.full { grid-column: 1 / -1; }
+
+.form-label {
+  font-family: var(--sans);
+  font-size: clamp(7px, 0.75vw, 9px);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+.form-input,
+.form-textarea {
+  font-family: var(--sans);
+  font-size: clamp(12px, 1.1vw, 14px);
+  font-weight: 400;
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: clamp(10px, 1.5vh, 14px) clamp(12px, 1.5vw, 16px);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+}
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+.form-input:focus,
+.form-textarea:focus {
+  border-color: rgba(196,30,58,0.6);
+  background: rgba(255,255,255,0.09);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-submit {
+  font-family: var(--sans);
+  font-size: clamp(9px, 0.9vw, 11px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: clamp(11px, 1.6vh, 15px) clamp(24px, 3vw, 34px);
+  background: var(--crimson);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: end;
+}
+.form-submit:hover { background: #a8182e; }
+
+.form-thanks {
+  display: none;
+  grid-column: 1 / -1;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(14px, 1.4vw, 17px);
+  color: var(--warm);
+  padding: clamp(12px, 2vh, 18px) 0 0;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .album-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .album-grid { grid-template-columns: 1fr; }
+  .nav-links li:nth-child(n+4) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
+  <ul class="nav-links">
+    <li><a href="reviews.html" class="here">Reviews</a></li>
+    <li><a href="gear-page-v2.html">Start Here</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="favorites.html">Favorites</a></li>
+    <li><a href="https://open.spotify.com/user/YOUR_SPOTIFY_USER_ID" target="_blank" rel="noopener">Spotify ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-word">SPIN</div>
+  <div class="hero-eyebrow">Independent Music Reviews</div>
+  <h1 class="hero-hed">Everything deserves a <em>second spin.</em></h1>
+  <p class="hero-dek">Personal album reviews from Madison, Wisconsin. No algorithms, no affiliate links — just honest takes from someone who listens too much.</p>
+  <a class="hero-cta" href="reviews.html">Browse All Reviews</a>
+</section>
+
+<!-- REVIEWS GRID -->
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Recent Reviews</h2>
+    <span class="section-count" id="albumCount">—</span>
+  </div>
+  <!-- NOTE: fetch() requires a local server (e.g. python -m http.server) — won't work over file:// -->
+  <div class="album-grid" id="albumGrid">
+    <div class="grid-message">Loading reviews…</div>
+  </div>
+</section>
+
+<!-- RECOMMEND FORM -->
+<section class="recommend-section">
+  <div class="hero-bg-word">SPIN</div>
+  <div class="recommend-header">
+    <div class="recommend-eyebrow">Reader Picks</div>
+    <h2 class="recommend-hed">What Should I<br>Spin Next?</h2>
+    <p class="recommend-dek">Got a record you think deserves a closer listen? Drop a recommendation — I read every one.</p>
+  </div>
+  <form class="recommend-form" id="recommendForm">
+    <div class="form-field">
+      <label class="form-label" for="recAlbum">Album</label>
+      <input class="form-input" type="text" id="recAlbum" name="album" placeholder="Album title" required>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="recArtist">Artist</label>
+      <input class="form-input" type="text" id="recArtist" name="artist" placeholder="Artist name" required>
+    </div>
+    <div class="form-field full">
+      <label class="form-label" for="recNote">Why should I hear it? <span style="opacity:0.5">(optional)</span></label>
+      <textarea class="form-textarea" id="recNote" name="note" placeholder="Tell me what makes it worth spinning…"></textarea>
+    </div>
+    <div class="form-field">
+      <button class="form-submit" type="submit">Send It</button>
+    </div>
+    <p class="form-thanks" id="formThanks">Got it — I'll give it a spin. ✓</p>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
+  <span class="footer-note">No algorithms. No affiliation. Just records.</span>
+</footer>
+
+<script>
+function starMarks(n) {
+  return Array.from({ length: 5 }, (_, i) =>
+    `<span class="star${i < n ? ' filled' : ''}">★</span>`
+  ).join('');
+}
+
+function cardHTML(album, index) {
+  return `
+    <a class="acard" href="${album.review_url}" style="transition-delay:${index * 80}ms">
+      <div class="acard-art">
+        <img src="${album.cover_art}" alt="${album.title}" loading="lazy" onerror="this.style.opacity='0'">
+      </div>
+      <div class="acard-body">
+        <div class="acard-meta">
+          <span class="meta-pill">${album.year}</span>
+          <span class="meta-pill">${(album.genres || [])[0] || ''}</span>
+        </div>
+        <h3 class="acard-title">${album.title}</h3>
+        <p class="acard-artist">${album.artist}</p>
+        <div class="star-row">${starMarks(album.stars)}</div>
+        <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
+      </div>
+    </a>`;
+}
+
+function setupObserver() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.acard').forEach(card => observer.observe(card));
+}
+
+// Sort newest first by date
+fetch('data/albums_final.json')
+  .then(r => r.json())
+  .then(albums => {
+    albums.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const grid = document.getElementById('albumGrid');
+    grid.innerHTML = albums.map(cardHTML).join('');
+    document.getElementById('albumCount').textContent = `${albums.length} Reviews`;
+    setupObserver();
+  })
+  .catch(() => {
+    document.getElementById('albumGrid').innerHTML =
+      '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
+  });
+
+// Recommendation form — opens mailto: with pre-filled body, shows thank-you message
+document.getElementById('recommendForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const album  = document.getElementById('recAlbum').value.trim();
+  const artist = document.getElementById('recArtist').value.trim();
+  const note   = document.getElementById('recNote').value.trim();
+
+  const body = `Album: ${album}\nArtist: ${artist}\nNote: ${note || '(none)'}`;
+  const subject = encodeURIComponent(`Spin Recommendation: ${album} — ${artist}`);
+  const bodyEnc = encodeURIComponent(body);
+
+  window.location.href =
+    `mailto:recommendations@steinessecondsspin.com?subject=${subject}&body=${bodyEnc}`;
+
+  // Show thank-you message regardless of whether the mail client opened
+  document.getElementById('formThanks').style.display = 'block';
+  this.reset();
+});
+</script>
+</body>
+</html>
