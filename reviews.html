@@ -299,6 +299,22 @@ body::after {
   overflow: hidden;
 }
 
+/* Cards without a published review */
+.acard--locked { cursor: default; }
+.acard--locked:hover { box-shadow: none; transform: none; }
+.acard--locked .acard-art img { transition: none; }
+.acard--locked:hover .acard-art img { transform: none; }
+.coming-soon {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--sans);
+  font-size: clamp(7px, 0.7vw, 8px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
 .grid-message {
   grid-column: 1 / -1;
   text-align: center;
@@ -398,23 +414,29 @@ function starMarks(n) {
 }
 
 function cardHTML(album) {
+  // Only link the card if there's a real review URL — not "#", null, or missing
+  const hasReview = album.review_url && album.review_url !== '#';
+  const tag  = hasReview ? 'a' : 'div';
+  const href = hasReview ? `href="${album.review_url}"` : '';
+  const genre = (album.genres || [])[0] || '';
   return `
-    <a class="acard" href="${album.review_url}" data-genre="${album.genre}" data-rating="${album.stars}" data-date="${album.date}" data-title="${album.title}">
+    <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href} data-genre="${genre}" data-rating="${album.stars}" data-date="${album.date}" data-title="${album.title}">
       <div class="acard-art">
-        <img src="${album.art}" alt="${album.title}" loading="lazy" onerror="this.style.opacity='0'">
+        <img src="${album.cover_art}" alt="${album.title}" loading="lazy" onerror="this.style.opacity='0'">
       </div>
       <div class="acard-body">
         <div class="acard-meta">
           <span class="meta-pill">${album.year}</span>
-          <span class="meta-pill">${album.genre}</span>
+          <span class="meta-pill">${genre}</span>
         </div>
         <h3 class="acard-title">${album.title}</h3>
         <p class="acard-artist">${album.artist}</p>
         <div class="star-row">${starMarks(album.stars)}</div>
         <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
         <p class="acard-blurb">${album.blurb}</p>
+        ${!hasReview ? '<span class="coming-soon">Review coming soon</span>' : ''}
       </div>
-    </a>`;
+    </${tag}>`;
 }
 
 function applyFiltersAndSort() {

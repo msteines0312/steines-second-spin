@@ -305,6 +305,23 @@ body::after {
 .spin-badge.yes { color: var(--crimson); border-color: rgba(196,30,58,0.35); }
 .spin-badge.no  { color: var(--muted);   border-color: rgba(136,128,117,0.3); }
 
+/* Cards without a published review — no pointer, no lift on hover */
+.acard--locked { cursor: default; }
+.acard--locked:hover { box-shadow: none; transform: none; }
+.acard--locked.visible:hover { transform: none; }
+.acard--locked .acard-art img { transition: none; }
+.acard--locked:hover .acard-art img { transform: none; }
+.coming-soon {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--sans);
+  font-size: clamp(7px, 0.7vw, 8px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
 /* === EMPTY / ERROR STATE === */
 .grid-message {
   grid-column: 1 / -1;
@@ -564,8 +581,12 @@ function starMarks(n) {
 }
 
 function cardHTML(album, index) {
+  // Only link the card if there's a real review URL — not "#", null, or missing
+  const hasReview = album.review_url && album.review_url !== '#';
+  const tag  = hasReview ? 'a' : 'div';
+  const href = hasReview ? `href="${album.review_url}"` : '';
   return `
-    <a class="acard" href="${album.review_url}" style="transition-delay:${index * 80}ms">
+    <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href} style="transition-delay:${index * 80}ms">
       <div class="acard-art">
         <img src="${album.cover_art}" alt="${album.title}" loading="lazy" onerror="this.style.opacity='0'">
       </div>
@@ -578,8 +599,9 @@ function cardHTML(album, index) {
         <p class="acard-artist">${album.artist}</p>
         <div class="star-row">${starMarks(album.stars)}</div>
         <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
+        ${!hasReview ? '<span class="coming-soon">Review coming soon</span>' : ''}
       </div>
-    </a>`;
+    </${tag}>`;
 }
 
 function setupObserver() {
