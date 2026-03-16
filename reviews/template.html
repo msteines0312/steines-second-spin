@@ -385,6 +385,7 @@ body::after {
   <a class="wordmark" href="../index.html">Steines'<span> Second Spin</span></a>
   <ul class="nav-links">
     <li><a href="../reviews.html" class="here">Reviews</a></li>
+    <li><a href="../gear-page-v2.html">Hardware Recommendations</a></li>
     <li><a href="../about.html">About</a></li>
     <li><a href="../favorites.html">Favorites</a></li>
     <li><a href="https://open.spotify.com/user/YOUR_SPOTIFY_USER_ID" target="_blank" rel="noopener">Spotify ↗</a></li>
@@ -547,8 +548,13 @@ fetch('../data/albums_final.json')
       return;
     }
 
-    recsGrid.innerHTML = recAlbums.map(rec => `
-      <a class="acard" href="${rec.id}.html">
+    recsGrid.innerHTML = recAlbums.map(rec => {
+      // Only link rec card if that review page is published (review_url !== '#')
+      const hasReview = rec.review_url && rec.review_url !== '#';
+      const tag  = hasReview ? 'a' : 'div';
+      const href = hasReview ? `href="${rec.id}.html"` : '';
+      return `
+      <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href}>
         <div class="acard-art">
           <img src="${'../' + (rec.cover_art || '')}" alt="${rec.title}" loading="lazy" onerror="this.style.background='#888'">
         </div>
@@ -557,8 +563,8 @@ fetch('../data/albums_final.json')
           <p class="acard-artist">${rec.artist}</p>
           <div class="star-row">${starMarks(rec.stars || 0)}</div>
         </div>
-      </a>
-    `).join('');
+      </${tag}>`;
+    }).join('');
   })
   .catch(() => {
     document.getElementById('albumTitle').textContent = 'Could not load album data.';

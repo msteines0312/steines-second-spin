@@ -281,6 +281,33 @@ body::after {
   display: flex; align-items: center; gap: 6px;
 }
 
+/* Non-linked display cards — no pointer, no hover effects */
+.acard.fav-card { cursor: default; }
+.acard.fav-card:hover { box-shadow: none; transform: none; }
+.acard.fav-card:hover .acard-art img { transform: none; }
+.acard.fav-card .acard-art::after { display: none; }
+.acard-blurb {
+  font-family: var(--sans);
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+/* Spotify embed stack */
+.embeds-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.5vh, 16px);
+  max-width: 780px;
+}
+.embeds-stack iframe {
+  display: block;
+  border-radius: 0;
+  border: none;
+}
+
 /* === FOOTER === */
 .site-footer {
   border-top: 1px solid rgba(255,255,255,0.06);
@@ -324,138 +351,89 @@ body::after {
   <p class="page-dek">Not everything I love has a review. These are the albums I return to — the ones that were playing when something happened, or that explained something I didn't have words for yet.</p>
 </header>
 
-<!-- SECTION 1: GREW UP ON -->
-<section class="fav-section">
+<!-- SECTION: ALL-TIME FAVORITES -->
+<section class="fav-section" style="border-bottom:none;">
   <div class="section-header">
     <span class="section-num">01</span>
     <div class="section-heading-group">
-      <h2 class="section-title">Records I Grew Up On</h2>
-      <p class="section-sub">The albums that built my taste before I knew what taste was.</p>
+      <h2 class="section-title">All-Time Favorites</h2>
+      <p class="section-sub">The records I'd take to a desert island without thinking twice.</p>
     </div>
   </div>
-  <div class="album-grid">
-    <a class="acard" href="https://open.spotify.com/album/3kEtdS2alvSfnEl42bQROP" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/4/43/Illmatic.jpg" alt="Illmatic" loading="lazy" onerror="this.style.opacity='0'"></div>
-      <div class="acard-body">
-        <h3 class="acard-title">Illmatic</h3>
-        <p class="acard-artist">Nas</p>
-        <span class="acard-year">1994</span>
-      </div>
-    </a>
-    <a class="acard" href="https://open.spotify.com/album/4PgB0vC7jPECzXlPpwumOH" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/a/a3/Kanyewest_collegedropout.jpg" alt="The College Dropout" loading="lazy" onerror="this.style.opacity='0'"></div>
-      <div class="acard-body">
-        <h3 class="acard-title">The College Dropout</h3>
-        <p class="acard-artist">Kanye West</p>
-        <span class="acard-year">2004</span>
-      </div>
-    </a>
-    <a class="acard" href="https://open.spotify.com/album/6t7956yu5zYf5A829XRiHC" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/The_Marshall_Mathers_LP.jpg" alt="The Marshall Mathers LP" loading="lazy" onerror="this.style.opacity='0'"></div>
-      <div class="acard-body">
-        <h3 class="acard-title">The Marshall Mathers LP</h3>
-        <p class="acard-artist">Eminem</p>
-        <span class="acard-year">2000</span>
-      </div>
-    </a>
-    <a class="acard" href="https://open.spotify.com/album/7BY0NQREqfvEBBRHhxUfPN" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Wu-TangClanEnterthe36Chambers.jpg" alt="Enter the Wu-Tang" loading="lazy" onerror="this.style.opacity='0'"></div>
-      <div class="acard-body">
-        <h3 class="acard-title">Enter the Wu-Tang (36 Chambers)</h3>
-        <p class="acard-artist">Wu-Tang Clan</p>
-        <span class="acard-year">1993</span>
-      </div>
-    </a>
-  </div>
-</section>
+  <div class="album-grid" style="grid-template-columns: repeat(3, 1fr);">
 
-<!-- SECTION 2: RETURN TO CONSTANTLY -->
-<section class="fav-section">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <div class="section-heading-group">
-      <h2 class="section-title">Albums I Return To Constantly</h2>
-      <p class="section-sub">No matter what else I'm into, these are always playing.</p>
+    <div class="acard fav-card">
+      <div class="acard-art">
+        <img src="assets/covers/whats-going-on.jpg" alt="What's Going On" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="acard-body">
+        <h3 class="acard-title">What's Going On</h3>
+        <p class="acard-artist">Marvin Gaye</p>
+        <span class="acard-year">1971</span>
+        <p class="acard-blurb">The most important album ever made. Political, spiritual, and sonically ahead of its time by decades.</p>
+      </div>
     </div>
-  </div>
-  <div class="album-grid">
-    <a class="acard" href="https://open.spotify.com/album/20r762YmB5HeofjMCiPMLv" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/1/1d/My_Beautiful_Dark_Twisted_Fantasy.png" alt="My Beautiful Dark Twisted Fantasy" loading="lazy" onerror="this.style.opacity='0'"></div>
-      <div class="acard-body">
-        <h3 class="acard-title">My Beautiful Dark Twisted Fantasy</h3>
-        <p class="acard-artist">Kanye West</p>
-        <span class="acard-year">2010</span>
-      </div>
-    </a>
-    <a class="acard" href="https://open.spotify.com/album/7ycBtnsMtyVbbwTfJwRjSP" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/f/f6/Kendrick_lamar_to_pimp_a_butterfly.png" alt="To Pimp a Butterfly" loading="lazy" onerror="this.style.opacity='0'"></div>
-      <div class="acard-body">
-        <h3 class="acard-title">To Pimp a Butterfly</h3>
-        <p class="acard-artist">Kendrick Lamar</p>
-        <span class="acard-year">2015</span>
-      </div>
-    </a>
-    <a class="acard" href="https://open.spotify.com/album/5zi7WsKlIiUXv09tbGLKsE" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/8/84/Tyler_the_creator_igor.png" alt="IGOR" loading="lazy" onerror="this.style.opacity='0'"></div>
-      <div class="acard-body">
-        <h3 class="acard-title">IGOR</h3>
-        <p class="acard-artist">Tyler, The Creator</p>
-        <span class="acard-year">2019</span>
-      </div>
-    </a>
-    <a class="acard" href="https://open.spotify.com/album/5QHLCQbCFAaD0CPxYDMb1F" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/3/39/SZA_-_Ctrl_%28album_cover%29.png" alt="Ctrl" loading="lazy" onerror="this.style.opacity='0'"></div>
-      <div class="acard-body">
-        <h3 class="acard-title">Ctrl</h3>
-        <p class="acard-artist">SZA</p>
-        <span class="acard-year">2017</span>
-      </div>
-    </a>
-  </div>
-</section>
 
-<!-- SECTION 3: RECENT OBSESSIONS -->
-<section class="fav-section" style="border-bottom:none;">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <div class="section-heading-group">
-      <h2 class="section-title">Recent Obsessions</h2>
-      <p class="section-sub">What's been on repeat lately.</p>
+    <div class="acard fav-card">
+      <div class="acard-art">
+        <img src="assets/covers/songs-key-life.jpg" alt="Songs in the Key of Life" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="acard-body">
+        <h3 class="acard-title">Songs in the Key of Life</h3>
+        <p class="acard-artist">Stevie Wonder</p>
+        <span class="acard-year">1976</span>
+        <p class="acard-blurb">A double album with no filler. Stevie at the absolute peak of his powers.</p>
+      </div>
     </div>
-  </div>
-  <div class="album-grid">
-    <a class="acard" href="https://open.spotify.com/album/79ONNoS4M9tfIA1mYLBYVX" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Kendrick_Lamar_-_Mr._Morale_%26_the_Big_Steppers.png" alt="Mr. Morale" loading="lazy" onerror="this.style.opacity='0'"></div>
-      <div class="acard-body">
-        <h3 class="acard-title">Mr. Morale & The Big Steppers</h3>
-        <p class="acard-artist">Kendrick Lamar</p>
-        <span class="acard-year">2022</span>
+
+    <div class="acard fav-card">
+      <div class="acard-art">
+        <img src="assets/covers/signed-sealed.jpg" alt="Signed, Sealed &amp; Delivered" loading="lazy" onerror="this.style.display='none'">
       </div>
-    </a>
-    <a class="acard" href="https://open.spotify.com/album/45ba6Q9HWVfN2cFBqmvGcc" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/4/4b/Tyler%2C_the_Creator_-_Call_Me_If_You_Get_Lost.png" alt="Call Me If You Get Lost" loading="lazy" onerror="this.style.opacity='0'"></div>
       <div class="acard-body">
-        <h3 class="acard-title">Call Me If You Get Lost</h3>
-        <p class="acard-artist">Tyler, The Creator</p>
-        <span class="acard-year">2021</span>
+        <h3 class="acard-title">Signed, Sealed &amp; Delivered</h3>
+        <p class="acard-artist">Stevie Wonder</p>
+        <span class="acard-year">1970</span>
+        <p class="acard-blurb">Pure joy in record form. The title track alone is worth the price of admission.</p>
       </div>
-    </a>
-    <a class="acard" href="https://open.spotify.com/album/4TSTELTbEeAHNnPXYv8Qz0" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="https://upload.wikimedia.org/wikipedia/en/3/37/SZA_SOS.png" alt="SOS" loading="lazy" onerror="this.style.opacity='0'"></div>
+    </div>
+
+    <div class="acard fav-card">
+      <div class="acard-art">
+        <img src="assets/covers/electric-ladyland.jpg" alt="Electric Ladyland" loading="lazy" onerror="this.style.display='none'">
+      </div>
       <div class="acard-body">
-        <h3 class="acard-title">SOS</h3>
-        <p class="acard-artist">SZA</p>
-        <span class="acard-year">2022</span>
+        <h3 class="acard-title">Electric Ladyland</h3>
+        <p class="acard-artist">Jimi Hendrix</p>
+        <span class="acard-year">1968</span>
+        <p class="acard-blurb">Hendrix building a universe out of guitar. Voodoo Chile is 15 minutes of the best reason to own speakers.</p>
       </div>
-    </a>
-    <a class="acard" href="https://open.spotify.com/album/0DF3cqpeGNAFQhQbvFVHiB" target="_blank" rel="noopener">
-      <div class="acard-art"><img src="" alt="Chromakopia" loading="lazy" onerror="this.style.opacity='0'"></div>
+    </div>
+
+    <div class="acard fav-card">
+      <div class="acard-art">
+        <img src="assets/covers/moving-pictures.jpg" alt="Moving Pictures" loading="lazy" onerror="this.style.display='none'">
+      </div>
       <div class="acard-body">
-        <h3 class="acard-title">Chromakopia</h3>
-        <p class="acard-artist">Tyler, The Creator</p>
-        <span class="acard-year">2024</span>
+        <h3 class="acard-title">Moving Pictures</h3>
+        <p class="acard-artist">Rush</p>
+        <span class="acard-year">1981</span>
+        <p class="acard-blurb">Tom Sawyer and YYZ back to back. That's the whole argument.</p>
       </div>
-    </a>
+    </div>
+
+    <div class="acard fav-card">
+      <div class="acard-art">
+        <img src="assets/covers/late-registration.jpg" alt="Late Registration" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="acard-body">
+        <h3 class="acard-title">Late Registration</h3>
+        <p class="acard-artist">Kanye West</p>
+        <span class="acard-year">2005</span>
+        <p class="acard-blurb">Jon Brion co-producing Kanye. The orchestral samples hit different. Gold Digger to Gone is one of the best album runs in rap.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -463,45 +441,21 @@ body::after {
 <section class="playlists-section">
   <div class="playlists-header">
     <div class="playlists-eyebrow">Curated</div>
-    <h2 class="playlists-title">My Playlists</h2>
+    <h2 class="playlists-title">What I'm Playing</h2>
   </div>
-  <div class="playlists-grid">
-    <a class="pcard" href="https://open.spotify.com/playlist/YOUR_PLAYLIST_ID_1" target="_blank" rel="noopener">
-      <span class="pcard-icon">🌙</span>
-      <h3 class="pcard-name">2am in Madison</h3>
-      <p class="pcard-desc">Late-night drives through an empty campus. Mostly rap, some ambient, nothing below 80 BPM. Updated when it's cold out.</p>
-      <span class="pcard-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.208c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 11-.277-1.215c3.809-.87 7.077-.496 9.712 1.115a.623.623 0 01.207.856zm1.223-2.722a.78.78 0 01-1.072.257c-2.687-1.652-6.786-2.131-9.965-1.166a.78.78 0 01-.973-.519.78.78 0 01.52-.973c3.632-1.102 8.147-.568 11.234 1.329a.78.78 0 01.256 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.937.937 0 11-.543-1.793c3.563-1.08 9.484-.871 13.22 1.37a.937.937 0 01-.06 1.58z"/></svg>
-        Open on Spotify ↗
-      </span>
-    </a>
-    <a class="pcard" href="https://open.spotify.com/playlist/YOUR_PLAYLIST_ID_2" target="_blank" rel="noopener">
-      <span class="pcard-icon">☀️</span>
-      <h3 class="pcard-name">Sunday Morning Cook</h3>
-      <p class="pcard-desc">Jazz, neo-soul, and R&B for slow starts and good eggs. No rush. Runs about two hours.</p>
-      <span class="pcard-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.208c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 11-.277-1.215c3.809-.87 7.077-.496 9.712 1.115a.623.623 0 01.207.856zm1.223-2.722a.78.78 0 01-1.072.257c-2.687-1.652-6.786-2.131-9.965-1.166a.78.78 0 01-.973-.519.78.78 0 01.52-.973c3.632-1.102 8.147-.568 11.234 1.329a.78.78 0 01.256 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.937.937 0 11-.543-1.793c3.563-1.08 9.484-.871 13.22 1.37a.937.937 0 01-.06 1.58z"/></svg>
-        Open on Spotify ↗
-      </span>
-    </a>
-    <a class="pcard" href="https://open.spotify.com/playlist/YOUR_PLAYLIST_ID_3" target="_blank" rel="noopener">
-      <span class="pcard-icon">🏋️</span>
-      <h3 class="pcard-name">Gym (Actually Good)</h3>
-      <p class="pcard-desc">No filler, no corny drops. Aggressive hip-hop and high-energy rap. Refreshed monthly when the old songs stop hitting.</p>
-      <span class="pcard-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.208c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 11-.277-1.215c3.809-.87 7.077-.496 9.712 1.115a.623.623 0 01.207.856zm1.223-2.722a.78.78 0 01-1.072.257c-2.687-1.652-6.786-2.131-9.965-1.166a.78.78 0 01-.973-.519.78.78 0 01.52-.973c3.632-1.102 8.147-.568 11.234 1.329a.78.78 0 01.256 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.937.937 0 11-.543-1.793c3.563-1.08 9.484-.871 13.22 1.37a.937.937 0 01-.06 1.58z"/></svg>
-        Open on Spotify ↗
-      </span>
-    </a>
-    <a class="pcard" href="https://open.spotify.com/playlist/YOUR_PLAYLIST_ID_4" target="_blank" rel="noopener">
-      <span class="pcard-icon">📚</span>
-      <h3 class="pcard-name">Study Grind</h3>
-      <p class="pcard-desc">Instrumental hip-hop, lofi, and some classical. Stays out of the way while you work. Heavy Madlib rotation.</p>
-      <span class="pcard-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.208c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 11-.277-1.215c3.809-.87 7.077-.496 9.712 1.115a.623.623 0 01.207.856zm1.223-2.722a.78.78 0 01-1.072.257c-2.687-1.652-6.786-2.131-9.965-1.166a.78.78 0 01-.973-.519.78.78 0 01.52-.973c3.632-1.102 8.147-.568 11.234 1.329a.78.78 0 01.256 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.937.937 0 11-.543-1.793c3.563-1.08 9.484-.871 13.22 1.37a.937.937 0 01-.06 1.58z"/></svg>
-        Open on Spotify ↗
-      </span>
-    </a>
+  <div class="embeds-stack">
+    <iframe src="https://open.spotify.com/embed/playlist/56uExejXvyKo3Rb9nsO0Jq"
+      width="100%" height="152" frameborder="0"
+      allowtransparency="true" allow="encrypted-media">
+    </iframe>
+    <iframe src="https://open.spotify.com/embed/playlist/1jku4tra9zdd2nE50Ceh1d"
+      width="100%" height="152" frameborder="0"
+      allowtransparency="true" allow="encrypted-media">
+    </iframe>
+    <iframe src="https://open.spotify.com/embed/playlist/1euZVsyPsdpEzYtFsdMVZB"
+      width="100%" height="152" frameborder="0"
+      allowtransparency="true" allow="encrypted-media">
+    </iframe>
   </div>
 </section>
 
