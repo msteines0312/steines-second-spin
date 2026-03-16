@@ -1,5 +1,6 @@
 # Project-specific
 data/raw/*
+data/lastfm/
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
