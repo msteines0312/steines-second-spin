@@ -27,7 +27,7 @@ import requests
 ROOT       = Path(__file__).resolve().parent.parent
 ALBUMS_IN  = ROOT / "data" / "albums.json"
 CLEAN_IN   = ROOT / "data" / "albums_clean.json"
-COVERS_OUT = ROOT / "site" / "assets" / "covers"
+COVERS_OUT = ROOT / "assets" / "covers"
 
 DELAY   = 0.5   # seconds between requests
 TIMEOUT = 15    # max seconds per download

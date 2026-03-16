@@ -21,7 +21,7 @@ ROOT         = Path(__file__).resolve().parent.parent
 EDITORIAL    = ROOT / "data" / "albums.json"           # stars, blurb, genres, etc.
 CLEAN        = ROOT / "data" / "albums_clean.json"     # Spotify metadata
 RECS         = ROOT / "data" / "recommendations.json"  # recommendation slugs
-OUT_DIR      = ROOT / "site" / "data"
+OUT_DIR      = ROOT / "data"
 OUT_FILE     = OUT_DIR / "albums_final.json"
 # ─────────────────────────────────────────────────────────────────────────────
 
