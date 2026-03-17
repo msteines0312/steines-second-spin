@@ -5,7 +5,7 @@
     "neo-psychedelia",
     "indietronica",
     "progressive pop",
-    "pop rock"
+    "pop"
   ],
   "album_raw": {
     "toptags": {
@@ -37,23 +37,23 @@
         },
         {
           "count": 12,
-          "name": "pop rock",
-          "url": "https://www.last.fm/tag/pop+rock"
-        },
-        {
-          "count": 12,
           "name": "pop",
           "url": "https://www.last.fm/tag/pop"
         },
         {
-          "count": 3,
-          "name": "dance-pop",
-          "url": "https://www.last.fm/tag/dance-pop"
+          "count": 12,
+          "name": "pop rock",
+          "url": "https://www.last.fm/tag/pop+rock"
         },
         {
           "count": 3,
           "name": "chillwave",
           "url": "https://www.last.fm/tag/chillwave"
+        },
+        {
+          "count": 3,
+          "name": "dance-pop",
+          "url": "https://www.last.fm/tag/dance-pop"
         },
         {
           "count": 2,
@@ -82,13 +82,13 @@
         },
         {
           "count": 26,
-          "name": "indie pop",
-          "url": "https://www.last.fm/tag/indie+pop"
+          "name": "dream pop",
+          "url": "https://www.last.fm/tag/dream+pop"
         },
         {
           "count": 26,
-          "name": "dream pop",
-          "url": "https://www.last.fm/tag/dream+pop"
+          "name": "indie pop",
+          "url": "https://www.last.fm/tag/indie+pop"
         },
         {
           "count": 11,

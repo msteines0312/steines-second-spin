@@ -4,8 +4,8 @@
     "indie rock",
     "post-punk",
     "art punk",
-    "post-punk revival",
-    "dance punk"
+    "dance punk",
+    "post-punk revival"
   ],
   "album_raw": {
     "toptags": {
@@ -32,8 +32,8 @@
         },
         {
           "count": 4,
-          "name": "Post-punk revival",
-          "url": "https://www.last.fm/tag/Post-punk+revival"
+          "name": "3",
+          "url": "https://www.last.fm/tag/3"
         },
         {
           "count": 4,
@@ -42,8 +42,8 @@
         },
         {
           "count": 4,
-          "name": "3",
-          "url": "https://www.last.fm/tag/3"
+          "name": "Post-punk revival",
+          "url": "https://www.last.fm/tag/Post-punk+revival"
         }
       ],
       "@attr": {
@@ -82,13 +82,13 @@
         },
         {
           "count": 7,
-          "name": "american",
-          "url": "https://www.last.fm/tag/american"
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
         },
         {
           "count": 7,
-          "name": "indie",
-          "url": "https://www.last.fm/tag/indie"
+          "name": "american",
+          "url": "https://www.last.fm/tag/american"
         },
         {
           "count": 2,

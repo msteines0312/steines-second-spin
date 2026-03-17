@@ -1,5 +1,137 @@
 [
   {
+    "slug": "3d-country",
+    "spotify_id": "4RT2pNX9ZXCB0LtqfI2sdJ",
+    "name": "3D Country",
+    "artist": "Geese",
+    "artist_id": "0WCo84qtCKfbyIf1lqQWB4",
+    "release_year": 2023,
+    "popularity": null,
+    "genres": [
+      "indie rock",
+      "art rock",
+      "country rock",
+      "post-punk",
+      "alternative country",
+      "art punk",
+      "rock",
+      "alt-country",
+      "southern rock"
+    ],
+    "track_count": 11,
+    "duration_ms": 2614064,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b2738af65a82cdd9104f19e4047b"
+  },
+  {
+    "slug": "after-hours",
+    "spotify_id": "4yP0hdKOZPNshxUOjY0cZj",
+    "name": "After Hours",
+    "artist": "The Weeknd",
+    "artist_id": "1Xyo4u8uXC1ZmMpatF05PJ",
+    "release_year": 2020,
+    "popularity": null,
+    "genres": [
+      "r&b",
+      "synth-pop",
+      "alternative r&b",
+      "dark pop",
+      "pop",
+      "synthpop",
+      "synthwave",
+      "new wave"
+    ],
+    "track_count": 14,
+    "duration_ms": 3377568,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36"
+  },
+  {
+    "slug": "alien-coast",
+    "spotify_id": "07dZWmAaFk2XJfdKeUwadb",
+    "name": "The Alien Coast",
+    "artist": "St. Paul & The Broken Bones",
+    "artist_id": "4fXkvh05wFhuH77MfD4m9o",
+    "release_year": 2022,
+    "popularity": null,
+    "genres": [
+      "soul",
+      "psychedelic soul",
+      "art rock",
+      "southern soul",
+      "funk",
+      "blues",
+      "alabama",
+      "r&b"
+    ],
+    "track_count": 11,
+    "duration_ms": 2105975,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b273449b6b46d3fde9f981f0fd36"
+  },
+  {
+    "slug": "ants-from-up-there",
+    "spotify_id": "21xp7NdU1ajmO1CX0w2Egd",
+    "name": "Ants From Up There",
+    "artist": "Black Country, New Road",
+    "artist_id": "3PP6ghmOlDl2jaKaH0avUN",
+    "release_year": 2022,
+    "popularity": null,
+    "genres": [
+      "post-rock",
+      "chamber pop",
+      "art rock",
+      "indie rock",
+      "baroque pop",
+      "chamber music"
+    ],
+    "track_count": 10,
+    "duration_ms": 3531090,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b2730f4b994c518581bf62157c38"
+  },
+  {
+    "slug": "art-of-loving",
+    "spotify_id": "0l8zYqoUeBYg47Gmevq9HZ",
+    "name": "The Art of Loving",
+    "artist": "Olivia Dean",
+    "artist_id": "00x1fYSGhdqScXBRpSj3DW",
+    "release_year": 2025,
+    "popularity": null,
+    "genres": [
+      "soul",
+      "indie pop",
+      "neo soul",
+      "r&b",
+      "british soul",
+      "pop",
+      "rhythm and blues",
+      "neo-soul"
+    ],
+    "track_count": 12,
+    "duration_ms": 2063500,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b2739a336bfb6d40bbd90a507417"
+  },
+  {
+    "slug": "call-me-if-you-get-lost",
+    "spotify_id": "45ba6QAtNrdv6Ke4MFOKk9",
+    "name": "CALL ME IF YOU GET LOST",
+    "artist": "Tyler, The Creator",
+    "artist_id": "4V8LLVI7PbaPR0K2TGSxFF",
+    "release_year": 2021,
+    "popularity": null,
+    "genres": [
+      "hip-hop",
+      "west coast rap",
+      "jazz rap",
+      "luxury rap",
+      "alternative hip-hop",
+      "neo-soul",
+      "synth funk",
+      "west coast hip-hop",
+      "hardcore hip-hop"
+    ],
+    "track_count": 16,
+    "duration_ms": 3170012,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b273940aa635eea98719f6ca4ad9"
+  },
+  {
     "slug": "casino",
     "spotify_id": "21xGzx6HTydCnvfZTvLf6b",
     "name": "Ca$ino",
@@ -12,13 +144,84 @@
       "melodic rap",
       "trap",
       "west coast rap",
-      "hip-hop",
       "rap",
+      "hip-hop",
       "pop rap"
     ],
     "track_count": 11,
     "duration_ms": 2220606,
     "cover_art": "https://i.scdn.co/image/ab67616d0000b27308a27a15cf37664f0dab6ab7"
+  },
+  {
+    "slug": "chromakopia",
+    "spotify_id": "0U28P0QVB1QRxpqp5IHOlH",
+    "name": "CHROMAKOPIA",
+    "artist": "Tyler, The Creator",
+    "artist_id": "4V8LLVI7PbaPR0K2TGSxFF",
+    "release_year": 2024,
+    "popularity": null,
+    "genres": [
+      "hip-hop",
+      "neo soul",
+      "jazz rap",
+      "conscious hip-hop",
+      "alternative hip-hop",
+      "west coast hip-hop",
+      "synth funk",
+      "experimental hip-hop",
+      "neo-psychedelia",
+      "hardcore hip-hop"
+    ],
+    "track_count": 14,
+    "duration_ms": 3180814,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b273084a94988541c2402615d014"
+  },
+  {
+    "slug": "deadbeat",
+    "spotify_id": "5WulAOx9ilWy1h8UGZ1gkI",
+    "name": "Deadbeat",
+    "artist": "Tame Impala",
+    "artist_id": "5INjqkS1o8h1imAzPqGZBb",
+    "release_year": 2025,
+    "popularity": null,
+    "genres": [
+      "psychedelic rock",
+      "neo-psychedelia",
+      "indie rock",
+      "synth-pop",
+      "dream pop",
+      "electronic",
+      "house",
+      "edm",
+      "dance",
+      "psychedelic pop"
+    ],
+    "track_count": 12,
+    "duration_ms": 3365184,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b273208500450dcd0fd294d7bd3b"
+  },
+  {
+    "slug": "dont-tap-the-glass",
+    "spotify_id": "1jzv3jwZbt8lYfEtMjiD1R",
+    "name": "DON'T TAP THE GLASS",
+    "artist": "Tyler, The Creator",
+    "artist_id": "4V8LLVI7PbaPR0K2TGSxFF",
+    "release_year": 2025,
+    "popularity": null,
+    "genres": [
+      "hip-hop",
+      "jazz rap",
+      "alternative hip-hop",
+      "west coast rap",
+      "neo soul",
+      "hardcore hip-hop",
+      "hip house",
+      "pop rap",
+      "dance-rap"
+    ],
+    "track_count": 10,
+    "duration_ms": 1710598,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b2734b7fbb849ed845ddedcce346"
   },
   {
     "slug": "getting-killed",
@@ -27,19 +230,40 @@
     "artist": "Geese",
     "artist_id": "0WCo84qtCKfbyIf1lqQWB4",
     "release_year": 2025,
-    "popularity": null,
+    "popularity": 70,
     "genres": [
       "post-punk",
       "indie rock",
       "art rock",
       "noise rock",
-      "rock",
-      "alternative rock",
-      "krautrock"
+      "psychedelic rock",
+      "krautrock",
+      "art punk"
     ],
     "track_count": 11,
     "duration_ms": 2739344,
     "cover_art": "https://i.scdn.co/image/ab67616d0000b27345e82ae0372a50834825c018"
+  },
+  {
+    "slug": "heaven-or-las-vegas",
+    "spotify_id": "5lEphbceIgaK1XxWeSrC9E",
+    "name": "Heaven or Las Vegas",
+    "artist": "Cocteau Twins",
+    "artist_id": "5Wabl1lPdNOeIn0SQ5A1mp",
+    "release_year": 1990,
+    "popularity": null,
+    "genres": [
+      "dream pop",
+      "shoegaze",
+      "ethereal wave",
+      "alternative rock",
+      "ambient pop",
+      "ethereal",
+      "alternative"
+    ],
+    "track_count": 10,
+    "duration_ms": 2244503,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b273fe6211303e796f3d5b7a0e02"
   },
   {
     "slug": "heaven-tortured-mind",
@@ -100,8 +324,8 @@
       "synthwave",
       "alternative r&b",
       "synthpop",
-      "alt-pop",
-      "pop"
+      "pop",
+      "alt-pop"
     ],
     "track_count": 22,
     "duration_ms": 5089240,
@@ -144,7 +368,7 @@
       "neo-psychedelia",
       "indietronica",
       "progressive pop",
-      "pop rock"
+      "pop"
     ],
     "track_count": 15,
     "duration_ms": 3222488,
@@ -165,12 +389,34 @@
       "auto-tune",
       "rap",
       "hip-hop",
-      "r&b",
-      "texas"
+      "r&b"
     ],
     "track_count": 18,
     "duration_ms": 2992603,
     "cover_art": "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619"
+  },
+  {
+    "slug": "praise-a-lord",
+    "spotify_id": "5LIlFbWpjACyQFNW0nYvUC",
+    "name": "Praise A Lord Who Chews But Which Does Not Consume; (Or Simply, Hot Between Worlds)",
+    "artist": "Yves Tumor",
+    "artist_id": "0qu422H5MOoQxGjd4IzHbS",
+    "release_year": 2023,
+    "popularity": null,
+    "genres": [
+      "art rock",
+      "glam rock",
+      "noise pop",
+      "psychedelic rock",
+      "avant-garde",
+      "alternative dance",
+      "post-punk",
+      "neo-psychedelic",
+      "gothic rock"
+    ],
+    "track_count": 12,
+    "duration_ms": 2249822,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b273eab75988d94b573becaaab12"
   },
   {
     "slug": "projector",
@@ -186,8 +432,8 @@
       "art rock",
       "shoegaze",
       "art punk",
-      "post-punk revival",
-      "dance punk"
+      "dance punk",
+      "post-punk revival"
     ],
     "track_count": 9,
     "duration_ms": 2473299,
@@ -207,11 +453,33 @@
       "soul",
       "r&b",
       "blues",
-      "american",
-      "indie"
+      "alabama"
     ],
     "track_count": 10,
     "duration_ms": 2073443,
     "cover_art": "https://i.scdn.co/image/ab67616d0000b27393a7b622948dcba210352439"
+  },
+  {
+    "slug": "submarine",
+    "spotify_id": "03guxdOi12XJbnvxvxbpwG",
+    "name": "Submarine",
+    "artist": "The Marías",
+    "artist_id": "2sSGPbdZJkaSE2AbcGOACx",
+    "release_year": 2024,
+    "popularity": null,
+    "genres": [
+      "indie pop",
+      "dream pop",
+      "psychedelic pop",
+      "r&b",
+      "bedroom pop",
+      "jazz",
+      "psychedelic",
+      "soul",
+      "los angeles"
+    ],
+    "track_count": 14,
+    "duration_ms": 2713036,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b2738aa339341a0b0c813909c831"
   }
 ]

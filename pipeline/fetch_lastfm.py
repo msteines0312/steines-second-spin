@@ -46,6 +46,15 @@ JUNK_SUBSTRINGS = [
     "favorites",
     "under 2000 listeners",
 ]
+
+# Exact-match tags to discard (case-insensitive).
+# Covers mood tags, geographic tags, award tags, and overly generic labels
+# that carry no useful signal for genre-based recommendations.
+_JUNK_EXACT = {
+    "short", "happy", "chill", "indie", "aoty",
+    "usa", "american", "texas",
+    "2020s", "90s", "80s", "70s", "60s",
+}
 # ─────────────────────────────────────────────────────────────────────────────
 
 
@@ -88,11 +97,16 @@ def is_junk(tag_name: str) -> bool:
       — catches typos, stray punctuation, and non-ASCII garbage
     """
     name = tag_name.strip()
-    if len(name) < 3:
+    if len(name) <= 2:
         return True
     if name.isdigit():
         return True
+    # Decade tags ("2020s", "90s") and any other tags starting with a digit
+    if name[0].isdigit():
+        return True
     lower = name.lower()
+    if lower in _JUNK_EXACT:
+        return True
     if any(junk in lower for junk in JUNK_SUBSTRINGS):
         return True
     if not _VALID_TAG_RE.match(name):

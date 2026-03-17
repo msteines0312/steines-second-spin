@@ -75,13 +75,13 @@
         },
         {
           "count": 1,
-          "name": "american",
-          "url": "https://www.last.fm/tag/american"
+          "name": "maryland",
+          "url": "https://www.last.fm/tag/maryland"
         },
         {
           "count": 1,
-          "name": "maryland",
-          "url": "https://www.last.fm/tag/maryland"
+          "name": "american",
+          "url": "https://www.last.fm/tag/american"
         }
       ],
       "@attr": {

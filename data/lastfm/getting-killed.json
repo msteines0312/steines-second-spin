@@ -3,9 +3,9 @@
   "chosen_tags": [
     "indie rock",
     "art rock",
-    "rock",
-    "alternative rock",
-    "krautrock"
+    "psychedelic rock",
+    "krautrock",
+    "art punk"
   ],
   "album_raw": {
     "toptags": {
@@ -16,29 +16,29 @@
           "url": "https://www.last.fm/tag/2025"
         },
         {
-          "count": 81,
+          "count": 100,
           "name": "indie rock",
           "url": "https://www.last.fm/tag/indie+rock"
         },
         {
-          "count": 24,
+          "count": 32,
           "name": "art rock",
           "url": "https://www.last.fm/tag/art+rock"
         },
         {
+          "count": 6,
+          "name": "Psychedelic Rock",
+          "url": "https://www.last.fm/tag/Psychedelic+Rock"
+        },
+        {
           "count": 3,
-          "name": "rock",
-          "url": "https://www.last.fm/tag/rock"
-        },
-        {
-          "count": 1,
-          "name": "alternative rock",
-          "url": "https://www.last.fm/tag/alternative+rock"
-        },
-        {
-          "count": 1,
           "name": "krautrock",
           "url": "https://www.last.fm/tag/krautrock"
+        },
+        {
+          "count": 3,
+          "name": "art punk",
+          "url": "https://www.last.fm/tag/art+punk"
         },
         {
           "count": 1,
@@ -52,8 +52,8 @@
         },
         {
           "count": 1,
-          "name": "art punk",
-          "url": "https://www.last.fm/tag/art+punk"
+          "name": "alternative rock",
+          "url": "https://www.last.fm/tag/alternative+rock"
         },
         {
           "count": 1,
@@ -97,13 +97,13 @@
         },
         {
           "count": 7,
-          "name": "american",
-          "url": "https://www.last.fm/tag/american"
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
         },
         {
           "count": 7,
-          "name": "indie",
-          "url": "https://www.last.fm/tag/indie"
+          "name": "american",
+          "url": "https://www.last.fm/tag/american"
         },
         {
           "count": 2,

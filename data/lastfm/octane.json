@@ -4,21 +4,21 @@
     "rap",
     "trap",
     "hip-hop",
-    "rnb",
-    "texas"
+    "r&b",
+    "hip-hop"
   ],
   "album_raw": {
     "toptags": {
       "tag": [
         {
           "count": 100,
-          "name": "don toliver",
-          "url": "https://www.last.fm/tag/don+toliver"
+          "name": "2026",
+          "url": "https://www.last.fm/tag/2026"
         },
         {
           "count": 100,
-          "name": "2026",
-          "url": "https://www.last.fm/tag/2026"
+          "name": "don toliver",
+          "url": "https://www.last.fm/tag/don+toliver"
         }
       ],
       "@attr": {
@@ -72,13 +72,13 @@
         },
         {
           "count": 1,
-          "name": "pop rap",
-          "url": "https://www.last.fm/tag/pop+rap"
+          "name": "my top songs",
+          "url": "https://www.last.fm/tag/my+top+songs"
         },
         {
           "count": 1,
-          "name": "my top songs",
-          "url": "https://www.last.fm/tag/my+top+songs"
+          "name": "pop rap",
+          "url": "https://www.last.fm/tag/pop+rap"
         }
       ],
       "@attr": {

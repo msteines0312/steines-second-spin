@@ -13,22 +13,22 @@
       "indie rock",
       "art rock",
       "noise rock",
-      "rock",
-      "alternative rock",
-      "krautrock"
+      "psychedelic rock",
+      "krautrock",
+      "art punk"
     ],
     "cover_art": "assets/covers/getting-killed.jpg",
     "spotify_id": "0eeXb23yMW6EaIgm63xxPC",
     "track_count": 11,
     "duration_ms": 2739344,
-    "popularity": null,
+    "popularity": 70,
     "favorite_track": "Bow Down",
     "track_url": "https://open.spotify.com/track/5jR6zOQf3HtU2mifXWg6hE",
     "preview_url": null,
     "recommendations": [
       "projector",
-      "heavy-metal",
-      "heaven-tortured-mind"
+      "3d-country",
+      "praise-a-lord"
     ]
   },
   {
@@ -58,8 +58,8 @@
     "preview_url": null,
     "recommendations": [
       "hurry-up-tomorrow",
-      "casino",
-      "octane"
+      "art-of-loving",
+      "after-hours"
     ]
   },
   {
@@ -78,8 +78,7 @@
       "auto-tune",
       "rap",
       "hip-hop",
-      "r&b",
-      "texas"
+      "r&b"
     ],
     "cover_art": "assets/covers/octane.jpg",
     "spotify_id": "131x9G87mD0hP0hGZc9qYN",
@@ -92,7 +91,7 @@
     "recommendations": [
       "casino",
       "st-paul",
-      "icon"
+      "art-of-loving"
     ]
   },
   {
@@ -109,8 +108,8 @@
       "melodic rap",
       "trap",
       "west coast rap",
-      "hip-hop",
       "rap",
+      "hip-hop",
       "pop rap"
     ],
     "cover_art": "assets/covers/casino.jpg",
@@ -123,8 +122,8 @@
     "preview_url": null,
     "recommendations": [
       "octane",
-      "icon",
-      "getting-killed"
+      "dont-tap-the-glass",
+      "call-me-if-you-get-lost"
     ]
   },
   {
@@ -142,8 +141,7 @@
       "soul",
       "r&b",
       "blues",
-      "american",
-      "indie"
+      "alabama"
     ],
     "cover_art": "assets/covers/st-paul.jpg",
     "spotify_id": "6EkqdSW6mNa7c7aCKbWJ38",
@@ -154,9 +152,9 @@
     "track_url": "https://open.spotify.com/track/0wOkGJWYWlrjlZev8jrSCD",
     "preview_url": null,
     "recommendations": [
-      "octane",
-      "heavy-metal",
-      "icon"
+      "alien-coast",
+      "art-of-loving",
+      "submarine"
     ]
   },
   {
@@ -174,8 +172,8 @@
       "art rock",
       "shoegaze",
       "art punk",
-      "post-punk revival",
-      "dance punk"
+      "dance punk",
+      "post-punk revival"
     ],
     "cover_art": "assets/covers/projector.jpg",
     "spotify_id": "3agU01S9SBR3wIqjvt5xbo",
@@ -187,8 +185,8 @@
     "preview_url": null,
     "recommendations": [
       "getting-killed",
-      "heavy-metal",
-      "heaven-tortured-mind"
+      "3d-country",
+      "ants-from-up-there"
     ]
   },
   {
@@ -219,8 +217,8 @@
     "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF",
     "preview_url": null,
     "recommendations": [
-      "getting-killed",
       "st-paul",
+      "ants-from-up-there",
       "projector"
     ]
   },
@@ -242,7 +240,7 @@
       "neo-psychedelia",
       "indietronica",
       "progressive pop",
-      "pop rock"
+      "pop"
     ],
     "cover_art": "assets/covers/imaginal-disk.jpg",
     "spotify_id": "2Htq1sHgmdGffojIBM6Q1s",
@@ -253,9 +251,9 @@
     "track_url": "https://open.spotify.com/track/2RhHct6gGXSrZ1zHjovhRq",
     "preview_url": null,
     "recommendations": [
+      "after-hours",
       "hurry-up-tomorrow",
-      "heaven-tortured-mind",
-      "icon"
+      "deadbeat"
     ]
   },
   {
@@ -275,8 +273,8 @@
       "synthwave",
       "alternative r&b",
       "synthpop",
-      "alt-pop",
-      "pop"
+      "pop",
+      "alt-pop"
     ],
     "cover_art": "assets/covers/hurry-up-tomorrow.jpg",
     "spotify_id": "3OxfaVgvTxUTy7276t7SPU",
@@ -287,9 +285,9 @@
     "track_url": "https://open.spotify.com/track/717s9KFmHhyy5t3xkStS56",
     "preview_url": null,
     "recommendations": [
-      "icon",
+      "after-hours",
       "imaginal-disk",
-      "casino"
+      "icon"
     ]
   },
   {
@@ -319,9 +317,411 @@
     "track_url": "https://open.spotify.com/track/3nRhH5u3TE6HtvBH6mNwzY",
     "preview_url": null,
     "recommendations": [
+      "praise-a-lord",
+      "getting-killed",
+      "alien-coast"
+    ]
+  },
+  {
+    "id": "art-of-loving",
+    "title": "The Art of Loving",
+    "artist": "Olivia Dean",
+    "year": 2023,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "A warm, assured debut from the South London singer — Dean's velvety vocals and confessional songwriting make heartbreak feel like a hug.",
+    "review_url": "#",
+    "genres": [
+      "soul",
+      "indie pop",
+      "neo soul",
+      "r&b",
+      "british soul",
+      "pop",
+      "rhythm and blues",
+      "neo-soul"
+    ],
+    "cover_art": "assets/covers/art-of-loving.jpg",
+    "spotify_id": "0l8zYqoUeBYg47Gmevq9HZ",
+    "track_count": 12,
+    "duration_ms": 2063500,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "submarine",
+      "st-paul",
+      "alien-coast"
+    ]
+  },
+  {
+    "id": "ants-from-up-there",
+    "title": "Ants From Up There",
+    "artist": "Black Country, New Road",
+    "year": 2022,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "An achingly beautiful farewell from the band's original lineup — sprawling, orchestral, and emotionally devastating in a way few albums ever manage to be.",
+    "review_url": "#",
+    "genres": [
+      "post-rock",
+      "chamber pop",
+      "art rock",
+      "indie rock",
+      "baroque pop",
+      "chamber music"
+    ],
+    "cover_art": "assets/covers/ants-from-up-there.jpg",
+    "spotify_id": "21xp7NdU1ajmO1CX0w2Egd",
+    "track_count": 10,
+    "duration_ms": 3531090,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
       "projector",
       "getting-killed",
-      "imaginal-disk"
+      "3d-country"
+    ]
+  },
+  {
+    "id": "alien-coast",
+    "title": "The Alien Coast",
+    "artist": "St. Paul & The Broken Bones",
+    "year": 2022,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "The Broken Bones push their soul roots into stranger, more cinematic territory — Paul Janeway's voice remains the gravitational center of something genuinely cosmic.",
+    "review_url": "#",
+    "genres": [
+      "soul",
+      "psychedelic soul",
+      "art rock",
+      "southern soul",
+      "funk",
+      "blues",
+      "alabama",
+      "r&b"
+    ],
+    "cover_art": "assets/covers/alien-coast.jpg",
+    "spotify_id": "07dZWmAaFk2XJfdKeUwadb",
+    "track_count": 11,
+    "duration_ms": 2105975,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "st-paul",
+      "heaven-tortured-mind",
+      "art-of-loving"
+    ]
+  },
+  {
+    "id": "3d-country",
+    "title": "3D Country",
+    "artist": "Geese",
+    "year": 2023,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Geese swing hard toward Americana without losing their angular edge — a shape-shifting second record that finds the band expanding every boundary they set on Projector.",
+    "review_url": "#",
+    "genres": [
+      "indie rock",
+      "art rock",
+      "country rock",
+      "post-punk",
+      "alternative country",
+      "art punk",
+      "rock",
+      "alt-country",
+      "southern rock"
+    ],
+    "cover_art": "assets/covers/3d-country.jpg",
+    "spotify_id": "4RT2pNX9ZXCB0LtqfI2sdJ",
+    "track_count": 11,
+    "duration_ms": 2614064,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "projector",
+      "getting-killed",
+      "ants-from-up-there"
+    ]
+  },
+  {
+    "id": "heaven-or-las-vegas",
+    "title": "Heaven or Las Vegas",
+    "artist": "Cocteau Twins",
+    "year": 1990,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "One of the most purely beautiful albums ever made — Elizabeth Fraser's voice dissolves into Robin Guthrie's shimmering guitar haze like a language only music can speak.",
+    "review_url": "#",
+    "genres": [
+      "dream pop",
+      "shoegaze",
+      "ethereal wave",
+      "alternative rock",
+      "ambient pop",
+      "ethereal",
+      "alternative"
+    ],
+    "cover_art": "assets/covers/heaven-or-las-vegas.jpg",
+    "spotify_id": "5lEphbceIgaK1XxWeSrC9E",
+    "track_count": 10,
+    "duration_ms": 2244503,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "projector",
+      "imaginal-disk",
+      "submarine"
+    ]
+  },
+  {
+    "id": "submarine",
+    "title": "Submarine",
+    "artist": "The Marias",
+    "year": 2022,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Hazy, bilingual, and impossibly cool — The Marías float through psychedelic dream-pop with a laid-back confidence that makes every song feel like a slow-motion summer afternoon.",
+    "review_url": "#",
+    "genres": [
+      "indie pop",
+      "dream pop",
+      "psychedelic pop",
+      "r&b",
+      "bedroom pop",
+      "jazz",
+      "psychedelic",
+      "soul",
+      "los angeles"
+    ],
+    "cover_art": "assets/covers/submarine.jpg",
+    "spotify_id": "03guxdOi12XJbnvxvxbpwG",
+    "track_count": 14,
+    "duration_ms": 2713036,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "art-of-loving",
+      "st-paul",
+      "alien-coast"
+    ]
+  },
+  {
+    "id": "praise-a-lord",
+    "title": "Praise a Lord Who Chews but Which Does Not Consume",
+    "artist": "Yves Tumor",
+    "year": 2023,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Yves Tumor's most extroverted statement yet — loud, campy, and thrillingly weird, it splits the difference between arena rock and avant-garde with total conviction.",
+    "review_url": "#",
+    "genres": [
+      "art rock",
+      "glam rock",
+      "noise pop",
+      "psychedelic rock",
+      "avant-garde",
+      "alternative dance",
+      "post-punk",
+      "neo-psychedelic",
+      "gothic rock"
+    ],
+    "cover_art": "assets/covers/praise-a-lord.jpg",
+    "spotify_id": "5LIlFbWpjACyQFNW0nYvUC",
+    "track_count": 12,
+    "duration_ms": 2249822,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "heaven-tortured-mind",
+      "getting-killed",
+      "projector"
+    ]
+  },
+  {
+    "id": "after-hours",
+    "title": "After Hours",
+    "artist": "The Weeknd",
+    "year": 2020,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Abel's most cohesive vision — a 1980s-drenched heartbreak opera that turned paranoid synth-pop into one of the definitive albums of its era.",
+    "review_url": "#",
+    "genres": [
+      "r&b",
+      "synth-pop",
+      "alternative r&b",
+      "dark pop",
+      "pop",
+      "synthpop",
+      "synthwave",
+      "new wave"
+    ],
+    "cover_art": "assets/covers/after-hours.jpg",
+    "spotify_id": "4yP0hdKOZPNshxUOjY0cZj",
+    "track_count": 14,
+    "duration_ms": 3377568,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "hurry-up-tomorrow",
+      "imaginal-disk",
+      "art-of-loving"
+    ]
+  },
+  {
+    "id": "chromakopia",
+    "title": "CHROMAKOPIA",
+    "artist": "Tyler, the Creator",
+    "year": 2024,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Tyler strips back the maximalism for something more introspective — muted palettes, maternal guilt, and mid-life reckoning wrapped in impeccably crafted beats.",
+    "review_url": "#",
+    "genres": [
+      "hip-hop",
+      "neo soul",
+      "jazz rap",
+      "conscious hip-hop",
+      "alternative hip-hop",
+      "west coast hip-hop",
+      "synth funk",
+      "experimental hip-hop",
+      "neo-psychedelia",
+      "hardcore hip-hop"
+    ],
+    "cover_art": "assets/covers/chromakopia.jpg",
+    "spotify_id": "0U28P0QVB1QRxpqp5IHOlH",
+    "track_count": 14,
+    "duration_ms": 3180814,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "call-me-if-you-get-lost",
+      "dont-tap-the-glass",
+      "casino"
+    ]
+  },
+  {
+    "id": "call-me-if-you-get-lost",
+    "title": "Call Me If You Get Lost",
+    "artist": "Tyler, the Creator",
+    "year": 2021,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Tyler's most bravado-driven record is also one of his most polished — DJ Drama's hype-man energy and lush jazz-rap production make every track feel like a postcard from a better life.",
+    "review_url": "#",
+    "genres": [
+      "hip-hop",
+      "west coast rap",
+      "jazz rap",
+      "luxury rap",
+      "alternative hip-hop",
+      "neo-soul",
+      "synth funk",
+      "west coast hip-hop",
+      "hardcore hip-hop"
+    ],
+    "cover_art": "assets/covers/call-me-if-you-get-lost.jpg",
+    "spotify_id": "45ba6QAtNrdv6Ke4MFOKk9",
+    "track_count": 16,
+    "duration_ms": 3170012,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "chromakopia",
+      "dont-tap-the-glass",
+      "casino"
+    ]
+  },
+  {
+    "id": "dont-tap-the-glass",
+    "title": "Don't Tap the Glass",
+    "artist": "Tyler, the Creator",
+    "year": 2025,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "A short, restrained detour that shows Tyler at his most naked — lo-fi soul sketches that feel like journal pages set to music.",
+    "review_url": "#",
+    "genres": [
+      "hip-hop",
+      "jazz rap",
+      "alternative hip-hop",
+      "west coast rap",
+      "neo soul",
+      "hardcore hip-hop",
+      "hip house",
+      "pop rap",
+      "dance-rap"
+    ],
+    "cover_art": "assets/covers/dont-tap-the-glass.jpg",
+    "spotify_id": "1jzv3jwZbt8lYfEtMjiD1R",
+    "track_count": 10,
+    "duration_ms": 1710598,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "call-me-if-you-get-lost",
+      "chromakopia",
+      "casino"
+    ]
+  },
+  {
+    "id": "deadbeat",
+    "title": "Deadbeat",
+    "artist": "Tame Impala",
+    "year": 2024,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Parker returns in shimmering, unhurried form — Deadbeat splits the difference between Currents-era electronic gloss and the hazy guitar psychedelia of his roots.",
+    "review_url": "#",
+    "genres": [
+      "psychedelic rock",
+      "neo-psychedelia",
+      "indie rock",
+      "synth-pop",
+      "dream pop",
+      "electronic",
+      "house",
+      "edm",
+      "dance",
+      "psychedelic pop"
+    ],
+    "cover_art": "assets/covers/deadbeat.jpg",
+    "spotify_id": "5WulAOx9ilWy1h8UGZ1gkI",
+    "track_count": 12,
+    "duration_ms": 3365184,
+    "popularity": null,
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null,
+    "recommendations": [
+      "imaginal-disk",
+      "heaven-tortured-mind",
+      "getting-killed"
     ]
   }
 ]

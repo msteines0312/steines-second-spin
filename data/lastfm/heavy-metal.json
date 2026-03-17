@@ -16,27 +16,27 @@
           "url": "https://www.last.fm/tag/singer-songwriter"
         },
         {
-          "count": 73,
+          "count": 56,
           "name": "2024",
           "url": "https://www.last.fm/tag/2024"
         },
         {
-          "count": 22,
+          "count": 26,
           "name": "chamber folk",
           "url": "https://www.last.fm/tag/chamber+folk"
         },
         {
-          "count": 12,
+          "count": 9,
           "name": "americana",
           "url": "https://www.last.fm/tag/americana"
         },
         {
-          "count": 3,
+          "count": 2,
           "name": "contemporary folk",
           "url": "https://www.last.fm/tag/contemporary+folk"
         },
         {
-          "count": 3,
+          "count": 2,
           "name": "soul",
           "url": "https://www.last.fm/tag/soul"
         },
@@ -47,13 +47,13 @@
         },
         {
           "count": 1,
-          "name": "beautiful",
-          "url": "https://www.last.fm/tag/beautiful"
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
         },
         {
           "count": 1,
-          "name": "indie",
-          "url": "https://www.last.fm/tag/indie"
+          "name": "beautiful",
+          "url": "https://www.last.fm/tag/beautiful"
         },
         {
           "count": 1,
@@ -97,18 +97,13 @@
         },
         {
           "count": 2,
-          "name": "indie",
-          "url": "https://www.last.fm/tag/indie"
-        },
-        {
-          "count": 2,
           "name": "folk",
           "url": "https://www.last.fm/tag/folk"
         },
         {
-          "count": 1,
-          "name": "United States",
-          "url": "https://www.last.fm/tag/United+States"
+          "count": 2,
+          "name": "indie",
+          "url": "https://www.last.fm/tag/indie"
         },
         {
           "count": 1,
@@ -119,6 +114,11 @@
           "count": 1,
           "name": "USA",
           "url": "https://www.last.fm/tag/USA"
+        },
+        {
+          "count": 1,
+          "name": "United States",
+          "url": "https://www.last.fm/tag/United+States"
         }
       ],
       "@attr": {

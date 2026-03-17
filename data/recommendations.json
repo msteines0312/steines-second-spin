@@ -1,58 +1,138 @@
 [
   {
+    "slug": "3d-country",
+    "recommendations": [
+      "projector",
+      "getting-killed",
+      "ants-from-up-there"
+    ]
+  },
+  {
+    "slug": "after-hours",
+    "recommendations": [
+      "hurry-up-tomorrow",
+      "imaginal-disk",
+      "art-of-loving"
+    ]
+  },
+  {
+    "slug": "alien-coast",
+    "recommendations": [
+      "st-paul",
+      "heaven-tortured-mind",
+      "art-of-loving"
+    ]
+  },
+  {
+    "slug": "ants-from-up-there",
+    "recommendations": [
+      "projector",
+      "getting-killed",
+      "3d-country"
+    ]
+  },
+  {
+    "slug": "art-of-loving",
+    "recommendations": [
+      "submarine",
+      "st-paul",
+      "alien-coast"
+    ]
+  },
+  {
+    "slug": "call-me-if-you-get-lost",
+    "recommendations": [
+      "chromakopia",
+      "dont-tap-the-glass",
+      "casino"
+    ]
+  },
+  {
     "slug": "casino",
     "recommendations": [
       "octane",
-      "icon",
+      "dont-tap-the-glass",
+      "call-me-if-you-get-lost"
+    ]
+  },
+  {
+    "slug": "chromakopia",
+    "recommendations": [
+      "call-me-if-you-get-lost",
+      "dont-tap-the-glass",
+      "casino"
+    ]
+  },
+  {
+    "slug": "deadbeat",
+    "recommendations": [
+      "imaginal-disk",
+      "heaven-tortured-mind",
       "getting-killed"
+    ]
+  },
+  {
+    "slug": "dont-tap-the-glass",
+    "recommendations": [
+      "call-me-if-you-get-lost",
+      "chromakopia",
+      "casino"
     ]
   },
   {
     "slug": "getting-killed",
     "recommendations": [
       "projector",
-      "heavy-metal",
-      "heaven-tortured-mind"
+      "3d-country",
+      "praise-a-lord"
+    ]
+  },
+  {
+    "slug": "heaven-or-las-vegas",
+    "recommendations": [
+      "projector",
+      "imaginal-disk",
+      "submarine"
     ]
   },
   {
     "slug": "heaven-tortured-mind",
     "recommendations": [
-      "projector",
+      "praise-a-lord",
       "getting-killed",
-      "imaginal-disk"
+      "alien-coast"
     ]
   },
   {
     "slug": "heavy-metal",
     "recommendations": [
-      "getting-killed",
       "st-paul",
+      "ants-from-up-there",
       "projector"
     ]
   },
   {
     "slug": "hurry-up-tomorrow",
     "recommendations": [
-      "icon",
+      "after-hours",
       "imaginal-disk",
-      "casino"
+      "icon"
     ]
   },
   {
     "slug": "icon",
     "recommendations": [
       "hurry-up-tomorrow",
-      "casino",
-      "octane"
+      "art-of-loving",
+      "after-hours"
     ]
   },
   {
     "slug": "imaginal-disk",
     "recommendations": [
+      "after-hours",
       "hurry-up-tomorrow",
-      "heaven-tortured-mind",
-      "icon"
+      "deadbeat"
     ]
   },
   {
@@ -60,23 +140,39 @@
     "recommendations": [
       "casino",
       "st-paul",
-      "icon"
+      "art-of-loving"
+    ]
+  },
+  {
+    "slug": "praise-a-lord",
+    "recommendations": [
+      "heaven-tortured-mind",
+      "getting-killed",
+      "projector"
     ]
   },
   {
     "slug": "projector",
     "recommendations": [
       "getting-killed",
-      "heavy-metal",
-      "heaven-tortured-mind"
+      "3d-country",
+      "ants-from-up-there"
     ]
   },
   {
     "slug": "st-paul",
     "recommendations": [
-      "octane",
-      "heavy-metal",
-      "icon"
+      "alien-coast",
+      "art-of-loving",
+      "submarine"
+    ]
+  },
+  {
+    "slug": "submarine",
+    "recommendations": [
+      "art-of-loving",
+      "st-paul",
+      "alien-coast"
     ]
   }
 ]

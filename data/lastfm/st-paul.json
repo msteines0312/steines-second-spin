@@ -3,9 +3,9 @@
   "chosen_tags": [
     "soul",
     "blues",
-    "american",
     "funk",
-    "indie"
+    "alabama",
+    "r&b"
   ],
   "album_raw": {
     "toptags": {
@@ -67,13 +67,13 @@
         },
         {
           "count": 1,
-          "name": "funky",
-          "url": "https://www.last.fm/tag/funky"
+          "name": "southern",
+          "url": "https://www.last.fm/tag/southern"
         },
         {
           "count": 1,
-          "name": "southern",
-          "url": "https://www.last.fm/tag/southern"
+          "name": "funky",
+          "url": "https://www.last.fm/tag/funky"
         }
       ],
       "@attr": {

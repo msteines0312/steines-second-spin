@@ -33,8 +33,15 @@ OUT_FILE     = ROOT / "data" / "albums_clean.json"
 #    stale lastfm JSON files are cleaned even if they predate these rules) ────
 _VALID_TAG_RE = re.compile(r"^[a-zA-Z0-9 \-&]+$")
 
-# Known misspellings/garbage that pass the character filter — exact substrings
-_JUNK_TAGS = {"synth fumk"}
+# Exact-match tags to discard (case-insensitive) — mirrors fetch_lastfm.py.
+# Applied here too so stale lastfm JSON files written before these rules
+# existed are cleaned retroactively when clean_data.py runs.
+_JUNK_TAGS = {
+    "synth fumk",                                       # known typo
+    "short", "happy", "chill", "indie", "aoty",         # mood/award/generic
+    "usa", "american", "texas",                          # geographic
+    "2020s", "90s", "80s", "70s", "60s",                # decade tags
+}
 
 def _normalize_tag(tag: str) -> str:
     """Lowercase, then apply canonical normalizations.
@@ -62,8 +69,10 @@ def _clean_lastfm_tags(tags: list[str]) -> list[str]:
         tag = tag.strip()
         if not _VALID_TAG_RE.match(tag):
             continue                            # drop tags with bad characters
+        if tag and tag[0].isdigit():
+            continue                            # drop decade tags ("2020s", "90s", etc.)
         if tag.lower() in _JUNK_TAGS:
-            continue                            # drop known misspellings
+            continue                            # drop mood/geographic/generic junk
         normalized = _normalize_tag(tag)
         if normalized not in seen:
             seen.add(normalized)
