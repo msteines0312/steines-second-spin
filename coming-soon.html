@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reviews — Steines' Second Spin</title>
+<title>Coming Soon — Steines' Second Spin</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <style>
 html, body { margin: 0; padding: 0; overflow-x: hidden; }
@@ -94,80 +94,13 @@ body {
   line-height: 1.05;
 }
 .page-title em { font-style: italic; color: rgba(255,255,255,0.5); }
-
-/* === FILTER / SORT BAR === */
-.controls-bar {
-  background: var(--bg);
-  border-bottom: 1px solid var(--rule);
-  padding: 0 clamp(1.5rem, 6vw, 5rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0;
-  min-height: clamp(48px, 6vh, 60px);
-  position: sticky;
-  top: clamp(52px, 7vh, 64px);
-  z-index: 90;
-}
-
-.filter-group {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-}
-
-.filter-btn {
+.page-subtitle {
   font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 0 clamp(10px, 1.5vw, 18px);
-  height: clamp(48px, 6vh, 60px);
-  border: none;
-  background: transparent;
-  color: var(--mid);
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
-  white-space: nowrap;
-}
-.filter-btn:hover { color: var(--ink); }
-.filter-btn.active { color: var(--ink); border-bottom-color: var(--ink); }
-
-.sort-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: clamp(8px,1.5vh,12px) 0;
-  border-left: 1px solid var(--faint);
-  padding-left: clamp(12px, 2vw, 20px);
-}
-.sort-label {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
-.sort-select {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--faint);
-  padding: 4px 8px;
-  cursor: pointer;
-  appearance: none;
-  padding-right: 22px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23555555' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 6px center;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  margin: 14px 0 0;
+  max-width: 520px;
 }
 
 /* === MAIN CONTENT === */
@@ -189,19 +122,6 @@ body {
   text-transform: uppercase;
   color: var(--mid);
 }
-.active-filter-badge {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: rgba(232,24,30,0.08);
-  color: var(--red);
-  border: 1px solid rgba(232,24,30,0.2);
-  padding: 2px 10px;
-  display: none;
-}
-.active-filter-badge.visible { display: inline-block; }
 
 /* === ALBUM GRID === */
 .album-grid {
@@ -211,6 +131,7 @@ body {
   border-left: 1px solid var(--faint);
 }
 
+/* Each card is anchored — recommendation links can jump directly to it */
 .acard {
   display: block;
   text-decoration: none;
@@ -218,23 +139,26 @@ body {
   background: var(--bg);
   border-right: 1px solid var(--faint);
   border-bottom: 1px solid var(--faint);
-  transition: background 0.2s;
-}
-.acard:hover {
-  background: #f7f7f7;
-}
-.acard.hidden {
-  display: none;
+  scroll-margin-top: clamp(52px, 7vh, 64px); /* offset for sticky nav */
 }
 .acard-art {
   aspect-ratio: 1;
   background: var(--faint);
   overflow: hidden;
+  position: relative;
 }
 .acard-art img {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
+}
+/* Subtle overlay to signal "not yet published" */
+.acard-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  pointer-events: none;
 }
 .acard-body {
   padding: clamp(12px, 2vw, 18px);
@@ -306,24 +230,18 @@ body {
   line-height: 1.65;
   color: var(--mid);
   margin: 8px 0 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
-
-/* Cards without a published review */
-.acard--locked { cursor: default; }
-.acard--locked:hover { background: var(--bg); }
-.coming-soon {
+.in-queue-tag {
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 10px;
   font-family: var(--sans);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--faint);
+  color: var(--red);
+  border: 1px solid rgba(232,24,30,0.25);
+  padding: 2px 8px;
 }
 
 .grid-message {
@@ -357,7 +275,10 @@ body {
 
 /* === RESPONSIVE === */
 @media (max-width: 900px) { .album-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .album-grid { grid-template-columns: 1fr; } .nav-links li:nth-child(n+4) { display: none; } .sort-group { display: none; } }
+@media (max-width: 560px) {
+  .album-grid { grid-template-columns: 1fr; }
+  .nav-links li:nth-child(n+4) { display: none; }
+}
 </style>
 </head>
 <body>
@@ -366,8 +287,8 @@ body {
 <nav class="site-nav">
   <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
   <ul class="nav-links">
-    <li><a href="reviews.html" class="here">Reviews</a></li>
-    <li><a href="coming-soon.html">Coming Soon</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="coming-soon.html" class="here">Coming Soon</a></li>
     <li><a href="gear-page-v2.html">Hardware Recommendations</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="favorites.html">Favorites</a></li>
@@ -377,39 +298,19 @@ body {
 
 <!-- PAGE HEADER -->
 <header class="page-strip">
-  <div class="page-eyebrow">All Reviews</div>
-  <h1 class="page-title">Every <em>record</em>, ranked.</h1>
+  <div class="page-eyebrow">In Queue</div>
+  <h1 class="page-title">Reviews <em>coming soon.</em></h1>
+  <p class="page-subtitle">Albums I've spun but haven't written up yet. Full reviews are on the way — until then, here's what's in the queue.</p>
 </header>
-
-<!-- FILTER / SORT BAR -->
-<div class="controls-bar">
-  <div class="filter-group">
-    <button class="filter-btn active" data-genre="all">All</button>
-    <button class="filter-btn" data-genre="Hip-Hop">Hip-Hop</button>
-    <button class="filter-btn" data-genre="R&B">R&amp;B</button>
-    <button class="filter-btn" data-genre="Pop">Pop</button>
-    <button class="filter-btn" data-genre="Rock">Rock</button>
-    <button class="filter-btn" data-genre="Other">Other</button>
-  </div>
-  <div class="sort-group">
-    <span class="sort-label">Sort</span>
-    <select class="sort-select" id="sortSelect">
-      <option value="newest">Newest</option>
-      <option value="rating">Highest Rated</option>
-      <option value="az">A – Z</option>
-    </select>
-  </div>
-</div>
 
 <!-- GRID -->
 <main class="main-content">
   <div class="results-header">
     <span class="results-count" id="resultsCount">—</span>
-    <span class="active-filter-badge" id="filterBadge"></span>
   </div>
   <!-- NOTE: fetch() requires a local server — run: python -m http.server 8000 from project root -->
   <div class="album-grid" id="albumGrid">
-    <div class="grid-message">Loading reviews…</div>
+    <div class="grid-message">Loading queue…</div>
   </div>
 </main>
 
@@ -419,32 +320,6 @@ body {
 </footer>
 
 <script>
-let allAlbums = [];
-let activeGenre = 'all';
-let activeSort = 'newest';
-
-// Maps each filter button to substrings to look for in genre tags.
-// An album matches a category if ANY of its genres contains ANY of these substrings.
-const GENRE_KEYWORDS = {
-  'Hip-Hop': ['hip-hop', 'hip hop', 'rap', 'trap', 'drill', 'grime'],
-  'R&B':     ['r&b', 'soul', 'neo-soul', 'neo soul', 'rhythm and blues', 'funk'],
-  'Pop':     ['pop'],  // matches synth-pop, indie pop, dream pop, electropop, etc.
-  'Rock':    ['rock', 'punk', 'shoegaze', 'lo-fi', 'metal', 'grunge'],
-};
-
-// Returns true if the genre list matches a filter category.
-// "Other" shows albums that don't fit any of the four main categories.
-function matchesGenreFilter(genres, category) {
-  if (category === 'all') return true;
-  const keywords = GENRE_KEYWORDS[category];
-  if (!keywords) {
-    return !Object.values(GENRE_KEYWORDS).some(kws =>
-      genres.some(g => kws.some(kw => g.includes(kw)))
-    );
-  }
-  return genres.some(g => keywords.some(kw => g.includes(kw)));
-}
-
 function starMarks(n) {
   return Array.from({ length: 5 }, (_, i) =>
     `<span class="star${i < n ? ' filled' : ''}">★</span>`
@@ -452,15 +327,9 @@ function starMarks(n) {
 }
 
 function cardHTML(album) {
-  // Only link the card if there's a real review URL — not "#", null, or missing
-  const hasReview = album.review_url && album.review_url !== '#';
-  const tag  = hasReview ? 'a' : 'div';
-  const href = hasReview ? `href="${album.review_url}"` : '';
   const genre = (album.genres || [])[0] || '';
-  // Store all genres lowercased and comma-separated for client-side filter matching
-  const allGenres = (album.genres || []).map(g => g.toLowerCase()).join(',');
   return `
-    <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href} data-genre="${genre}" data-genres="${allGenres}" data-rating="${album.stars}" data-date="${album.date}" data-title="${album.title}">
+    <div class="acard" id="${album.id}">
       <div class="acard-art">
         <img src="${album.cover_art}" alt="${album.title}" loading="lazy" onerror="this.style.opacity='0'">
       </div>
@@ -473,74 +342,36 @@ function cardHTML(album) {
         <p class="acard-artist">${album.artist}</p>
         <div class="star-row">${starMarks(album.stars)}</div>
         <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
-        ${!hasReview ? `<span class="coming-soon">Review coming soon</span>` : ''}
+        <span class="in-queue-tag">Review in Queue</span>
       </div>
-    </${tag}>`;
+    </div>`;
 }
 
-function applyFiltersAndSort() {
-  const cards = document.querySelectorAll('.acard');
-  let visible = 0;
-
-  // Sort
-  const sorted = [...allAlbums].sort((a, b) => {
-    if (activeSort === 'newest') return new Date(b.date) - new Date(a.date);
-    if (activeSort === 'rating') return b.stars - a.stars;
-    if (activeSort === 'az') return a.title.localeCompare(b.title);
-    return 0;
-  });
-
-  // Re-render with sort applied
-  const grid = document.getElementById('albumGrid');
-  grid.innerHTML = sorted.map(cardHTML).join('');
-
-  // Apply genre filter — use the full genres list for broad subgenre matching
-  document.querySelectorAll('.acard').forEach(card => {
-    const genres = (card.dataset.genres || '').split(',').filter(Boolean);
-    const match = matchesGenreFilter(genres, activeGenre);
-    card.classList.toggle('hidden', !match);
-    if (match) visible++;
-  });
-
-  // Update counts
-  const countEl = document.getElementById('resultsCount');
-  const badgeEl = document.getElementById('filterBadge');
-  countEl.textContent = `${visible} Review${visible !== 1 ? 's' : ''}`;
-
-  if (activeGenre !== 'all') {
-    badgeEl.textContent = activeGenre;
-    badgeEl.classList.add('visible');
-  } else {
-    badgeEl.classList.remove('visible');
-  }
-}
-
-// Filter buttons
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeGenre = btn.dataset.genre;
-    applyFiltersAndSort();
-  });
-});
-
-// Sort select
-document.getElementById('sortSelect').addEventListener('change', (e) => {
-  activeSort = e.target.value;
-  applyFiltersAndSort();
-});
-
-// Load data
 fetch('data/albums_final.json')
   .then(r => r.json())
   .then(albums => {
-    allAlbums = albums;
-    applyFiltersAndSort();
+    // Only show albums without a published review
+    const queued = albums.filter(a => !a.review_url || a.review_url === '#');
+    const grid = document.getElementById('albumGrid');
+    if (queued.length === 0) {
+      grid.innerHTML = '<div class="grid-message">All caught up — no reviews in queue.</div>';
+    } else {
+      grid.innerHTML = queued.map(cardHTML).join('');
+    }
+    document.getElementById('resultsCount').textContent =
+      `${queued.length} Album${queued.length !== 1 ? 's' : ''} in Queue`;
+
+    // If URL has a hash, scroll to that album card after rendering
+    if (window.location.hash) {
+      const target = document.getElementById(window.location.hash.slice(1));
+      if (target) {
+        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+    }
   })
   .catch(() => {
     document.getElementById('albumGrid').innerHTML =
-      '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
+      '<div class="grid-message">Run a local server to load the queue (python -m http.server in project root).</div>';
   });
 </script>
 </body>

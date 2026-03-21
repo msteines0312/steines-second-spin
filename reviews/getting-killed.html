@@ -406,6 +406,7 @@ body {
   <a class="wordmark" href="../index.html">Steines'<span> Second Spin</span></a>
   <ul class="nav-links">
     <li><a href="../reviews.html" class="here">Reviews</a></li>
+    <li><a href="../coming-soon.html">Coming Soon</a></li>
     <li><a href="../gear-page-v2.html">Hardware Recommendations</a></li>
     <li><a href="../about.html">About</a></li>
     <li><a href="../favorites.html">Favorites</a></li>
@@ -676,10 +677,10 @@ fetch('../data/albums_final.json')
     }
 
     recsGrid.innerHTML = recAlbums.map(rec => {
-      // Only link rec card if that review page is published (review_url !== '#')
+      // Published reviews link to their page; everything else links to the coming-soon queue
       const hasReview = rec.review_url && rec.review_url !== '#';
-      const tag  = hasReview ? 'a' : 'div';
-      const href = hasReview ? `href="${rec.id}.html"` : '';
+      const tag  = 'a';
+      const href = hasReview ? `href="${rec.id}.html"` : `href="../coming-soon.html#${rec.id}"`;
       return `
       <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href}>
         <div class="acard-art">

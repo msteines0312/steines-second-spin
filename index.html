@@ -490,6 +490,7 @@ body {
   <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
   <ul class="nav-links">
     <li><a href="reviews.html" class="here">Reviews</a></li>
+    <li><a href="coming-soon.html">Coming Soon</a></li>
     <li><a href="gear-page-v2.html">Hardware Recommendations</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="favorites.html">Favorites</a></li>
@@ -575,7 +576,7 @@ function cardHTML(album, index) {
         <p class="acard-artist">${album.artist}</p>
         <div class="star-row">${starMarks(album.stars)}</div>
         <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
-        ${!hasReview ? `<p class="acard-blurb">${album.blurb}</p><span class="coming-soon">Review coming soon</span>` : ''}
+        ${!hasReview ? `<span class="coming-soon">Review coming soon</span>` : ''}
       </div>
     </${tag}>`;
 }
