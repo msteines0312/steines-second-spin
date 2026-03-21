@@ -2,6 +2,7 @@
 .claude/
 
 # Project-specific
+reviews/template.html
 data/raw/*
 data/lastfm/
 data/processed/*
