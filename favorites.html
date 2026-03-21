@@ -4,90 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Favorites — Steines' Second Spin</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <style>
 html, body { margin: 0; padding: 0; overflow-x: hidden; }
 *, *::before, *::after { box-sizing: border-box; }
 
 :root {
-  --bg:      #f5f3ee;
-  --ink:     #1a1a1a;
-  --muted:   #888075;
-  --faint:   #c8c2b8;
-  --crimson: #c41e3a;
-  --warm:    #e8d4c0;
-  --surface: #fff;
-  --serif:   'Fraunces', Georgia, serif;
-  --sans:    'Work Sans', system-ui, sans-serif;
+  --bg:    #ffffff;
+  --ink:   #0d0d0d;
+  --mid:   #555555;
+  --faint: #e0e0e0;
+  --rule:  #e0e0e0;
+  --red:   #e8181e;
+  --serif: 'Archivo', sans-serif;
+  --sans:  'Archivo', sans-serif;
 }
 
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
-}
-
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1000;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.65;
 }
 
 /* === NAV === */
 .site-nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(26,26,26,0.96);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg);
+  border-bottom: 1.5px solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 clamp(1rem, 4vw, 3rem);
   height: clamp(52px, 7vh, 64px);
 }
-.wordmark { font-family: var(--serif); font-size: clamp(12px, 1.2vw, 15px); font-weight: 700; letter-spacing: 0.04em; color: rgba(255,255,255,0.7); text-decoration: none; }
-.wordmark span { color: var(--crimson); }
+.wordmark {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.wordmark span { color: var(--red); }
 .nav-links { display: flex; gap: clamp(12px, 2vw, 28px); list-style: none; margin: 0; padding: 0; }
-.nav-links a { font-family: var(--sans); font-size: clamp(9px, 0.85vw, 11px); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: #fff; }
-.nav-links a.here { color: var(--crimson); }
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.nav-links a.here  { color: var(--ink); border-bottom-color: var(--ink); }
 
 /* === PAGE HEADER === */
 .page-strip {
   background: var(--ink);
   padding: clamp(36px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem);
   position: relative;
-  overflow: hidden;
-}
-.page-strip-bg {
-  position: absolute; right: -2%; bottom: -10%;
-  font-family: var(--serif);
-  font-size: clamp(80px, 18vw, 220px);
-  font-weight: 900;
-  color: rgba(255,255,255,0.02);
-  pointer-events: none; user-select: none; line-height: 1;
 }
 .page-eyebrow {
   font-family: var(--sans);
-  font-size: clamp(8px, 0.8vw, 10px);
-  font-weight: 600;
-  letter-spacing: 0.25em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--crimson);
+  color: var(--red);
   margin-bottom: 12px;
   display: flex; align-items: center; gap: 10px;
 }
-.page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--crimson); }
-.page-title { font-family: var(--serif); font-size: clamp(28px, 5vw, 60px); font-weight: 900; letter-spacing: -0.03em; color: #fff; margin: 0 0 14px; line-height: 1.05; }
-.page-title em { font-style: italic; color: var(--warm); }
-.page-dek { font-family: var(--sans); font-size: clamp(13px, 1.4vw, 16px); font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.45); max-width: 58ch; margin: 0; }
+.page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
+.page-title {
+  font-family: var(--sans);
+  font-size: clamp(28px, 5vw, 60px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 14px;
+  line-height: 1.05;
+}
+.page-title em { font-style: italic; color: rgba(255,255,255,0.5); }
+.page-dek {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.45);
+  max-width: 58ch;
+  margin: 0;
+}
 
 /* === SECTION === */
 .fav-section {
   padding: clamp(40px, 6vh, 64px) clamp(1.5rem, 6vw, 5rem);
-  border-bottom: 1px solid rgba(26,26,26,0.08);
+  border-bottom: 1px solid var(--rule);
 }
 
 .section-header {
@@ -97,33 +117,37 @@ body::after {
   margin-bottom: clamp(20px, 4vh, 36px);
 }
 .section-num {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 900;
+  letter-spacing: -0.03em;
   color: var(--faint);
   line-height: 1;
   flex-shrink: 0;
 }
 .section-heading-group { min-width: 0; }
 .section-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(16px, 2vw, 22px);
-  font-weight: 700;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   color: var(--ink);
   margin: 0 0 2px;
 }
 .section-sub {
   font-family: var(--sans);
-  font-size: clamp(10px, 1vw, 12px);
-  font-weight: 400;
-  color: var(--muted);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--mid);
   font-style: italic;
 }
 
 .album-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(12px, 2vw, 20px);
+  gap: 0;
+  border-left: 1px solid var(--faint);
 }
 
 /* === ALBUM CARD (links to Spotify) === */
@@ -131,17 +155,17 @@ body::after {
   display: block;
   text-decoration: none;
   color: inherit;
-  background: var(--surface);
-  border: 1px solid rgba(26,26,26,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: var(--bg);
+  border-right: 1px solid var(--faint);
+  border-bottom: 1px solid var(--faint);
+  transition: background 0.2s;
 }
 .acard:hover {
-  box-shadow: 0 8px 36px rgba(0,0,0,0.1);
-  transform: translateY(-4px);
+  background: #f7f7f7;
 }
 .acard-art {
   aspect-ratio: 1;
-  background: var(--warm);
+  background: var(--faint);
   overflow: hidden;
   position: relative;
 }
@@ -149,21 +173,19 @@ body::after {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
 }
-.acard:hover .acard-art img { transform: scale(1.04); }
 
 /* Spotify hover overlay */
 .acard-art::after {
   content: '▶  Open in Spotify';
   position: absolute; inset: 0;
-  background: rgba(26,26,26,0.7);
+  background: rgba(13,13,13,0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--sans);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #fff;
@@ -174,33 +196,35 @@ body::after {
 
 .acard-body {
   padding: clamp(10px, 1.5vw, 16px);
-  border-top: 3px solid var(--crimson);
+  border-top: 1px solid var(--faint);
 }
 .acard-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(12px, 1.2vw, 15px);
-  font-weight: 700;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   color: var(--ink);
-  line-height: 1.25;
+  line-height: 1.15;
   margin: 0 0 3px;
 }
 .acard-artist {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(10px, 1vw, 12px);
-  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--mid);
   margin: 0 0 8px;
 }
 .acard-year {
   font-family: var(--sans);
-  font-size: clamp(7px, 0.75vw, 9px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--faint);
+  color: var(--mid);
   background: var(--bg);
   padding: 2px 8px;
-  border: 1px solid rgba(26,26,26,0.08);
+  border: 1px solid var(--faint);
   display: inline-block;
 }
 
@@ -214,19 +238,21 @@ body::after {
 }
 .playlists-eyebrow {
   font-family: var(--sans);
-  font-size: clamp(8px, 0.8vw, 10px);
-  font-weight: 600;
-  letter-spacing: 0.25em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--crimson);
+  color: var(--red);
   margin-bottom: 8px;
   display: flex; align-items: center; gap: 10px;
 }
-.playlists-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--crimson); }
+.playlists-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
 .playlists-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(18px, 2.5vw, 28px);
-  font-weight: 700;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   color: #fff;
   margin: 0;
 }
@@ -242,14 +268,13 @@ body::after {
   text-decoration: none;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
+  border-left: 2px solid var(--red);
   padding: clamp(16px, 2.5vw, 24px);
-  border-left: 3px solid var(--crimson);
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s;
   position: relative;
 }
 .pcard:hover {
   background: rgba(255,255,255,0.07);
-  transform: translateY(-2px);
 }
 .pcard-icon {
   font-size: 22px;
@@ -257,25 +282,27 @@ body::after {
   display: block;
 }
 .pcard-name {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(14px, 1.6vw, 18px);
-  font-weight: 700;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   color: #fff;
   margin: 0 0 6px;
 }
 .pcard-desc {
   font-family: var(--sans);
-  font-size: clamp(11px, 1.1vw, 13px);
+  font-size: 13px;
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.65;
   color: rgba(255,255,255,0.45);
   margin: 0 0 14px;
 }
 .pcard-link {
   font-family: var(--sans);
-  font-size: clamp(8px, 0.8vw, 10px);
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #1DB954;
   display: flex; align-items: center; gap: 6px;
@@ -283,15 +310,14 @@ body::after {
 
 /* Non-linked display cards — no pointer, no hover effects */
 .acard.fav-card { cursor: default; }
-.acard.fav-card:hover { box-shadow: none; transform: none; }
-.acard.fav-card:hover .acard-art img { transform: none; }
+.acard.fav-card:hover { background: var(--bg); }
 .acard.fav-card .acard-art::after { display: none; }
 .acard-blurb {
   font-family: var(--sans);
-  font-size: clamp(10px, 1vw, 12px);
+  font-size: 13px;
   font-weight: 300;
-  line-height: 1.6;
-  color: var(--muted);
+  line-height: 1.65;
+  color: var(--mid);
   margin: 8px 0 0;
 }
 
@@ -304,13 +330,12 @@ body::after {
 }
 .embeds-stack iframe {
   display: block;
-  border-radius: 0;
   border: none;
 }
 
 /* === FOOTER === */
 .site-footer {
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.08);
   background: var(--ink);
   padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
   display: flex;
@@ -319,9 +344,15 @@ body::after {
   flex-wrap: wrap;
   gap: 12px;
 }
-.footer-wordmark { font-family: var(--serif); font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.3); }
-.footer-wordmark span { color: var(--crimson); }
-.footer-note { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.15); text-transform: uppercase; }
+.footer-wordmark {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.footer-wordmark span { color: var(--red); }
 
 /* === RESPONSIVE === */
 @media (max-width: 1000px) { .album-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -345,7 +376,6 @@ body::after {
 
 <!-- PAGE HEADER -->
 <header class="page-strip">
-  <div class="page-strip-bg">CANON</div>
   <div class="page-eyebrow">Beyond the Reviews</div>
   <h1 class="page-title">The <em>records</em> that shaped me.</h1>
   <p class="page-dek">Not everything I love has a review. These are the albums I return to — the ones that were playing when something happened, or that explained something I didn't have words for yet.</p>

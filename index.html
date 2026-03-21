@@ -4,36 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Steines' Second Spin</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <style>
 html, body { margin: 0; padding: 0; overflow-x: hidden; }
 *, *::before, *::after { box-sizing: border-box; }
 
 :root {
-  --bg:      #f5f3ee;
-  --ink:     #1a1a1a;
-  --muted:   #888075;
-  --faint:   #c8c2b8;
-  --crimson: #c41e3a;
-  --warm:    #e8d4c0;
-  --surface: #fff;
-  --serif:   'Fraunces', Georgia, serif;
-  --sans:    'Work Sans', system-ui, sans-serif;
+  --bg:    #ffffff;
+  --ink:   #0d0d0d;
+  --mid:   #555555;
+  --faint: #e0e0e0;
+  --rule:  #e0e0e0;
+  --red:   #e8181e;
+  --serif: 'Archivo', sans-serif;
+  --sans:  'Archivo', sans-serif;
 }
 
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
-}
-
-/* Paper grain */
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1000;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.65;
 }
 
 /* === NAV === */
@@ -41,9 +34,8 @@ body::after {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(26,26,26,0.96);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg);
+  border-bottom: 1.5px solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,14 +44,15 @@ body::after {
 }
 
 .wordmark {
-  font-family: var(--serif);
-  font-size: clamp(12px, 1.2vw, 15px);
+  font-family: var(--sans);
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
   text-decoration: none;
 }
-.wordmark span { color: var(--crimson); }
+.wordmark span { color: var(--red); }
 
 .nav-links {
   display: flex;
@@ -70,37 +63,24 @@ body::after {
 
 .nav-links a {
   font-family: var(--sans);
-  font-size: clamp(9px, 0.85vw, 11px);
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: var(--mid);
   text-decoration: none;
   transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
 }
-.nav-links a:hover, .nav-links a.here { color: #fff; }
-.nav-links a.here { color: var(--crimson); }
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.nav-links a.here  { color: var(--ink); border-bottom-color: var(--ink); }
 
 /* === HERO === */
 .hero {
   background: var(--ink);
   padding: clamp(48px, 9vh, 96px) clamp(1.5rem, 6vw, 5rem);
   position: relative;
-  overflow: hidden;
-}
-
-.hero-bg-word {
-  position: absolute;
-  right: -2%;
-  bottom: -10%;
-  font-family: var(--serif);
-  font-size: clamp(100px, 22vw, 280px);
-  font-weight: 900;
-  color: rgba(255,255,255,0.022);
-  pointer-events: none;
-  user-select: none;
-  line-height: 1;
-  letter-spacing: -0.06em;
 }
 
 .hero-eyebrow {
@@ -108,11 +88,11 @@ body::after {
   align-items: center;
   gap: 12px;
   font-family: var(--sans);
-  font-size: clamp(8px, 0.85vw, 10px);
-  font-weight: 600;
-  letter-spacing: 0.25em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--crimson);
+  color: var(--red);
   margin-bottom: clamp(14px, 2.5vh, 24px);
 }
 .hero-eyebrow::before {
@@ -120,29 +100,30 @@ body::after {
   display: block;
   width: clamp(20px, 3vw, 36px);
   height: 1px;
-  background: var(--crimson);
+  background: var(--red);
 }
 
 .hero-hed {
-  font-family: var(--serif);
-  font-size: clamp(32px, 6vw, 76px);
+  font-family: var(--sans);
+  font-size: clamp(52px, 8vw, 96px);
   font-weight: 900;
-  line-height: 1.0;
+  line-height: 0.95;
   letter-spacing: -0.03em;
+  text-transform: uppercase;
   color: #fff;
   max-width: 16ch;
   margin: 0 0 clamp(12px, 2vh, 20px);
 }
 .hero-hed em {
   font-style: italic;
-  color: var(--warm);
+  color: rgba(255,255,255,0.5);
 }
 
 .hero-dek {
   font-family: var(--sans);
-  font-size: clamp(13px, 1.4vw, 16px);
+  font-size: 13px;
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.65;
   color: rgba(255,255,255,0.5);
   max-width: 50ch;
   margin: 0 0 clamp(24px, 4vh, 40px);
@@ -151,17 +132,17 @@ body::after {
 .hero-cta {
   display: inline-block;
   font-family: var(--sans);
-  font-size: clamp(9px, 0.9vw, 11px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: clamp(10px,1.5vh,14px) clamp(20px,3vw,30px);
-  background: var(--crimson);
+  background: var(--red);
   color: #fff;
   text-decoration: none;
   transition: background 0.2s;
 }
-.hero-cta:hover { background: #a8182e; }
+.hero-cta:hover { background: #c41018; }
 
 /* === GRID SECTION === */
 .grid-section {
@@ -173,31 +154,34 @@ body::after {
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: clamp(20px, 4vh, 36px);
-  border-bottom: 1px solid rgba(26,26,26,0.1);
+  border-bottom: 1px solid var(--rule);
   padding-bottom: 14px;
 }
 
 .section-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(16px, 2vw, 22px);
-  font-weight: 700;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   color: var(--ink);
   margin: 0;
 }
 
 .section-count {
   font-family: var(--sans);
-  font-size: clamp(8px, 0.8vw, 10px);
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--mid);
 }
 
 .album-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(14px, 2.5vw, 24px);
+  gap: 0;
+  border-left: 1px solid var(--faint);
 }
 
 /* === ALBUM CARD === */
@@ -205,40 +189,35 @@ body::after {
   display: block;
   text-decoration: none;
   color: inherit;
-  background: var(--surface);
-  border: 1px solid rgba(26,26,26,0.08);
+  background: var(--bg);
+  border-right: 1px solid var(--faint);
+  border-bottom: 1px solid var(--faint);
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease;
+  transition: opacity 0.55s ease, transform 0.55s ease, background 0.2s;
 }
 .acard.visible {
   opacity: 1;
   transform: translateY(0);
 }
 .acard:hover {
-  box-shadow: 0 8px 36px rgba(0,0,0,0.1);
-  transform: translateY(-4px);
-}
-.acard.visible:hover {
-  transform: translateY(-4px);
+  background: #f7f7f7;
 }
 
 .acard-art {
   aspect-ratio: 1;
-  background: var(--warm);
+  background: var(--faint);
   overflow: hidden;
 }
 .acard-art img {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
 }
-.acard:hover .acard-art img { transform: scale(1.04); }
 
 .acard-body {
   padding: clamp(12px, 2vw, 18px);
-  border-top: 3px solid var(--crimson);
+  border-top: 1px solid var(--faint);
 }
 
 .acard-meta {
@@ -250,30 +229,32 @@ body::after {
 
 .meta-pill {
   font-family: var(--sans);
-  font-size: clamp(7px, 0.75vw, 9px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--mid);
   background: var(--bg);
   padding: 2px 8px;
-  border: 1px solid rgba(26,26,26,0.1);
+  border: 1px solid var(--faint);
 }
 
 .acard-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(13px, 1.3vw, 16px);
-  font-weight: 700;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   color: var(--ink);
-  line-height: 1.25;
-  margin: 0 0 3px;
+  line-height: 1.15;
+  margin: 0 0 4px;
 }
 
 .acard-artist {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(11px, 1.1vw, 13px);
-  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--mid);
   margin: 0 0 10px;
 }
 
@@ -289,28 +270,28 @@ body::after {
   line-height: 1;
   color: var(--faint);
 }
-.star.filled { color: var(--crimson); }
+.star.filled { color: var(--ink); }
 
 .spin-badge {
   font-family: var(--sans);
-  font-size: clamp(7px, 0.7vw, 8px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 2px 7px;
-  border: 1px solid;
   margin-top: 6px;
   display: inline-block;
+  background: none;
 }
-.spin-badge.yes { color: var(--crimson); border-color: rgba(196,30,58,0.35); }
-.spin-badge.no  { color: var(--muted);   border-color: rgba(136,128,117,0.3); }
+.spin-badge.yes { color: var(--ink); border: 1.5px solid var(--ink); }
+.spin-badge.no  { color: var(--mid); border: 1px solid var(--faint); }
 
 .acard-blurb {
   font-family: var(--sans);
-  font-size: clamp(10px, 1vw, 12px);
+  font-size: 13px;
   font-weight: 300;
-  line-height: 1.6;
-  color: var(--muted);
+  line-height: 1.65;
+  color: var(--mid);
   margin: 8px 0 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -318,18 +299,15 @@ body::after {
   overflow: hidden;
 }
 
-/* Cards without a published review — no pointer, no lift on hover */
+/* Cards without a published review */
 .acard--locked { cursor: default; }
-.acard--locked:hover { box-shadow: none; transform: none; }
-.acard--locked.visible:hover { transform: none; }
-.acard--locked .acard-art img { transition: none; }
-.acard--locked:hover .acard-art img { transform: none; }
+.acard--locked:hover { background: var(--bg); }
 .coming-soon {
   display: inline-block;
   margin-top: 8px;
   font-family: var(--sans);
-  font-size: clamp(7px, 0.7vw, 8px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--faint);
@@ -341,13 +319,13 @@ body::after {
   text-align: center;
   padding: 60px 20px;
   font-family: var(--sans);
-  font-size: 14px;
-  color: var(--muted);
+  font-size: 13px;
+  color: var(--mid);
 }
 
 /* === FOOTER === */
 .site-footer {
-  border-top: 1px solid rgba(26,26,26,0.1);
+  border-top: 1px solid var(--rule);
   padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
   display: flex;
   align-items: center;
@@ -356,34 +334,20 @@ body::after {
   gap: 12px;
 }
 .footer-wordmark {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 13px;
   font-weight: 700;
-  color: var(--muted);
-}
-.footer-wordmark span { color: var(--crimson); }
-.footer-note {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: var(--faint);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--mid);
 }
+.footer-wordmark span { color: var(--red); }
 
 /* === RECOMMEND FORM === */
 .recommend-section {
   padding: clamp(40px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem);
   background: var(--ink);
   position: relative;
-  overflow: hidden;
-}
-
-.recommend-section .hero-bg-word {
-  font-size: clamp(80px, 18vw, 220px);
-  bottom: -8%;
-  right: -1%;
-  color: rgba(255,255,255,0.018);
 }
 
 .recommend-header {
@@ -395,11 +359,11 @@ body::after {
   align-items: center;
   gap: 12px;
   font-family: var(--sans);
-  font-size: clamp(8px, 0.85vw, 10px);
-  font-weight: 600;
-  letter-spacing: 0.25em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--crimson);
+  color: var(--red);
   margin-bottom: clamp(10px, 1.5vh, 16px);
 }
 .recommend-eyebrow::before {
@@ -407,22 +371,23 @@ body::after {
   display: block;
   width: clamp(20px, 3vw, 36px);
   height: 1px;
-  background: var(--crimson);
+  background: var(--red);
 }
 
 .recommend-hed {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(24px, 4vw, 52px);
   font-weight: 900;
-  line-height: 1.05;
+  line-height: 1.0;
   letter-spacing: -0.03em;
+  text-transform: uppercase;
   color: #fff;
   margin: 0 0 clamp(8px, 1.5vh, 14px);
 }
 
 .recommend-dek {
   font-family: var(--sans);
-  font-size: clamp(12px, 1.2vw, 14px);
+  font-size: 13px;
   font-weight: 300;
   color: rgba(255,255,255,0.4);
   max-width: 52ch;
@@ -446,9 +411,9 @@ body::after {
 
 .form-label {
   font-family: var(--sans);
-  font-size: clamp(7px, 0.75vw, 9px);
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.35);
 }
@@ -456,8 +421,8 @@ body::after {
 .form-input,
 .form-textarea {
   font-family: var(--sans);
-  font-size: clamp(12px, 1.1vw, 14px);
-  font-weight: 400;
+  font-size: 13px;
+  font-weight: 300;
   color: #fff;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.1);
@@ -472,7 +437,7 @@ body::after {
 }
 .form-input:focus,
 .form-textarea:focus {
-  border-color: rgba(196,30,58,0.6);
+  border-color: rgba(232,24,30,0.6);
   background: rgba(255,255,255,0.09);
 }
 
@@ -483,27 +448,28 @@ body::after {
 
 .form-submit {
   font-family: var(--sans);
-  font-size: clamp(9px, 0.9vw, 11px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: clamp(11px, 1.6vh, 15px) clamp(24px, 3vw, 34px);
-  background: var(--crimson);
+  background: var(--red);
   color: #fff;
   border: none;
   cursor: pointer;
   transition: background 0.2s;
   align-self: end;
 }
-.form-submit:hover { background: #a8182e; }
+.form-submit:hover { background: #c41018; }
 
 .form-thanks {
   display: none;
   grid-column: 1 / -1;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-style: italic;
-  font-size: clamp(14px, 1.4vw, 17px);
-  color: var(--warm);
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
   padding: clamp(12px, 2vh, 18px) 0 0;
 }
 
@@ -533,7 +499,6 @@ body::after {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-word">SPIN</div>
   <div class="hero-eyebrow">Independent Music Reviews</div>
   <h1 class="hero-hed">Everything deserves a <em>second spin.</em></h1>
   <p class="hero-dek">Personal album reviews from Madison, Wisconsin. No algorithms, no affiliate links — just honest takes from someone who listens too much.</p>
@@ -554,7 +519,6 @@ body::after {
 
 <!-- RECOMMEND FORM -->
 <section class="recommend-section">
-  <div class="hero-bg-word">SPIN</div>
   <div class="recommend-header">
     <div class="recommend-eyebrow">Reader Picks</div>
     <h2 class="recommend-hed">What Should I<br>Spin Next?</h2>

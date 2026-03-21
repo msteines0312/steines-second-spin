@@ -4,44 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Setup — Steines' Second Spin</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <style>
 html, body { margin: 0; padding: 0; overflow-x: hidden; }
 *, *::before, *::after { box-sizing: border-box; }
 
 :root {
-  --bg:      #f5f3ee;
-  --ink:     #1a1a1a;
-  --muted:   #888075;
-  --faint:   #c8c2b8;
-  --crimson: #c41e3a;
-  --warm:    #e8d4c0;
-  --surface: #fff;
-  --serif:   'Fraunces', Georgia, serif;
-  --sans:    'Work Sans', system-ui, sans-serif;
+  --bg:    #ffffff;
+  --ink:   #0d0d0d;
+  --mid:   #555555;
+  --faint: #e0e0e0;
+  --red:   #e8181e;
+  --serif: 'Archivo', sans-serif;
+  --sans:  'Archivo', sans-serif;
 }
 
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
-}
-
-/* Paper grain */
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1000;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.65;
 }
 
 /* === NAV === */
 .site-nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(26,26,26,0.96);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg);
+  border-bottom: 1.5px solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -49,14 +40,15 @@ body::after {
   height: clamp(52px, 7vh, 64px);
 }
 .wordmark {
-  font-family: var(--serif);
-  font-size: clamp(12px, 1.2vw, 15px);
+  font-family: var(--sans);
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
   text-decoration: none;
 }
-.wordmark span { color: var(--crimson); }
+.wordmark span { color: var(--red); }
 .nav-links {
   display: flex;
   gap: clamp(12px, 2vw, 28px);
@@ -65,16 +57,18 @@ body::after {
 }
 .nav-links a {
   font-family: var(--sans);
-  font-size: clamp(9px, 0.85vw, 11px);
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: var(--mid);
   text-decoration: none;
   transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
 }
-.nav-links a:hover { color: #fff; }
-.nav-links a.here { color: var(--crimson); }
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.nav-links a.here  { color: var(--ink); border-bottom-color: var(--ink); }
 
 /* === HERO === */
 .hero {
@@ -86,7 +80,7 @@ body::after {
 .hero-bg-word {
   position: absolute;
   right: -2%; bottom: -10%;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(100px, 22vw, 280px);
   font-weight: 900;
   color: rgba(255,255,255,0.022);
@@ -98,11 +92,11 @@ body::after {
   align-items: center;
   gap: 12px;
   font-family: var(--sans);
-  font-size: clamp(8px, 0.85vw, 10px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--crimson);
+  color: var(--red);
   margin-bottom: clamp(14px, 2.5vh, 24px);
 }
 .hero-eyebrow::before {
@@ -110,14 +104,15 @@ body::after {
   display: block;
   width: clamp(20px, 3vw, 36px);
   height: 1px;
-  background: var(--crimson);
+  background: var(--red);
 }
 .hero-hed {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(32px, 6vw, 76px);
   font-weight: 900;
   line-height: 1.0;
   letter-spacing: -0.03em;
+  text-transform: uppercase;
   color: #fff;
   max-width: 14ch;
   margin: 0 0 clamp(12px, 2vh, 20px);
@@ -142,36 +137,40 @@ body::after {
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: clamp(24px, 4vh, 40px);
-  border-bottom: 1px solid rgba(26,26,26,0.1);
+  border-bottom: 1px solid var(--faint);
   padding-bottom: 14px;
 }
 .section-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(18px, 2.2vw, 26px);
   font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
   color: var(--ink);
   margin: 0;
 }
 .section-count {
   font-family: var(--sans);
-  font-size: clamp(8px, 0.8vw, 10px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--mid);
 }
 
 /* === GEAR GRID === */
 .gear-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(16px, 2.5vw, 28px);
+  gap: 0;
+  border-left: 1px solid var(--faint);
 }
 
 /* === GEAR CARD === */
 .gcard {
-  background: var(--surface);
-  border: 1px solid rgba(26,26,26,0.08);
+  background: var(--bg);
+  border-right: 1px solid var(--faint);
+  border-bottom: 1px solid var(--faint);
   display: flex;
   flex-direction: column;
 }
@@ -179,7 +178,7 @@ body::after {
 .gcard-image {
   position: relative;
   aspect-ratio: 4 / 3;
-  background: var(--warm);
+  background: #f5f5f5;
   overflow: hidden;
 }
 .gcard-image img {
@@ -203,10 +202,10 @@ body::after {
 }
 .gcard-image.img-error::after {
   content: attr(data-name);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-style: italic;
   font-size: clamp(11px, 1.1vw, 14px);
-  color: var(--muted);
+  color: var(--mid);
   text-align: center;
   padding: 16px;
 }
@@ -220,8 +219,8 @@ body::after {
 }
 .badge {
   font-family: var(--sans);
-  font-size: clamp(7px, 0.7vw, 8px);
-  font-weight: 600;
+  font-size: 8px;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 3px 8px;
@@ -229,18 +228,18 @@ body::after {
 }
 .badge--tier {
   color: var(--ink);
-  background: rgba(245,243,238,0.92);
-  border-color: rgba(26,26,26,0.2);
+  background: rgba(255,255,255,0.92);
+  border-color: var(--faint);
 }
 .badge--own {
   color: #fff;
-  background: var(--crimson);
-  border-color: var(--crimson);
+  background: var(--red);
+  border-color: var(--red);
 }
 
 .gcard-body {
   padding: clamp(14px, 2vw, 20px);
-  border-top: 3px solid var(--crimson);
+  border-top: 1px solid var(--faint);
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -248,16 +247,16 @@ body::after {
 
 .gcard-price {
   font-family: var(--sans);
-  font-size: clamp(8px, 0.8vw, 10px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--mid);
   margin: 0 0 6px;
 }
 
 .gcard-name {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(14px, 1.4vw, 18px);
   font-weight: 700;
   color: var(--ink);
@@ -270,7 +269,7 @@ body::after {
   font-size: clamp(11px, 1.05vw, 13px);
   font-weight: 300;
   line-height: 1.65;
-  color: var(--muted);
+  color: var(--mid);
   margin: 0 0 16px;
   flex: 1;
 }
@@ -279,8 +278,8 @@ body::after {
   display: inline-block;
   align-self: flex-start;
   font-family: var(--sans);
-  font-size: clamp(8px, 0.8vw, 10px);
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: clamp(8px, 1.2vh, 11px) clamp(14px, 2vw, 20px);
@@ -298,7 +297,7 @@ body::after {
   text-align: center;
 }
 .editorial-note p {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-style: italic;
   font-size: clamp(13px, 1.4vw, 17px);
   color: rgba(255,255,255,0.4);
@@ -309,12 +308,12 @@ body::after {
 .editorial-note p::before,
 .editorial-note p::after {
   content: '"';
-  color: var(--crimson);
+  color: var(--red);
 }
 
 /* === FOOTER === */
 .site-footer {
-  border-top: 1px solid rgba(26,26,26,0.1);
+  border-top: 1.5px solid var(--ink);
   padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
   display: flex;
   align-items: center;
@@ -322,9 +321,9 @@ body::after {
   flex-wrap: wrap;
   gap: 12px;
 }
-.footer-wordmark { font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--muted); }
-.footer-wordmark span { color: var(--crimson); }
-.footer-note { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; color: var(--faint); text-transform: uppercase; }
+.footer-wordmark { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); }
+.footer-wordmark span { color: var(--red); }
+.footer-note { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; color: var(--mid); text-transform: uppercase; }
 
 /* === RESPONSIVE === */
 @media (max-width: 960px) {
