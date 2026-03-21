@@ -321,7 +321,7 @@ body {
   background: var(--bg);
   border-right: 1px solid var(--faint);
   border-bottom: 1px solid var(--faint);
-  padding: clamp(36px, 5vw, 64px) clamp(24px, 6vw, 80px) 0;
+  padding: clamp(32px, 5vw, 56px) clamp(24px, 6vw, 80px) 0;
   cursor: pointer;
   transition: background 0.2s;
   overflow: hidden;
@@ -329,92 +329,114 @@ body {
 .crate-card:hover { background: #faf8f5; }
 
 .crate-stage {
-  position: relative;
   display: flex;
-  align-items: flex-end;
   justify-content: center;
-  height: clamp(180px, 22vw, 260px);
 }
 
-.crate-record {
+/* Outer wrapper sets total width of the drawn crate */
+.crate-visual {
   position: relative;
-  width: clamp(110px, 13vw, 165px);
-  height: clamp(110px, 13vw, 165px);
+  width: clamp(280px, 62vw, 720px);
+}
+
+/* The open top of the crate — records live here */
+.crate-opening {
+  display: flex;
+  align-items: flex-end;
+  height: clamp(120px, 16vw, 200px);
+  /* Inset matches the corner post width so records sit inside */
+  padding: 0 clamp(16px, 2.2vw, 26px);
+  background: linear-gradient(to bottom, rgba(180,140,60,0.08), rgba(180,140,60,0.18));
+  border-left: clamp(16px, 2.2vw, 26px) solid #c9a456;
+  border-right: clamp(16px, 2.2vw, 26px) solid #c9a456;
+  overflow: hidden;
+  gap: clamp(4px, 0.6vw, 8px);
+}
+
+/* Packed spine strips — many thin coloured slices like a full crate */
+.crate-spines {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  height: 100%;
+}
+.crate-spine {
   flex-shrink: 0;
-  margin: 0 -6px;
-  box-shadow: -3px 6px 18px rgba(0,0,0,0.35);
+  width: clamp(4px, 0.55vw, 7px);
+  border-radius: 1px 1px 0 0;
+  align-self: flex-end;
 }
-.crate-record:nth-child(1) {
-  transform: rotate(-6deg) translateX(-12px);
-  z-index: 1;
+
+/* The 3 featured album covers */
+.crate-featured {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(3px, 0.4vw, 6px);
+  flex-shrink: 0;
 }
-.crate-record:nth-child(2) {
-  transform: rotate(0deg) translateY(-14px);
-  z-index: 3;
+.crate-album {
+  width: clamp(72px, 10.5vw, 136px);
+  height: clamp(72px, 10.5vw, 136px);
+  flex-shrink: 0;
+  box-shadow: -2px 4px 14px rgba(0,0,0,0.32);
 }
-.crate-record:nth-child(3) {
-  transform: rotate(5deg) translateX(12px);
-  z-index: 2;
-}
-.crate-record img {
+.crate-album img {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
 }
+.crate-album:nth-child(1) { transform: rotate(-4deg); margin-bottom: 4px; }
+.crate-album:nth-child(2) { transform: rotate(1deg);  margin-bottom: 10px; }
+.crate-album:nth-child(3) { transform: rotate(5deg);  margin-bottom: 2px; }
 
-/* Drawn crate box — covers bottom portion of the records */
-.crate-box {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: clamp(60px, 7vw, 88px);
-  z-index: 4;
-  background: #1c1309;
-  border-top: 4px solid #2e1e0b;
+/* The wooden crate body — light birch with horizontal planks */
+.crate-body {
+  position: relative;
+  height: clamp(52px, 7vw, 90px);
+  /* Three planks separated by darker grooves */
+  background:
+    linear-gradient(to bottom,
+      #b8924a 0px, #b8924a 2px,          /* top rim */
+      #e0c27a 2px,  #e0c27a 33%,         /* plank 1 */
+      #b8924a 33%,  #b8924a calc(33% + 2px),
+      #ddbf74 calc(33% + 2px), #ddbf74 66%,  /* plank 2 */
+      #b8924a 66%,  #b8924a calc(66% + 2px),
+      #d9ba6e calc(66% + 2px), #d9ba6e 100%  /* plank 3 */
+    );
 }
-/* Two horizontal plank lines */
-.crate-box::before {
+
+/* Corner posts — slightly darker, with screw dots */
+.crate-post {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: clamp(16px, 2.2vw, 26px);
+  background: #c9a456;
+  border-top: 2px solid #b8924a;
+}
+.crate-post.l { left: 0;  border-left:  2px solid #a07c38; }
+.crate-post.r { right: 0; border-right: 2px solid #a07c38; }
+/* Screw dots */
+.crate-post::before,
+.crate-post::after {
   content: '';
   position: absolute;
-  top: 30%;
-  left: 0; right: 0;
-  height: 2px;
-  background: #2e1e0b;
+  left: 50%; transform: translateX(-50%);
+  width: 5px; height: 5px;
+  background: #8c6830;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.3);
 }
-.crate-box::after {
-  content: '';
-  position: absolute;
-  top: 65%;
-  left: 0; right: 0;
-  height: 2px;
-  background: #2e1e0b;
-}
-/* Top lip highlight */
-.crate-lip {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 6px;
-  background: #3d2810;
-}
-/* Vertical divider slats */
-.crate-slats {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0 clamp(12px, 2.5vw, 32px);
-}
-.crate-slat {
-  width: 3px;
-  background: #2e1e0b;
-  opacity: 0.9;
-}
+.crate-post::before { top: 20%; }
+.crate-post::after  { top: 68%; }
 
 .crate-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: clamp(10px, 1.5vw, 16px) 0 clamp(14px, 2vw, 22px);
-  margin-top: 0;
   border-top: 1px solid var(--faint);
 }
 .crate-label {
@@ -590,27 +612,38 @@ function cardHTML(album) {
 }
 
 function crateHTML(queued) {
-  // Pick 3 random album covers from the queue
+  // 3 random featured covers
   const picks = [...queued].sort(() => Math.random() - 0.5).slice(0, 3);
-  const records = picks.map(a =>
-    `<div class="crate-record">
-      <img src="${a.cover_art}" alt="${a.title}" loading="lazy" onerror="this.style.opacity='0.2'">
+  const featured = picks.map(a =>
+    `<div class="crate-album">
+      <img src="${a.cover_art}" alt="${a.title}" loading="lazy" onerror="this.style.opacity='0.15'">
     </div>`
   ).join('');
+
+  // Packed spine strips — random colours from a warm/varied palette
+  const palette = [
+    '#e8181e','#d4880a','#2563a8','#1a7a42','#8b3fad','#c95c1a',
+    '#0e7f7f','#b52d6e','#4a6fa5','#c4a020','#5a3ea0','#2e8b57',
+    '#a03030','#e06020','#206080','#806020','#604080','#208060',
+  ];
+  const spineCount = 28;
+  const spines = Array.from({ length: spineCount }, (_, i) => {
+    const color = palette[i % palette.length];
+    const heightPct = 55 + Math.floor(Math.random() * 42);
+    return `<div class="crate-spine" style="background:${color};height:${heightPct}%"></div>`;
+  }).join('');
 
   return `
     <a href="coming-soon.html" class="crate-card">
       <div class="crate-stage">
-        ${records}
-        <div class="crate-box">
-          <div class="crate-lip"></div>
-          <div class="crate-slats">
-            <div class="crate-slat"></div>
-            <div class="crate-slat"></div>
-            <div class="crate-slat"></div>
-            <div class="crate-slat"></div>
-            <div class="crate-slat"></div>
-            <div class="crate-slat"></div>
+        <div class="crate-visual">
+          <div class="crate-opening">
+            <div class="crate-spines">${spines}</div>
+            <div class="crate-featured">${featured}</div>
+          </div>
+          <div class="crate-body">
+            <div class="crate-post l"></div>
+            <div class="crate-post r"></div>
           </div>
         </div>
       </div>
