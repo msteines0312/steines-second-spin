@@ -8,6 +8,14 @@
     ]
   },
   {
+    "slug": "aeroplane-over-the-sea",
+    "recommendations": [
+      "ants-from-up-there",
+      "heavy-metal",
+      "projector"
+    ]
+  },
+  {
     "slug": "after-hours",
     "recommendations": [
       "hurry-up-tomorrow",
@@ -72,11 +80,27 @@
     ]
   },
   {
+    "slug": "deloused-in-the-comatorium",
+    "recommendations": [
+      "heaven-tortured-mind",
+      "getting-killed",
+      "praise-a-lord"
+    ]
+  },
+  {
     "slug": "dont-tap-the-glass",
     "recommendations": [
       "call-me-if-you-get-lost",
       "chromakopia",
       "casino"
+    ]
+  },
+  {
+    "slug": "folie-a-deux",
+    "recommendations": [
+      "wildlife",
+      "3d-country",
+      "deloused-in-the-comatorium"
     ]
   },
   {
@@ -90,25 +114,25 @@
   {
     "slug": "heaven-or-las-vegas",
     "recommendations": [
+      "i-let-it-in",
       "projector",
-      "imaginal-disk",
-      "submarine"
+      "folie-a-deux"
     ]
   },
   {
     "slug": "heaven-tortured-mind",
     "recommendations": [
       "praise-a-lord",
-      "getting-killed",
-      "alien-coast"
+      "deloused-in-the-comatorium",
+      "getting-killed"
     ]
   },
   {
     "slug": "heavy-metal",
     "recommendations": [
+      "aeroplane-over-the-sea",
       "st-paul",
-      "ants-from-up-there",
-      "projector"
+      "ants-from-up-there"
     ]
   },
   {
@@ -116,6 +140,14 @@
     "recommendations": [
       "after-hours",
       "imaginal-disk",
+      "icon"
+    ]
+  },
+  {
+    "slug": "i-let-it-in",
+    "recommendations": [
+      "projector",
+      "heaven-or-las-vegas",
       "icon"
     ]
   },
@@ -141,6 +173,14 @@
       "casino",
       "st-paul",
       "art-of-loving"
+    ]
+  },
+  {
+    "slug": "percepticide",
+    "recommendations": [
+      "projector",
+      "getting-killed",
+      "hurry-up-tomorrow"
     ]
   },
   {
@@ -173,6 +213,14 @@
       "art-of-loving",
       "st-paul",
       "alien-coast"
+    ]
+  },
+  {
+    "slug": "wildlife",
+    "recommendations": [
+      "ants-from-up-there",
+      "projector",
+      "getting-killed"
     ]
   }
 ]

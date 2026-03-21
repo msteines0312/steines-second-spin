@@ -217,9 +217,9 @@
     "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF",
     "preview_url": null,
     "recommendations": [
+      "aeroplane-over-the-sea",
       "st-paul",
-      "ants-from-up-there",
-      "projector"
+      "ants-from-up-there"
     ]
   },
   {
@@ -318,8 +318,8 @@
     "preview_url": null,
     "recommendations": [
       "praise-a-lord",
-      "getting-killed",
-      "alien-coast"
+      "deloused-in-the-comatorium",
+      "getting-killed"
     ]
   },
   {
@@ -480,9 +480,9 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
+      "i-let-it-in",
       "projector",
-      "imaginal-disk",
-      "submarine"
+      "folie-a-deux"
     ]
   },
   {
@@ -722,6 +722,203 @@
       "imaginal-disk",
       "heaven-tortured-mind",
       "getting-killed"
+    ]
+  },
+  {
+    "id": "aeroplane-over-the-sea",
+    "title": "In the Aeroplane Over the Sea",
+    "artist": "Neutral Milk Hotel",
+    "year": 1998,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "A ragged, ecstatic folk masterpiece — Jeff Mangum's raw howl and surrealist imagery somehow coalesced into one of the most emotionally devastating albums ever recorded.",
+    "review_url": "#",
+    "genres": [
+      "indie folk",
+      "freak folk",
+      "lo-fi",
+      "baroque pop",
+      "psychedelic folk",
+      "folk",
+      "indie rock",
+      "elephant 6"
+    ],
+    "cover_art": "assets/covers/aeroplane-over-the-sea.jpg",
+    "spotify_id": "0vVekV45lOaVKs6RZQQNob",
+    "track_count": 11,
+    "duration_ms": 2394861,
+    "popularity": null,
+    "favorite_track": "Holland, 1945",
+    "track_url": "https://open.spotify.com/track/1LE8tugYmbtwQ2a24LReLs",
+    "preview_url": null,
+    "recommendations": [
+      "ants-from-up-there",
+      "heavy-metal",
+      "projector"
+    ]
+  },
+  {
+    "id": "deloused-in-the-comatorium",
+    "title": "De-Loused in the Comatorium",
+    "artist": "The Mars Volta",
+    "year": 2003,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Cedric and Omar's debut is a prog-rock fever dream — dense, chaotic, and unstoppably kinetic, with jazz and punk colliding at full speed.",
+    "review_url": "#",
+    "genres": [
+      "progressive rock",
+      "post-hardcore",
+      "art rock",
+      "psychedelic rock",
+      "latin rock",
+      "experimental",
+      "experimental rock",
+      "alternative rock",
+      "psychedelic"
+    ],
+    "cover_art": "assets/covers/deloused-in-the-comatorium.jpg",
+    "spotify_id": "0CA2EVHhRPR5VPV78KZw89",
+    "track_count": 10,
+    "duration_ms": 3651876,
+    "popularity": null,
+    "favorite_track": "Inertiatic ESP",
+    "track_url": "https://open.spotify.com/track/16Elz7HJPLZPMylp13ewxv",
+    "preview_url": null,
+    "recommendations": [
+      "heaven-tortured-mind",
+      "getting-killed",
+      "praise-a-lord"
+    ]
+  },
+  {
+    "id": "wildlife",
+    "title": "Wildlife",
+    "artist": "La Dispute",
+    "year": 2011,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "A sprawling post-hardcore concept album built from short stories and confessional screams — Jordan Dreyer's lyrical intensity makes every track feel like a gut punch.",
+    "review_url": "#",
+    "genres": [
+      "post-hardcore",
+      "spoken word",
+      "screamo",
+      "melodic hardcore",
+      "indie rock",
+      "emo",
+      "post hardcore"
+    ],
+    "cover_art": "assets/covers/wildlife.jpg",
+    "spotify_id": "1zAMnOQUqSq3xCMgeBS6i2",
+    "track_count": 14,
+    "duration_ms": 3467114,
+    "popularity": null,
+    "favorite_track": "King Park",
+    "track_url": "https://open.spotify.com/track/7uvcuAl1IvSqok1JM6IBjX",
+    "preview_url": null,
+    "recommendations": [
+      "ants-from-up-there",
+      "projector",
+      "getting-killed"
+    ]
+  },
+  {
+    "id": "folie-a-deux",
+    "title": "Folie à Deux",
+    "artist": "Fall Out Boy",
+    "year": 2008,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Fall Out Boy's most ambitious and divisive record — they traded pop-punk formula for baroque maximalism and landed somewhere genuinely strange and great.",
+    "review_url": "#",
+    "genres": [
+      "pop punk",
+      "emo",
+      "power pop",
+      "alternative rock",
+      "arena rock",
+      "rock",
+      "albums i can listen to all the way through",
+      "pop rock"
+    ],
+    "cover_art": "assets/covers/folie-a-deux.jpg",
+    "spotify_id": "6KOWjVP0mh5rOqmzm4tkPD",
+    "track_count": 13,
+    "duration_ms": 3034503,
+    "popularity": null,
+    "favorite_track": "What a Catch, Donnie",
+    "track_url": "https://open.spotify.com/track/7pG6AWvWF6sktRiM9qfm4P",
+    "preview_url": null,
+    "recommendations": [
+      "wildlife",
+      "3d-country",
+      "deloused-in-the-comatorium"
+    ]
+  },
+  {
+    "id": "percepticide",
+    "title": "Percepticide: The Death of Reality",
+    "artist": "Pixel Grip",
+    "year": 2025,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "Chicago's Pixel Grip delivers a cold, danceable dystopia — industrial rhythms and Rita Lukea's commanding vocals make this one of the sharpest darkwave records in years.",
+    "review_url": "#",
+    "genres": [
+      "EBM",
+      "darkwave",
+      "industrial pop",
+      "post-punk",
+      "electro",
+      "electronic",
+      "synthpop",
+      "ambient"
+    ],
+    "cover_art": "assets/covers/percepticide.jpg",
+    "spotify_id": "5IZU64hjnyx7VDYw9PdvN3",
+    "track_count": 12,
+    "duration_ms": 2623972,
+    "popularity": null,
+    "favorite_track": "Reason to Stay",
+    "track_url": "https://open.spotify.com/track/7cBHIzozk0MLTExQLBcN1S",
+    "preview_url": null,
+    "recommendations": [
+      "projector",
+      "getting-killed",
+      "hurry-up-tomorrow"
+    ]
+  },
+  {
+    "id": "i-let-it-in",
+    "title": "I Let It in and It Took Everything",
+    "artist": "Loathe",
+    "year": 2020,
+    "stars": 4,
+    "second_spin": false,
+    "blurb": "A stunning genre collapse — Loathe weave ambient drift and nu-metal aggression into something genuinely unclassifiable, with texture and heaviness that hit equally hard.",
+    "review_url": "#",
+    "genres": [
+      "metalcore",
+      "shoegaze",
+      "post-metal",
+      "nu-metal",
+      "ambient metal",
+      "alternative metal",
+      "djent"
+    ],
+    "cover_art": "assets/covers/i-let-it-in.jpg",
+    "spotify_id": "6nUUV3haj8ug8okTmOyIU2",
+    "track_count": 14,
+    "duration_ms": 2959994,
+    "popularity": null,
+    "favorite_track": "Is It Really You?",
+    "track_url": "https://open.spotify.com/track/4OmlsAT8r4q9vPFBvfYgyZ",
+    "preview_url": null,
+    "recommendations": [
+      "projector",
+      "heaven-or-las-vegas",
+      "icon"
     ]
   }
 ]
