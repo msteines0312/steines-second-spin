@@ -643,7 +643,7 @@ fetch('../data/albums_final.json')
       album.year,
       album.track_count ? `${album.track_count} Tracks` : null,
       durationStr,
-      album.popularity != null ? `Popularity ${album.popularity}` : null,
+      album.popularity != null ? `Spotify Popularity: ${album.popularity}/100` : null,
     ].filter(Boolean);
     statsEl.innerHTML = pills.map(p => `<span class="stat-pill">${p}</span>`).join('');
 
