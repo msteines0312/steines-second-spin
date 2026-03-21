@@ -312,19 +312,136 @@ body {
   overflow: hidden;
 }
 
-/* Cards without a published review */
-.acard--locked { cursor: default; }
-.acard--locked:hover { background: var(--bg); }
-.coming-soon {
-  display: inline-block;
-  margin-top: 8px;
+/* === RECORD CRATE === */
+.crate-card {
+  grid-column: 1 / -1;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg);
+  border-right: 1px solid var(--faint);
+  border-bottom: 1px solid var(--faint);
+  padding: clamp(36px, 5vw, 64px) clamp(24px, 6vw, 80px) 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  overflow: hidden;
+}
+.crate-card:hover { background: #faf8f5; }
+
+.crate-stage {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: clamp(180px, 22vw, 260px);
+}
+
+.crate-record {
+  position: relative;
+  width: clamp(110px, 13vw, 165px);
+  height: clamp(110px, 13vw, 165px);
+  flex-shrink: 0;
+  margin: 0 -6px;
+  box-shadow: -3px 6px 18px rgba(0,0,0,0.35);
+}
+.crate-record:nth-child(1) {
+  transform: rotate(-6deg) translateX(-12px);
+  z-index: 1;
+}
+.crate-record:nth-child(2) {
+  transform: rotate(0deg) translateY(-14px);
+  z-index: 3;
+}
+.crate-record:nth-child(3) {
+  transform: rotate(5deg) translateX(12px);
+  z-index: 2;
+}
+.crate-record img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Drawn crate box — covers bottom portion of the records */
+.crate-box {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: clamp(60px, 7vw, 88px);
+  z-index: 4;
+  background: #1c1309;
+  border-top: 4px solid #2e1e0b;
+}
+/* Two horizontal plank lines */
+.crate-box::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 0; right: 0;
+  height: 2px;
+  background: #2e1e0b;
+}
+.crate-box::after {
+  content: '';
+  position: absolute;
+  top: 65%;
+  left: 0; right: 0;
+  height: 2px;
+  background: #2e1e0b;
+}
+/* Top lip highlight */
+.crate-lip {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: #3d2810;
+}
+/* Vertical divider slats */
+.crate-slats {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 clamp(12px, 2.5vw, 32px);
+}
+.crate-slat {
+  width: 3px;
+  background: #2e1e0b;
+  opacity: 0.9;
+}
+
+.crate-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(10px, 1.5vw, 16px) 0 clamp(14px, 2vw, 22px);
+  margin-top: 0;
+  border-top: 1px solid var(--faint);
+}
+.crate-label {
+  font-family: var(--sans);
+  font-size: clamp(12px, 1.1vw, 14px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.crate-count {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+.crate-cta {
   font-family: var(--sans);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--faint);
+  color: var(--red);
 }
+.crate-card:hover .crate-cta { text-decoration: underline; }
 
 .grid-message {
   grid-column: 1 / -1;
@@ -452,15 +569,10 @@ function starMarks(n) {
 }
 
 function cardHTML(album) {
-  // Only link the card if there's a real review URL — not "#", null, or missing
-  const hasReview = album.review_url && album.review_url !== '#';
-  const tag  = hasReview ? 'a' : 'div';
-  const href = hasReview ? `href="${album.review_url}"` : '';
   const genre = (album.genres || [])[0] || '';
-  // Store all genres lowercased and comma-separated for client-side filter matching
   const allGenres = (album.genres || []).map(g => g.toLowerCase()).join(',');
   return `
-    <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href} data-genre="${genre}" data-genres="${allGenres}" data-rating="${album.stars}" data-date="${album.date}" data-title="${album.title}">
+    <a class="acard" href="${album.review_url}" data-genre="${genre}" data-genres="${allGenres}" data-rating="${album.stars}" data-date="${album.date}" data-title="${album.title}">
       <div class="acard-art">
         <img src="${album.cover_art}" alt="${album.title}" loading="lazy" onerror="this.style.opacity='0'">
       </div>
@@ -473,28 +585,60 @@ function cardHTML(album) {
         <p class="acard-artist">${album.artist}</p>
         <div class="star-row">${starMarks(album.stars)}</div>
         <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
-        ${!hasReview ? `<span class="coming-soon">Review coming soon</span>` : ''}
       </div>
-    </${tag}>`;
+    </a>`;
+}
+
+function crateHTML(queued) {
+  // Pick 3 random album covers from the queue
+  const picks = [...queued].sort(() => Math.random() - 0.5).slice(0, 3);
+  const records = picks.map(a =>
+    `<div class="crate-record">
+      <img src="${a.cover_art}" alt="${a.title}" loading="lazy" onerror="this.style.opacity='0.2'">
+    </div>`
+  ).join('');
+
+  return `
+    <a href="coming-soon.html" class="crate-card">
+      <div class="crate-stage">
+        ${records}
+        <div class="crate-box">
+          <div class="crate-lip"></div>
+          <div class="crate-slats">
+            <div class="crate-slat"></div>
+            <div class="crate-slat"></div>
+            <div class="crate-slat"></div>
+            <div class="crate-slat"></div>
+            <div class="crate-slat"></div>
+            <div class="crate-slat"></div>
+          </div>
+        </div>
+      </div>
+      <div class="crate-footer">
+        <span class="crate-label">In the crate</span>
+        <span class="crate-count">${queued.length} albums in queue</span>
+        <span class="crate-cta">Browse all →</span>
+      </div>
+    </a>`;
 }
 
 function applyFiltersAndSort() {
-  const cards = document.querySelectorAll('.acard');
-  let visible = 0;
+  // Only published reviews go in the grid — queued albums live in the crate
+  const published = allAlbums.filter(a => a.review_url && a.review_url !== '#');
+  const queued    = allAlbums.filter(a => !a.review_url || a.review_url === '#');
 
-  // Sort
-  const sorted = [...allAlbums].sort((a, b) => {
+  const sorted = [...published].sort((a, b) => {
     if (activeSort === 'newest') return new Date(b.date) - new Date(a.date);
     if (activeSort === 'rating') return b.stars - a.stars;
     if (activeSort === 'az') return a.title.localeCompare(b.title);
     return 0;
   });
 
-  // Re-render with sort applied
   const grid = document.getElementById('albumGrid');
-  grid.innerHTML = sorted.map(cardHTML).join('');
+  grid.innerHTML = sorted.map(cardHTML).join('') + crateHTML(queued);
 
-  // Apply genre filter — use the full genres list for broad subgenre matching
+  // Genre filter applies only to the published review cards
+  let visible = 0;
   document.querySelectorAll('.acard').forEach(card => {
     const genres = (card.dataset.genres || '').split(',').filter(Boolean);
     const match = matchesGenreFilter(genres, activeGenre);
@@ -502,7 +646,6 @@ function applyFiltersAndSort() {
     if (match) visible++;
   });
 
-  // Update counts
   const countEl = document.getElementById('resultsCount');
   const badgeEl = document.getElementById('filterBadge');
   countEl.textContent = `${visible} Review${visible !== 1 ? 's' : ''}`;
