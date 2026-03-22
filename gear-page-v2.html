@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Setup — Steines' Second Spin</title>
+<meta property="og:title" content="The Setup — Steines' Second Spin">
+<meta property="og:description" content="Hardware recommendations for getting the best out of your vinyl setup.">
+<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <style>
 html, body { margin: 0; padding: 0; overflow-x: hidden; }
@@ -331,7 +334,32 @@ body {
 }
 @media (max-width: 560px) {
   .gear-grid { grid-template-columns: 1fr; }
-  .nav-links li:nth-child(n+4) { display: none; }
+}
+
+/* === MOBILE NAV === */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+}
+@media (max-width: 560px) {
+  .site-nav { flex-wrap: wrap; height: auto; min-height: clamp(52px, 7vh, 64px); }
+  .nav-toggle { display: flex; }
+  .nav-links { display: none; width: 100%; flex-direction: column; gap: 0; padding: 8px 0; border-top: 1px solid var(--rule); }
+  .nav-links li { width: 100%; }
+  .nav-links a { padding: 10px clamp(1rem, 4vw, 3rem); font-size: 11px; border-bottom: none; }
+  .site-nav.nav-open .nav-links { display: flex; }
 }
 </style>
 </head>
@@ -340,6 +368,9 @@ body {
 <!-- NAV -->
 <nav class="site-nav">
   <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="coming-soon.html">Coming Soon</a></li>
@@ -653,5 +684,12 @@ body {
   <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
 </footer>
 
+<script>
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    var nav = document.querySelector('.site-nav');
+    var open = nav.classList.toggle('nav-open');
+    this.setAttribute('aria-expanded', open);
+  });
+</script>
 </body>
 </html>
