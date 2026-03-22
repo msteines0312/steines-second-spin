@@ -1,3 +1,123 @@
-/* styles.css */
-/* Global styles for Steines' Second Spin */
-/* Covers layout, typography, color palette, and responsive design */
+/* styles.css — Steines' Second Spin */
+/* Shared across every page: reset, variables, nav, mobile nav, footer */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* === RESET === */
+html, body { margin: 0; padding: 0; overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* === CUSTOM PROPERTIES === */
+:root {
+  --bg:    #ffffff;
+  --ink:   #0d0d0d;
+  --mid:   #555555;
+  --faint: #e0e0e0;
+  --rule:  #e0e0e0;
+  --red:   #e8181e;
+  --serif: 'Archivo', sans-serif;
+  --sans:  'Archivo', sans-serif;
+}
+
+/* === BASE === */
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* === NAV === */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  height: clamp(52px, 7vh, 64px);
+}
+
+.wordmark {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.wordmark span { color: var(--red); }
+
+.nav-links {
+  display: flex;
+  gap: clamp(12px, 2vw, 28px);
+  list-style: none;
+  margin: 0; padding: 0;
+}
+
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.nav-links a.here  { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* === MOBILE NAV === */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+}
+@media (max-width: 560px) {
+  .site-nav { flex-wrap: wrap; height: auto; min-height: clamp(52px, 7vh, 64px); }
+  .nav-toggle { display: flex; }
+  .nav-links { display: none; width: 100%; flex-direction: column; gap: 0; padding: 8px 0; border-top: 1px solid var(--rule); }
+  .nav-links li { width: 100%; }
+  .nav-links a { padding: 10px clamp(1rem, 4vw, 3rem); font-size: 11px; border-bottom: none; }
+  .site-nav.nav-open .nav-links { display: flex; }
+}
+
+/* === FOOTER === */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-wordmark {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+.footer-wordmark span { color: var(--red); }
