@@ -685,7 +685,7 @@ fetch('../data/albums_final.json')
         <div class="acard-body">
           <h3 class="acard-title">${rec.title}</h3>
           <p class="acard-artist">${rec.artist}</p>
-          <div class="star-row">${starMarks(rec.stars || 0)}</div>
+          ${hasReview ? `<div class="star-row">${starMarks(rec.stars || 0)}</div>` : ''}
         </div>
       </${tag}>`;
     }).join('');
