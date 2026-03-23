@@ -515,9 +515,10 @@ fetch('data/albums_final.json')
   .then(r => r.json())
   .then(albums => {
     albums.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const reviewed = albums.filter(a => a.review_url && a.review_url !== '#');
     const grid = document.getElementById('albumGrid');
-    grid.innerHTML = albums.map(cardHTML).join('');
-    document.getElementById('albumCount').textContent = `${albums.length} Reviews`;
+    grid.innerHTML = reviewed.map(cardHTML).join('');
+    document.getElementById('albumCount').textContent = `${reviewed.length} Reviews`;
     setupObserver();
   })
   .catch(() => {
