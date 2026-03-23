@@ -103,7 +103,8 @@ print(f"{'Album':<40} {'Stars':<7} Recommendations")
 print("-" * 72)
 
 for album in merged:
-    stars   = "*" * album["stars"] + "-" * (5 - album["stars"])
+    s       = album["stars"] or 0
+    stars   = "*" * s + "-" * (5 - s)
     rec_str = " / ".join(album["recommendations"]) if album["recommendations"] else "(none)"
     print(f"  {album['title']:<38} [{stars}]  {rec_str}")
 

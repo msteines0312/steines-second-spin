@@ -36,9 +36,8 @@
       "lo-fi",
       "baroque pop",
       "psychedelic folk",
-      "folk",
       "indie rock",
-      "elephant 6"
+      "folk"
     ],
     "track_count": 11,
     "duration_ms": 2394861,
@@ -79,10 +78,7 @@
       "psychedelic soul",
       "art rock",
       "southern soul",
-      "funk",
-      "blues",
-      "alabama",
-      "r&b"
+      "funk"
     ],
     "track_count": 11,
     "duration_ms": 2105975,
@@ -102,7 +98,8 @@
       "art rock",
       "indie rock",
       "baroque pop",
-      "chamber music"
+      "post-punk",
+      "crank wave"
     ],
     "track_count": 10,
     "duration_ms": 3531090,
@@ -237,9 +234,9 @@
       "psychedelic rock",
       "latin rock",
       "experimental",
-      "experimental rock",
-      "alternative rock",
-      "psychedelic"
+      "rock",
+      "alternative",
+      "progressive"
     ],
     "track_count": 10,
     "duration_ms": 3651876,
@@ -269,6 +266,28 @@
     "cover_art": "https://i.scdn.co/image/ab67616d0000b2734b7fbb849ed845ddedcce346"
   },
   {
+    "slug": "donuts",
+    "spotify_id": "5fMlysqhFE0itGn4KezMBW",
+    "name": "Donuts",
+    "artist": "J Dilla",
+    "artist_id": "0IVcLMMbm05VIjnzPkGCyp",
+    "release_year": 2006,
+    "popularity": null,
+    "genres": [
+      "instrumental hip-hop",
+      "abstract hip-hop",
+      "lo-fi hip-hop",
+      "jazz rap",
+      "sampling",
+      "experimental hip-hop",
+      "hip-hop",
+      "instrumental"
+    ],
+    "track_count": 31,
+    "duration_ms": 2618617,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b27383bb78285449998bb974da45"
+  },
+  {
     "slug": "folie-a-deux",
     "spotify_id": "6KOWjVP0mh5rOqmzm4tkPD",
     "name": "Folie à Deux",
@@ -282,8 +301,9 @@
       "power pop",
       "alternative rock",
       "arena rock",
-      "rock",
+      "alternative",
       "albums i can listen to all the way through",
+      "rock",
       "pop rock"
     ],
     "track_count": 13,
@@ -297,7 +317,7 @@
     "artist": "Geese",
     "artist_id": "0WCo84qtCKfbyIf1lqQWB4",
     "release_year": 2025,
-    "popularity": 70,
+    "popularity": null,
     "genres": [
       "post-punk",
       "indie rock",
@@ -484,6 +504,29 @@
     "cover_art": "https://i.scdn.co/image/ab67616d0000b27325c28f3c9fbdbab1a88dd619"
   },
   {
+    "slug": "ok-computer",
+    "spotify_id": "6dVIqQ8qmQ5GBnJ9shOYGE",
+    "name": "OK Computer",
+    "artist": "Radiohead",
+    "artist_id": "4Z8W4fKeB5YxbusRsdQVPb",
+    "release_year": 1997,
+    "popularity": null,
+    "genres": [
+      "alternative rock",
+      "art rock",
+      "electronic rock",
+      "post-britpop",
+      "experimental rock",
+      "concept album",
+      "alternative",
+      "rock",
+      "masterpiece"
+    ],
+    "track_count": 12,
+    "duration_ms": 3221223,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856"
+  },
+  {
     "slug": "percepticide",
     "spotify_id": "5IZU64hjnyx7VDYw9PdvN3",
     "name": "Percepticide: The Death of Reality",
@@ -496,10 +539,7 @@
       "darkwave",
       "industrial pop",
       "post-punk",
-      "electro",
-      "electronic",
-      "synthpop",
-      "ambient"
+      "electro"
     ],
     "track_count": 12,
     "duration_ms": 2623972,
@@ -550,6 +590,48 @@
     "cover_art": "https://i.scdn.co/image/ab67616d0000b273cdc1ade3535debc468b2338a"
   },
   {
+    "slug": "quebec",
+    "spotify_id": "0GOWw5YVpOmIX6mUtjLi30",
+    "name": "Quebec",
+    "artist": "Ween",
+    "artist_id": "3u1ulLq00Y3bfmq9FfjsPu",
+    "release_year": 2003,
+    "popularity": null,
+    "genres": [
+      "alternative rock",
+      "psychedelic rock",
+      "indie rock",
+      "eclectic",
+      "experimental rock",
+      "hard rock",
+      "lo-fi",
+      "neo-psychedelia",
+      "art rock"
+    ],
+    "track_count": 15,
+    "duration_ms": 3303464,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b2734df4aa40b54416c3de8d5bf6"
+  },
+  {
+    "slug": "spooky",
+    "spotify_id": "5NSgxemDL3eSm79jFkqxuw",
+    "name": "Spooky",
+    "artist": "Lush",
+    "artist_id": "3ysp8GwsheDcBxP9q65lBg",
+    "release_year": 1992,
+    "popularity": null,
+    "genres": [
+      "dream pop",
+      "shoegaze",
+      "ethereal wave",
+      "i love singing along",
+      "where is my bong"
+    ],
+    "track_count": 12,
+    "duration_ms": 2906995,
+    "cover_art": "https://i.scdn.co/image/ab67616d0000b2731b5c06982d105c8b6b08d041"
+  },
+  {
     "slug": "st-paul",
     "spotify_id": "6EkqdSW6mNa7c7aCKbWJ38",
     "name": "St. Paul & The Broken Bones",
@@ -561,9 +643,7 @@
       "southern soul",
       "funk",
       "soul",
-      "r&b",
-      "blues",
-      "alabama"
+      "r&b"
     ],
     "track_count": 10,
     "duration_ms": 2073443,
@@ -582,11 +662,7 @@
       "dream pop",
       "psychedelic pop",
       "r&b",
-      "bedroom pop",
-      "jazz",
-      "psychedelic",
-      "soul",
-      "los angeles"
+      "bedroom pop"
     ],
     "track_count": 14,
     "duration_ms": 2713036,

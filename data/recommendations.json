@@ -2,8 +2,8 @@
   {
     "slug": "3d-country",
     "recommendations": [
-      "projector",
       "getting-killed",
+      "projector",
       "ants-from-up-there"
     ]
   },
@@ -12,7 +12,7 @@
     "recommendations": [
       "ants-from-up-there",
       "heavy-metal",
-      "projector"
+      "quebec"
     ]
   },
   {
@@ -28,23 +28,23 @@
     "recommendations": [
       "st-paul",
       "heaven-tortured-mind",
-      "art-of-loving"
+      "getting-killed"
     ]
   },
   {
     "slug": "ants-from-up-there",
     "recommendations": [
-      "projector",
       "getting-killed",
+      "projector",
       "3d-country"
     ]
   },
   {
     "slug": "art-of-loving",
     "recommendations": [
-      "submarine",
       "st-paul",
-      "alien-coast"
+      "submarine",
+      "after-hours"
     ]
   },
   {
@@ -68,23 +68,23 @@
     "recommendations": [
       "call-me-if-you-get-lost",
       "dont-tap-the-glass",
-      "casino"
+      "donuts"
     ]
   },
   {
     "slug": "deadbeat",
     "recommendations": [
       "imaginal-disk",
-      "heaven-tortured-mind",
-      "getting-killed"
+      "submarine",
+      "quebec"
     ]
   },
   {
     "slug": "deloused-in-the-comatorium",
     "recommendations": [
-      "heaven-tortured-mind",
+      "ok-computer",
       "getting-killed",
-      "praise-a-lord"
+      "heaven-tortured-mind"
     ]
   },
   {
@@ -96,10 +96,18 @@
     ]
   },
   {
+    "slug": "donuts",
+    "recommendations": [
+      "chromakopia",
+      "casino",
+      "dont-tap-the-glass"
+    ]
+  },
+  {
     "slug": "folie-a-deux",
     "recommendations": [
-      "wildlife",
-      "3d-country",
+      "ok-computer",
+      "heaven-or-las-vegas",
       "deloused-in-the-comatorium"
     ]
   },
@@ -108,14 +116,14 @@
     "recommendations": [
       "projector",
       "3d-country",
-      "praise-a-lord"
+      "ants-from-up-there"
     ]
   },
   {
     "slug": "heaven-or-las-vegas",
     "recommendations": [
-      "i-let-it-in",
-      "projector",
+      "spooky",
+      "ok-computer",
       "folie-a-deux"
     ]
   },
@@ -123,16 +131,16 @@
     "slug": "heaven-tortured-mind",
     "recommendations": [
       "praise-a-lord",
-      "deloused-in-the-comatorium",
-      "getting-killed"
+      "alien-coast",
+      "quebec"
     ]
   },
   {
     "slug": "heavy-metal",
     "recommendations": [
-      "aeroplane-over-the-sea",
       "st-paul",
-      "ants-from-up-there"
+      "aeroplane-over-the-sea",
+      "quebec"
     ]
   },
   {
@@ -147,16 +155,16 @@
     "slug": "i-let-it-in",
     "recommendations": [
       "projector",
-      "heaven-or-las-vegas",
-      "icon"
+      "spooky",
+      "heaven-or-las-vegas"
     ]
   },
   {
     "slug": "icon",
     "recommendations": [
       "hurry-up-tomorrow",
-      "art-of-loving",
-      "after-hours"
+      "submarine",
+      "art-of-loving"
     ]
   },
   {
@@ -164,7 +172,7 @@
     "recommendations": [
       "after-hours",
       "hurry-up-tomorrow",
-      "deadbeat"
+      "submarine"
     ]
   },
   {
@@ -172,15 +180,23 @@
     "recommendations": [
       "casino",
       "st-paul",
-      "art-of-loving"
+      "submarine"
+    ]
+  },
+  {
+    "slug": "ok-computer",
+    "recommendations": [
+      "folie-a-deux",
+      "deloused-in-the-comatorium",
+      "quebec"
     ]
   },
   {
     "slug": "percepticide",
     "recommendations": [
-      "projector",
       "getting-killed",
-      "hurry-up-tomorrow"
+      "ants-from-up-there",
+      "projector"
     ]
   },
   {
@@ -188,7 +204,7 @@
     "recommendations": [
       "heaven-tortured-mind",
       "getting-killed",
-      "projector"
+      "ants-from-up-there"
     ]
   },
   {
@@ -197,6 +213,22 @@
       "getting-killed",
       "3d-country",
       "ants-from-up-there"
+    ]
+  },
+  {
+    "slug": "quebec",
+    "recommendations": [
+      "heaven-tortured-mind",
+      "getting-killed",
+      "ok-computer"
+    ]
+  },
+  {
+    "slug": "spooky",
+    "recommendations": [
+      "heaven-or-las-vegas",
+      "submarine",
+      "i-let-it-in"
     ]
   },
   {
@@ -211,16 +243,16 @@
     "slug": "submarine",
     "recommendations": [
       "art-of-loving",
-      "st-paul",
-      "alien-coast"
+      "imaginal-disk",
+      "deadbeat"
     ]
   },
   {
     "slug": "wildlife",
     "recommendations": [
+      "getting-killed",
       "ants-from-up-there",
-      "projector",
-      "getting-killed"
+      "projector"
     ]
   }
 ]

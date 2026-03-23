@@ -1,33 +1,12 @@
 [
   {
-    "id": "spooky",
-    "title": "Spooky",
-    "artist": "Lush",
-    "year": 1992,
-    "stars": null,
-    "second_spin": false,
-    "review_url": "#",
-    "genres": [
-      "dream pop",
-      "shoegaze"
-    ],
-    "cover_art": "assets/covers/spooky.jpg",
-    "spotify_id": "5NSgxemDL3eSm79jFkqxuw",
-    "track_count": 12,
-    "duration_ms": 2880000,
-    "popularity": null,
-    "favorite_track": "For Love",
-    "track_url": "https://open.spotify.com/track/3KiKpbpJp9QKuTZb9ocfJi",
-    "preview_url": null,
-    "recommendations": []
-  },
-  {
     "id": "getting-killed",
     "title": "Getting Killed",
     "artist": "Geese",
     "year": 2025,
     "stars": 4,
     "second_spin": true,
+    "blurb": "A gnarly sophomore leap — tighter hooks, bigger guitar, and more controlled chaos from Brooklyn's best post-punk export.",
     "review_url": "reviews/getting-killed.html",
     "genres": [
       "post-punk",
@@ -42,14 +21,14 @@
     "spotify_id": "0eeXb23yMW6EaIgm63xxPC",
     "track_count": 11,
     "duration_ms": 2739344,
-    "popularity": 70,
+    "popularity": null,
     "favorite_track": "Bow Down",
     "track_url": "https://open.spotify.com/track/5jR6zOQf3HtU2mifXWg6hE",
     "preview_url": null,
     "recommendations": [
       "projector",
       "3d-country",
-      "praise-a-lord"
+      "ants-from-up-there"
     ]
   },
   {
@@ -59,6 +38,7 @@
     "year": 2026,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Faiyaz leans fully into his persona — slick, cinematic R&B that's as seductive as it is self-aware.",
     "review_url": "#",
     "genres": [
       "alternative r&b",
@@ -78,8 +58,8 @@
     "preview_url": null,
     "recommendations": [
       "hurry-up-tomorrow",
-      "art-of-loving",
-      "after-hours"
+      "submarine",
+      "art-of-loving"
     ]
   },
   {
@@ -89,6 +69,7 @@
     "year": 2026,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A hazy, high-octane trip through Toliver's signature psych-trap sound — melodic and menacing in equal measure.",
     "review_url": "#",
     "genres": [
       "psychedelic trap",
@@ -110,7 +91,7 @@
     "recommendations": [
       "casino",
       "st-paul",
-      "art-of-loving"
+      "submarine"
     ]
   },
   {
@@ -120,6 +101,7 @@
     "year": 2026,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Keem doubles down on his fractured, ADD-rap style — unpredictable flows and Cactus Jack atmospherics at their most unfiltered.",
     "review_url": "#",
     "genres": [
       "experimental hip-hop",
@@ -151,14 +133,13 @@
     "year": 2025,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A stunning debut from Birmingham's soul revivalists — Paul Janeway's voice is a force of nature over tight, punchy funk.",
     "review_url": "#",
     "genres": [
       "southern soul",
       "funk",
       "soul",
-      "r&b",
-      "blues",
-      "alabama"
+      "r&b"
     ],
     "cover_art": "assets/covers/st-paul.jpg",
     "spotify_id": "6EkqdSW6mNa7c7aCKbWJ38",
@@ -181,6 +162,7 @@
     "year": 2022,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A debut that arrived fully formed — angular guitar work and Paul Doyle's howl make this one of indie rock's freshest first statements in years.",
     "review_url": "#",
     "genres": [
       "post-punk",
@@ -212,6 +194,7 @@
     "year": 2024,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Quiet, unguarded, and deceptively sharp — Winter's debut turns lo-fi singer-songwriter into something genuinely literary.",
     "review_url": "#",
     "genres": [
       "indie rock",
@@ -232,9 +215,9 @@
     "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF",
     "preview_url": null,
     "recommendations": [
-      "aeroplane-over-the-sea",
       "st-paul",
-      "ants-from-up-there"
+      "aeroplane-over-the-sea",
+      "quebec"
     ]
   },
   {
@@ -244,12 +227,14 @@
     "year": 2024,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A maximalist pop odyssey that earns every synth layer — Magdalena Bay's concept album is the rare case where the ambition fully matches the execution.",
     "review_url": "#",
     "genres": [
       "synth-pop",
       "indie pop",
       "electropop",
       "dream pop",
+      "synthpop",
       "neo-psychedelia",
       "indietronica",
       "progressive pop",
@@ -266,7 +251,7 @@
     "recommendations": [
       "after-hours",
       "hurry-up-tomorrow",
-      "deadbeat"
+      "submarine"
     ]
   },
   {
@@ -276,6 +261,7 @@
     "year": 2025,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Abel's cinematic farewell to The Weeknd persona — dark, sweeping, and emotionally exhausting in the best way.",
     "review_url": "#",
     "genres": [
       "dark r&b",
@@ -284,6 +270,7 @@
       "cinematic pop",
       "synthwave",
       "alternative r&b",
+      "synthpop",
       "pop",
       "alt-pop"
     ],
@@ -308,6 +295,7 @@
     "year": 2020,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A glittering, disorienting glam-rock fantasia where psychedelia and pop collide completely on their own terms.",
     "review_url": "#",
     "genres": [
       "art rock",
@@ -328,8 +316,8 @@
     "preview_url": null,
     "recommendations": [
       "praise-a-lord",
-      "deloused-in-the-comatorium",
-      "getting-killed"
+      "alien-coast",
+      "quebec"
     ]
   },
   {
@@ -339,27 +327,30 @@
     "year": 2023,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A warm, assured debut from the South London singer — Dean's velvety vocals and confessional songwriting make heartbreak feel like a hug.",
     "review_url": "#",
     "genres": [
       "soul",
       "indie pop",
-      "neo-soul",
+      "neo soul",
       "r&b",
       "british soul",
-      "pop"
+      "pop",
+      "rhythm and blues",
+      "neo-soul"
     ],
     "cover_art": "assets/covers/art-of-loving.jpg",
     "spotify_id": "0l8zYqoUeBYg47Gmevq9HZ",
     "track_count": 12,
     "duration_ms": 2063500,
     "popularity": null,
-    "favorite_track": "A Couple Minutes",
-    "track_url": "https://open.spotify.com/track/312z6PZ8wwREck8613PkJk",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "submarine",
       "st-paul",
-      "alien-coast"
+      "submarine",
+      "after-hours"
     ]
   },
   {
@@ -369,6 +360,7 @@
     "year": 2022,
     "stars": 4,
     "second_spin": false,
+    "blurb": "An achingly beautiful farewell from the band's original lineup — sprawling, orchestral, and emotionally devastating in a way few albums ever manage to be.",
     "review_url": "#",
     "genres": [
       "post-rock",
@@ -376,19 +368,20 @@
       "art rock",
       "indie rock",
       "baroque pop",
-      "chamber music"
+      "post-punk",
+      "crank wave"
     ],
     "cover_art": "assets/covers/ants-from-up-there.jpg",
     "spotify_id": "21xp7NdU1ajmO1CX0w2Egd",
     "track_count": 10,
     "duration_ms": 3531090,
     "popularity": null,
-    "favorite_track": "Concorde",
-    "track_url": "https://open.spotify.com/track/0y5akbuW5mCnnUe71xATpe",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "projector",
       "getting-killed",
+      "projector",
       "3d-country"
     ]
   },
@@ -399,29 +392,27 @@
     "year": 2022,
     "stars": 4,
     "second_spin": false,
+    "blurb": "The Broken Bones push their soul roots into stranger, more cinematic territory — Paul Janeway's voice remains the gravitational center of something genuinely cosmic.",
     "review_url": "#",
     "genres": [
       "soul",
       "psychedelic soul",
       "art rock",
       "southern soul",
-      "funk",
-      "blues",
-      "alabama",
-      "r&b"
+      "funk"
     ],
     "cover_art": "assets/covers/alien-coast.jpg",
     "spotify_id": "07dZWmAaFk2XJfdKeUwadb",
     "track_count": 11,
     "duration_ms": 2105975,
     "popularity": null,
-    "favorite_track": "Bermejo and the Devil",
-    "track_url": "https://open.spotify.com/track/13gsOHgrWpFICib6Xrph6H",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
       "st-paul",
       "heaven-tortured-mind",
-      "art-of-loving"
+      "getting-killed"
     ]
   },
   {
@@ -431,6 +422,7 @@
     "year": 2023,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Geese swing hard toward Americana without losing their angular edge — a shape-shifting second record that finds the band expanding every boundary they set on Projector.",
     "review_url": "#",
     "genres": [
       "indie rock",
@@ -448,12 +440,12 @@
     "track_count": 11,
     "duration_ms": 2614064,
     "popularity": null,
-    "favorite_track": "I See Myself",
-    "track_url": "https://open.spotify.com/track/1rqGuE3jvcvacQk96lfnl6",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "projector",
       "getting-killed",
+      "projector",
       "ants-from-up-there"
     ]
   },
@@ -464,6 +456,7 @@
     "year": 1990,
     "stars": 4,
     "second_spin": false,
+    "blurb": "One of the most purely beautiful albums ever made — Elizabeth Fraser's voice dissolves into Robin Guthrie's shimmering guitar haze like a language only music can speak.",
     "review_url": "#",
     "genres": [
       "dream pop",
@@ -479,12 +472,12 @@
     "track_count": 10,
     "duration_ms": 2244503,
     "popularity": null,
-    "favorite_track": "Heaven or Las Vegas",
-    "track_url": "https://open.spotify.com/track/0WLy3r1CQgpq3x2eN5YyDG",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "i-let-it-in",
-      "projector",
+      "spooky",
+      "ok-computer",
       "folie-a-deux"
     ]
   },
@@ -495,30 +488,27 @@
     "year": 2022,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Hazy, bilingual, and impossibly cool — The Marías float through psychedelic dream-pop with a laid-back confidence that makes every song feel like a slow-motion summer afternoon.",
     "review_url": "#",
     "genres": [
       "indie pop",
       "dream pop",
       "psychedelic pop",
       "r&b",
-      "bedroom pop",
-      "jazz",
-      "psychedelic",
-      "soul",
-      "los angeles"
+      "bedroom pop"
     ],
     "cover_art": "assets/covers/submarine.jpg",
     "spotify_id": "03guxdOi12XJbnvxvxbpwG",
     "track_count": 14,
     "duration_ms": 2713036,
     "popularity": null,
-    "favorite_track": "Echo",
-    "track_url": "https://open.spotify.com/track/3SH1vOTwgg5Ma1NhHaXvrA",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
       "art-of-loving",
-      "st-paul",
-      "alien-coast"
+      "imaginal-disk",
+      "deadbeat"
     ]
   },
   {
@@ -528,6 +518,7 @@
     "year": 2023,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Yves Tumor's most extroverted statement yet — loud, campy, and thrillingly weird, it splits the difference between arena rock and avant-garde with total conviction.",
     "review_url": "#",
     "genres": [
       "art rock",
@@ -545,13 +536,13 @@
     "track_count": 12,
     "duration_ms": 2249822,
     "popularity": null,
-    "favorite_track": "Heaven Surrounds Us Like a Hood",
-    "track_url": "https://open.spotify.com/track/6jCaLfO4BcwoLDpMKgSFkp",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
       "heaven-tortured-mind",
       "getting-killed",
-      "projector"
+      "ants-from-up-there"
     ]
   },
   {
@@ -561,6 +552,7 @@
     "year": 2020,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Abel's most cohesive vision — a 1980s-drenched heartbreak opera that turned paranoid synth-pop into one of the definitive albums of its era.",
     "review_url": "#",
     "genres": [
       "r&b",
@@ -568,6 +560,7 @@
       "alternative r&b",
       "dark pop",
       "pop",
+      "synthpop",
       "synthwave",
       "new wave"
     ],
@@ -576,8 +569,8 @@
     "track_count": 14,
     "duration_ms": 3377568,
     "popularity": null,
-    "favorite_track": "After Hours",
-    "track_url": "https://open.spotify.com/track/2p8IUWQDrpjuFltbdgLOag",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
       "hurry-up-tomorrow",
@@ -592,10 +585,11 @@
     "year": 2024,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Tyler strips back the maximalism for something more introspective — muted palettes, maternal guilt, and mid-life reckoning wrapped in impeccably crafted beats.",
     "review_url": "#",
     "genres": [
       "hip-hop",
-      "neo-soul",
+      "neo soul",
       "jazz rap",
       "conscious hip-hop",
       "alternative hip-hop",
@@ -610,13 +604,13 @@
     "track_count": 14,
     "duration_ms": 3180814,
     "popularity": null,
-    "favorite_track": "Tomorrow",
-    "track_url": "https://open.spotify.com/track/3yw3m8wgRB4ptDyAvtdhq5",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
       "call-me-if-you-get-lost",
       "dont-tap-the-glass",
-      "casino"
+      "donuts"
     ]
   },
   {
@@ -626,6 +620,7 @@
     "year": 2021,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Tyler's most bravado-driven record is also one of his most polished — DJ Drama's hype-man energy and lush jazz-rap production make every track feel like a postcard from a better life.",
     "review_url": "#",
     "genres": [
       "hip-hop",
@@ -643,8 +638,8 @@
     "track_count": 16,
     "duration_ms": 3170012,
     "popularity": null,
-    "favorite_track": "WILSHIRE",
-    "track_url": "https://open.spotify.com/track/2z27xc2eCnIZOBtBHuLQEQ",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
       "chromakopia",
@@ -659,13 +654,14 @@
     "year": 2025,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A short, restrained detour that shows Tyler at his most naked — lo-fi soul sketches that feel like journal pages set to music.",
     "review_url": "#",
     "genres": [
       "hip-hop",
       "jazz rap",
       "alternative hip-hop",
       "west coast rap",
-      "neo-soul",
+      "neo soul",
       "hardcore hip-hop",
       "hip house",
       "pop rap",
@@ -676,8 +672,8 @@
     "track_count": 10,
     "duration_ms": 1710598,
     "popularity": null,
-    "favorite_track": "Don't Tap the Glass",
-    "track_url": "https://open.spotify.com/track/5DRS7YEe1bwGJLDGviT3CD",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
       "call-me-if-you-get-lost",
@@ -692,6 +688,7 @@
     "year": 2024,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Parker returns in shimmering, unhurried form — Deadbeat splits the difference between Currents-era electronic gloss and the hazy guitar psychedelia of his roots.",
     "review_url": "#",
     "genres": [
       "psychedelic rock",
@@ -710,13 +707,13 @@
     "track_count": 12,
     "duration_ms": 3365184,
     "popularity": null,
-    "favorite_track": "Not My World",
-    "track_url": "https://open.spotify.com/track/12wDKbddX9bUYHd1Rl8gmu",
+    "favorite_track": "",
+    "track_url": "",
     "preview_url": null,
     "recommendations": [
       "imaginal-disk",
-      "heaven-tortured-mind",
-      "getting-killed"
+      "submarine",
+      "quebec"
     ]
   },
   {
@@ -726,6 +723,7 @@
     "year": 1998,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A ragged, ecstatic folk masterpiece — Jeff Mangum's raw howl and surrealist imagery somehow coalesced into one of the most emotionally devastating albums ever recorded.",
     "review_url": "#",
     "genres": [
       "indie folk",
@@ -733,9 +731,8 @@
       "lo-fi",
       "baroque pop",
       "psychedelic folk",
-      "folk",
       "indie rock",
-      "elephant 6"
+      "folk"
     ],
     "cover_art": "assets/covers/aeroplane-over-the-sea.jpg",
     "spotify_id": "0vVekV45lOaVKs6RZQQNob",
@@ -748,7 +745,7 @@
     "recommendations": [
       "ants-from-up-there",
       "heavy-metal",
-      "projector"
+      "quebec"
     ]
   },
   {
@@ -758,6 +755,7 @@
     "year": 2003,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Cedric and Omar's debut is a prog-rock fever dream — dense, chaotic, and unstoppably kinetic, with jazz and punk colliding at full speed.",
     "review_url": "#",
     "genres": [
       "progressive rock",
@@ -766,9 +764,9 @@
       "psychedelic rock",
       "latin rock",
       "experimental",
-      "experimental rock",
-      "alternative rock",
-      "psychedelic"
+      "rock",
+      "alternative",
+      "progressive"
     ],
     "cover_art": "assets/covers/deloused-in-the-comatorium.jpg",
     "spotify_id": "0CA2EVHhRPR5VPV78KZw89",
@@ -779,9 +777,9 @@
     "track_url": "https://open.spotify.com/track/16Elz7HJPLZPMylp13ewxv",
     "preview_url": null,
     "recommendations": [
-      "heaven-tortured-mind",
+      "ok-computer",
       "getting-killed",
-      "praise-a-lord"
+      "heaven-tortured-mind"
     ]
   },
   {
@@ -791,6 +789,7 @@
     "year": 2011,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A sprawling post-hardcore concept album built from short stories and confessional screams — Jordan Dreyer's lyrical intensity makes every track feel like a gut punch.",
     "review_url": "#",
     "genres": [
       "post-hardcore",
@@ -810,9 +809,9 @@
     "track_url": "https://open.spotify.com/track/7uvcuAl1IvSqok1JM6IBjX",
     "preview_url": null,
     "recommendations": [
+      "getting-killed",
       "ants-from-up-there",
-      "projector",
-      "getting-killed"
+      "projector"
     ]
   },
   {
@@ -822,6 +821,7 @@
     "year": 2008,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Fall Out Boy's most ambitious and divisive record — they traded pop-punk formula for baroque maximalism and landed somewhere genuinely strange and great.",
     "review_url": "#",
     "genres": [
       "pop punk",
@@ -829,8 +829,9 @@
       "power pop",
       "alternative rock",
       "arena rock",
-      "rock",
+      "alternative",
       "albums i can listen to all the way through",
+      "rock",
       "pop rock"
     ],
     "cover_art": "assets/covers/folie-a-deux.jpg",
@@ -842,8 +843,8 @@
     "track_url": "https://open.spotify.com/track/7pG6AWvWF6sktRiM9qfm4P",
     "preview_url": null,
     "recommendations": [
-      "wildlife",
-      "3d-country",
+      "ok-computer",
+      "heaven-or-las-vegas",
       "deloused-in-the-comatorium"
     ]
   },
@@ -854,16 +855,14 @@
     "year": 2025,
     "stars": 4,
     "second_spin": false,
+    "blurb": "Chicago's Pixel Grip delivers a cold, danceable dystopia — industrial rhythms and Rita Lukea's commanding vocals make this one of the sharpest darkwave records in years.",
     "review_url": "#",
     "genres": [
       "EBM",
       "darkwave",
       "industrial pop",
       "post-punk",
-      "electro",
-      "electronic",
-      "synth-pop",
-      "ambient"
+      "electro"
     ],
     "cover_art": "assets/covers/percepticide.jpg",
     "spotify_id": "5IZU64hjnyx7VDYw9PdvN3",
@@ -874,100 +873,9 @@
     "track_url": "https://open.spotify.com/track/7cBHIzozk0MLTExQLBcN1S",
     "preview_url": null,
     "recommendations": [
-      "projector",
       "getting-killed",
-      "hurry-up-tomorrow"
-    ]
-  },
-  {
-    "id": "ok-computer",
-    "title": "OK Computer",
-    "artist": "Radiohead",
-    "year": 1997,
-    "stars": 5,
-    "second_spin": true,
-    "review_url": "#",
-    "genres": [
-      "alternative rock",
-      "art rock",
-      "electronic rock",
-      "post-britpop",
-      "experimental rock",
-      "concept album"
-    ],
-    "cover_art": "assets/covers/ok-computer.jpg",
-    "spotify_id": "6dVIqQ8qmQ5GBnJ9shOYGE",
-    "track_count": 12,
-    "duration_ms": 3186742,
-    "popularity": null,
-    "favorite_track": "Exit Music (For a Film)",
-    "track_url": "https://open.spotify.com/track/4Na0siMtWOW9pJoWJ1Ponv",
-    "preview_url": null,
-    "recommendations": [
-      "heaven-or-las-vegas",
-      "deloused-in-the-comatorium",
-      "ants-from-up-there"
-    ]
-  },
-  {
-    "id": "quebec",
-    "title": "Quebec",
-    "artist": "Ween",
-    "year": 2003,
-    "stars": 4,
-    "second_spin": true,
-    "review_url": "#",
-    "genres": [
-      "alternative rock",
-      "psychedelic rock",
-      "indie rock",
-      "eclectic",
-      "experimental rock",
-      "hard rock",
-      "lo-fi"
-    ],
-    "cover_art": "assets/covers/quebec.jpg",
-    "spotify_id": "0GOWw5YVpOmIX6mUtjLi30",
-    "track_count": 16,
-    "duration_ms": 3240000,
-    "popularity": null,
-    "favorite_track": "I Don't Want It",
-    "track_url": "https://open.spotify.com/track/7GA2kb0VtYvwT3PYhMaYGX",
-    "preview_url": null,
-    "recommendations": [
-      "aeroplane-over-the-sea",
-      "deloused-in-the-comatorium",
-      "folie-a-deux"
-    ]
-  },
-  {
-    "id": "donuts",
-    "title": "Donuts",
-    "artist": "J Dilla",
-    "year": 2006,
-    "stars": 5,
-    "second_spin": true,
-    "review_url": "#",
-    "genres": [
-      "instrumental hip-hop",
-      "abstract hip-hop",
-      "lo-fi hip-hop",
-      "jazz rap",
-      "sampling",
-      "experimental hip-hop"
-    ],
-    "cover_art": "assets/covers/donuts.jpg",
-    "spotify_id": "5fMlysqhFE0itGn4KezMBW",
-    "track_count": 31,
-    "duration_ms": 2647000,
-    "popularity": null,
-    "favorite_track": "Workinonit",
-    "track_url": "https://open.spotify.com/track/33T6ABvdB3P2iYOWJnBjsQ",
-    "preview_url": null,
-    "recommendations": [
-      "chromakopia",
-      "call-me-if-you-get-lost",
-      "dont-tap-the-glass"
+      "ants-from-up-there",
+      "projector"
     ]
   },
   {
@@ -977,6 +885,7 @@
     "year": 2020,
     "stars": 4,
     "second_spin": false,
+    "blurb": "A stunning genre collapse — Loathe weave ambient drift and nu-metal aggression into something genuinely unclassifiable, with texture and heaviness that hit equally hard.",
     "review_url": "#",
     "genres": [
       "metalcore",
@@ -997,8 +906,139 @@
     "preview_url": null,
     "recommendations": [
       "projector",
+      "spooky",
+      "heaven-or-las-vegas"
+    ]
+  },
+  {
+    "id": "spooky",
+    "title": "Spooky",
+    "artist": "Lush",
+    "year": 1992,
+    "stars": null,
+    "second_spin": false,
+    "blurb": "",
+    "review_url": "#",
+    "genres": [
+      "dream pop",
+      "shoegaze",
+      "ethereal wave",
+      "i love singing along",
+      "where is my bong"
+    ],
+    "cover_art": "assets/covers/spooky.jpg",
+    "spotify_id": "5NSgxemDL3eSm79jFkqxuw",
+    "track_count": 12,
+    "duration_ms": 2906995,
+    "popularity": null,
+    "favorite_track": "For Love",
+    "track_url": "https://open.spotify.com/track/3KiKpbpJp9QKuTZb9ocfJi",
+    "preview_url": null,
+    "recommendations": [
       "heaven-or-las-vegas",
-      "icon"
+      "submarine",
+      "i-let-it-in"
+    ]
+  },
+  {
+    "id": "ok-computer",
+    "title": "OK Computer",
+    "artist": "Radiohead",
+    "year": 1997,
+    "stars": 5,
+    "second_spin": true,
+    "blurb": "",
+    "review_url": "#",
+    "genres": [
+      "alternative rock",
+      "art rock",
+      "electronic rock",
+      "post-britpop",
+      "experimental rock",
+      "concept album",
+      "alternative",
+      "rock",
+      "masterpiece"
+    ],
+    "cover_art": "assets/covers/ok-computer.jpg",
+    "spotify_id": "6dVIqQ8qmQ5GBnJ9shOYGE",
+    "track_count": 12,
+    "duration_ms": 3221223,
+    "popularity": null,
+    "favorite_track": "Exit Music (For a Film)",
+    "track_url": "https://open.spotify.com/track/4Na0siMtWOW9pJoWJ1Ponv",
+    "preview_url": null,
+    "recommendations": [
+      "folie-a-deux",
+      "deloused-in-the-comatorium",
+      "quebec"
+    ]
+  },
+  {
+    "id": "quebec",
+    "title": "Quebec",
+    "artist": "Ween",
+    "year": 2003,
+    "stars": 4,
+    "second_spin": true,
+    "blurb": "",
+    "review_url": "#",
+    "genres": [
+      "alternative rock",
+      "psychedelic rock",
+      "indie rock",
+      "eclectic",
+      "experimental rock",
+      "hard rock",
+      "lo-fi",
+      "neo-psychedelia",
+      "art rock"
+    ],
+    "cover_art": "assets/covers/quebec.jpg",
+    "spotify_id": "0GOWw5YVpOmIX6mUtjLi30",
+    "track_count": 15,
+    "duration_ms": 3303464,
+    "popularity": null,
+    "favorite_track": "I Don't Want It",
+    "track_url": "https://open.spotify.com/track/7GA2kb0VtYvwT3PYhMaYGX",
+    "preview_url": null,
+    "recommendations": [
+      "heaven-tortured-mind",
+      "getting-killed",
+      "ok-computer"
+    ]
+  },
+  {
+    "id": "donuts",
+    "title": "Donuts",
+    "artist": "J Dilla",
+    "year": 2006,
+    "stars": 5,
+    "second_spin": true,
+    "blurb": "",
+    "review_url": "#",
+    "genres": [
+      "instrumental hip-hop",
+      "abstract hip-hop",
+      "lo-fi hip-hop",
+      "jazz rap",
+      "sampling",
+      "experimental hip-hop",
+      "hip-hop",
+      "instrumental"
+    ],
+    "cover_art": "assets/covers/donuts.jpg",
+    "spotify_id": "5fMlysqhFE0itGn4KezMBW",
+    "track_count": 31,
+    "duration_ms": 2618617,
+    "popularity": null,
+    "favorite_track": "Workinonit",
+    "track_url": "https://open.spotify.com/track/33T6ABvdB3P2iYOWJnBjsQ",
+    "preview_url": null,
+    "recommendations": [
+      "chromakopia",
+      "casino",
+      "dont-tap-the-glass"
     ]
   }
 ]

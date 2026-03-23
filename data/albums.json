@@ -224,7 +224,13 @@
     "title": "The Art of Loving",
     "artist": "Olivia Dean",
     "year": 2023,
-    "genres": ["soul", "indie pop", "neo soul", "r&b", "british soul"],
+    "genres": [
+      "soul",
+      "indie pop",
+      "neo soul",
+      "r&b",
+      "british soul"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -240,7 +246,13 @@
     "title": "Ants From Up There",
     "artist": "Black Country, New Road",
     "year": 2022,
-    "genres": ["post-rock", "chamber pop", "art rock", "indie rock", "baroque pop"],
+    "genres": [
+      "post-rock",
+      "chamber pop",
+      "art rock",
+      "indie rock",
+      "baroque pop"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -256,7 +268,13 @@
     "title": "The Alien Coast",
     "artist": "St. Paul & The Broken Bones",
     "year": 2022,
-    "genres": ["soul", "psychedelic soul", "art rock", "southern soul", "funk"],
+    "genres": [
+      "soul",
+      "psychedelic soul",
+      "art rock",
+      "southern soul",
+      "funk"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -272,7 +290,13 @@
     "title": "3D Country",
     "artist": "Geese",
     "year": 2023,
-    "genres": ["indie rock", "art rock", "country rock", "post-punk", "alternative country"],
+    "genres": [
+      "indie rock",
+      "art rock",
+      "country rock",
+      "post-punk",
+      "alternative country"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -288,7 +312,13 @@
     "title": "Heaven or Las Vegas",
     "artist": "Cocteau Twins",
     "year": 1990,
-    "genres": ["dream pop", "shoegaze", "ethereal wave", "alternative rock", "ambient pop"],
+    "genres": [
+      "dream pop",
+      "shoegaze",
+      "ethereal wave",
+      "alternative rock",
+      "ambient pop"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -304,7 +334,13 @@
     "title": "Submarine",
     "artist": "The Marias",
     "year": 2022,
-    "genres": ["indie pop", "dream pop", "psychedelic pop", "r&b", "bedroom pop"],
+    "genres": [
+      "indie pop",
+      "dream pop",
+      "psychedelic pop",
+      "r&b",
+      "bedroom pop"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -320,7 +356,13 @@
     "title": "Praise a Lord Who Chews but Which Does Not Consume",
     "artist": "Yves Tumor",
     "year": 2023,
-    "genres": ["art rock", "glam rock", "noise pop", "psychedelic rock", "avant-garde"],
+    "genres": [
+      "art rock",
+      "glam rock",
+      "noise pop",
+      "psychedelic rock",
+      "avant-garde"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -336,7 +378,13 @@
     "title": "After Hours",
     "artist": "The Weeknd",
     "year": 2020,
-    "genres": ["r&b", "synth-pop", "alternative r&b", "dark pop", "pop"],
+    "genres": [
+      "r&b",
+      "synth-pop",
+      "alternative r&b",
+      "dark pop",
+      "pop"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -352,7 +400,13 @@
     "title": "CHROMAKOPIA",
     "artist": "Tyler, the Creator",
     "year": 2024,
-    "genres": ["hip-hop", "neo soul", "jazz rap", "conscious hip-hop", "alternative hip-hop"],
+    "genres": [
+      "hip-hop",
+      "neo soul",
+      "jazz rap",
+      "conscious hip-hop",
+      "alternative hip-hop"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -368,7 +422,13 @@
     "title": "Call Me If You Get Lost",
     "artist": "Tyler, the Creator",
     "year": 2021,
-    "genres": ["hip-hop", "west coast rap", "jazz rap", "luxury rap", "alternative hip-hop"],
+    "genres": [
+      "hip-hop",
+      "west coast rap",
+      "jazz rap",
+      "luxury rap",
+      "alternative hip-hop"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -384,7 +444,13 @@
     "title": "Don't Tap the Glass",
     "artist": "Tyler, the Creator",
     "year": 2025,
-    "genres": ["hip-hop", "jazz rap", "alternative hip-hop", "west coast rap", "neo soul"],
+    "genres": [
+      "hip-hop",
+      "jazz rap",
+      "alternative hip-hop",
+      "west coast rap",
+      "neo soul"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -400,7 +466,13 @@
     "title": "Deadbeat",
     "artist": "Tame Impala",
     "year": 2024,
-    "genres": ["psychedelic rock", "neo-psychedelia", "indie rock", "synth-pop", "dream pop"],
+    "genres": [
+      "psychedelic rock",
+      "neo-psychedelia",
+      "indie rock",
+      "synth-pop",
+      "dream pop"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -416,7 +488,13 @@
     "title": "In the Aeroplane Over the Sea",
     "artist": "Neutral Milk Hotel",
     "year": 1998,
-    "genres": ["indie folk", "freak folk", "lo-fi", "baroque pop", "psychedelic folk"],
+    "genres": [
+      "indie folk",
+      "freak folk",
+      "lo-fi",
+      "baroque pop",
+      "psychedelic folk"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -432,7 +510,13 @@
     "title": "De-Loused in the Comatorium",
     "artist": "The Mars Volta",
     "year": 2003,
-    "genres": ["progressive rock", "post-hardcore", "art rock", "psychedelic rock", "latin rock"],
+    "genres": [
+      "progressive rock",
+      "post-hardcore",
+      "art rock",
+      "psychedelic rock",
+      "latin rock"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -448,7 +532,13 @@
     "title": "Wildlife",
     "artist": "La Dispute",
     "year": 2011,
-    "genres": ["post-hardcore", "spoken word", "screamo", "melodic hardcore", "indie rock"],
+    "genres": [
+      "post-hardcore",
+      "spoken word",
+      "screamo",
+      "melodic hardcore",
+      "indie rock"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -464,7 +554,13 @@
     "title": "Folie à Deux",
     "artist": "Fall Out Boy",
     "year": 2008,
-    "genres": ["pop punk", "emo", "power pop", "alternative rock", "arena rock"],
+    "genres": [
+      "pop punk",
+      "emo",
+      "power pop",
+      "alternative rock",
+      "arena rock"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -480,7 +576,13 @@
     "title": "Percepticide: The Death of Reality",
     "artist": "Pixel Grip",
     "year": 2025,
-    "genres": ["EBM", "darkwave", "industrial pop", "post-punk", "electro"],
+    "genres": [
+      "EBM",
+      "darkwave",
+      "industrial pop",
+      "post-punk",
+      "electro"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -496,7 +598,13 @@
     "title": "I Let It in and It Took Everything",
     "artist": "Loathe",
     "year": 2020,
-    "genres": ["metalcore", "shoegaze", "post-metal", "nu-metal", "ambient metal"],
+    "genres": [
+      "metalcore",
+      "shoegaze",
+      "post-metal",
+      "nu-metal",
+      "ambient metal"
+    ],
     "stars": 4,
     "second_spin": false,
     "review_url": "#",
@@ -505,6 +613,99 @@
     "blurb": "A stunning genre collapse — Loathe weave ambient drift and nu-metal aggression into something genuinely unclassifiable, with texture and heaviness that hit equally hard.",
     "favorite_track": "Is It Really You?",
     "track_url": "https://open.spotify.com/track/4OmlsAT8r4q9vPFBvfYgyZ",
+    "preview_url": null
+  },
+  {
+    "id": "spooky",
+    "title": "Spooky",
+    "artist": "Lush",
+    "year": 1992,
+    "genres": [
+      "dream pop",
+      "shoegaze"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021b5c06982d105c8b6b08d041",
+    "spotify_url": "https://open.spotify.com/album/5NSgxemDL3eSm79jFkqxuw",
+    "review_url": "#",
+    "date": "1992-01-27",
+    "blurb": "",
+    "favorite_track": "For Love",
+    "track_url": "https://open.spotify.com/track/3KiKpbpJp9QKuTZb9ocfJi",
+    "preview_url": null
+  },
+  {
+    "id": "ok-computer",
+    "title": "OK Computer",
+    "artist": "Radiohead",
+    "year": 1997,
+    "genres": [
+      "alternative rock",
+      "art rock",
+      "electronic rock",
+      "post-britpop",
+      "experimental rock",
+      "concept album"
+    ],
+    "stars": 5,
+    "second_spin": true,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/6dVIqQ8qmQ5GBnJ9shOYGE",
+    "review_url": "#",
+    "date": "1997-01-01",
+    "blurb": "",
+    "favorite_track": "Exit Music (For a Film)",
+    "track_url": "https://open.spotify.com/track/4Na0siMtWOW9pJoWJ1Ponv",
+    "preview_url": null
+  },
+  {
+    "id": "quebec",
+    "title": "Quebec",
+    "artist": "Ween",
+    "year": 2003,
+    "genres": [
+      "alternative rock",
+      "psychedelic rock",
+      "indie rock",
+      "eclectic",
+      "experimental rock",
+      "hard rock",
+      "lo-fi"
+    ],
+    "stars": 4,
+    "second_spin": true,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/0GOWw5YVpOmIX6mUtjLi30",
+    "review_url": "#",
+    "date": "2003-01-01",
+    "blurb": "",
+    "favorite_track": "I Don't Want It",
+    "track_url": "https://open.spotify.com/track/7GA2kb0VtYvwT3PYhMaYGX",
+    "preview_url": null
+  },
+  {
+    "id": "donuts",
+    "title": "Donuts",
+    "artist": "J Dilla",
+    "year": 2006,
+    "genres": [
+      "instrumental hip-hop",
+      "abstract hip-hop",
+      "lo-fi hip-hop",
+      "jazz rap",
+      "sampling",
+      "experimental hip-hop"
+    ],
+    "stars": 5,
+    "second_spin": true,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/5fMlysqhFE0itGn4KezMBW",
+    "review_url": "#",
+    "date": "2006-01-01",
+    "blurb": "",
+    "favorite_track": "Workinonit",
+    "track_url": "https://open.spotify.com/track/33T6ABvdB3P2iYOWJnBjsQ",
     "preview_url": null
   }
 ]
