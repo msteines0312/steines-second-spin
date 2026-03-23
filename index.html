@@ -458,7 +458,7 @@
     <div class="form-field">
       <button class="form-submit" type="submit">Send It</button>
     </div>
-    <p class="form-thanks" id="formThanks">Got it. I'll give it a spin. ✓</p>
+    <p class="form-thanks" id="formThanks">Your email app should have opened. If it didn't, send it directly to msteines0312@gmail.com.</p>
   </form>
 </section>
 
@@ -526,7 +526,7 @@ fetch('data/albums_final.json')
       '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
   });
 
-// Recommendation form — opens mailto: with pre-filled body, shows thank-you message
+// Recommendation form — opens mailto: in a new tab so the user stays on the page
 document.getElementById('recommendForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const album  = document.getElementById('recAlbum').value.trim();
@@ -534,13 +534,15 @@ document.getElementById('recommendForm').addEventListener('submit', function(e) 
   const note   = document.getElementById('recNote').value.trim();
 
   const body = `Album: ${album}\nArtist: ${artist}\nNote: ${note || '(none)'}`;
-  const subject = encodeURIComponent(`Spin Recommendation: ${album} — ${artist}`);
+  const subject = encodeURIComponent(`Spin Recommendation: ${album} by ${artist}`);
   const bodyEnc = encodeURIComponent(body);
 
-  window.location.href =
-    `mailto:msteines0312@gmail.com?subject=${subject}&body=${bodyEnc}`;
+  // window.open keeps the user on this page; window.location.href would navigate away
+  window.open(
+    `mailto:msteines0312@gmail.com?subject=${subject}&body=${bodyEnc}`,
+    '_blank'
+  );
 
-  // Show thank-you message regardless of whether the mail client opened
   document.getElementById('formThanks').style.display = 'block';
   this.reset();
 });
