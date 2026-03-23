@@ -1,5 +1,27 @@
 [
   {
+    "id": "spooky",
+    "title": "Spooky",
+    "artist": "Lush",
+    "year": 1992,
+    "stars": null,
+    "second_spin": false,
+    "review_url": "#",
+    "genres": [
+      "dream pop",
+      "shoegaze"
+    ],
+    "cover_art": "assets/covers/spooky.jpg",
+    "spotify_id": "5NSgxemDL3eSm79jFkqxuw",
+    "track_count": 12,
+    "duration_ms": 2880000,
+    "popularity": null,
+    "favorite_track": "For Love",
+    "track_url": "https://open.spotify.com/track/3KiKpbpJp9QKuTZb9ocfJi",
+    "preview_url": null,
+    "recommendations": []
+  },
+  {
     "id": "getting-killed",
     "title": "Getting Killed",
     "artist": "Geese",
