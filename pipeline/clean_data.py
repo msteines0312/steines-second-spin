@@ -140,7 +140,9 @@ def extract_album(slug: str, raw: dict, manual_genres: list[str],
     # --- Release year ---
     # release_date can be "YYYY-MM-DD", "YYYY-MM", or just "YYYY" depending on
     # how Spotify stores it. Slicing the first 4 chars handles all three formats.
-    release_year = int(meta["release_date"][:4])
+    # Guard against missing or malformed dates (Spotify occasionally omits this).
+    release_date = meta.get("release_date") or ""
+    release_year = int(release_date[:4]) if len(release_date) >= 4 else 1900
 
     # --- Popularity --- (0-100 score from Spotify, based on recent stream counts)
     popularity = meta.get("popularity")

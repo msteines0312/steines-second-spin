@@ -43,7 +43,7 @@ with open(RECS, "r", encoding="utf-8") as f:
 
 # Use the editorial list as the source of truth for which albums exist and
 # what order they appear in — it's the one we curate by hand.
-slugs = [a["id"] for a in json.load(open(EDITORIAL, encoding="utf-8"))]
+slugs = list(editorial.keys())
 
 print(f"Merging {len(slugs)} albums from 3 sources...\n")
 
