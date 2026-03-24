@@ -6,7 +6,7 @@ This is the final step of the pipeline:
     fetch_spotify.py -> clean_data.py -> recommend.py -> build_data.py
 
 The output (site/data/albums_final.json) is what the frontend HTML pages
-fetch and render — one array of complete album objects, nothing left to join.
+fetch and render. One array of complete album objects, nothing left to join.
 
 Run from the project root:
     python pipeline/build_data.py
@@ -42,7 +42,7 @@ with open(RECS, "r", encoding="utf-8") as f:
     recs = {a["slug"]: a["recommendations"] for a in json.load(f)}
 
 # Use the editorial list as the source of truth for which albums exist and
-# what order they appear in — it's the one we curate by hand.
+# what order they appear in. It's the one we curate by hand.
 slugs = list(editorial.keys())
 
 print(f"Merging {len(slugs)} albums from 3 sources...\n")
@@ -63,7 +63,7 @@ for slug in slugs:
     # cover_art: use the locally downloaded file in site/assets/covers/.
     # Images are downloaded by pipeline/fetch_covers.py. The path is relative
     # to the site/ root so it works from any page depth via a leading slash or
-    # relative traversal — review pages use ../assets/covers/, index uses
+    # relative traversal. Review pages use ../assets/covers/, index uses
     # assets/covers/. We store just the filename and let each page resolve it.
     cover_art = f"assets/covers/{slug}.jpg"
 
