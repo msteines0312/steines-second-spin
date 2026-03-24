@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover — Steines' Second Spin</title>
+<meta property="og:title" content="Discover — Steines' Second Spin">
+<meta property="og:description" content="Pick an album you know. Find your next listen.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+
+/* === PAGE HEADER === */
+.page-strip {
+  background: var(--ink);
+  padding: clamp(36px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem) clamp(24px, 4vh, 48px);
+}
+.page-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
+.page-title {
+  font-family: var(--sans);
+  font-size: clamp(28px, 5vw, 60px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  line-height: 1.05;
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+  padding: clamp(32px, 5vh, 56px) clamp(1.5rem, 6vw, 5rem);
+}
+
+/* === GENRE CHIPS === */
+.chips-section {
+  margin-bottom: clamp(24px, 4vh, 40px);
+}
+.chips-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 12px;
+}
+.chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border: 1px solid var(--faint);
+  background: var(--bg);
+  color: var(--mid);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.chip:hover { border-color: var(--ink); color: var(--ink); }
+.chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+.chip-clear {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border: 1px solid rgba(232,24,30,0.3);
+  background: none;
+  color: var(--red);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.chip-clear:hover { background: rgba(232,24,30,0.06); }
+
+/* === ALBUM PICKER === */
+.section-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 14px;
+}
+.picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: clamp(8px, 1.2vw, 14px);
+  margin-bottom: clamp(40px, 6vh, 64px);
+}
+.picker-card {
+  background: none;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.picker-card:hover { transform: translateY(-2px); }
+.picker-card.selected { border-color: var(--red); }
+.picker-art {
+  aspect-ratio: 1;
+  background: var(--faint);
+  overflow: hidden;
+}
+.picker-art img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.picker-body {
+  padding: 6px 2px 2px;
+}
+.picker-title {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.picker-artist {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--mid);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === RESULTS PANEL === */
+.results-section {
+  display: none;
+  border-top: 1px solid var(--faint);
+  padding-top: clamp(32px, 5vh, 48px);
+}
+.results-header {
+  margin-bottom: clamp(20px, 3vh, 32px);
+}
+.results-seed {
+  font-family: var(--sans);
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: clamp(14px, 2vw, 20px);
+}
+.result-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--faint);
+  background: var(--bg);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.result-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+.result-card--locked { cursor: default; }
+.result-card--locked:hover { transform: none; box-shadow: none; }
+.result-art {
+  aspect-ratio: 1;
+  background: var(--faint);
+  overflow: hidden;
+}
+.result-art img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.result-body {
+  padding: clamp(10px, 1.5vw, 16px);
+  border-top: 1px solid var(--faint);
+}
+.result-score {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.result-title {
+  font-family: var(--sans);
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 3px;
+}
+.result-artist {
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--mid);
+  margin: 0 0 6px;
+}
+.result-tags {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--mid);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+.star-row { display: flex; gap: 2px; margin-bottom: 4px; }
+.star { font-size: 12px; color: var(--faint); }
+.star.filled { color: var(--ink); }
+.spin-badge {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  display: inline-block;
+}
+.empty-state {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--mid);
+  padding: 24px 0;
+}
+
+/* === FOOTER === */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  background: var(--ink);
+  padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-wordmark { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.footer-wordmark span { color: var(--red); }
+
+@media (max-width: 600px) {
+  .picker-grid { grid-template-columns: repeat(3, 1fr); }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="discover.html" class="here">Discover</a></li>
+    <li><a href="coming-soon.html">Coming Soon</a></li>
+    <li><a href="gear-page-v2.html">Hardware Recommendations</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="favorites.html">Favorites</a></li>
+    <li><a href="https://open.spotify.com/user/msteines12" target="_blank" rel="noopener">Spotify ↗</a></li>
+  </ul>
+</nav>
+
+<header class="page-strip">
+  <div class="page-eyebrow">Find Your Next Listen</div>
+  <h1 class="page-title">Dig Through<br>The Crate</h1>
+</header>
+
+<main class="main-content">
+
+  <!-- Genre filter chips -->
+  <section class="chips-section">
+    <p class="chips-label">Filter by genre</p>
+    <div class="chips-wrap" id="chipContainer"></div>
+  </section>
+
+  <!-- Album picker grid -->
+  <p class="section-label" id="pickerLabel">Pick an album to start</p>
+  <div class="picker-grid" id="pickerGrid"></div>
+
+  <!-- Results panel (hidden until seed selected) -->
+  <section class="results-section" id="resultsSection">
+    <div class="results-header">
+      <p class="section-label">Similar albums</p>
+      <h2 class="results-seed" id="resultsSeed"></h2>
+    </div>
+    <div class="results-grid" id="resultsGrid"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
+</footer>
+
+<script>
+// ── State ─────────────────────────────────────────────────────────────────────
+let allAlbums = [];
+let activeChips = new Set();
+let currentSeed = null;
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function starMarks(n) {
+  return Array.from({ length: 5 }, (_, i) =>
+    `<span class="star${i < n ? ' filled' : ''}">★</span>`
+  ).join('');
+}
+
+function getFilteredAlbums() {
+  if (activeChips.size === 0) return allAlbums;
+  return allAlbums.filter(a => (a.genres || []).some(g => activeChips.has(g)));
+}
+
+// ── Genre chips ───────────────────────────────────────────────────────────────
+
+function buildChips(albums) {
+  const allGenres = new Set();
+  albums.forEach(a => (a.genres || []).forEach(g => allGenres.add(g)));
+  const sorted = [...allGenres].sort();
+
+  const container = document.getElementById('chipContainer');
+  container.innerHTML =
+    sorted.map(g => `<button class="chip" data-genre="${g}">${g}</button>`).join('') +
+    `<button class="chip-clear" id="clearChips">Clear</button>`;
+
+  container.addEventListener('click', e => {
+    if (e.target.classList.contains('chip')) {
+      const genre = e.target.dataset.genre;
+      if (activeChips.has(genre)) {
+        activeChips.delete(genre);
+        e.target.classList.remove('active');
+      } else {
+        activeChips.add(genre);
+        e.target.classList.add('active');
+      }
+      renderPicker();
+      if (currentSeed) renderResults(currentSeed);
+    }
+    if (e.target.id === 'clearChips') {
+      activeChips.clear();
+      container.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
+      renderPicker();
+      if (currentSeed) renderResults(currentSeed);
+    }
+  });
+}
+
+// ── Album picker ──────────────────────────────────────────────────────────────
+
+function renderPicker() {
+  const filtered = getFilteredAlbums();
+  const grid = document.getElementById('pickerGrid');
+  const label = document.getElementById('pickerLabel');
+
+  label.textContent = activeChips.size > 0
+    ? `${filtered.length} album${filtered.length !== 1 ? 's' : ''} match`
+    : 'Pick an album to start';
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<p class="empty-state">No albums match this filter.</p>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(a => {
+    const isSelected = currentSeed && currentSeed.id === a.id;
+    return `
+      <button class="picker-card${isSelected ? ' selected' : ''}" data-slug="${a.id}" aria-label="${a.title} by ${a.artist}">
+        <div class="picker-art">
+          <img src="assets/covers/${a.id}.jpg" alt="${a.title}" loading="lazy" onerror="this.style.background='#888'">
+        </div>
+        <div class="picker-body">
+          <p class="picker-title">${a.title}</p>
+          <p class="picker-artist">${a.artist}</p>
+        </div>
+      </button>`;
+  }).join('');
+
+  // Attach click handler to the re-rendered grid
+  grid.onclick = e => {
+    const card = e.target.closest('.picker-card');
+    if (!card) return;
+    currentSeed = allAlbums.find(a => a.id === card.dataset.slug);
+    renderPicker();
+    renderResults(currentSeed);
+    document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+  };
+}
+
+// ── Results panel ─────────────────────────────────────────────────────────────
+
+function renderResults(seed) {
+  const section = document.getElementById('resultsSection');
+  const grid    = document.getElementById('resultsGrid');
+  const seedEl  = document.getElementById('resultsSeed');
+
+  section.style.display = 'block';
+  seedEl.textContent = `Because you picked: ${seed.title}`;
+
+  const recs    = seed.recommendations || [];
+  const results = [];
+
+  for (const rec of recs) {
+    if (results.length >= 5) break;
+    const recAlbum = allAlbums.find(a => a.id === rec.slug);
+    if (!recAlbum) continue;
+    // If chips active, skip albums that don't match any selected genre
+    if (activeChips.size > 0 && !(recAlbum.genres || []).some(g => activeChips.has(g))) continue;
+    results.push({ rec, album: recAlbum });
+  }
+
+  if (results.length === 0) {
+    grid.innerHTML = '<p class="empty-state">No matches in your filter - try clearing some genres.</p>';
+    return;
+  }
+
+  grid.innerHTML = results.map(({ rec, album }) => {
+    const hasReview = album.review_url && album.review_url !== '#';
+    const pct       = Math.round(rec.score * 100);
+    const sharedLine = rec.shared_tags && rec.shared_tags.length > 0
+      ? `Both tagged: ${rec.shared_tags.join(', ')}`
+      : '';
+
+    return `
+      <${hasReview ? 'a' : 'div'}
+        class="result-card${hasReview ? '' : ' result-card--locked'}"
+        ${hasReview ? `href="${album.review_url}"` : ''}
+      >
+        <div class="result-art">
+          <img src="${album.cover_art}" alt="${album.title}" loading="lazy" onerror="this.style.background='#888'">
+        </div>
+        <div class="result-body">
+          <div class="result-score">${pct}% match</div>
+          <h3 class="result-title">${album.title}</h3>
+          <p class="result-artist">${album.artist}</p>
+          ${sharedLine ? `<p class="result-tags">${sharedLine}</p>` : ''}
+          ${hasReview ? `<div class="star-row">${starMarks(album.stars || 0)}</div>` : ''}
+          ${hasReview && album.second_spin ? `<span class="spin-badge">Second Spin</span>` : ''}
+        </div>
+      </${hasReview ? 'a' : 'div'}>`;
+  }).join('');
+}
+
+// ── Bootstrap ─────────────────────────────────────────────────────────────────
+
+fetch('data/albums_final.json')
+  .then(r => r.json())
+  .then(albums => {
+    allAlbums = albums;
+    buildChips(albums);
+    renderPicker();
+  })
+  .catch(() => {
+    document.getElementById('pickerGrid').innerHTML =
+      '<p class="empty-state">Could not load album data. Run a local server: python -m http.server 8000</p>';
+  });
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
