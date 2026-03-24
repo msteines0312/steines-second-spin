@@ -647,12 +647,6 @@ fetch('data/albums_final.json')
       '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
   });
 </script>
-<script>
-  document.querySelector('.nav-toggle').addEventListener('click', function() {
-    var nav = document.querySelector('.site-nav');
-    var open = nav.classList.toggle('nav-open');
-    this.setAttribute('aria-expanded', open);
-  });
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>

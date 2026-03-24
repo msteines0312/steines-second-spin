@@ -373,13 +373,8 @@
   <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
 </footer>
 
+<script src="js/main.js"></script>
 <script>
-  document.querySelector('.nav-toggle').addEventListener('click', function() {
-    var nav = document.querySelector('.site-nav');
-    var open = nav.classList.toggle('nav-open');
-    this.setAttribute('aria-expanded', open);
-  });
-
   // Dynamically pull "Albums Cataloged" count from the JSON so it never goes stale
   fetch('data/albums_final.json')
     .then(function(res) { return res.json(); })

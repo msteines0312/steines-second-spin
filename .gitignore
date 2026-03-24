@@ -7,6 +7,7 @@ reviews/template.html
 data/raw/*
 data/lastfm/
 data/processed/*
+data/albums_clean.json
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
