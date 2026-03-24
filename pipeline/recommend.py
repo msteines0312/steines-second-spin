@@ -29,108 +29,159 @@ ROOT       = Path(__file__).resolve().parent.parent
 CLEAN_FILE = ROOT / "data" / "albums_clean.json"   # merged genres + Spotify metadata
 OUT_FILE   = ROOT / "data" / "recommendations.json"
 
-TOP_N = 3   # number of recommendations to surface per album
+TOP_N = 10   # number of recommendations to store per album (review pages show 3, discover page shows 5)
+
+# Feature weights applied before cosine similarity.
+# Genre is the primary signal; year and popularity are secondary.
+GENRE_WEIGHT = 3.0
+YEAR_WEIGHT  = 0.5
+POP_WEIGHT   = 0.5
 # ─────────────────────────────────────────────────────────────────────────────
 
 
-# ── Step 1: Load clean data ──────────────────────────────────────────────────
-# albums_clean.json already contains merged genres (manual + Last.fm) from
-# the clean_data.py step, so no secondary load of albums.json is needed here.
+# ── build_rec_objects ────────────────────────────────────────────────────────
+def build_rec_objects(album, albums, sim_scores, slugs, top_n):
+    """Build recommendation objects for one album.
 
-with open(CLEAN_FILE, "r", encoding="utf-8") as f:
-    albums = json.load(f)   # list ordered by slug (alphabetical from clean step)
+    Parameters
+    ----------
+    album : dict
+        The source album. Must have 'slug' and 'genres' keys.
+    albums : list[dict]
+        All albums in the catalog.
+    sim_scores : np.ndarray
+        1-D array of similarity scores for this album against every album,
+        including itself (self-similarity is excluded inside this function).
+    slugs : list[str]
+        Slug list parallel to albums (same order).
+    top_n : int
+        Maximum number of recommendations to return.
 
-slugs = [a["slug"] for a in albums]
-print(f"Loaded {len(albums)} albums\n")
-
-print("Genre tags per album:")
-for a in albums:
-    print(f"  {a['name']}: {', '.join(a['genres']) or '(none)'}")
-print()
-
-
-# ── Step 2: Build the feature matrix ────────────────────────────────────────
-# We combine three signals into one numeric vector per album:
-#
-#   A) Genre (one-hot)   — captures stylistic similarity; the primary signal
-#   B) Release year      — captures era proximity (e.g. early 2010s vs. 2020s)
-#   C) Popularity        — captures mainstream vs. underground feel
-#
-# All numeric features are normalized to [0, 1] so no single feature
-# dominates due to scale differences (raw year ~2000 vs. a 0/1 genre flag).
-
-# A) Genre: MultiLabelBinarizer converts lists of strings into a binary matrix.
-#    Each column represents one unique genre tag across the whole corpus.
-#    An album gets a 1 in column j if it has that genre tag, 0 otherwise.
-mlb = MultiLabelBinarizer()
-genre_matrix = mlb.fit_transform([a["genres"] for a in albums])
-# shape: (n_albums, n_unique_genres)
-
-print(f"Unique genre tags ({len(mlb.classes_)}): {', '.join(mlb.classes_)}\n")
-
-# B) Release year: scale the 4-digit years to [0, 1]
-years = np.array([a["release_year"] for a in albums], dtype=float).reshape(-1, 1)
-year_scaled = MinMaxScaler().fit_transform(years)
-# shape: (n_albums, 1)
-
-# C) Popularity: scale 0-100 score to [0, 1].
-#    Client Credentials auth returns null for popularity — treat as 50 (neutral
-#    midpoint) so it contributes a flat signal rather than skewing the scores.
-raw_pop = [a["popularity"] if a["popularity"] is not None else 50 for a in albums]
-pop = np.array(raw_pop, dtype=float).reshape(-1, 1)
-pop_scaled = MinMaxScaler().fit_transform(pop)
-# shape: (n_albums, 1)
-
-# Stack all features side by side into one matrix
-feature_matrix = np.hstack([genre_matrix, year_scaled, pop_scaled])
-# shape: (n_albums, n_unique_genres + 2)
-
-print(f"Feature matrix: {feature_matrix.shape[0]} albums x {feature_matrix.shape[1]} features")
-print(f"  {genre_matrix.shape[1]} genre columns  |  1 year column  |  1 popularity column\n")
-
-
-# ── Step 3: Compute pairwise cosine similarity ───────────────────────────────
-# cosine_similarity returns an (n x n) matrix where entry [i][j] is the
-# cosine similarity between album i and album j. Scores range from 0 (nothing
-# in common) to 1 (identical vectors). The diagonal is always 1.0 (self).
-#
-# Cosine similarity is a good fit here because it measures the *angle* between
-# vectors, not magnitude — so an album with 4 genre tags isn't penalized vs.
-# one with 2 just because its vector is longer.
-sim_matrix = cosine_similarity(feature_matrix)
-
-
-# ── Step 4: Find top-N recommendations and build output ─────────────────────
-print("Recommendations\n" + "-" * 48)
-
-output = []
-
-for i, album in enumerate(albums):
-    scores = sim_matrix[i]
-
-    # Rank all other albums by similarity score, descending, excluding self
+    Returns
+    -------
+    list[dict]
+        Each dict has keys: slug (str), score (float, 2 dp), shared_tags (list[str]).
+    """
+    # Build a slug-to-index dict for O(1) lookup instead of O(n) list.index()
+    slug_to_idx = {s: i for i, s in enumerate(slugs)}
+    i = slug_to_idx[album["slug"]]
     ranked = sorted(
-        [(j, scores[j]) for j in range(len(albums)) if j != i],
+        [(j, sim_scores[j]) for j in range(len(albums)) if j != i],
         key=lambda x: x[1],
-        reverse=True
+        reverse=True,
     )
+    return [
+        {
+            "slug":        slugs[j],
+            "score":       round(float(score), 2),
+            "shared_tags": sorted(set(album["genres"]) & set(albums[j]["genres"])),
+        }
+        for j, score in ranked[:top_n]
+    ]
 
-    top = ranked[:TOP_N]
-    rec_slugs = [slugs[j] for j, _ in top]
 
-    output.append({
-        "slug": album["slug"],
-        "recommendations": rec_slugs,
-    })
+if __name__ == "__main__":
+    # ── Step 1: Load clean data ──────────────────────────────────────────────
+    # albums_clean.json already contains merged genres (manual + Last.fm) from
+    # the clean_data.py step, so no secondary load of albums.json is needed here.
 
-    print(f"  {album['name']}")
-    for j, score in top:
-        print(f"    {score:.3f}  {albums[j]['name']} ({albums[j]['artist']})")
+    with open(CLEAN_FILE, "r", encoding="utf-8") as f:
+        albums = json.load(f)   # list ordered by slug (alphabetical from clean step)
+
+    slugs = [a["slug"] for a in albums]
+    print(f"Loaded {len(albums)} albums\n")
+
+    print("Genre tags per album:")
+    for a in albums:
+        print(f"  {a['name']}: {', '.join(a['genres']) or '(none)'}")
     print()
 
 
-# ── Step 5: Write output ─────────────────────────────────────────────────────
-with open(OUT_FILE, "w", encoding="utf-8") as f:
-    json.dump(output, f, indent=2, ensure_ascii=False)
+    # ── Step 2: Build the feature matrix ────────────────────────────────────
+    # We combine three signals into one numeric vector per album:
+    #
+    #   A) Genre (one-hot)   -- captures stylistic similarity; the primary signal
+    #   B) Release year      -- captures era proximity (e.g. early 2010s vs. 2020s)
+    #   C) Popularity        -- captures mainstream vs. underground feel
+    #
+    # All numeric features are normalized to [0, 1] so no single feature
+    # dominates due to scale differences (raw year ~2000 vs. a 0/1 genre flag).
 
-print(f"Written to {OUT_FILE.relative_to(ROOT)}")
+    # A) Genre: MultiLabelBinarizer converts lists of strings into a binary matrix.
+    #    Each column represents one unique genre tag across the whole corpus.
+    #    An album gets a 1 in column j if it has that genre tag, 0 otherwise.
+    mlb = MultiLabelBinarizer()
+    genre_matrix = mlb.fit_transform([a["genres"] for a in albums])
+    # shape: (n_albums, n_unique_genres)
+
+    print(f"Unique genre tags ({len(mlb.classes_)}): {', '.join(mlb.classes_)}\n")
+
+    # B) Release year: scale the 4-digit years to [0, 1]
+    years = np.array([a["release_year"] for a in albums], dtype=float).reshape(-1, 1)
+    year_scaled = MinMaxScaler().fit_transform(years)
+    # shape: (n_albums, 1)
+
+    # C) Popularity: scale 0-100 score to [0, 1].
+    #    Client Credentials auth returns null for popularity -- treat as 50 (neutral
+    #    midpoint) so it contributes a flat signal rather than skewing the scores.
+    raw_pop = [a["popularity"] if a["popularity"] is not None else 50 for a in albums]
+    pop = np.array(raw_pop, dtype=float).reshape(-1, 1)
+    pop_scaled = MinMaxScaler().fit_transform(pop)
+    # shape: (n_albums, 1)
+
+    # Stack all features side by side into one matrix.
+    # Weights applied here so genre (the strongest signal) gets 3x the influence
+    # of year or popularity. This way the similarity score reflects style more than era.
+    feature_matrix = np.hstack([
+        genre_matrix * GENRE_WEIGHT,
+        year_scaled  * YEAR_WEIGHT,
+        pop_scaled   * POP_WEIGHT,
+    ])
+    # shape: (n_albums, n_unique_genres + 2)
+
+    print(f"Feature matrix: {feature_matrix.shape[0]} albums x {feature_matrix.shape[1]} features")
+    print(f"  {genre_matrix.shape[1]} genre columns  |  1 year column  |  1 popularity column\n")
+
+
+    # ── Step 3: Compute pairwise cosine similarity ───────────────────────────
+    # cosine_similarity returns an (n x n) matrix where entry [i][j] is the
+    # cosine similarity between album i and album j. Scores range from 0 (nothing
+    # in common) to 1 (identical vectors). The diagonal is always 1.0 (self).
+    #
+    # Cosine similarity is a good fit here because it measures the angle between
+    # vectors, not magnitude -- so an album with 4 genre tags isn't penalized vs.
+    # one with 2 just because its vector is longer.
+    sim_matrix = cosine_similarity(feature_matrix)
+
+
+    # ── Step 4: Find top-N recommendations and build output ─────────────────
+    print("Recommendations\n" + "-" * 48)
+
+    output = []
+
+    # Build a slug-to-album dict once so the print loop below is O(1) per lookup
+    # instead of scanning the list on every iteration.
+    slug_to_album = {a["slug"]: a for a in albums}
+
+    for i, album in enumerate(albums):
+        scores = sim_matrix[i]
+        recs = build_rec_objects(album, albums, scores, slugs, TOP_N)
+
+        output.append({
+            "slug":            album["slug"],
+            "recommendations": recs,
+        })
+
+        print(f"  {album['name']}")
+        for r in recs:
+            rec_album = slug_to_album[r['slug']]
+            print(f"    {r['score']:.2f}  {rec_album['name']}  "
+                  f"[{', '.join(r['shared_tags']) or 'no shared tags'}]")
+        print()
+
+
+    # ── Step 5: Write output ─────────────────────────────────────────────────
+    with open(OUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+
+    print(f"Written to {OUT_FILE.relative_to(ROOT)}")
