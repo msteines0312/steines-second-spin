@@ -394,6 +394,7 @@
   </button>
   <ul class="nav-links">
     <li><a href="../reviews.html" class="here">Reviews</a></li>
+    <li><a href="../discover.html">Discover</a></li>
     <li><a href="../coming-soon.html">Coming Soon</a></li>
     <li><a href="../gear-page-v2.html">Hardware Recommendations</a></li>
     <li><a href="../about.html">About</a></li>
@@ -664,7 +665,8 @@ fetch('../data/albums_final.json')
     // Links point to {slug}.html — sibling files in the same reviews/ directory.
     const recsGrid = document.getElementById('recsGrid');
     const recAlbums = (album.recommendations || [])
-      .map(recSlug => albums.find(a => a.id === recSlug))
+      .slice(0, 3)
+      .map(rec => albums.find(a => a.id === rec.slug))
       .filter(Boolean);   // drop any slug that doesn't exist in the data yet
 
     if (recAlbums.length === 0) {
