@@ -26,9 +26,91 @@
     "track_url": "https://open.spotify.com/track/5jR6zOQf3HtU2mifXWg6hE",
     "preview_url": null,
     "recommendations": [
-      "projector",
-      "3d-country",
-      "ants-from-up-there"
+      {
+        "slug": "projector",
+        "score": 0.57,
+        "shared_tags": [
+          "art punk",
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.51,
+        "shared_tags": [
+          "art punk",
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.43,
+        "shared_tags": [
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "praise-a-lord",
+        "score": 0.38,
+        "shared_tags": [
+          "art rock",
+          "post-punk",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.38,
+        "shared_tags": [
+          "art rock",
+          "indie rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.29,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "deloused-in-the-comatorium",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.24,
+        "shared_tags": [
+          "indie rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.17,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.17,
+        "shared_tags": [
+          "art rock"
+        ]
+      }
     ]
   },
   {
@@ -57,9 +139,67 @@
     "track_url": "https://open.spotify.com/track/61LIrROTdBzB2wOsgFNODa",
     "preview_url": null,
     "recommendations": [
-      "hurry-up-tomorrow",
-      "submarine",
-      "art-of-loving"
+      {
+        "slug": "hurry-up-tomorrow",
+        "score": 0.27,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b"
+        ]
+      },
+      {
+        "slug": "submarine",
+        "score": 0.19,
+        "shared_tags": [
+          "bedroom pop"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.15,
+        "shared_tags": [
+          "neo-soul"
+        ]
+      },
+      {
+        "slug": "after-hours",
+        "score": 0.15,
+        "shared_tags": [
+          "alternative r&b"
+        ]
+      },
+      {
+        "slug": "call-me-if-you-get-lost",
+        "score": 0.14,
+        "shared_tags": [
+          "neo-soul"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.01,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "casino",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "octane",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -89,9 +229,77 @@
     "track_url": "https://open.spotify.com/track/6d9Cs2D2RSIl9c0ulgnFe8",
     "preview_url": null,
     "recommendations": [
-      "casino",
-      "st-paul",
-      "submarine"
+      {
+        "slug": "casino",
+        "score": 0.57,
+        "shared_tags": [
+          "hip-hop",
+          "melodic rap",
+          "rap",
+          "trap"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.19,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "submarine",
+        "score": 0.17,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.14,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "after-hours",
+        "score": 0.14,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "donuts",
+        "score": 0.13,
+        "shared_tags": [
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "dont-tap-the-glass",
+        "score": 0.13,
+        "shared_tags": [
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "call-me-if-you-get-lost",
+        "score": 0.13,
+        "shared_tags": [
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "chromakopia",
+        "score": 0.12,
+        "shared_tags": [
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -121,9 +329,74 @@
     "track_url": "https://open.spotify.com/track/5Th1SPySWgYlkXXC6wLMwL",
     "preview_url": null,
     "recommendations": [
-      "octane",
-      "dont-tap-the-glass",
-      "call-me-if-you-get-lost"
+      {
+        "slug": "octane",
+        "score": 0.57,
+        "shared_tags": [
+          "hip-hop",
+          "melodic rap",
+          "rap",
+          "trap"
+        ]
+      },
+      {
+        "slug": "dont-tap-the-glass",
+        "score": 0.38,
+        "shared_tags": [
+          "hip-hop",
+          "pop rap",
+          "west coast rap"
+        ]
+      },
+      {
+        "slug": "donuts",
+        "score": 0.27,
+        "shared_tags": [
+          "experimental hip-hop",
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "call-me-if-you-get-lost",
+        "score": 0.25,
+        "shared_tags": [
+          "hip-hop",
+          "west coast rap"
+        ]
+      },
+      {
+        "slug": "chromakopia",
+        "score": 0.24,
+        "shared_tags": [
+          "experimental hip-hop",
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.01,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "submarine",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "icon",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -150,9 +423,71 @@
     "track_url": "https://open.spotify.com/track/0wOkGJWYWlrjlZev8jrSCD",
     "preview_url": null,
     "recommendations": [
-      "alien-coast",
-      "art-of-loving",
-      "submarine"
+      {
+        "slug": "alien-coast",
+        "score": 0.67,
+        "shared_tags": [
+          "funk",
+          "soul",
+          "southern soul"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.36,
+        "shared_tags": [
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "submarine",
+        "score": 0.23,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "octane",
+        "score": 0.19,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "heavy-metal",
+        "score": 0.18,
+        "shared_tags": [
+          "soul"
+        ]
+      },
+      {
+        "slug": "after-hours",
+        "score": 0.18,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.01,
+        "shared_tags": []
+      },
+      {
+        "slug": "icon",
+        "score": 0.01,
+        "shared_tags": []
+      },
+      {
+        "slug": "casino",
+        "score": 0.01,
+        "shared_tags": []
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -182,9 +517,86 @@
     "track_url": "https://open.spotify.com/track/3CiDs8Rpj0jpF9MB3cr3ve",
     "preview_url": null,
     "recommendations": [
-      "getting-killed",
-      "3d-country",
-      "ants-from-up-there"
+      {
+        "slug": "getting-killed",
+        "score": 0.57,
+        "shared_tags": [
+          "art punk",
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.51,
+        "shared_tags": [
+          "art punk",
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.43,
+        "shared_tags": [
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "praise-a-lord",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.17,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.17,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "spooky",
+        "score": 0.17,
+        "shared_tags": [
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "i-let-it-in",
+        "score": 0.15,
+        "shared_tags": [
+          "shoegaze"
+        ]
+      }
     ]
   },
   {
@@ -215,9 +627,78 @@
     "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF",
     "preview_url": null,
     "recommendations": [
-      "st-paul",
-      "aeroplane-over-the-sea",
-      "quebec"
+      {
+        "slug": "aeroplane-over-the-sea",
+        "score": 0.27,
+        "shared_tags": [
+          "indie rock",
+          "lo-fi"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.24,
+        "shared_tags": [
+          "indie rock",
+          "lo-fi"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.18,
+        "shared_tags": [
+          "soul"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.16,
+        "shared_tags": [
+          "soul"
+        ]
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "wildlife",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.13,
+        "shared_tags": [
+          "soul"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.12,
+        "shared_tags": [
+          "indie rock"
+        ]
+      }
     ]
   },
   {
@@ -249,9 +730,84 @@
     "track_url": "https://open.spotify.com/track/2RhHct6gGXSrZ1zHjovhRq",
     "preview_url": null,
     "recommendations": [
-      "after-hours",
-      "hurry-up-tomorrow",
-      "submarine"
+      {
+        "slug": "after-hours",
+        "score": 0.36,
+        "shared_tags": [
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "hurry-up-tomorrow",
+        "score": 0.34,
+        "shared_tags": [
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.32,
+        "shared_tags": [
+          "dream pop",
+          "neo-psychedelia",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "submarine",
+        "score": 0.3,
+        "shared_tags": [
+          "dream pop",
+          "indie pop"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.24,
+        "shared_tags": [
+          "indie pop",
+          "pop"
+        ]
+      },
+      {
+        "slug": "spooky",
+        "score": 0.15,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.13,
+        "shared_tags": [
+          "neo-psychedelia"
+        ]
+      },
+      {
+        "slug": "heaven-or-las-vegas",
+        "score": 0.13,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.11,
+        "shared_tags": [
+          "neo-psychedelia"
+        ]
+      },
+      {
+        "slug": "chromakopia",
+        "score": 0.11,
+        "shared_tags": [
+          "neo-psychedelia"
+        ]
+      }
     ]
   },
   {
@@ -283,9 +839,73 @@
     "track_url": "https://open.spotify.com/track/717s9KFmHhyy5t3xkStS56",
     "preview_url": null,
     "recommendations": [
-      "after-hours",
-      "imaginal-disk",
-      "icon"
+      {
+        "slug": "after-hours",
+        "score": 0.59,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "synth-pop",
+          "synthpop",
+          "synthwave"
+        ]
+      },
+      {
+        "slug": "imaginal-disk",
+        "score": 0.34,
+        "shared_tags": [
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "icon",
+        "score": 0.27,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.12,
+        "shared_tags": [
+          "pop"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.11,
+        "shared_tags": [
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "submarine",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "casino",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -315,9 +935,85 @@
     "track_url": "https://open.spotify.com/track/3nRhH5u3TE6HtvBH6mNwzY",
     "preview_url": null,
     "recommendations": [
-      "praise-a-lord",
-      "alien-coast",
-      "quebec"
+      {
+        "slug": "praise-a-lord",
+        "score": 0.51,
+        "shared_tags": [
+          "art rock",
+          "glam rock",
+          "noise pop",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.38,
+        "shared_tags": [
+          "art rock",
+          "neo-psychedelia",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.34,
+        "shared_tags": [
+          "art rock",
+          "psychedelic soul"
+        ]
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.29,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "deloused-in-the-comatorium",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.24,
+        "shared_tags": [
+          "neo-psychedelia",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "imaginal-disk",
+        "score": 0.13,
+        "shared_tags": [
+          "neo-psychedelia"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.13,
+        "shared_tags": [
+          "art rock"
+        ]
+      }
     ]
   },
   {
@@ -348,9 +1044,80 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "st-paul",
-      "submarine",
-      "after-hours"
+      {
+        "slug": "st-paul",
+        "score": 0.36,
+        "shared_tags": [
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "submarine",
+        "score": 0.32,
+        "shared_tags": [
+          "indie pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "after-hours",
+        "score": 0.25,
+        "shared_tags": [
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "imaginal-disk",
+        "score": 0.24,
+        "shared_tags": [
+          "indie pop",
+          "pop"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.16,
+        "shared_tags": [
+          "soul"
+        ]
+      },
+      {
+        "slug": "icon",
+        "score": 0.15,
+        "shared_tags": [
+          "neo-soul"
+        ]
+      },
+      {
+        "slug": "octane",
+        "score": 0.14,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "heavy-metal",
+        "score": 0.13,
+        "shared_tags": [
+          "soul"
+        ]
+      },
+      {
+        "slug": "dont-tap-the-glass",
+        "score": 0.12,
+        "shared_tags": [
+          "neo soul"
+        ]
+      },
+      {
+        "slug": "hurry-up-tomorrow",
+        "score": 0.12,
+        "shared_tags": [
+          "pop"
+        ]
+      }
     ]
   },
   {
@@ -380,9 +1147,85 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "getting-killed",
-      "projector",
-      "3d-country"
+      {
+        "slug": "getting-killed",
+        "score": 0.43,
+        "shared_tags": [
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.43,
+        "shared_tags": [
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.38,
+        "shared_tags": [
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "aeroplane-over-the-sea",
+        "score": 0.29,
+        "shared_tags": [
+          "baroque pop",
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "praise-a-lord",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.17,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.17,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "wildlife",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      }
     ]
   },
   {
@@ -410,9 +1253,79 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "st-paul",
-      "heaven-tortured-mind",
-      "getting-killed"
+      {
+        "slug": "st-paul",
+        "score": 0.67,
+        "shared_tags": [
+          "funk",
+          "soul",
+          "southern soul"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.34,
+        "shared_tags": [
+          "art rock",
+          "psychedelic soul"
+        ]
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.17,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.17,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.17,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.16,
+        "shared_tags": [
+          "soul"
+        ]
+      },
+      {
+        "slug": "heavy-metal",
+        "score": 0.16,
+        "shared_tags": [
+          "soul"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "praise-a-lord",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "deloused-in-the-comatorium",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      }
     ]
   },
   {
@@ -444,9 +1357,88 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "getting-killed",
-      "projector",
-      "ants-from-up-there"
+      {
+        "slug": "getting-killed",
+        "score": 0.51,
+        "shared_tags": [
+          "art punk",
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.51,
+        "shared_tags": [
+          "art punk",
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.38,
+        "shared_tags": [
+          "art rock",
+          "indie rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "praise-a-lord",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "deloused-in-the-comatorium",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "rock"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "ok-computer",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "rock"
+        ]
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.15,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.13,
+        "shared_tags": [
+          "art rock"
+        ]
+      }
     ]
   },
   {
@@ -476,9 +1468,80 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "spooky",
-      "ok-computer",
-      "folie-a-deux"
+      {
+        "slug": "spooky",
+        "score": 0.51,
+        "shared_tags": [
+          "dream pop",
+          "ethereal wave",
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "ok-computer",
+        "score": 0.25,
+        "shared_tags": [
+          "alternative",
+          "alternative rock"
+        ]
+      },
+      {
+        "slug": "folie-a-deux",
+        "score": 0.25,
+        "shared_tags": [
+          "alternative",
+          "alternative rock"
+        ]
+      },
+      {
+        "slug": "submarine",
+        "score": 0.17,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "i-let-it-in",
+        "score": 0.14,
+        "shared_tags": [
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.14,
+        "shared_tags": [
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "deloused-in-the-comatorium",
+        "score": 0.13,
+        "shared_tags": [
+          "alternative"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.13,
+        "shared_tags": [
+          "alternative rock"
+        ]
+      },
+      {
+        "slug": "imaginal-disk",
+        "score": 0.13,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.12,
+        "shared_tags": [
+          "dream pop"
+        ]
+      }
     ]
   },
   {
@@ -506,9 +1569,77 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "art-of-loving",
-      "imaginal-disk",
-      "deadbeat"
+      {
+        "slug": "art-of-loving",
+        "score": 0.32,
+        "shared_tags": [
+          "indie pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "imaginal-disk",
+        "score": 0.3,
+        "shared_tags": [
+          "dream pop",
+          "indie pop"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.29,
+        "shared_tags": [
+          "dream pop",
+          "psychedelic pop"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.23,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "spooky",
+        "score": 0.2,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "icon",
+        "score": 0.19,
+        "shared_tags": [
+          "bedroom pop"
+        ]
+      },
+      {
+        "slug": "octane",
+        "score": 0.17,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "heaven-or-las-vegas",
+        "score": 0.17,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "after-hours",
+        "score": 0.16,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.01,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -540,9 +1671,86 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "heaven-tortured-mind",
-      "getting-killed",
-      "ants-from-up-there"
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.51,
+        "shared_tags": [
+          "art rock",
+          "glam rock",
+          "noise pop",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.38,
+        "shared_tags": [
+          "art rock",
+          "post-punk",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "deloused-in-the-comatorium",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.15,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "ok-computer",
+        "score": 0.11,
+        "shared_tags": [
+          "art rock"
+        ]
+      }
     ]
   },
   {
@@ -573,9 +1781,79 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "hurry-up-tomorrow",
-      "imaginal-disk",
-      "art-of-loving"
+      {
+        "slug": "hurry-up-tomorrow",
+        "score": 0.59,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "synth-pop",
+          "synthpop",
+          "synthwave"
+        ]
+      },
+      {
+        "slug": "imaginal-disk",
+        "score": 0.36,
+        "shared_tags": [
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.25,
+        "shared_tags": [
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.18,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "submarine",
+        "score": 0.16,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "icon",
+        "score": 0.15,
+        "shared_tags": [
+          "alternative r&b"
+        ]
+      },
+      {
+        "slug": "octane",
+        "score": 0.14,
+        "shared_tags": [
+          "r&b"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.11,
+        "shared_tags": [
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -608,9 +1886,88 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "call-me-if-you-get-lost",
-      "dont-tap-the-glass",
-      "donuts"
+      {
+        "slug": "call-me-if-you-get-lost",
+        "score": 0.63,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hardcore hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "synth funk",
+          "west coast hip-hop"
+        ]
+      },
+      {
+        "slug": "dont-tap-the-glass",
+        "score": 0.53,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hardcore hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "neo soul"
+        ]
+      },
+      {
+        "slug": "donuts",
+        "score": 0.34,
+        "shared_tags": [
+          "experimental hip-hop",
+          "hip-hop",
+          "jazz rap"
+        ]
+      },
+      {
+        "slug": "casino",
+        "score": 0.24,
+        "shared_tags": [
+          "experimental hip-hop",
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "octane",
+        "score": 0.12,
+        "shared_tags": [
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.12,
+        "shared_tags": [
+          "neo-psychedelia"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.11,
+        "shared_tags": [
+          "neo soul"
+        ]
+      },
+      {
+        "slug": "imaginal-disk",
+        "score": 0.11,
+        "shared_tags": [
+          "neo-psychedelia"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.11,
+        "shared_tags": [
+          "neo-psychedelia"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.1,
+        "shared_tags": [
+          "neo-psychedelia"
+        ]
+      }
     ]
   },
   {
@@ -642,9 +1999,81 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "chromakopia",
-      "dont-tap-the-glass",
-      "casino"
+      {
+        "slug": "chromakopia",
+        "score": 0.63,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hardcore hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "synth funk",
+          "west coast hip-hop"
+        ]
+      },
+      {
+        "slug": "dont-tap-the-glass",
+        "score": 0.56,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hardcore hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "west coast rap"
+        ]
+      },
+      {
+        "slug": "casino",
+        "score": 0.25,
+        "shared_tags": [
+          "hip-hop",
+          "west coast rap"
+        ]
+      },
+      {
+        "slug": "donuts",
+        "score": 0.24,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap"
+        ]
+      },
+      {
+        "slug": "icon",
+        "score": 0.14,
+        "shared_tags": [
+          "neo-soul"
+        ]
+      },
+      {
+        "slug": "octane",
+        "score": 0.13,
+        "shared_tags": [
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.12,
+        "shared_tags": [
+          "neo-soul"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "submarine",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -676,9 +2105,79 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "call-me-if-you-get-lost",
-      "chromakopia",
-      "casino"
+      {
+        "slug": "call-me-if-you-get-lost",
+        "score": 0.56,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hardcore hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "west coast rap"
+        ]
+      },
+      {
+        "slug": "chromakopia",
+        "score": 0.53,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hardcore hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "neo soul"
+        ]
+      },
+      {
+        "slug": "casino",
+        "score": 0.38,
+        "shared_tags": [
+          "hip-hop",
+          "pop rap",
+          "west coast rap"
+        ]
+      },
+      {
+        "slug": "donuts",
+        "score": 0.24,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap"
+        ]
+      },
+      {
+        "slug": "octane",
+        "score": 0.13,
+        "shared_tags": [
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "art-of-loving",
+        "score": 0.12,
+        "shared_tags": [
+          "neo soul"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "submarine",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "icon",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -711,9 +2210,83 @@
     "track_url": "",
     "preview_url": null,
     "recommendations": [
-      "imaginal-disk",
-      "submarine",
-      "quebec"
+      {
+        "slug": "imaginal-disk",
+        "score": 0.32,
+        "shared_tags": [
+          "dream pop",
+          "neo-psychedelia",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.32,
+        "shared_tags": [
+          "indie rock",
+          "neo-psychedelia",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "submarine",
+        "score": 0.29,
+        "shared_tags": [
+          "dream pop",
+          "psychedelic pop"
+        ]
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.24,
+        "shared_tags": [
+          "indie rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.24,
+        "shared_tags": [
+          "neo-psychedelia",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "spooky",
+        "score": 0.14,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.12,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.12,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "wildlife",
+        "score": 0.12,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "aeroplane-over-the-sea",
+        "score": 0.12,
+        "shared_tags": [
+          "indie rock"
+        ]
+      }
     ]
   },
   {
@@ -743,9 +2316,75 @@
     "track_url": "https://open.spotify.com/track/1LE8tugYmbtwQ2a24LReLs",
     "preview_url": null,
     "recommendations": [
-      "ants-from-up-there",
-      "heavy-metal",
-      "quebec"
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.29,
+        "shared_tags": [
+          "baroque pop",
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "heavy-metal",
+        "score": 0.27,
+        "shared_tags": [
+          "indie rock",
+          "lo-fi"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.25,
+        "shared_tags": [
+          "indie rock",
+          "lo-fi"
+        ]
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "wildlife",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.13,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.12,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -777,9 +2416,84 @@
     "track_url": "https://open.spotify.com/track/16Elz7HJPLZPMylp13ewxv",
     "preview_url": null,
     "recommendations": [
-      "ok-computer",
-      "getting-killed",
-      "heaven-tortured-mind"
+      {
+        "slug": "ok-computer",
+        "score": 0.33,
+        "shared_tags": [
+          "alternative",
+          "art rock",
+          "rock"
+        ]
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "rock"
+        ]
+      },
+      {
+        "slug": "praise-a-lord",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "folie-a-deux",
+        "score": 0.22,
+        "shared_tags": [
+          "alternative",
+          "rock"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.13,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.13,
+        "shared_tags": [
+          "art rock"
+        ]
+      }
     ]
   },
   {
@@ -809,9 +2523,76 @@
     "track_url": "https://open.spotify.com/track/7uvcuAl1IvSqok1JM6IBjX",
     "preview_url": null,
     "recommendations": [
-      "getting-killed",
-      "ants-from-up-there",
-      "projector"
+      {
+        "slug": "getting-killed",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "aeroplane-over-the-sea",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "heavy-metal",
+        "score": 0.14,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.13,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "folie-a-deux",
+        "score": 0.13,
+        "shared_tags": [
+          "emo"
+        ]
+      },
+      {
+        "slug": "deloused-in-the-comatorium",
+        "score": 0.13,
+        "shared_tags": [
+          "post-hardcore"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.13,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.12,
+        "shared_tags": [
+          "indie rock"
+        ]
+      }
     ]
   },
   {
@@ -843,9 +2624,72 @@
     "track_url": "https://open.spotify.com/track/7pG6AWvWF6sktRiM9qfm4P",
     "preview_url": null,
     "recommendations": [
-      "ok-computer",
-      "heaven-or-las-vegas",
-      "deloused-in-the-comatorium"
+      {
+        "slug": "ok-computer",
+        "score": 0.33,
+        "shared_tags": [
+          "alternative",
+          "alternative rock",
+          "rock"
+        ]
+      },
+      {
+        "slug": "heaven-or-las-vegas",
+        "score": 0.25,
+        "shared_tags": [
+          "alternative",
+          "alternative rock"
+        ]
+      },
+      {
+        "slug": "deloused-in-the-comatorium",
+        "score": 0.22,
+        "shared_tags": [
+          "alternative",
+          "rock"
+        ]
+      },
+      {
+        "slug": "wildlife",
+        "score": 0.13,
+        "shared_tags": [
+          "emo"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.11,
+        "shared_tags": [
+          "rock"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.11,
+        "shared_tags": [
+          "alternative rock"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "submarine",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "icon",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -873,9 +2717,66 @@
     "track_url": "https://open.spotify.com/track/7cBHIzozk0MLTExQLBcN1S",
     "preview_url": null,
     "recommendations": [
-      "getting-killed",
-      "ants-from-up-there",
-      "projector"
+      {
+        "slug": "getting-killed",
+        "score": 0.17,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.17,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.17,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.15,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "praise-a-lord",
+        "score": 0.15,
+        "shared_tags": [
+          "post-punk"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.01,
+        "shared_tags": []
+      },
+      {
+        "slug": "submarine",
+        "score": 0.01,
+        "shared_tags": []
+      },
+      {
+        "slug": "icon",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "casino",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -905,9 +2806,62 @@
     "track_url": "https://open.spotify.com/track/4OmlsAT8r4q9vPFBvfYgyZ",
     "preview_url": null,
     "recommendations": [
-      "projector",
-      "spooky",
-      "heaven-or-las-vegas"
+      {
+        "slug": "spooky",
+        "score": 0.17,
+        "shared_tags": [
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.15,
+        "shared_tags": [
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "heaven-or-las-vegas",
+        "score": 0.14,
+        "shared_tags": [
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "submarine",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "icon",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "casino",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "octane",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -935,9 +2889,70 @@
     "track_url": "https://open.spotify.com/track/3KiKpbpJp9QKuTZb9ocfJi",
     "preview_url": null,
     "recommendations": [
-      "heaven-or-las-vegas",
-      "submarine",
-      "i-let-it-in"
+      {
+        "slug": "heaven-or-las-vegas",
+        "score": 0.51,
+        "shared_tags": [
+          "dream pop",
+          "ethereal wave",
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "submarine",
+        "score": 0.2,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "i-let-it-in",
+        "score": 0.17,
+        "shared_tags": [
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.17,
+        "shared_tags": [
+          "shoegaze"
+        ]
+      },
+      {
+        "slug": "imaginal-disk",
+        "score": 0.15,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.14,
+        "shared_tags": [
+          "dream pop"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "icon",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   },
   {
@@ -969,9 +2984,84 @@
     "track_url": "https://open.spotify.com/track/4Na0siMtWOW9pJoWJ1Ponv",
     "preview_url": null,
     "recommendations": [
-      "folie-a-deux",
-      "deloused-in-the-comatorium",
-      "quebec"
+      {
+        "slug": "folie-a-deux",
+        "score": 0.33,
+        "shared_tags": [
+          "alternative",
+          "alternative rock",
+          "rock"
+        ]
+      },
+      {
+        "slug": "deloused-in-the-comatorium",
+        "score": 0.33,
+        "shared_tags": [
+          "alternative",
+          "art rock",
+          "rock"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.33,
+        "shared_tags": [
+          "alternative rock",
+          "art rock",
+          "experimental rock"
+        ]
+      },
+      {
+        "slug": "heaven-or-las-vegas",
+        "score": 0.25,
+        "shared_tags": [
+          "alternative",
+          "alternative rock"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "rock"
+        ]
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.15,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.13,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.13,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.13,
+        "shared_tags": [
+          "art rock"
+        ]
+      },
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.13,
+        "shared_tags": [
+          "art rock"
+        ]
+      }
     ]
   },
   {
@@ -1003,9 +3093,90 @@
     "track_url": "https://open.spotify.com/track/7GA2kb0VtYvwT3PYhMaYGX",
     "preview_url": null,
     "recommendations": [
-      "heaven-tortured-mind",
-      "getting-killed",
-      "ok-computer"
+      {
+        "slug": "heaven-tortured-mind",
+        "score": 0.38,
+        "shared_tags": [
+          "art rock",
+          "neo-psychedelia",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "getting-killed",
+        "score": 0.38,
+        "shared_tags": [
+          "art rock",
+          "indie rock",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "ok-computer",
+        "score": 0.33,
+        "shared_tags": [
+          "alternative rock",
+          "art rock",
+          "experimental rock"
+        ]
+      },
+      {
+        "slug": "deadbeat",
+        "score": 0.32,
+        "shared_tags": [
+          "indie rock",
+          "neo-psychedelia",
+          "psychedelic rock"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "projector",
+        "score": 0.25,
+        "shared_tags": [
+          "art rock",
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "aeroplane-over-the-sea",
+        "score": 0.25,
+        "shared_tags": [
+          "indie rock",
+          "lo-fi"
+        ]
+      },
+      {
+        "slug": "heavy-metal",
+        "score": 0.24,
+        "shared_tags": [
+          "indie rock",
+          "lo-fi"
+        ]
+      },
+      {
+        "slug": "3d-country",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "praise-a-lord",
+        "score": 0.22,
+        "shared_tags": [
+          "art rock",
+          "psychedelic rock"
+        ]
+      }
     ]
   },
   {
@@ -1036,9 +3207,71 @@
     "track_url": "https://open.spotify.com/track/33T6ABvdB3P2iYOWJnBjsQ",
     "preview_url": null,
     "recommendations": [
-      "chromakopia",
-      "casino",
-      "dont-tap-the-glass"
+      {
+        "slug": "chromakopia",
+        "score": 0.34,
+        "shared_tags": [
+          "experimental hip-hop",
+          "hip-hop",
+          "jazz rap"
+        ]
+      },
+      {
+        "slug": "casino",
+        "score": 0.27,
+        "shared_tags": [
+          "experimental hip-hop",
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "dont-tap-the-glass",
+        "score": 0.24,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap"
+        ]
+      },
+      {
+        "slug": "call-me-if-you-get-lost",
+        "score": 0.24,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap"
+        ]
+      },
+      {
+        "slug": "octane",
+        "score": 0.13,
+        "shared_tags": [
+          "hip-hop"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "percepticide",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "submarine",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "icon",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "alien-coast",
+        "score": 0.0,
+        "shared_tags": []
+      }
     ]
   }
 ]

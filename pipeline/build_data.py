@@ -105,7 +105,7 @@ print("-" * 72)
 for album in merged:
     s       = album["stars"] or 0
     stars   = "*" * s + "-" * (5 - s)
-    rec_str = " / ".join(album["recommendations"]) if album["recommendations"] else "(none)"
+    rec_str = " / ".join(r["slug"] for r in album["recommendations"]) if album["recommendations"] else "(none)"
     print(f"  {album['title']:<38} [{stars}]  {rec_str}")
 
 print(f"\nWritten {len(merged)} albums to {OUT_FILE.relative_to(ROOT)}")
