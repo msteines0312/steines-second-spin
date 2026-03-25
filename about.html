@@ -260,6 +260,14 @@
 @media (max-width: 560px) {
   .sidebar-col { grid-template-columns: 1fr; }
 }
+@media (max-width: 480px) {
+  /* Stack key/value vertically so long pairs don't overflow and get clipped */
+  .stat-chip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
 
 </style>
 </head>

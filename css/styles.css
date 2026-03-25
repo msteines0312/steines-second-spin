@@ -93,7 +93,8 @@ body {
   height: 2px;
   background: var(--ink);
 }
-@media (max-width: 560px) {
+/* Nav collapses at 900px — 7 items including "Hardware Recommendations" overflow below that */
+@media (max-width: 900px) {
   .site-nav { flex-wrap: wrap; height: auto; min-height: clamp(52px, 7vh, 64px); }
   .nav-toggle { display: flex; }
   .nav-links { display: none; width: 100%; flex-direction: column; gap: 0; padding: 8px 0; border-top: 1px solid var(--rule); }

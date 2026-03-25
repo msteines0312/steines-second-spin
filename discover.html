@@ -391,7 +391,8 @@
 
 @media (max-width: 600px) {
   .picker-grid { grid-template-columns: repeat(3, 1fr); }
-  .results-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Single-column results on phones — the cards have too much content to read side-by-side at narrow widths */
+  .results-grid { grid-template-columns: 1fr; }
 }
 
 </style>

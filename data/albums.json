@@ -16,7 +16,6 @@
     "spotify_url": "https://open.spotify.com/album/0eeXb23yMW6EaIgm63xxPC",
     "review_url": "reviews/getting-killed.html",
     "date": "2025-01-01",
-    "blurb": "A gnarly sophomore leap — tighter hooks, bigger guitar, and more controlled chaos from Brooklyn's best post-punk export.",
     "favorite_track": "Bow Down",
     "track_url": "https://open.spotify.com/track/5jR6zOQf3HtU2mifXWg6hE",
     "preview_url": null
@@ -38,7 +37,6 @@
     "spotify_url": "https://open.spotify.com/album/7oBZ821DTjUc2Ky2fV6l6Q",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "Faiyaz leans fully into his persona — slick, cinematic R&B that's as seductive as it is self-aware.",
     "favorite_track": "World Is Yours",
     "track_url": "https://open.spotify.com/track/61LIrROTdBzB2wOsgFNODa",
     "preview_url": null
@@ -60,7 +58,6 @@
     "spotify_url": "https://open.spotify.com/album/131x9G87mD0hP0hGZc9qYN",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A hazy, high-octane trip through Toliver's signature psych-trap sound — melodic and menacing in equal measure.",
     "favorite_track": "Gemstone",
     "track_url": "https://open.spotify.com/track/6d9Cs2D2RSIl9c0ulgnFe8",
     "preview_url": null
@@ -82,7 +79,6 @@
     "spotify_url": "https://open.spotify.com/album/21xGzx6HTydCnvfZTvLf6b",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "Keem doubles down on his fractured, ADD-rap style — unpredictable flows and Cactus Jack atmospherics at their most unfiltered.",
     "favorite_track": "House Money",
     "track_url": "https://open.spotify.com/track/5Th1SPySWgYlkXXC6wLMwL",
     "preview_url": null
@@ -104,7 +100,6 @@
     "spotify_url": "https://open.spotify.com/album/6EkqdSW6mNa7c7aCKbWJ38",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A stunning debut from Birmingham's soul revivalists — Paul Janeway's voice is a force of nature over tight, punchy funk.",
     "favorite_track": "Seagulls",
     "track_url": "https://open.spotify.com/track/0wOkGJWYWlrjlZev8jrSCD",
     "preview_url": null
@@ -126,7 +121,6 @@
     "spotify_url": "https://open.spotify.com/album/3agU01S9SBR3wIqjvt5xbo",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A debut that arrived fully formed — angular guitar work and Paul Doyle's howl make this one of indie rock's freshest first statements in years.",
     "favorite_track": "Low Era",
     "track_url": "https://open.spotify.com/track/3CiDs8Rpj0jpF9MB3cr3ve",
     "preview_url": null
@@ -148,7 +142,6 @@
     "spotify_url": "https://open.spotify.com/album/7mOrnQqDad3RgYQsJGaaqk",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "Quiet, unguarded, and deceptively sharp — Winter's debut turns lo-fi singer-songwriter into something genuinely literary.",
     "favorite_track": "Love Takes Miles",
     "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF",
     "preview_url": null
@@ -170,7 +163,6 @@
     "spotify_url": "https://open.spotify.com/album/2Htq1sHgmdGffojIBM6Q1s",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A maximalist pop odyssey that earns every synth layer — Magdalena Bay's concept album is the rare case where the ambition fully matches the execution.",
     "favorite_track": "Cry for Me",
     "track_url": "https://open.spotify.com/track/2RhHct6gGXSrZ1zHjovhRq",
     "preview_url": null
@@ -186,13 +178,12 @@
       "electro-pop",
       "cinematic pop"
     ],
-    "stars": 4,
-    "second_spin": false,
+    "stars": 5,
+    "second_spin": true,
     "art": "https://upload.wikimedia.org/wikipedia/en/8/8e/The_Weeknd_-_Hurry_Up_Tomorrow.png",
     "spotify_url": "https://open.spotify.com/album/3OxfaVgvTxUTy7276t7SPU",
-    "review_url": "#",
+    "review_url": "reviews/hurry-up-tomorrow.html",
     "date": "2025-01-01",
-    "blurb": "Abel's cinematic farewell to The Weeknd persona — dark, sweeping, and emotionally exhausting in the best way.",
     "favorite_track": "Red Terror",
     "track_url": "https://open.spotify.com/track/717s9KFmHhyy5t3xkStS56",
     "preview_url": null
@@ -214,7 +205,6 @@
     "spotify_url": "https://open.spotify.com/album/00R4y0gymycDUv9IVY7VvO",
     "review_url": "#",
     "date": "2025-01-01",
-    "blurb": "A glittering, disorienting glam-rock fantasia where psychedelia and pop collide completely on their own terms.",
     "favorite_track": "Romanticist",
     "track_url": "https://open.spotify.com/track/3nRhH5u3TE6HtvBH6mNwzY",
     "preview_url": null
@@ -236,7 +226,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/0l8zYqoUeBYg47Gmevq9HZ",
     "date": "2025-01-01",
-    "blurb": "A warm, assured debut from the South London singer — Dean's velvety vocals and confessional songwriting make heartbreak feel like a hug.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -258,7 +247,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/21xp7NdU1ajmO1CX0w2Egd",
     "date": "2025-01-01",
-    "blurb": "An achingly beautiful farewell from the band's original lineup — sprawling, orchestral, and emotionally devastating in a way few albums ever manage to be.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -280,7 +268,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/07dZWmAaFk2XJfdKeUwadb",
     "date": "2025-01-01",
-    "blurb": "The Broken Bones push their soul roots into stranger, more cinematic territory — Paul Janeway's voice remains the gravitational center of something genuinely cosmic.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -302,7 +289,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/4RT2pNX9ZXCB0LtqfI2sdJ",
     "date": "2025-01-01",
-    "blurb": "Geese swing hard toward Americana without losing their angular edge — a shape-shifting second record that finds the band expanding every boundary they set on Projector.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -324,7 +310,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/5lEphbceIgaK1XxWeSrC9E",
     "date": "2025-01-01",
-    "blurb": "One of the most purely beautiful albums ever made — Elizabeth Fraser's voice dissolves into Robin Guthrie's shimmering guitar haze like a language only music can speak.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -346,7 +331,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/03guxdOi12XJbnvxvxbpwG",
     "date": "2025-01-01",
-    "blurb": "Hazy, bilingual, and impossibly cool — The Marías float through psychedelic dream-pop with a laid-back confidence that makes every song feel like a slow-motion summer afternoon.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -368,7 +352,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/5LIlFbWpjACyQFNW0nYvUC",
     "date": "2025-01-01",
-    "blurb": "Yves Tumor's most extroverted statement yet — loud, campy, and thrillingly weird, it splits the difference between arena rock and avant-garde with total conviction.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -390,7 +373,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj",
     "date": "2025-01-01",
-    "blurb": "Abel's most cohesive vision — a 1980s-drenched heartbreak opera that turned paranoid synth-pop into one of the definitive albums of its era.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -412,7 +394,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/0U28P0QVB1QRxpqp5IHOlH",
     "date": "2025-01-01",
-    "blurb": "Tyler strips back the maximalism for something more introspective — muted palettes, maternal guilt, and mid-life reckoning wrapped in impeccably crafted beats.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -434,7 +415,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/45ba6QAtNrdv6Ke4MFOKk9",
     "date": "2025-01-01",
-    "blurb": "Tyler's most bravado-driven record is also one of his most polished — DJ Drama's hype-man energy and lush jazz-rap production make every track feel like a postcard from a better life.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -456,7 +436,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/1jzv3jwZbt8lYfEtMjiD1R",
     "date": "2025-01-01",
-    "blurb": "A short, restrained detour that shows Tyler at his most naked — lo-fi soul sketches that feel like journal pages set to music.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -473,12 +452,11 @@
       "synth-pop",
       "dream pop"
     ],
-    "stars": 4,
-    "second_spin": false,
-    "review_url": "#",
+    "stars": 3,
+    "second_spin": true,
+    "review_url": "reviews/deadbeat.html",
     "spotify_url": "https://open.spotify.com/album/5WulAOx9ilWy1h8UGZ1gkI",
     "date": "2025-01-01",
-    "blurb": "Parker returns in shimmering, unhurried form — Deadbeat splits the difference between Currents-era electronic gloss and the hazy guitar psychedelia of his roots.",
     "favorite_track": "",
     "track_url": "",
     "preview_url": null
@@ -500,7 +478,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/0vVekV45lOaVKs6RZQQNob",
     "date": "2025-01-01",
-    "blurb": "A ragged, ecstatic folk masterpiece — Jeff Mangum's raw howl and surrealist imagery somehow coalesced into one of the most emotionally devastating albums ever recorded.",
     "favorite_track": "Holland, 1945",
     "track_url": "https://open.spotify.com/track/1LE8tugYmbtwQ2a24LReLs",
     "preview_url": null
@@ -522,7 +499,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/0CA2EVHhRPR5VPV78KZw89",
     "date": "2025-01-01",
-    "blurb": "Cedric and Omar's debut is a prog-rock fever dream — dense, chaotic, and unstoppably kinetic, with jazz and punk colliding at full speed.",
     "favorite_track": "Inertiatic ESP",
     "track_url": "https://open.spotify.com/track/16Elz7HJPLZPMylp13ewxv",
     "preview_url": null
@@ -544,7 +520,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/1zAMnOQUqSq3xCMgeBS6i2",
     "date": "2025-01-01",
-    "blurb": "A sprawling post-hardcore concept album built from short stories and confessional screams — Jordan Dreyer's lyrical intensity makes every track feel like a gut punch.",
     "favorite_track": "King Park",
     "track_url": "https://open.spotify.com/track/7uvcuAl1IvSqok1JM6IBjX",
     "preview_url": null
@@ -566,7 +541,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/6KOWjVP0mh5rOqmzm4tkPD",
     "date": "2025-01-01",
-    "blurb": "Fall Out Boy's most ambitious and divisive record — they traded pop-punk formula for baroque maximalism and landed somewhere genuinely strange and great.",
     "favorite_track": "What a Catch, Donnie",
     "track_url": "https://open.spotify.com/track/7pG6AWvWF6sktRiM9qfm4P",
     "preview_url": null
@@ -588,7 +562,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/5IZU64hjnyx7VDYw9PdvN3",
     "date": "2025-01-01",
-    "blurb": "Chicago's Pixel Grip delivers a cold, danceable dystopia — industrial rhythms and Rita Lukea's commanding vocals make this one of the sharpest darkwave records in years.",
     "favorite_track": "Reason to Stay",
     "track_url": "https://open.spotify.com/track/7cBHIzozk0MLTExQLBcN1S",
     "preview_url": null
@@ -610,7 +583,6 @@
     "review_url": "#",
     "spotify_url": "https://open.spotify.com/album/6nUUV3haj8ug8okTmOyIU2",
     "date": "2025-01-01",
-    "blurb": "A stunning genre collapse — Loathe weave ambient drift and nu-metal aggression into something genuinely unclassifiable, with texture and heaviness that hit equally hard.",
     "favorite_track": "Is It Really You?",
     "track_url": "https://open.spotify.com/track/4OmlsAT8r4q9vPFBvfYgyZ",
     "preview_url": null
@@ -630,7 +602,6 @@
     "spotify_url": "https://open.spotify.com/album/5NSgxemDL3eSm79jFkqxuw",
     "review_url": "#",
     "date": "1992-01-27",
-    "blurb": "",
     "favorite_track": "For Love",
     "track_url": "https://open.spotify.com/track/3KiKpbpJp9QKuTZb9ocfJi",
     "preview_url": null
@@ -654,7 +625,6 @@
     "spotify_url": "https://open.spotify.com/album/6dVIqQ8qmQ5GBnJ9shOYGE",
     "review_url": "#",
     "date": "1997-01-01",
-    "blurb": "",
     "favorite_track": "Exit Music (For a Film)",
     "track_url": "https://open.spotify.com/track/4Na0siMtWOW9pJoWJ1Ponv",
     "preview_url": null
@@ -679,7 +649,6 @@
     "spotify_url": "https://open.spotify.com/album/0GOWw5YVpOmIX6mUtjLi30",
     "review_url": "#",
     "date": "2003-01-01",
-    "blurb": "",
     "favorite_track": "I Don't Want It",
     "track_url": "https://open.spotify.com/track/7GA2kb0VtYvwT3PYhMaYGX",
     "preview_url": null
@@ -703,7 +672,6 @@
     "spotify_url": "https://open.spotify.com/album/5fMlysqhFE0itGn4KezMBW",
     "review_url": "#",
     "date": "2006-01-01",
-    "blurb": "",
     "favorite_track": "Workinonit",
     "track_url": "https://open.spotify.com/track/33T6ABvdB3P2iYOWJnBjsQ",
     "preview_url": null

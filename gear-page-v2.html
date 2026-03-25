@@ -271,6 +271,8 @@
 }
 @media (max-width: 560px) {
   .gear-grid { grid-template-columns: 1fr; }
+  /* Section titles like "Turntables & Record Players" are too long to sit inline with the count */
+  .section-header { flex-wrap: wrap; gap: 2px; }
 }
 
 </style>
