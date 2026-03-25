@@ -588,5 +588,13 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  // Auto-update each section's "X picks" count based on actual gcard elements present
+  document.querySelectorAll('.gear-section').forEach(function(section) {
+    var count = section.querySelectorAll('.gcard').length;
+    var label = section.querySelector('.section-count');
+    if (label) label.textContent = count + (count === 1 ? ' pick' : ' picks');
+  });
+</script>
 </body>
 </html>

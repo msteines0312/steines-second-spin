@@ -335,7 +335,7 @@
         </div>
         <div class="stat-chip">
           <span class="stat-chip-key">Reviews Published</span>
-          <span class="stat-chip-val">1 (more coming)</span>
+          <span class="stat-chip-val" id="reviews-published-count">3 (more coming)</span>
         </div>
         <div class="stat-chip">
           <span class="stat-chip-key">Favorite Genre</span>
@@ -384,16 +384,22 @@
 
 <script src="js/main.js"></script>
 <script>
-  // Dynamically pull "Albums Cataloged" count from the JSON so it never goes stale
+  // Dynamically pull "Albums Cataloged" and "Reviews Published" from the JSON so they never go stale
   fetch('data/albums_final.json')
     .then(function(res) { return res.json(); })
     .then(function(albums) {
-      var el = document.getElementById('albums-cataloged-count');
-      if (el) el.textContent = albums.length + ' (and growing)';
+      var catalogedEl = document.getElementById('albums-cataloged-count');
+      if (catalogedEl) catalogedEl.textContent = albums.length + ' (and growing)';
+
+      var reviewsEl = document.getElementById('reviews-published-count');
+      if (reviewsEl) {
+        var count = albums.filter(function(a) { return a.review_url && a.review_url !== '#'; }).length;
+        reviewsEl.textContent = count + ' (more coming)';
+      }
     })
     .catch(function() {
       // If the fetch fails (e.g. opened as a local file without a server),
-      // the hardcoded fallback value already in the HTML stays visible
+      // the hardcoded fallback values already in the HTML stay visible
     });
 </script>
 </body>
