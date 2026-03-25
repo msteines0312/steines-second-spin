@@ -139,6 +139,8 @@
   cursor: pointer;
   text-align: left;
   transition: border-color 0.2s, transform 0.2s;
+  width: 100%;
+  min-width: 0;
 }
 .picker-card:hover { transform: translateY(-2px); }
 .picker-card.selected { border-color: var(--red); }
@@ -389,10 +391,59 @@
 .footer-wordmark { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
 .footer-wordmark span { color: var(--red); }
 
-@media (max-width: 600px) {
-  .picker-grid { grid-template-columns: repeat(3, 1fr); }
-  /* Single-column results on phones — the cards have too much content to read side-by-side at narrow widths */
+/* Tablets (≤900px) */
+@media (max-width: 900px) {
+  .picker-grid { grid-template-columns: repeat(5, 1fr); }
+  .results-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Small tablets / large phones (≤680px) */
+@media (max-width: 680px) {
+  .picker-grid { grid-template-columns: repeat(4, 1fr); }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Phones (≤480px) */
+@media (max-width: 480px) {
+  /* Tighten horizontal padding so cards have room to breathe */
+  .main-content { padding-left: 16px; padding-right: 16px; }
+
+  /* Picker: 4 columns — enough to see art without being too small */
+  .picker-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .picker-title { font-size: 9px; }
+  .picker-artist { display: none; }
+
+  /* Results: single column */
   .results-grid { grid-template-columns: 1fr; }
+
+  /* Result cards: horizontal layout to save vertical space */
+  .result-card {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+  }
+  .result-art {
+    aspect-ratio: unset;
+    height: 100%;
+    min-height: 90px;
+  }
+  .result-body { border-top: none; border-left: 1px solid var(--faint); }
+
+  /* Results header: stack so long titles don't overflow */
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .results-eyebrow { white-space: normal; }
+  .results-seed { font-size: clamp(16px, 5vw, 22px); }
+
+  /* Chips: bigger tap targets */
+  .chip, .chip-clear { padding: 7px 14px; font-size: 11px; }
+  .chips-toggle { min-height: 44px; }
+  .chips-section { margin-bottom: 16px; }
+
+  /* Section label: less space above grid */
+  .section-label { margin-bottom: 10px; }
 }
 
 </style>
