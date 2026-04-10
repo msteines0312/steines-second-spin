@@ -99,6 +99,15 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.43,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap",
+          "rap"
+        ]
+      },
+      {
         "slug": "late-registration",
         "score": 0.43,
         "shared_tags": [
@@ -113,6 +122,15 @@
         "shared_tags": [
           "conscious hip-hop",
           "hip-hop",
+          "rap"
+        ]
+      },
+      {
+        "slug": "flower-boy",
+        "score": 0.4,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap",
           "rap"
         ]
       },
@@ -156,28 +174,21 @@
           "hip-hop",
           "rap"
         ]
-      },
-      {
-        "slug": "oxnard",
-        "score": 0.29,
-        "shared_tags": [
-          "hip-hop",
-          "rap"
-        ]
-      },
-      {
-        "slug": "testing",
-        "score": 0.29,
-        "shared_tags": [
-          "hip-hop",
-          "rap"
-        ]
       }
     ]
   },
   {
     "slug": "aeroplane-over-the-sea",
     "recommendations": [
+      {
+        "slug": "illinois",
+        "score": 0.46,
+        "shared_tags": [
+          "baroque pop",
+          "folk",
+          "indie folk"
+        ]
+      },
       {
         "slug": "ants-from-up-there",
         "score": 0.31,
@@ -239,17 +250,10 @@
         ]
       },
       {
-        "slug": "charm",
+        "slug": "thursday",
         "score": 0.13,
         "shared_tags": [
-          "baroque pop"
-        ]
-      },
-      {
-        "slug": "3d-country",
-        "score": 0.13,
-        "shared_tags": [
-          "indie rock"
+          "lo-fi"
         ]
       }
     ]
@@ -257,6 +261,42 @@
   {
     "slug": "after-hours",
     "recommendations": [
+      {
+        "slug": "starboy",
+        "score": 0.8,
+        "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
+          "r&b",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "dawn-fm",
+        "score": 0.78,
+        "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
+          "r&b",
+          "synth-pop",
+          "synthpop",
+          "synthwave"
+        ]
+      },
+      {
+        "slug": "beauty-behind-the-madness",
+        "score": 0.67,
+        "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
       {
         "slug": "hurry-up-tomorrow",
         "score": 0.59,
@@ -296,6 +336,15 @@
         ]
       },
       {
+        "slug": "kiss-land",
+        "score": 0.38,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
         "slug": "orquideas",
         "score": 0.36,
         "shared_tags": [
@@ -311,39 +360,6 @@
           "pop",
           "synth-pop",
           "synthpop"
-        ]
-      },
-      {
-        "slug": "rise-and-fall-midwest-princess",
-        "score": 0.36,
-        "shared_tags": [
-          "pop",
-          "synth-pop",
-          "synthpop"
-        ]
-      },
-      {
-        "slug": "signed-sealed-delivered",
-        "score": 0.32,
-        "shared_tags": [
-          "pop",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "son-of-spergy",
-        "score": 0.29,
-        "shared_tags": [
-          "alternative r&b",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "temporary-highs-violet-skies",
-        "score": 0.29,
-        "shared_tags": [
-          "alternative r&b",
-          "r&b"
         ]
       }
     ]
@@ -392,7 +408,25 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.4,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "oxnard",
+        "score": 0.4,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "teddy",
         "score": 0.4,
         "shared_tags": [
           "funk",
@@ -410,35 +444,19 @@
         ]
       },
       {
+        "slug": "it-is-what-it-is",
+        "score": 0.38,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "songs-key-life",
         "score": 0.37,
         "shared_tags": [
           "funk",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "whats-going-on",
-        "score": 0.37,
-        "shared_tags": [
-          "funk",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "son-of-spergy",
-        "score": 0.29,
-        "shared_tags": [
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "temporary-highs-violet-skies",
-        "score": 0.29,
-        "shared_tags": [
           "r&b",
           "soul"
         ]
@@ -491,6 +509,16 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.54,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "oxnard",
         "score": 0.54,
         "shared_tags": [
@@ -511,37 +539,30 @@
         ]
       },
       {
+        "slug": "teddy",
+        "score": 0.53,
+        "shared_tags": [
+          "funk",
+          "philly soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "it-is-what-it-is",
+        "score": 0.5,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "signed-sealed-delivered",
         "score": 0.47,
         "shared_tags": [
           "funk",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "son-of-spergy",
-        "score": 0.44,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "st-paul",
-        "score": 0.44,
-        "shared_tags": [
-          "funk",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "lahai",
-        "score": 0.4,
-        "shared_tags": [
-          "neo-soul",
           "r&b",
           "soul"
         ]
@@ -551,6 +572,14 @@
   {
     "slug": "ants-from-up-there",
     "recommendations": [
+      {
+        "slug": "illinois",
+        "score": 0.34,
+        "shared_tags": [
+          "baroque pop",
+          "chamber pop"
+        ]
+      },
       {
         "slug": "getting-killed",
         "score": 0.31,
@@ -617,13 +646,6 @@
       {
         "slug": "wildlife",
         "score": 0.16,
-        "shared_tags": [
-          "indie rock"
-        ]
-      },
-      {
-        "slug": "heavy-metal",
-        "score": 0.15,
         "shared_tags": [
           "indie rock"
         ]
@@ -709,7 +731,7 @@
         ]
       },
       {
-        "slug": "oxnard",
+        "slug": "dont-go-tellin-your-mama",
         "score": 0.38,
         "shared_tags": [
           "neo-soul",
@@ -718,7 +740,7 @@
         ]
       },
       {
-        "slug": "awaken-my-love",
+        "slug": "oxnard",
         "score": 0.38,
         "shared_tags": [
           "neo-soul",
@@ -731,6 +753,38 @@
   {
     "slug": "atavista",
     "recommendations": [
+      {
+        "slug": "igor",
+        "score": 0.56,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "flower-boy",
+        "score": 0.56,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.48,
+        "shared_tags": [
+          "funk",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
       {
         "slug": "oxnard",
         "score": 0.48,
@@ -749,6 +803,16 @@
           "art pop",
           "experimental",
           "neo-soul"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "hip-hop",
+          "neo-soul",
+          "rap"
         ]
       },
       {
@@ -788,42 +852,6 @@
           "art pop",
           "neo-soul"
         ]
-      },
-      {
-        "slug": "ye",
-        "score": 0.36,
-        "shared_tags": [
-          "hip-hop",
-          "neo-soul",
-          "rap"
-        ]
-      },
-      {
-        "slug": "channel-orange",
-        "score": 0.36,
-        "shared_tags": [
-          "alternative r&b",
-          "art pop",
-          "neo-soul"
-        ]
-      },
-      {
-        "slug": "late-registration",
-        "score": 0.36,
-        "shared_tags": [
-          "hip-hop",
-          "neo-soul",
-          "rap"
-        ]
-      },
-      {
-        "slug": "red-moon-in-venus",
-        "score": 0.34,
-        "shared_tags": [
-          "alternative r&b",
-          "neo-soul",
-          "psychedelic pop"
-        ]
       }
     ]
   },
@@ -833,6 +861,16 @@
       {
         "slug": "ventura",
         "score": 0.62,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.57,
         "shared_tags": [
           "funk",
           "neo-soul",
@@ -881,6 +919,26 @@
         ]
       },
       {
+        "slug": "it-is-what-it-is",
+        "score": 0.54,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.54,
+        "shared_tags": [
+          "indie r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "whats-going-on",
         "score": 0.53,
         "shared_tags": [
@@ -893,34 +951,6 @@
       {
         "slug": "signed-sealed-delivered",
         "score": 0.51,
-        "shared_tags": [
-          "funk",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "distracted",
-        "score": 0.51,
-        "shared_tags": [
-          "funk",
-          "neo-soul",
-          "psychedelic",
-          "soul"
-        ]
-      },
-      {
-        "slug": "son-of-spergy",
-        "score": 0.46,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "st-paul",
-        "score": 0.46,
         "shared_tags": [
           "funk",
           "r&b",
@@ -980,12 +1010,30 @@
         ]
       },
       {
+        "slug": "flower-boy",
+        "score": 0.36,
+        "shared_tags": [
+          "alternative hip-hop",
+          "art pop",
+          "hip-hop"
+        ]
+      },
+      {
         "slug": "because-the-internet",
         "score": 0.36,
         "shared_tags": [
           "alternative hip-hop",
           "experimental hip-hop",
           "hip-hop"
+        ]
+      },
+      {
+        "slug": "kiss-land",
+        "score": 0.36,
+        "shared_tags": [
+          "art pop",
+          "hip-hop",
+          "r&b"
         ]
       },
       {
@@ -1005,21 +1053,107 @@
           "hip-hop",
           "r&b"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "beauty-behind-the-madness",
+    "recommendations": [
+      {
+        "slug": "starboy",
+        "score": 0.72,
+        "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ]
       },
       {
-        "slug": "love-sick",
-        "score": 0.27,
+        "slug": "after-hours",
+        "score": 0.67,
         "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "dawn-fm",
+        "score": 0.6,
+        "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "kiss-land",
+        "score": 0.54,
+        "shared_tags": [
+          "alternative r&b",
+          "hip-hop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "cowboy-carter",
+        "score": 0.4,
+        "shared_tags": [
+          "hip-hop",
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "never-enough",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "red-moon-in-venus",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
           "hip-hop",
           "r&b"
         ]
       },
       {
-        "slug": "ventura",
-        "score": 0.27,
+        "slug": "ugh-those-feels-again",
+        "score": 0.4,
         "shared_tags": [
-          "hip-hop",
+          "alternative r&b",
+          "pop",
           "r&b"
+        ]
+      },
+      {
+        "slug": "igor",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "hip-hop",
+          "synth-pop"
         ]
       }
     ]
@@ -1098,6 +1232,15 @@
         ]
       },
       {
+        "slug": "flower-boy",
+        "score": 0.38,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "neo-soul"
+        ]
+      },
+      {
         "slug": "donuts",
         "score": 0.38,
         "shared_tags": [
@@ -1108,15 +1251,6 @@
       },
       {
         "slug": "bully",
-        "score": 0.36,
-        "shared_tags": [
-          "alternative hip-hop",
-          "experimental hip-hop",
-          "hip-hop"
-        ]
-      },
-      {
-        "slug": "bando-stone-and-the-new-world",
         "score": 0.36,
         "shared_tags": [
           "alternative hip-hop",
@@ -1162,6 +1296,16 @@
         ]
       },
       {
+        "slug": "the-amanda-tape",
+        "score": 0.54,
+        "shared_tags": [
+          "alternative r&b",
+          "indie r&b",
+          "neo-soul",
+          "r&b"
+        ]
+      },
+      {
         "slug": "process",
         "score": 0.54,
         "shared_tags": [
@@ -1172,6 +1316,16 @@
         ]
       },
       {
+        "slug": "echoes-of-silence",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "experimental",
+          "indie r&b",
+          "r&b"
+        ]
+      },
+      {
         "slug": "atavista",
         "score": 0.48,
         "shared_tags": [
@@ -1179,6 +1333,16 @@
           "art pop",
           "experimental",
           "neo-soul"
+        ]
+      },
+      {
+        "slug": "house-of-balloons",
+        "score": 0.48,
+        "shared_tags": [
+          "alternative r&b",
+          "experimental",
+          "indie r&b",
+          "r&b"
         ]
       },
       {
@@ -1193,33 +1357,6 @@
       {
         "slug": "temporary-highs-violet-skies",
         "score": 0.46,
-        "shared_tags": [
-          "alternative r&b",
-          "neo-soul",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "awaken-my-love",
-        "score": 0.43,
-        "shared_tags": [
-          "indie r&b",
-          "neo-soul",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "never-enough",
-        "score": 0.4,
-        "shared_tags": [
-          "alternative r&b",
-          "neo-soul",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "red-moon-in-venus",
-        "score": 0.4,
         "shared_tags": [
           "alternative r&b",
           "neo-soul",
@@ -1252,6 +1389,15 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.38,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap",
+          "soul"
+        ]
+      },
+      {
         "slug": "testing",
         "score": 0.38,
         "shared_tags": [
@@ -1274,6 +1420,15 @@
         "score": 0.36,
         "shared_tags": [
           "experimental hip-hop",
+          "hip-hop",
+          "jazz rap"
+        ]
+      },
+      {
+        "slug": "flower-boy",
+        "score": 0.36,
+        "shared_tags": [
+          "alternative hip-hop",
           "hip-hop",
           "jazz rap"
         ]
@@ -1304,24 +1459,6 @@
           "experimental hip-hop",
           "hip-hop"
         ]
-      },
-      {
-        "slug": "call-me-if-you-get-lost",
-        "score": 0.34,
-        "shared_tags": [
-          "alternative hip-hop",
-          "hip-hop",
-          "jazz rap"
-        ]
-      },
-      {
-        "slug": "life-of-a-don",
-        "score": 0.34,
-        "shared_tags": [
-          "alternative hip-hop",
-          "hip-hop",
-          "soul"
-        ]
       }
     ]
   },
@@ -1337,6 +1474,17 @@
           "jazz rap",
           "neo-soul",
           "synth funk",
+          "west coast hip-hop"
+        ]
+      },
+      {
+        "slug": "flower-boy",
+        "score": 0.59,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "neo-soul",
           "west coast hip-hop"
         ]
       },
@@ -1358,6 +1506,15 @@
           "hip-hop",
           "west coast hip-hop",
           "west coast rap"
+        ]
+      },
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.38,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap",
+          "neo-soul"
         ]
       },
       {
@@ -1397,30 +1554,12 @@
         ]
       },
       {
-        "slug": "ta1300",
+        "slug": "igor",
         "score": 0.36,
         "shared_tags": [
-          "alternative hip-hop",
-          "hardcore hip-hop",
-          "hip-hop"
-        ]
-      },
-      {
-        "slug": "because-the-internet",
-        "score": 0.36,
-        "shared_tags": [
-          "alternative hip-hop",
           "hip-hop",
-          "neo-soul"
-        ]
-      },
-      {
-        "slug": "bully",
-        "score": 0.34,
-        "shared_tags": [
-          "alternative hip-hop",
-          "hip-hop",
-          "jazz rap"
+          "neo-soul",
+          "synth funk"
         ]
       }
     ]
@@ -1555,6 +1694,17 @@
         ]
       },
       {
+        "slug": "the-amanda-tape",
+        "score": 0.67,
+        "shared_tags": [
+          "alternative r&b",
+          "indie r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "negro-swan",
         "score": 0.63,
         "shared_tags": [
@@ -1624,16 +1774,6 @@
           "r&b",
           "soul"
         ]
-      },
-      {
-        "slug": "process",
-        "score": 0.54,
-        "shared_tags": [
-          "alternative r&b",
-          "art pop",
-          "neo-soul",
-          "soul"
-        ]
       }
     ]
   },
@@ -1651,6 +1791,15 @@
           "indie pop",
           "singer-songwriter",
           "soft rock"
+        ]
+      },
+      {
+        "slug": "illinois",
+        "score": 0.41,
+        "shared_tags": [
+          "baroque pop",
+          "chamber pop",
+          "singer-songwriter"
         ]
       },
       {
@@ -1715,13 +1864,6 @@
         "shared_tags": [
           "bedroom pop"
         ]
-      },
-      {
-        "slug": "currents",
-        "score": 0.13,
-        "shared_tags": [
-          "indie pop"
-        ]
       }
     ]
   },
@@ -1737,6 +1879,17 @@
           "jazz rap",
           "neo-soul",
           "synth funk",
+          "west coast hip-hop"
+        ]
+      },
+      {
+        "slug": "flower-boy",
+        "score": 0.56,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "neo-soul",
           "west coast hip-hop"
         ]
       },
@@ -1819,15 +1972,6 @@
           "hip-hop",
           "west coast hip-hop"
         ]
-      },
-      {
-        "slug": "testing",
-        "score": 0.36,
-        "shared_tags": [
-          "alternative hip-hop",
-          "experimental hip-hop",
-          "hip-hop"
-        ]
       }
     ]
   },
@@ -1844,11 +1988,38 @@
         ]
       },
       {
+        "slug": "thursday",
+        "score": 0.35,
+        "shared_tags": [
+          "best of 2011",
+          "lo-fi",
+          "r&b"
+        ]
+      },
+      {
         "slug": "submarine",
         "score": 0.33,
         "shared_tags": [
           "bedroom pop",
           "indie pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "echoes-of-silence",
+        "score": 0.33,
+        "shared_tags": [
+          "best of 2011",
+          "lo-fi",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "house-of-balloons",
+        "score": 0.32,
+        "shared_tags": [
+          "best of 2011",
+          "lo-fi",
           "r&b"
         ]
       },
@@ -1891,30 +2062,6 @@
           "art pop",
           "r&b"
         ]
-      },
-      {
-        "slug": "oxnard",
-        "score": 0.25,
-        "shared_tags": [
-          "funk",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "awaken-my-love",
-        "score": 0.25,
-        "shared_tags": [
-          "funk",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "blonde",
-        "score": 0.25,
-        "shared_tags": [
-          "art pop",
-          "r&b"
-        ]
       }
     ]
   },
@@ -1941,6 +2088,16 @@
           "hip-hop",
           "rap",
           "trap"
+        ]
+      },
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.51,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap",
+          "rap",
+          "soul"
         ]
       },
       {
@@ -1984,6 +2141,16 @@
         ]
       },
       {
+        "slug": "flower-boy",
+        "score": 0.47,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "rap"
+        ]
+      },
+      {
         "slug": "bully",
         "score": 0.45,
         "shared_tags": [
@@ -2000,25 +2167,6 @@
           "alternative hip-hop",
           "hip-hop",
           "soul",
-          "trap"
-        ]
-      },
-      {
-        "slug": "chromakopia",
-        "score": 0.42,
-        "shared_tags": [
-          "alternative hip-hop",
-          "conscious hip-hop",
-          "hip-hop",
-          "jazz rap"
-        ]
-      },
-      {
-        "slug": "love-sick",
-        "score": 0.41,
-        "shared_tags": [
-          "hip-hop",
-          "rap",
           "trap"
         ]
       }
@@ -2056,6 +2204,15 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.4,
+        "shared_tags": [
+          "hip-hop",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "oxnard",
         "score": 0.4,
         "shared_tags": [
@@ -2065,10 +2222,28 @@
         ]
       },
       {
+        "slug": "beauty-behind-the-madness",
+        "score": 0.4,
+        "shared_tags": [
+          "hip-hop",
+          "pop",
+          "r&b"
+        ]
+      },
+      {
         "slug": "never-enough",
         "score": 0.38,
         "shared_tags": [
           "pop",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.38,
+        "shared_tags": [
+          "hip-hop",
           "r&b",
           "soul"
         ]
@@ -2089,33 +2264,6 @@
           "pop",
           "r&b",
           "soul"
-        ]
-      },
-      {
-        "slug": "orquideas",
-        "score": 0.36,
-        "shared_tags": [
-          "pop",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "life-of-a-don",
-        "score": 0.36,
-        "shared_tags": [
-          "hip-hop",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "mans-best-friend",
-        "score": 0.34,
-        "shared_tags": [
-          "country pop",
-          "pop",
-          "r&b"
         ]
       }
     ]
@@ -2212,11 +2360,124 @@
         ]
       },
       {
-        "slug": "red-moon-in-venus",
-        "score": 0.27,
+        "slug": "starboy",
+        "score": 0.29,
         "shared_tags": [
-          "dream pop",
-          "psychedelic pop"
+          "synth-pop",
+          "synthpop"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "dawn-fm",
+    "recommendations": [
+      {
+        "slug": "starboy",
+        "score": 0.84,
+        "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "electropop",
+          "pop",
+          "r&b",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "after-hours",
+        "score": 0.78,
+        "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
+          "r&b",
+          "synth-pop",
+          "synthpop",
+          "synthwave"
+        ]
+      },
+      {
+        "slug": "beauty-behind-the-madness",
+        "score": 0.6,
+        "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "hurry-up-tomorrow",
+        "score": 0.53,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "synth-pop",
+          "synthpop",
+          "synthwave"
+        ]
+      },
+      {
+        "slug": "rise-and-fall-midwest-princess",
+        "score": 0.53,
+        "shared_tags": [
+          "art pop",
+          "electropop",
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "my-dear-melancholy",
+        "score": 0.53,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "electropop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "kiss-land",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "mercurial-world",
+        "score": 0.42,
+        "shared_tags": [
+          "art pop",
+          "electropop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "lahai",
+        "score": 0.36,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "blonde",
+        "score": 0.36,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "r&b"
         ]
       }
     ]
@@ -2583,6 +2844,16 @@
         ]
       },
       {
+        "slug": "it-is-what-it-is",
+        "score": 0.47,
+        "shared_tags": [
+          "funk",
+          "jazz",
+          "neo-soul",
+          "soul"
+        ]
+      },
+      {
         "slug": "icon",
         "score": 0.41,
         "shared_tags": [
@@ -2601,11 +2872,29 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.38,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "soul"
+        ]
+      },
+      {
         "slug": "oxnard",
         "score": 0.38,
         "shared_tags": [
           "funk",
           "neo-soul",
+          "soul"
+        ]
+      },
+      {
+        "slug": "teddy",
+        "score": 0.38,
+        "shared_tags": [
+          "disco",
+          "funk",
           "soul"
         ]
       },
@@ -2624,32 +2913,6 @@
         "shared_tags": [
           "electronic",
           "neo-soul",
-          "soul"
-        ]
-      },
-      {
-        "slug": "whats-going-on",
-        "score": 0.35,
-        "shared_tags": [
-          "funk",
-          "neo-soul",
-          "soul"
-        ]
-      },
-      {
-        "slug": "submarine",
-        "score": 0.34,
-        "shared_tags": [
-          "jazz",
-          "psychedelic",
-          "soul"
-        ]
-      },
-      {
-        "slug": "signed-sealed-delivered",
-        "score": 0.3,
-        "shared_tags": [
-          "funk",
           "soul"
         ]
       }
@@ -2855,6 +3118,114 @@
     ]
   },
   {
+    "slug": "dont-go-tellin-your-mama",
+    "recommendations": [
+      {
+        "slug": "oxnard",
+        "score": 0.86,
+        "shared_tags": [
+          "funk",
+          "hip-hop",
+          "neo-soul",
+          "r&b",
+          "rap",
+          "soul"
+        ]
+      },
+      {
+        "slug": "ventura",
+        "score": 0.77,
+        "shared_tags": [
+          "funk",
+          "hip-hop",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.67,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "r&b",
+          "rap",
+          "soul"
+        ]
+      },
+      {
+        "slug": "ye",
+        "score": 0.57,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "rap",
+          "soul"
+        ]
+      },
+      {
+        "slug": "awaken-my-love",
+        "score": 0.57,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "an-evening-with-silk-sonic",
+        "score": 0.54,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "it-is-what-it-is",
+        "score": 0.54,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "flower-boy",
+        "score": 0.54,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "whats-going-on",
+        "score": 0.53,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "signed-sealed-delivered",
+        "score": 0.51,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      }
+    ]
+  },
+  {
     "slug": "dont-tap-the-glass",
     "recommendations": [
       {
@@ -2916,6 +3287,15 @@
         ]
       },
       {
+        "slug": "flower-boy",
+        "score": 0.34,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "jazz rap"
+        ]
+      },
+      {
         "slug": "because-the-internet",
         "score": 0.34,
         "shared_tags": [
@@ -2940,14 +3320,6 @@
           "alternative hip-hop",
           "hip-hop",
           "jazz rap"
-        ]
-      },
-      {
-        "slug": "casino",
-        "score": 0.24,
-        "shared_tags": [
-          "hip-hop",
-          "west coast rap"
         ]
       }
     ]
@@ -3008,6 +3380,14 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.27,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap"
+        ]
+      },
+      {
         "slug": "testing",
         "score": 0.27,
         "shared_tags": [
@@ -3030,13 +3410,117 @@
           "hip-hop",
           "jazz rap"
         ]
+      }
+    ]
+  },
+  {
+    "slug": "echoes-of-silence",
+    "recommendations": [
+      {
+        "slug": "house-of-balloons",
+        "score": 0.95,
+        "shared_tags": [
+          "alternative r&b",
+          "best of 2011",
+          "dark r&b",
+          "experimental",
+          "indie r&b",
+          "lo-fi",
+          "psychedelic r&b",
+          "r&b",
+          "soul"
+        ]
       },
       {
-        "slug": "let-god-sort-em-out",
-        "score": 0.25,
+        "slug": "thursday",
+        "score": 0.94,
         "shared_tags": [
-          "experimental hip-hop",
-          "hip-hop"
+          "alternative r&b",
+          "best of 2011",
+          "dark r&b",
+          "indie r&b",
+          "lo-fi",
+          "psychedelic r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.59,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "indie r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "blonde",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "experimental",
+          "indie r&b",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "channel-orange",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "indie r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "wasteland",
+        "score": 0.47,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "my-dear-melancholy",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "son-of-spergy",
+        "score": 0.41,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "temporary-highs-violet-skies",
+        "score": 0.41,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "lahai",
+        "score": 0.38,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "soul"
         ]
       }
     ]
@@ -3120,6 +3604,113 @@
         "score": 0.14,
         "shared_tags": [
           "rock"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "flower-boy",
+    "recommendations": [
+      {
+        "slug": "igor",
+        "score": 0.63,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "call-me-if-you-get-lost",
+        "score": 0.59,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "neo-soul",
+          "west coast hip-hop"
+        ]
+      },
+      {
+        "slug": "atavista",
+        "score": 0.56,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "chromakopia",
+        "score": 0.56,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "neo-soul",
+          "west coast hip-hop"
+        ]
+      },
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.54,
+        "shared_tags": [
+          "hip-hop",
+          "jazz rap",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "late-registration",
+        "score": 0.54,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "coloring-book",
+        "score": 0.47,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "jazz rap",
+          "rap"
+        ]
+      },
+      {
+        "slug": "casino",
+        "score": 0.4,
+        "shared_tags": [
+          "hip-hop",
+          "rap",
+          "west coast hip-hop"
+        ]
+      },
+      {
+        "slug": "lahai",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "neo-soul"
         ]
       }
     ]
@@ -3382,7 +3973,7 @@
         ]
       },
       {
-        "slug": "oxnard",
+        "slug": "dont-go-tellin-your-mama",
         "score": 0.27,
         "shared_tags": [
           "hip-hop",
@@ -3564,6 +4155,14 @@
     "slug": "heavy-metal",
     "recommendations": [
       {
+        "slug": "illinois",
+        "score": 0.29,
+        "shared_tags": [
+          "americana",
+          "singer-songwriter"
+        ]
+      },
+      {
         "slug": "aeroplane-over-the-sea",
         "score": 0.27,
         "shared_tags": [
@@ -3580,6 +4179,14 @@
         ]
       },
       {
+        "slug": "thursday",
+        "score": 0.25,
+        "shared_tags": [
+          "lo-fi",
+          "soul"
+        ]
+      },
+      {
         "slug": "sling",
         "score": 0.24,
         "shared_tags": [
@@ -3588,11 +4195,27 @@
         ]
       },
       {
+        "slug": "echoes-of-silence",
+        "score": 0.24,
+        "shared_tags": [
+          "lo-fi",
+          "soul"
+        ]
+      },
+      {
         "slug": "quebec",
         "score": 0.24,
         "shared_tags": [
           "indie rock",
           "lo-fi"
+        ]
+      },
+      {
+        "slug": "house-of-balloons",
+        "score": 0.23,
+        "shared_tags": [
+          "lo-fi",
+          "soul"
         ]
       },
       {
@@ -3608,32 +4231,119 @@
         "shared_tags": [
           "soul"
         ]
-      },
+      }
+    ]
+  },
+  {
+    "slug": "house-of-balloons",
+    "recommendations": [
       {
-        "slug": "st-paul",
-        "score": 0.15,
+        "slug": "echoes-of-silence",
+        "score": 0.95,
         "shared_tags": [
+          "alternative r&b",
+          "best of 2011",
+          "dark r&b",
+          "experimental",
+          "indie r&b",
+          "lo-fi",
+          "psychedelic r&b",
+          "r&b",
           "soul"
         ]
       },
       {
-        "slug": "ants-from-up-there",
-        "score": 0.15,
+        "slug": "thursday",
+        "score": 0.89,
         "shared_tags": [
-          "indie rock"
-        ]
-      },
-      {
-        "slug": "temporary-highs-violet-skies",
-        "score": 0.15,
-        "shared_tags": [
+          "alternative r&b",
+          "best of 2011",
+          "dark r&b",
+          "indie r&b",
+          "lo-fi",
+          "psychedelic r&b",
+          "r&b",
           "soul"
         ]
       },
       {
-        "slug": "ventura",
-        "score": 0.15,
+        "slug": "the-amanda-tape",
+        "score": 0.56,
         "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "indie r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "lahai",
+        "score": 0.48,
+        "shared_tags": [
+          "alternative r&b",
+          "electronic",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "blonde",
+        "score": 0.48,
+        "shared_tags": [
+          "alternative r&b",
+          "experimental",
+          "indie r&b",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "channel-orange",
+        "score": 0.48,
+        "shared_tags": [
+          "alternative r&b",
+          "indie r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "wasteland",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "process",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "electronic",
+          "experimental",
+          "soul"
+        ]
+      },
+      {
+        "slug": "kiss-land",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "electronic",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "my-dear-melancholy",
+        "score": 0.42,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
           "soul"
         ]
       }
@@ -3651,6 +4361,45 @@
           "synth-pop",
           "synthpop",
           "synthwave"
+        ]
+      },
+      {
+        "slug": "dawn-fm",
+        "score": 0.53,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "synth-pop",
+          "synthpop",
+          "synthwave"
+        ]
+      },
+      {
+        "slug": "starboy",
+        "score": 0.51,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "beauty-behind-the-madness",
+        "score": 0.38,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "kiss-land",
+        "score": 0.36,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "synth-pop"
         ]
       },
       {
@@ -3672,6 +4421,15 @@
         ]
       },
       {
+        "slug": "my-dear-melancholy",
+        "score": 0.34,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "synth-pop"
+        ]
+      },
+      {
         "slug": "icon",
         "score": 0.27,
         "shared_tags": [
@@ -3685,46 +4443,6 @@
         "shared_tags": [
           "alt-pop",
           "synth-pop"
-        ]
-      },
-      {
-        "slug": "currents",
-        "score": 0.25,
-        "shared_tags": [
-          "synth-pop",
-          "synthpop"
-        ]
-      },
-      {
-        "slug": "never-enough",
-        "score": 0.24,
-        "shared_tags": [
-          "alternative r&b",
-          "pop"
-        ]
-      },
-      {
-        "slug": "red-moon-in-venus",
-        "score": 0.24,
-        "shared_tags": [
-          "alternative r&b",
-          "pop"
-        ]
-      },
-      {
-        "slug": "wasteland",
-        "score": 0.24,
-        "shared_tags": [
-          "alternative r&b",
-          "dark r&b"
-        ]
-      },
-      {
-        "slug": "ugh-those-feels-again",
-        "score": 0.24,
-        "shared_tags": [
-          "alternative r&b",
-          "pop"
         ]
       }
     ]
@@ -3812,6 +4530,15 @@
         ]
       },
       {
+        "slug": "the-amanda-tape",
+        "score": 0.43,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "neo-soul"
+        ]
+      },
+      {
         "slug": "distracted",
         "score": 0.41,
         "shared_tags": [
@@ -3868,14 +4595,183 @@
           "alternative r&b",
           "neo-soul"
         ]
-      },
+      }
+    ]
+  },
+  {
+    "slug": "igor",
+    "recommendations": [
       {
-        "slug": "never-enough",
-        "score": 0.29,
+        "slug": "flower-boy",
+        "score": 0.63,
         "shared_tags": [
           "alternative r&b",
+          "art pop",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "atavista",
+        "score": 0.56,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "kiss-land",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "hip-hop",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "lahai",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
           "neo-soul"
         ]
+      },
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.4,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "oxnard",
+        "score": 0.4,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "ye",
+        "score": 0.4,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
+        "slug": "blonde",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "neo-soul"
+        ]
+      },
+      {
+        "slug": "beauty-behind-the-madness",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "hip-hop",
+          "synth-pop"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "illinois",
+    "recommendations": [
+      {
+        "slug": "sling",
+        "score": 0.55,
+        "shared_tags": [
+          "baroque pop",
+          "chamber pop",
+          "folk",
+          "singer-songwriter"
+        ]
+      },
+      {
+        "slug": "aeroplane-over-the-sea",
+        "score": 0.46,
+        "shared_tags": [
+          "baroque pop",
+          "folk",
+          "indie folk"
+        ]
+      },
+      {
+        "slug": "charm",
+        "score": 0.41,
+        "shared_tags": [
+          "baroque pop",
+          "chamber pop",
+          "singer-songwriter"
+        ]
+      },
+      {
+        "slug": "ants-from-up-there",
+        "score": 0.34,
+        "shared_tags": [
+          "baroque pop",
+          "chamber pop"
+        ]
+      },
+      {
+        "slug": "heavy-metal",
+        "score": 0.29,
+        "shared_tags": [
+          "americana",
+          "singer-songwriter"
+        ]
+      },
+      {
+        "slug": "cowboy-carter",
+        "score": 0.15,
+        "shared_tags": [
+          "americana"
+        ]
+      },
+      {
+        "slug": "icon",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "son-of-spergy",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.0,
+        "shared_tags": []
+      },
+      {
+        "slug": "love-sick",
+        "score": 0.0,
+        "shared_tags": []
       }
     ]
   },
@@ -3936,6 +4832,15 @@
         ]
       },
       {
+        "slug": "starboy",
+        "score": 0.38,
+        "shared_tags": [
+          "electropop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
         "slug": "short-n-sweet",
         "score": 0.34,
         "shared_tags": [
@@ -3954,27 +4859,20 @@
         ]
       },
       {
+        "slug": "dawn-fm",
+        "score": 0.32,
+        "shared_tags": [
+          "electropop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
         "slug": "after-hours",
         "score": 0.24,
         "shared_tags": [
           "synth-pop",
           "synthpop"
-        ]
-      },
-      {
-        "slug": "hurry-up-tomorrow",
-        "score": 0.22,
-        "shared_tags": [
-          "synth-pop",
-          "synthpop"
-        ]
-      },
-      {
-        "slug": "bando-stone-and-the-new-world",
-        "score": 0.22,
-        "shared_tags": [
-          "neo-psychedelia",
-          "pop rock"
         ]
       }
     ]
@@ -4072,6 +4970,211 @@
     ]
   },
   {
+    "slug": "it-is-what-it-is",
+    "recommendations": [
+      {
+        "slug": "ventura",
+        "score": 0.58,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.54,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "oxnard",
+        "score": 0.54,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "awaken-my-love",
+        "score": 0.54,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "an-evening-with-silk-sonic",
+        "score": 0.5,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "whats-going-on",
+        "score": 0.5,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "signed-sealed-delivered",
+        "score": 0.47,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "distracted",
+        "score": 0.47,
+        "shared_tags": [
+          "funk",
+          "jazz",
+          "neo-soul",
+          "soul"
+        ]
+      },
+      {
+        "slug": "son-of-spergy",
+        "score": 0.43,
+        "shared_tags": [
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.43,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "kiss-land",
+    "recommendations": [
+      {
+        "slug": "my-dear-melancholy",
+        "score": 0.59,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "dark r&b",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "lahai",
+        "score": 0.54,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "electronic",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "beauty-behind-the-madness",
+        "score": 0.54,
+        "shared_tags": [
+          "alternative r&b",
+          "hip-hop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "hip-hop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "igor",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "hip-hop",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "dawn-fm",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "house-of-balloons",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "electronic",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "blonde",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "starboy",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "channel-orange",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "r&b"
+        ]
+      }
+    ]
+  },
+  {
     "slug": "lahai",
     "recommendations": [
       {
@@ -4147,6 +5250,16 @@
         ]
       },
       {
+        "slug": "the-amanda-tape",
+        "score": 0.54,
+        "shared_tags": [
+          "alternative r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "ugh-those-feels-again",
         "score": 0.54,
         "shared_tags": [
@@ -4157,22 +5270,12 @@
         ]
       },
       {
-        "slug": "orquideas",
-        "score": 0.51,
-        "shared_tags": [
-          "alternative r&b",
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "negro-swan",
-        "score": 0.51,
+        "slug": "kiss-land",
+        "score": 0.54,
         "shared_tags": [
           "alternative r&b",
           "art pop",
-          "neo-soul",
+          "electronic",
           "r&b"
         ]
       }
@@ -4213,6 +5316,16 @@
         ]
       },
       {
+        "slug": "flower-boy",
+        "score": 0.54,
+        "shared_tags": [
+          "alternative hip-hop",
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
         "slug": "coloring-book",
         "score": 0.5,
         "shared_tags": [
@@ -4242,6 +5355,15 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.43,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "rap"
+        ]
+      },
+      {
         "slug": "oxnard",
         "score": 0.43,
         "shared_tags": [
@@ -4257,24 +5379,6 @@
           "alternative hip-hop",
           "hip-hop",
           "rap"
-        ]
-      },
-      {
-        "slug": "444",
-        "score": 0.43,
-        "shared_tags": [
-          "conscious hip-hop",
-          "hip-hop",
-          "rap"
-        ]
-      },
-      {
-        "slug": "the-melodic-blue",
-        "score": 0.4,
-        "shared_tags": [
-          "alternative hip-hop",
-          "hip-hop",
-          "pop rap"
         ]
       }
     ]
@@ -4416,6 +5520,26 @@
         ]
       },
       {
+        "slug": "the-amanda-tape",
+        "score": 0.47,
+        "shared_tags": [
+          "alternative r&b",
+          "hip-hop",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "my-dear-melancholy",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "soul",
+          "trap"
+        ]
+      },
+      {
         "slug": "coloring-book",
         "score": 0.45,
         "shared_tags": [
@@ -4448,24 +5572,6 @@
         "score": 0.41,
         "shared_tags": [
           "hip-hop",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "casino",
-        "score": 0.38,
-        "shared_tags": [
-          "hip-hop",
-          "melodic rap",
-          "trap"
-        ]
-      },
-      {
-        "slug": "lahai",
-        "score": 0.38,
-        "shared_tags": [
-          "alternative r&b",
           "r&b",
           "soul"
         ]
@@ -4612,6 +5718,15 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.46,
+        "shared_tags": [
+          "hip-hop",
+          "r&b",
+          "rap"
+        ]
+      },
+      {
         "slug": "oxnard",
         "score": 0.46,
         "shared_tags": [
@@ -4644,15 +5759,6 @@
         "shared_tags": [
           "hip-hop",
           "melodic rap",
-          "trap"
-        ]
-      },
-      {
-        "slug": "ta1300",
-        "score": 0.43,
-        "shared_tags": [
-          "hip-hop",
-          "rap",
           "trap"
         ]
       }
@@ -4714,31 +5820,31 @@
         ]
       },
       {
+        "slug": "starboy",
+        "score": 0.24,
+        "shared_tags": [
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "beauty-behind-the-madness",
+        "score": 0.24,
+        "shared_tags": [
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "teddy",
+        "score": 0.24,
+        "shared_tags": [
+          "disco",
+          "r&b"
+        ]
+      },
+      {
         "slug": "never-enough",
-        "score": 0.23,
-        "shared_tags": [
-          "pop",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "red-moon-in-venus",
-        "score": 0.23,
-        "shared_tags": [
-          "pop",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "after-hours",
-        "score": 0.23,
-        "shared_tags": [
-          "pop",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "ugh-those-feels-again",
         "score": 0.23,
         "shared_tags": [
           "pop",
@@ -4794,12 +5900,31 @@
         ]
       },
       {
+        "slug": "dawn-fm",
+        "score": 0.42,
+        "shared_tags": [
+          "art pop",
+          "electropop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
         "slug": "immunity",
         "score": 0.38,
         "shared_tags": [
           "dream pop",
           "indie pop",
           "synth-pop"
+        ]
+      },
+      {
+        "slug": "starboy",
+        "score": 0.38,
+        "shared_tags": [
+          "electropop",
+          "synth-pop",
+          "synthpop"
         ]
       },
       {
@@ -4812,36 +5937,21 @@
         ]
       },
       {
+        "slug": "my-dear-melancholy",
+        "score": 0.33,
+        "shared_tags": [
+          "art pop",
+          "electropop",
+          "synth-pop"
+        ]
+      },
+      {
         "slug": "deadbeat",
         "score": 0.32,
         "shared_tags": [
           "dream pop",
           "house",
           "synth-pop"
-        ]
-      },
-      {
-        "slug": "after-hours",
-        "score": 0.24,
-        "shared_tags": [
-          "synth-pop",
-          "synthpop"
-        ]
-      },
-      {
-        "slug": "hurry-up-tomorrow",
-        "score": 0.22,
-        "shared_tags": [
-          "synth-pop",
-          "synthpop"
-        ]
-      },
-      {
-        "slug": "submarine",
-        "score": 0.22,
-        "shared_tags": [
-          "dream pop",
-          "indie pop"
         ]
       }
     ]
@@ -4898,6 +6008,15 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.38,
+        "shared_tags": [
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "oxnard",
         "score": 0.38,
         "shared_tags": [
@@ -4926,15 +6045,6 @@
       },
       {
         "slug": "never-enough",
-        "score": 0.36,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "wasteland",
         "score": 0.36,
         "shared_tags": [
           "neo-soul",
@@ -5021,6 +6131,113 @@
     ]
   },
   {
+    "slug": "my-dear-melancholy",
+    "recommendations": [
+      {
+        "slug": "kiss-land",
+        "score": 0.59,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "dark r&b",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "dawn-fm",
+        "score": 0.53,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "electropop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "lahai",
+        "score": 0.51,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "starboy",
+        "score": 0.51,
+        "shared_tags": [
+          "alternative r&b",
+          "electropop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "channel-orange",
+        "score": 0.51,
+        "shared_tags": [
+          "alternative r&b",
+          "art pop",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "wasteland",
+        "score": 0.47,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.47,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "thursday",
+        "score": 0.47,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "life-of-a-don",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "soul",
+          "trap"
+        ]
+      },
+      {
+        "slug": "echoes-of-silence",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      }
+    ]
+  },
+  {
     "slug": "negro-swan",
     "recommendations": [
       {
@@ -5066,6 +6283,16 @@
         ]
       },
       {
+        "slug": "the-amanda-tape",
+        "score": 0.47,
+        "shared_tags": [
+          "alternative r&b",
+          "indie r&b",
+          "neo-soul",
+          "r&b"
+        ]
+      },
+      {
         "slug": "icon",
         "score": 0.41,
         "shared_tags": [
@@ -5103,15 +6330,6 @@
       },
       {
         "slug": "never-enough",
-        "score": 0.36,
-        "shared_tags": [
-          "alternative r&b",
-          "neo-soul",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "wasteland",
         "score": 0.36,
         "shared_tags": [
           "alternative r&b",
@@ -5207,19 +6425,19 @@
         ]
       },
       {
-        "slug": "signed-sealed-delivered",
-        "score": 0.47,
+        "slug": "the-amanda-tape",
+        "score": 0.5,
         "shared_tags": [
-          "pop",
+          "alternative r&b",
+          "neo-soul",
           "r&b",
           "soul"
         ]
       },
       {
-        "slug": "art-of-loving",
+        "slug": "signed-sealed-delivered",
         "score": 0.47,
         "shared_tags": [
-          "neo-soul",
           "pop",
           "r&b",
           "soul"
@@ -5284,6 +6502,15 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.43,
+        "shared_tags": [
+          "hip-hop",
+          "r&b",
+          "rap"
+        ]
+      },
+      {
         "slug": "oxnard",
         "score": 0.43,
         "shared_tags": [
@@ -5316,15 +6543,6 @@
         "shared_tags": [
           "hip-hop",
           "melodic rap",
-          "trap"
-        ]
-      },
-      {
-        "slug": "ta1300",
-        "score": 0.4,
-        "shared_tags": [
-          "hip-hop",
-          "rap",
           "trap"
         ]
       }
@@ -5500,19 +6718,19 @@
         ]
       },
       {
-        "slug": "signed-sealed-delivered",
-        "score": 0.45,
+        "slug": "the-amanda-tape",
+        "score": 0.47,
         "shared_tags": [
-          "pop",
+          "alternative r&b",
+          "neo-soul",
           "r&b",
           "soul"
         ]
       },
       {
-        "slug": "art-of-loving",
+        "slug": "signed-sealed-delivered",
         "score": 0.45,
         "shared_tags": [
-          "neo-soul",
           "pop",
           "r&b",
           "soul"
@@ -5524,6 +6742,18 @@
     "slug": "oxnard",
     "recommendations": [
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.86,
+        "shared_tags": [
+          "funk",
+          "hip-hop",
+          "neo-soul",
+          "r&b",
+          "rap",
+          "soul"
+        ]
+      },
+      {
         "slug": "ventura",
         "score": 0.77,
         "shared_tags": [
@@ -5531,6 +6761,17 @@
           "hip-hop",
           "neo-soul",
           "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.67,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "r&b",
+          "rap",
           "soul"
         ]
       },
@@ -5556,6 +6797,16 @@
       },
       {
         "slug": "an-evening-with-silk-sonic",
+        "score": 0.54,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "it-is-what-it-is",
         "score": 0.54,
         "shared_tags": [
           "funk",
@@ -5592,39 +6843,20 @@
           "neo-soul",
           "rap"
         ]
-      },
-      {
-        "slug": "son-of-spergy",
-        "score": 0.46,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "st-paul",
-        "score": 0.46,
-        "shared_tags": [
-          "funk",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "love-sick",
-        "score": 0.46,
-        "shared_tags": [
-          "hip-hop",
-          "r&b",
-          "rap"
-        ]
       }
     ]
   },
   {
     "slug": "percepticide",
     "recommendations": [
+      {
+        "slug": "kiss-land",
+        "score": 0.25,
+        "shared_tags": [
+          "darkwave",
+          "electronic"
+        ]
+      },
       {
         "slug": "getting-killed",
         "score": 0.14,
@@ -5644,6 +6876,13 @@
         "score": 0.14,
         "shared_tags": [
           "post-punk"
+        ]
+      },
+      {
+        "slug": "starboy",
+        "score": 0.14,
+        "shared_tags": [
+          "synthpop"
         ]
       },
       {
@@ -5676,20 +6915,6 @@
       },
       {
         "slug": "hurry-up-tomorrow",
-        "score": 0.12,
-        "shared_tags": [
-          "synthpop"
-        ]
-      },
-      {
-        "slug": "imaginal-disk",
-        "score": 0.12,
-        "shared_tags": [
-          "synthpop"
-        ]
-      },
-      {
-        "slug": "short-n-sweet",
         "score": 0.12,
         "shared_tags": [
           "synthpop"
@@ -5827,6 +7052,16 @@
         ]
       },
       {
+        "slug": "house-of-balloons",
+        "score": 0.45,
+        "shared_tags": [
+          "alternative r&b",
+          "electronic",
+          "experimental",
+          "soul"
+        ]
+      },
+      {
         "slug": "son-of-spergy",
         "score": 0.43,
         "shared_tags": [
@@ -5863,19 +7098,10 @@
         ]
       },
       {
-        "slug": "ugh-those-feels-again",
+        "slug": "the-amanda-tape",
         "score": 0.38,
         "shared_tags": [
           "alternative r&b",
-          "neo-soul",
-          "soul"
-        ]
-      },
-      {
-        "slug": "distracted",
-        "score": 0.36,
-        "shared_tags": [
-          "electronic",
           "neo-soul",
           "soul"
         ]
@@ -6147,11 +7373,11 @@
         ]
       },
       {
-        "slug": "channel-orange",
+        "slug": "starboy",
         "score": 0.4,
         "shared_tags": [
           "alternative r&b",
-          "neo-soul",
+          "pop",
           "r&b"
         ]
       }
@@ -6204,6 +7430,22 @@
         ]
       },
       {
+        "slug": "starboy",
+        "score": 0.24,
+        "shared_tags": [
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "beauty-behind-the-madness",
+        "score": 0.24,
+        "shared_tags": [
+          "pop",
+          "r&b"
+        ]
+      },
+      {
         "slug": "cowboy-carter",
         "score": 0.23,
         "shared_tags": [
@@ -6221,22 +7463,6 @@
       },
       {
         "slug": "red-moon-in-venus",
-        "score": 0.23,
-        "shared_tags": [
-          "pop",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "after-hours",
-        "score": 0.23,
-        "shared_tags": [
-          "pop",
-          "r&b"
-        ]
-      },
-      {
-        "slug": "ugh-those-feels-again",
         "score": 0.23,
         "shared_tags": [
           "pop",
@@ -6283,6 +7509,27 @@
         ]
       },
       {
+        "slug": "dawn-fm",
+        "score": 0.53,
+        "shared_tags": [
+          "art pop",
+          "electropop",
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "starboy",
+        "score": 0.51,
+        "shared_tags": [
+          "electropop",
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
         "slug": "currents",
         "score": 0.38,
         "shared_tags": [
@@ -6310,35 +7557,20 @@
         ]
       },
       {
+        "slug": "my-dear-melancholy",
+        "score": 0.34,
+        "shared_tags": [
+          "art pop",
+          "electropop",
+          "synth-pop"
+        ]
+      },
+      {
         "slug": "immunity",
         "score": 0.25,
         "shared_tags": [
           "indie pop",
           "synth-pop"
-        ]
-      },
-      {
-        "slug": "art-of-loving",
-        "score": 0.22,
-        "shared_tags": [
-          "indie pop",
-          "pop"
-        ]
-      },
-      {
-        "slug": "bando-stone-and-the-new-world",
-        "score": 0.22,
-        "shared_tags": [
-          "art pop",
-          "pop rock"
-        ]
-      },
-      {
-        "slug": "the-slow-rush",
-        "score": 0.22,
-        "shared_tags": [
-          "synth-pop",
-          "synthpop"
         ]
       }
     ]
@@ -6374,6 +7606,15 @@
           "bedroom pop",
           "indie pop",
           "synth-pop"
+        ]
+      },
+      {
+        "slug": "starboy",
+        "score": 0.38,
+        "shared_tags": [
+          "pop",
+          "synth-pop",
+          "synthpop"
         ]
       },
       {
@@ -6422,19 +7663,12 @@
         ]
       },
       {
-        "slug": "cowboy-carter",
-        "score": 0.24,
+        "slug": "dawn-fm",
+        "score": 0.32,
         "shared_tags": [
-          "country",
-          "pop"
-        ]
-      },
-      {
-        "slug": "art-of-loving",
-        "score": 0.22,
-        "shared_tags": [
-          "indie pop",
-          "pop"
+          "pop",
+          "synth-pop",
+          "synthpop"
         ]
       }
     ]
@@ -6482,6 +7716,15 @@
         ]
       },
       {
+        "slug": "teddy",
+        "score": 0.51,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "awaken-my-love",
         "score": 0.51,
         "shared_tags": [
@@ -6500,6 +7743,15 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.51,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "ugh-those-feels-again",
         "score": 0.47,
         "shared_tags": [
@@ -6509,28 +7761,10 @@
         ]
       },
       {
-        "slug": "an-evening-with-silk-sonic",
+        "slug": "it-is-what-it-is",
         "score": 0.47,
         "shared_tags": [
           "funk",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "alien-coast",
-        "score": 0.47,
-        "shared_tags": [
-          "funk",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "never-enough",
-        "score": 0.47,
-        "shared_tags": [
-          "pop",
           "r&b",
           "soul"
         ]
@@ -6551,6 +7785,16 @@
           "indie pop",
           "singer-songwriter",
           "soft rock"
+        ]
+      },
+      {
+        "slug": "illinois",
+        "score": 0.55,
+        "shared_tags": [
+          "baroque pop",
+          "chamber pop",
+          "folk",
+          "singer-songwriter"
         ]
       },
       {
@@ -6616,13 +7860,6 @@
           "indie pop",
           "soft rock"
         ]
-      },
-      {
-        "slug": "icon",
-        "score": 0.14,
-        "shared_tags": [
-          "bedroom pop"
-        ]
       }
     ]
   },
@@ -6680,6 +7917,16 @@
         ]
       },
       {
+        "slug": "the-amanda-tape",
+        "score": 0.58,
+        "shared_tags": [
+          "alternative r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "ugh-those-feels-again",
         "score": 0.58,
         "shared_tags": [
@@ -6716,15 +7963,6 @@
           "alternative r&b",
           "bedroom pop",
           "neo-soul"
-        ]
-      },
-      {
-        "slug": "ventura",
-        "score": 0.5,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
         ]
       }
     ]
@@ -6767,6 +8005,16 @@
         ]
       },
       {
+        "slug": "teddy",
+        "score": 0.53,
+        "shared_tags": [
+          "classic soul",
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "ventura",
         "score": 0.43,
         "shared_tags": [
@@ -6803,17 +8051,8 @@
         ]
       },
       {
-        "slug": "ugh-those-feels-again",
-        "score": 0.37,
-        "shared_tags": [
-          "pop",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "alien-coast",
-        "score": 0.37,
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.4,
         "shared_tags": [
           "funk",
           "r&b",
@@ -6821,7 +8060,7 @@
         ]
       },
       {
-        "slug": "never-enough",
+        "slug": "ugh-those-feels-again",
         "score": 0.37,
         "shared_tags": [
           "pop",
@@ -6942,6 +8181,15 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.46,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "oxnard",
         "score": 0.46,
         "shared_tags": [
@@ -6960,8 +8208,26 @@
         ]
       },
       {
+        "slug": "teddy",
+        "score": 0.46,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "an-evening-with-silk-sonic",
         "score": 0.44,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "it-is-what-it-is",
+        "score": 0.43,
         "shared_tags": [
           "funk",
           "r&b",
@@ -6976,30 +8242,112 @@
           "r&b",
           "soul"
         ]
-      },
+      }
+    ]
+  },
+  {
+    "slug": "starboy",
+    "recommendations": [
       {
-        "slug": "whats-going-on",
-        "score": 0.43,
+        "slug": "dawn-fm",
+        "score": 0.84,
         "shared_tags": [
-          "funk",
+          "alternative r&b",
+          "dark pop",
+          "electropop",
+          "pop",
           "r&b",
-          "soul"
+          "synth-pop",
+          "synthpop"
         ]
       },
       {
-        "slug": "son-of-spergy",
-        "score": 0.34,
+        "slug": "after-hours",
+        "score": 0.8,
         "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
           "r&b",
-          "soul"
+          "synth-pop",
+          "synthpop"
         ]
       },
       {
-        "slug": "temporary-highs-violet-skies",
-        "score": 0.34,
+        "slug": "beauty-behind-the-madness",
+        "score": 0.72,
         "shared_tags": [
+          "alternative r&b",
+          "dark pop",
+          "pop",
           "r&b",
-          "soul"
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "hurry-up-tomorrow",
+        "score": 0.51,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "rise-and-fall-midwest-princess",
+        "score": 0.51,
+        "shared_tags": [
+          "electropop",
+          "pop",
+          "synth-pop",
+          "synthpop"
+        ]
+      },
+      {
+        "slug": "my-dear-melancholy",
+        "score": 0.51,
+        "shared_tags": [
+          "alternative r&b",
+          "electropop",
+          "r&b",
+          "synth-pop"
+        ]
+      },
+      {
+        "slug": "never-enough",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "red-moon-in-venus",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "ugh-those-feels-again",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "pop",
+          "r&b"
+        ]
+      },
+      {
+        "slug": "kiss-land",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "synth-pop"
         ]
       }
     ]
@@ -7053,6 +8401,15 @@
         ]
       },
       {
+        "slug": "it-is-what-it-is",
+        "score": 0.36,
+        "shared_tags": [
+          "jazz",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "distracted",
         "score": 0.34,
         "shared_tags": [
@@ -7086,15 +8443,6 @@
           "dream pop",
           "psychedelic",
           "psychedelic pop"
-        ]
-      },
-      {
-        "slug": "coastal-grooves",
-        "score": 0.33,
-        "shared_tags": [
-          "bedroom pop",
-          "indie pop",
-          "r&b"
         ]
       }
     ]
@@ -7201,6 +8549,105 @@
     ]
   },
   {
+    "slug": "teddy",
+    "recommendations": [
+      {
+        "slug": "ventura",
+        "score": 0.62,
+        "shared_tags": [
+          "disco",
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "songs-key-life",
+        "score": 0.53,
+        "shared_tags": [
+          "classic soul",
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "whats-going-on",
+        "score": 0.53,
+        "shared_tags": [
+          "classic soul",
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "an-evening-with-silk-sonic",
+        "score": 0.53,
+        "shared_tags": [
+          "funk",
+          "philly soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "signed-sealed-delivered",
+        "score": 0.51,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "st-paul",
+        "score": 0.46,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "awaken-my-love",
+        "score": 0.43,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "oxnard",
+        "score": 0.43,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.43,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "it-is-what-it-is",
+        "score": 0.4,
+        "shared_tags": [
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      }
+    ]
+  },
+  {
     "slug": "temporary-highs-violet-skies",
     "recommendations": [
       {
@@ -7275,6 +8722,16 @@
         ]
       },
       {
+        "slug": "the-amanda-tape",
+        "score": 0.58,
+        "shared_tags": [
+          "alternative r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "orquideas",
         "score": 0.55,
         "shared_tags": [
@@ -7289,15 +8746,6 @@
         "score": 0.55,
         "shared_tags": [
           "contemporary r&b",
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "ventura",
-        "score": 0.5,
-        "shared_tags": [
           "neo-soul",
           "r&b",
           "soul"
@@ -7404,6 +8852,118 @@
           "alternative hip-hop",
           "hip-hop",
           "rap"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "the-amanda-tape",
+    "recommendations": [
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.67,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "r&b",
+          "rap",
+          "soul"
+        ]
+      },
+      {
+        "slug": "oxnard",
+        "score": 0.67,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "r&b",
+          "rap",
+          "soul"
+        ]
+      },
+      {
+        "slug": "channel-orange",
+        "score": 0.67,
+        "shared_tags": [
+          "alternative r&b",
+          "indie r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "wasteland",
+        "score": 0.63,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "thursday",
+        "score": 0.63,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "indie r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "echoes-of-silence",
+        "score": 0.59,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "indie r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "son-of-spergy",
+        "score": 0.58,
+        "shared_tags": [
+          "alternative r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "temporary-highs-violet-skies",
+        "score": 0.58,
+        "shared_tags": [
+          "alternative r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "ventura",
+        "score": 0.58,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "house-of-balloons",
+        "score": 0.56,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "indie r&b",
+          "r&b",
+          "soul"
         ]
       }
     ]
@@ -7608,6 +9168,116 @@
     ]
   },
   {
+    "slug": "thursday",
+    "recommendations": [
+      {
+        "slug": "echoes-of-silence",
+        "score": 0.94,
+        "shared_tags": [
+          "alternative r&b",
+          "best of 2011",
+          "dark r&b",
+          "indie r&b",
+          "lo-fi",
+          "psychedelic r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "house-of-balloons",
+        "score": 0.89,
+        "shared_tags": [
+          "alternative r&b",
+          "best of 2011",
+          "dark r&b",
+          "indie r&b",
+          "lo-fi",
+          "psychedelic r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.63,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "indie r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "channel-orange",
+        "score": 0.54,
+        "shared_tags": [
+          "alternative r&b",
+          "indie r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "wasteland",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "my-dear-melancholy",
+        "score": 0.47,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "son-of-spergy",
+        "score": 0.43,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "temporary-highs-violet-skies",
+        "score": 0.43,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "lahai",
+        "score": 0.4,
+        "shared_tags": [
+          "alternative r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "awaken-my-love",
+        "score": 0.4,
+        "shared_tags": [
+          "indie r&b",
+          "r&b",
+          "soul"
+        ]
+      }
+    ]
+  },
+  {
     "slug": "ugh-those-feels-again",
     "recommendations": [
       {
@@ -7704,10 +9374,11 @@
         ]
       },
       {
-        "slug": "signed-sealed-delivered",
-        "score": 0.47,
+        "slug": "the-amanda-tape",
+        "score": 0.5,
         "shared_tags": [
-          "pop",
+          "alternative r&b",
+          "neo-soul",
           "r&b",
           "soul"
         ]
@@ -7717,6 +9388,17 @@
   {
     "slug": "ventura",
     "recommendations": [
+      {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.77,
+        "shared_tags": [
+          "funk",
+          "hip-hop",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
       {
         "slug": "oxnard",
         "score": 0.77,
@@ -7739,10 +9421,40 @@
         ]
       },
       {
+        "slug": "teddy",
+        "score": 0.62,
+        "shared_tags": [
+          "disco",
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "an-evening-with-silk-sonic",
         "score": 0.58,
         "shared_tags": [
           "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "it-is-what-it-is",
+        "score": 0.58,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.58,
+        "shared_tags": [
+          "hip-hop",
           "neo-soul",
           "r&b",
           "soul"
@@ -7776,48 +9488,23 @@
           "neo-soul",
           "soul"
         ]
-      },
-      {
-        "slug": "son-of-spergy",
-        "score": 0.5,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "st-paul",
-        "score": 0.5,
-        "shared_tags": [
-          "funk",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "temporary-highs-violet-skies",
-        "score": 0.5,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "lahai",
-        "score": 0.46,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
       }
     ]
   },
   {
     "slug": "wasteland",
     "recommendations": [
+      {
+        "slug": "the-amanda-tape",
+        "score": 0.63,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
       {
         "slug": "son-of-spergy",
         "score": 0.58,
@@ -7879,6 +9566,16 @@
         ]
       },
       {
+        "slug": "thursday",
+        "score": 0.5,
+        "shared_tags": [
+          "alternative r&b",
+          "dark r&b",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "orquideas",
         "score": 0.47,
         "shared_tags": [
@@ -7889,28 +9586,11 @@
         ]
       },
       {
-        "slug": "icon",
-        "score": 0.44,
+        "slug": "my-dear-melancholy",
+        "score": 0.47,
         "shared_tags": [
           "alternative r&b",
           "dark r&b",
-          "neo-soul"
-        ]
-      },
-      {
-        "slug": "ventura",
-        "score": 0.43,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "oxnard",
-        "score": 0.4,
-        "shared_tags": [
-          "neo-soul",
           "r&b",
           "soul"
         ]
@@ -7964,6 +9644,16 @@
         ]
       },
       {
+        "slug": "teddy",
+        "score": 0.53,
+        "shared_tags": [
+          "classic soul",
+          "funk",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
         "slug": "awaken-my-love",
         "score": 0.53,
         "shared_tags": [
@@ -7984,35 +9674,28 @@
         ]
       },
       {
-        "slug": "temporary-highs-violet-skies",
-        "score": 0.43,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "son-of-spergy",
-        "score": 0.43,
-        "shared_tags": [
-          "neo-soul",
-          "r&b",
-          "soul"
-        ]
-      },
-      {
-        "slug": "st-paul",
-        "score": 0.43,
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.53,
         "shared_tags": [
           "funk",
+          "neo-soul",
           "r&b",
           "soul"
         ]
       },
       {
-        "slug": "channel-orange",
-        "score": 0.4,
+        "slug": "it-is-what-it-is",
+        "score": 0.5,
+        "shared_tags": [
+          "funk",
+          "neo-soul",
+          "r&b",
+          "soul"
+        ]
+      },
+      {
+        "slug": "temporary-highs-violet-skies",
+        "score": 0.43,
         "shared_tags": [
           "neo-soul",
           "r&b",
@@ -8121,6 +9804,16 @@
         ]
       },
       {
+        "slug": "dont-go-tellin-your-mama",
+        "score": 0.57,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "rap",
+          "soul"
+        ]
+      },
+      {
         "slug": "oxnard",
         "score": 0.57,
         "shared_tags": [
@@ -8151,6 +9844,16 @@
         ]
       },
       {
+        "slug": "the-amanda-tape",
+        "score": 0.54,
+        "shared_tags": [
+          "hip-hop",
+          "neo-soul",
+          "rap",
+          "soul"
+        ]
+      },
+      {
         "slug": "because-the-internet",
         "score": 0.54,
         "shared_tags": [
@@ -8173,24 +9876,6 @@
       {
         "slug": "love-sick",
         "score": 0.46,
-        "shared_tags": [
-          "hip-hop",
-          "rap",
-          "trap"
-        ]
-      },
-      {
-        "slug": "ventura",
-        "score": 0.46,
-        "shared_tags": [
-          "hip-hop",
-          "neo-soul",
-          "soul"
-        ]
-      },
-      {
-        "slug": "octane",
-        "score": 0.43,
         "shared_tags": [
           "hip-hop",
           "rap",
