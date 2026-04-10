@@ -675,5 +675,137 @@
     "favorite_track": "Workinonit",
     "track_url": "https://open.spotify.com/track/33T6ABvdB3P2iYOWJnBjsQ",
     "preview_url": null
+  },
+  {
+    "id": "bully",
+    "title": "Bully",
+    "artist": "Kanye West",
+    "year": 2026,
+    "genres": [
+      "hip-hop",
+      "experimental hip-hop",
+      "auto-tune",
+      "soul",
+      "alternative hip-hop"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/5poA9SAx0Xiz1cf17fWBLS",
+    "review_url": "#",
+    "date": "2026-03-28",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "distracted",
+    "title": "Distracted",
+    "artist": "Thundercat",
+    "year": 2026,
+    "genres": [
+      "neo-soul",
+      "funk",
+      "yacht rock",
+      "sophisti-pop",
+      "disco"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/4DkVTJfU9qyNWKbjLoTENL",
+    "review_url": "#",
+    "date": "2026-04-03",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "loaded",
+    "title": "Loaded",
+    "artist": "The Velvet Underground",
+    "year": 1970,
+    "genres": [
+      "rock",
+      "art rock",
+      "proto-punk",
+      "garage rock",
+      "glam rock"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/4BOaL1TOarypViTKNrcP8d",
+    "review_url": "#",
+    "date": "1970-01-01",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "donda",
+    "title": "Donda",
+    "artist": "Kanye West",
+    "year": 2021,
+    "genres": [
+      "hip-hop",
+      "gospel rap",
+      "trap",
+      "experimental hip-hop",
+      "rap"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/340MjPcVdiQRnMigrPybZA",
+    "review_url": "#",
+    "date": "2021-08-29",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "the-slow-rush",
+    "title": "The Slow Rush",
+    "artist": "Tame Impala",
+    "year": 2020,
+    "genres": [
+      "psychedelic rock",
+      "neo-psychedelia",
+      "synth-pop",
+      "dream pop",
+      "indie rock"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/31qVWUdRrlb8thMvts0yYL",
+    "review_url": "#",
+    "date": "2020-02-14",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "currents",
+    "title": "Currents",
+    "artist": "Tame Impala",
+    "year": 2015,
+    "genres": [
+      "psychedelic pop",
+      "neo-psychedelia",
+      "synth-pop",
+      "indie pop",
+      "dream pop"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/79dL7FLiJFOO0EoehUHQBv",
+    "review_url": "#",
+    "date": "2015-07-17",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
   }
 ]
