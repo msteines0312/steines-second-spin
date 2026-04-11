@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imaginal Disk - Steines' Second Spin</title>
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/vinyl.css">
+<style>
+
+/* === ALBUM HEADER === */
+/* Dark full-width strip with cover art on the left and metadata on the right */
+.album-header {
+  background: var(--ink);
+  padding: clamp(36px, 6vh, 64px) clamp(1.5rem, 6vw, 5rem);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: clamp(160px, 22vw, 280px) 1fr;
+  gap: clamp(16px, 2.8vw, 40px);
+  align-items: start;
+}
+
+/* Ghost background word behind the metadata */
+.album-header-bg {
+  position: absolute; right: -1%; bottom: -8%;
+  font-family: var(--sans);
+  font-size: clamp(80px, 18vw, 220px);
+  font-weight: 900;
+  color: rgba(255,255,255,0.02);
+  pointer-events: none; user-select: none; line-height: 1;
+}
+
+/* Cover art: square with fallback bg if image fails */
+.cover-art {
+  aspect-ratio: 1;
+  background: #2a2a2a;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+.cover-art img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right column: all the text metadata */
+.album-meta {
+  position: relative;
+  z-index: 1;
+  padding-top: 4px;
+}
+
+.back-link {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: clamp(14px, 2.5vh, 24px);
+  transition: color 0.2s;
+}
+.back-link:hover { color: rgba(255,255,255,0.7); }
+.back-link::before { content: '←'; font-size: 11px; }
+
+.album-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.album-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
+
+.album-title {
+  font-family: var(--sans);
+  font-size: clamp(24px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 8px;
+  line-height: 1.05;
+}
+
+.album-artist {
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: clamp(15px, 2vw, 22px);
+  color: rgba(255,255,255,0.5);
+  margin: 0 0 clamp(14px, 2.5vh, 22px);
+}
+
+/* Year / track-count / duration pills */
+.album-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: clamp(14px, 2.5vh, 20px);
+}
+.stat-pill {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 3px 10px;
+}
+
+/* Stars */
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+.star { font-family: var(--sans); font-size: 18px; line-height: 1; color: rgba(255,255,255,0.2); }
+.star.filled { color: var(--red); }
+
+.spin-badge {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid;
+  display: inline-block;
+  margin-bottom: clamp(14px, 2.5vh, 20px);
+}
+.spin-badge.yes { color: var(--red); border-color: rgba(232,24,30,0.4); }
+.spin-badge.no  { color: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.12); }
+
+/* Genre tag pills */
+.genre-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: clamp(20px, 3.5vh, 28px);
+}
+.genre-tag {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 3px 10px;
+}
+
+/* Favorite track label + link */
+.fav-track {
+  margin-bottom: clamp(14px, 2.5vh, 20px);
+}
+.fav-track-label {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin: 0 0 4px;
+}
+.fav-track-link {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s;
+}
+.fav-track-link:hover { color: #fff; }
+
+/* Spotify button */
+.spotify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #1DB954;
+  text-decoration: none;
+  padding: 8px 16px;
+  transition: background 0.2s;
+}
+.spotify-btn:hover { background: #17a34a; }
+.spotify-btn svg { flex-shrink: 0; }
+
+/* === REVIEW BODY === */
+.review-section {
+  padding: clamp(40px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.review-section .review-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.review-section .review-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
+
+/* Lead paragraph — Archivo italic, larger */
+.review-body p:first-of-type {
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 clamp(18px, 3vh, 28px);
+}
+
+/* Subsequent paragraphs */
+.review-body p {
+  font-family: var(--sans);
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--ink);
+  margin: 0 0 clamp(14px, 2.5vh, 22px);
+}
+
+/* === RECOMMENDATIONS === */
+.recs-section {
+  background: var(--ink);
+  padding: clamp(40px, 6vh, 64px) clamp(1.5rem, 6vw, 5rem);
+}
+
+.recs-header {
+  margin-bottom: clamp(24px, 4vh, 36px);
+}
+.recs-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 10px;
+}
+.recs-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
+.recs-title {
+  font-family: var(--sans);
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
+.recs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 2vw, 20px);
+}
+
+/* Rec cards */
+.acard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg);
+  border: 1px solid var(--faint);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.acard:hover {
+  box-shadow: 0 8px 36px rgba(0,0,0,0.25);
+  transform: translateY(-4px);
+}
+.acard-art {
+  aspect-ratio: 1;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+.acard-art img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.acard:hover .acard-art img { transform: scale(1.04); }
+.acard-body {
+  padding: clamp(10px, 1.5vw, 16px);
+  border-top: 1px solid var(--faint);
+}
+.acard-title {
+  font-family: var(--sans);
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 3px;
+}
+.acard-artist {
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: clamp(10px, 1vw, 12px);
+  color: var(--mid);
+  margin: 0 0 8px;
+}
+/* Smaller stars for rec cards */
+.acard .star { font-size: 13px; color: var(--faint); }
+.acard .star.filled { color: var(--red); }
+
+/* === REVIEW BODY EXTRAS === */
+
+/* Byline beneath the Review eyebrow */
+.review-byline {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin: 2px 0 clamp(16px, 3vh, 26px);
+}
+
+/* Favorites callout — last paragraph inside .review-body */
+.review-body p:last-of-type {
+  font-family: var(--sans);
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--mid);
+  border-left: 3px solid var(--red);
+  background: rgba(232,24,30,0.04);
+  padding: 10px 16px;
+  margin-top: clamp(20px, 3.5vh, 30px);
+}
+
+/* === FOOTER === */
+.site-footer {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: var(--ink);
+  padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-wordmark { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.footer-wordmark span { color: var(--red); }
+.footer-note { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.15); text-transform: uppercase; }
+
+/* === RESPONSIVE === */
+@media (max-width: 720px) {
+  .album-header { grid-template-columns: 1fr; }
+  .cover-art { width: 100%; max-width: 260px; }
+  .recs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .recs-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV — paths go up one level (../) since this file lives in site/reviews/ -->
+<nav class="site-nav">
+  <a class="wordmark" href="../index.html">Steines'<span> Second Spin</span></a>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="../reviews.html" class="here">Reviews</a></li>
+    <li><a href="../discover.html">Discover</a></li>
+    <li><a href="../coming-soon.html">Coming Soon</a></li>
+    <li><a href="../gear-page-v2.html">Hardware Recommendations</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../favorites.html">Favorites</a></li>
+    <li><a href="https://open.spotify.com/user/msteines12" target="_blank" rel="noopener">Spotify ↗</a></li>
+  </ul>
+</nav>
+
+<!-- ALBUM HEADER — dynamically populated by JS -->
+<header class="album-header" id="albumHeader">
+  <div class="vinyl-player">
+    <div class="vinyl-stage" onclick="toggleVinyl()">
+      <div class="vinyl-disc" id="vinylDisc">
+        <div class="vinyl-label">
+          <img id="vinylArt" src="" alt="" onerror="this.style.background='#C84B2F'"/>
+        </div>
+      </div>
+      <div class="tonearm-wrap" id="tonearm">
+        <svg viewBox="0 0 80 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="68" cy="18" r="7" fill="#2a2a26" stroke="#3a3a34" stroke-width="1.5"/>
+          <circle cx="68" cy="18" r="3" fill="#D4A853"/>
+          <path d="M 68 25 Q 50 60 30 140 L 26 155 L 34 157 L 36 142 Q 56 65 68 25 Z"
+                fill="#2a2a26" stroke="#3a3a34" stroke-width="0.5"/>
+          <path d="M 24 153 L 20 165 L 36 168 L 38 155 Z"
+                fill="#1e1e1a" stroke="#3a3a34" stroke-width="0.5"/>
+          <line x1="28" y1="166" x2="27" y2="174" stroke="#888" stroke-width="1.2"/>
+          <circle cx="27" cy="174" r="1.5" fill="#D4A853"/>
+        </svg>
+      </div>
+      <div class="play-hint">
+        <svg id="playIcon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+          <polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>
+        </svg>
+      </div>
+    </div>
+    <audio id="vinylAudio" preload="none"></audio>
+  </div>
+  <div class="album-meta">
+    <a class="back-link" href="../reviews.html">All Reviews</a>
+    <div class="album-eyebrow" id="albumEyebrow">Album Review</div>
+    <h1 class="album-title" id="albumTitle"></h1>
+    <p class="album-artist" id="albumArtist"></p>
+    <div class="album-stats" id="albumStats"></div>
+    <div class="star-row" id="starRow"></div>
+    <div id="spinBadge"></div>
+    <div class="genre-row" id="genreRow"></div>
+    <div class="fav-track" id="favTrack"></div>
+    <a class="spotify-btn" id="spotifyBtn" href="#" target="_blank" rel="noopener">
+      <!-- Spotify logo SVG -->
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.208c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 11-.277-1.215c3.809-.87 7.077-.496 9.712 1.115a.623.623 0 01.207.856zm1.223-2.722a.78.78 0 01-1.072.257c-2.687-1.652-6.786-2.131-9.965-1.166a.78.78 0 01-.973-.519.78.78 0 01.52-.973c3.632-1.102 8.147-.568 11.234 1.329a.78.78 0 01.256 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.937.937 0 11-.543-1.793c3.563-1.08 9.484-.871 13.22 1.37a.937.937 0 01-.06 1.58z"/>
+      </svg>
+      Listen on Spotify
+    </a>
+    <div class="album-header-bg" id="headerBgWord"></div>
+  </div>
+</header>
+
+<section class="review-section">
+  <div class="review-eyebrow">Review</div>
+  <p class="review-byline">By Matt Steines</p>
+  <article class="review-body">
+    <p>One of the greatest pop albums I have truly ever heard, whether through the infectious hooks on songs like Killing Time, Image or That's My Floor, or the deep and layered production on Cry for Me. This album ended up being my introduction to the duo, and since then they have been the heaviest constant in my rotation.</p>
+    <p>I find myself going through and giving this album a full listen once or twice a week. For my production-heads out there, do yourself a favor and put on Cry for Me right now with your greatest pair of headphones. Matt truly outdid himself with this song, through the synth-heavy intro and the "evil ABBA" sounding second half. As my brother once said, "it sounds like listening to Dancing Queen in Bowser's Castle."</p>
+    <p><em>Favorites: Cry For Me, The Ballad of Matt and Mica, Tunnel Vision</em></p>
+  </article>
+</section>
+
+<!-- RECOMMENDATIONS — dynamically populated by JS from album.recommendations -->
+<section class="recs-section">
+  <div class="recs-header">
+    <div class="recs-eyebrow">More From The Archives</div>
+    <h2 class="recs-title">You Might Also Like</h2>
+  </div>
+  <div class="recs-grid" id="recsGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
+</footer>
+
+<script>
+// Vinyl Player
+let vinylPlaying = false;
+
+function initVinylPlayer(album) {
+  document.getElementById('vinylArt').src = '../' + album.cover_art;
+  document.getElementById('vinylArt').alt = album.title;
+
+  const audio = document.getElementById('vinylAudio');
+
+  if (album.preview_url) {
+    audio.src = album.preview_url;
+    audio.addEventListener('ended', resetVinyl);
+  } else if (album.track_url) {
+    const embedUrl = album.track_url
+      .replace('open.spotify.com/track/', 'open.spotify.com/embed/track/')
+      + '?theme=0';
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'width:100%; border-radius:12px; overflow:hidden; margin-top:4px;';
+    wrapper.innerHTML =
+      `<iframe style="border-radius:12px" src="${embedUrl}" width="100%" height="152"` +
+      ` frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"` +
+      ` loading="lazy"></iframe>`;
+    document.querySelector('.vinyl-player').appendChild(wrapper);
+  }
+
+  vinylPlaying = true;
+  document.getElementById('vinylDisc').classList.add('playing');
+  document.getElementById('tonearm').classList.add('playing');
+  document.getElementById('playIcon').innerHTML = `
+    <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+    <rect x="14" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>
+    <rect x="25" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>
+  `;
+  if (audio.src) audio.play();
+}
+
+function toggleVinyl() {
+  vinylPlaying = !vinylPlaying;
+  const disc    = document.getElementById('vinylDisc');
+  const tonearm = document.getElementById('tonearm');
+  const playIcon = document.getElementById('playIcon');
+  const audio   = document.getElementById('vinylAudio');
+
+  if (vinylPlaying) {
+    disc.classList.add('playing');
+    tonearm.classList.add('playing');
+    if (audio.src) audio.play();
+    playIcon.innerHTML = `
+      <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+      <rect x="14" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>
+      <rect x="25" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>
+    `;
+  } else {
+    disc.classList.remove('playing');
+    tonearm.classList.remove('playing');
+    if (audio.src) audio.pause();
+    playIcon.innerHTML = `
+      <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+      <polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>
+    `;
+  }
+}
+
+function resetVinyl() {
+  vinylPlaying = false;
+  document.getElementById('vinylDisc').classList.remove('playing');
+  document.getElementById('tonearm').classList.remove('playing');
+  document.getElementById('playIcon').innerHTML = `
+    <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+    <polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>
+  `;
+}
+
+// Helpers
+function starMarks(n) {
+  return Array.from({ length: 5 }, (_, i) =>
+    `<span class="star${i < n ? ' filled' : ''}">★</span>`
+  ).join('');
+}
+
+function formatDuration(ms) {
+  const totalMin = Math.round(ms / 60000);
+  const hrs = Math.floor(totalMin / 60);
+  const mins = totalMin % 60;
+  return hrs > 0 ? `${hrs} hr ${mins} min` : `${mins} min`;
+}
+
+// Determine which album this page is for from the filename
+const slug = window.location.pathname.split('/').pop().replace('.html', '');
+
+fetch('../data/albums_final.json')
+  .then(r => r.json())
+  .then(albums => {
+    const album = albums.find(a => a.id === slug);
+
+    if (!album) {
+      document.getElementById('albumTitle').textContent = 'Album not found';
+      document.getElementById('albumTitle').style.color = 'rgba(255,255,255,0.4)';
+      return;
+    }
+
+    document.title = `${album.title} - Steines' Second Spin`;
+
+    initVinylPlayer(album);
+
+    document.getElementById('headerBgWord').textContent =
+      album.title.split(' ')[0].toUpperCase();
+
+    document.getElementById('albumTitle').textContent = album.title;
+    document.getElementById('albumArtist').textContent = album.artist;
+
+    document.getElementById('albumEyebrow').textContent =
+      `${album.artist} · ${album.year}`;
+
+    const statsEl = document.getElementById('albumStats');
+    const durationStr = album.duration_ms ? formatDuration(album.duration_ms) : null;
+    const pills = [
+      album.year,
+      album.track_count ? `${album.track_count} Tracks` : null,
+      durationStr,
+      album.popularity != null ? `Spotify Popularity: ${album.popularity}/100` : null,
+    ].filter(Boolean);
+    statsEl.innerHTML = pills.map(p => `<span class="stat-pill">${p}</span>`).join('');
+
+    document.getElementById('starRow').innerHTML = starMarks(album.stars || 0);
+
+    const badge = document.getElementById('spinBadge');
+    badge.className = `spin-badge ${album.second_spin ? 'yes' : 'no'}`;
+    badge.textContent = album.second_spin ? 'Second Spin ✓' : 'One & Done';
+
+    const genreRow = document.getElementById('genreRow');
+    genreRow.innerHTML = (album.genres || [])
+      .map(g => `<span class="genre-tag">${g}</span>`)
+      .join('');
+
+    if (album.spotify_id) {
+      document.getElementById('spotifyBtn').href =
+        `https://open.spotify.com/album/${album.spotify_id}`;
+    }
+
+    if (album.favorite_track && album.track_url) {
+      document.getElementById('favTrack').innerHTML =
+        `<p class="fav-track-label">Favorite Track</p>` +
+        `<a class="fav-track-link" href="${album.track_url}" target="_blank" rel="noopener">${album.favorite_track} ↗</a>`;
+    }
+
+    // Recommendations section
+    const recsGrid = document.getElementById('recsGrid');
+    const recAlbums = (album.recommendations || [])
+      .slice(0, 3)
+      .map(rec => albums.find(a => a.id === rec.slug))
+      .filter(Boolean);
+
+    if (recAlbums.length === 0) {
+      recsGrid.innerHTML = '<p style="color:rgba(255,255,255,0.3);font-family:var(--sans);font-size:13px;">No recommendations yet.</p>';
+      return;
+    }
+
+    recsGrid.innerHTML = recAlbums.map(rec => {
+      const hasReview = rec.review_url && rec.review_url !== '#';
+      const tag  = 'a';
+      const href = hasReview ? `href="${rec.id}.html"` : `href="../coming-soon.html#${rec.id}"`;
+      return `
+      <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href}>
+        <div class="acard-art">
+          <img src="${'../' + (rec.cover_art || '')}" alt="${rec.title}" loading="lazy" onerror="this.style.background='#888'">
+        </div>
+        <div class="acard-body">
+          <h3 class="acard-title">${rec.title}</h3>
+          <p class="acard-artist">${rec.artist}</p>
+          ${hasReview ? `<div class="star-row">${starMarks(rec.stars || 0)}</div>` : ''}
+        </div>
+      </${tag}>`;
+    }).join('');
+  })
+  .catch(() => {
+    document.getElementById('albumTitle').textContent = 'Could not load album data.';
+    document.getElementById('albumArtist').textContent =
+      'Run a local server: python -m http.server 8000 from the project root.';
+  });
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

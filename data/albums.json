@@ -158,10 +158,10 @@
       "dream pop"
     ],
     "stars": 4,
-    "second_spin": false,
+    "second_spin": true,
     "art": "https://upload.wikimedia.org/wikipedia/en/6/6b/Magdalena_Bay_-_Imaginal_Disk.png",
     "spotify_url": "https://open.spotify.com/album/2Htq1sHgmdGffojIBM6Q1s",
-    "review_url": "#",
+    "review_url": "reviews/imaginal-disk.html",
     "date": "2025-01-01",
     "favorite_track": "Cry for Me",
     "track_url": "https://open.spotify.com/track/2RhHct6gGXSrZ1zHjovhRq",
@@ -688,14 +688,14 @@
       "soul",
       "alternative hip-hop"
     ],
-    "stars": null,
+    "stars": 1,
     "second_spin": false,
     "art": "",
     "spotify_url": "https://open.spotify.com/album/5poA9SAx0Xiz1cf17fWBLS",
-    "review_url": "#",
+    "review_url": "reviews/bully.html",
     "date": "2026-03-28",
-    "favorite_track": "",
-    "track_url": "",
+    "favorite_track": "FATHER",
+    "track_url": "https://open.spotify.com/track/5pfn68duSmBKo4FhYknOms",
     "preview_url": null
   },
   {

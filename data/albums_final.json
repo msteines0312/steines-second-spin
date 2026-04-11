@@ -824,9 +824,9 @@
     "artist": "Magdalena Bay",
     "year": 2024,
     "stars": 4,
-    "second_spin": false,
+    "second_spin": true,
     "blurb": null,
-    "review_url": "#",
+    "review_url": "reviews/imaginal-disk.html",
     "genres": [
       "synth-pop",
       "indie pop",
@@ -3682,10 +3682,10 @@
     "title": "Bully",
     "artist": "Kanye West",
     "year": 2026,
-    "stars": null,
+    "stars": 1,
     "second_spin": false,
     "blurb": null,
-    "review_url": "#",
+    "review_url": "reviews/bully.html",
     "genres": [
       "hip-hop",
       "experimental hip-hop",
@@ -3702,8 +3702,8 @@
     "track_count": 18,
     "duration_ms": 2546936,
     "popularity": null,
-    "favorite_track": "",
-    "track_url": "",
+    "favorite_track": "FATHER",
+    "track_url": "https://open.spotify.com/track/5pfn68duSmBKo4FhYknOms",
     "preview_url": null,
     "recommendations": [
       {
