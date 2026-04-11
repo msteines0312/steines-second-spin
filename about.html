@@ -259,6 +259,18 @@
 }
 @media (max-width: 560px) {
   .sidebar-col { grid-template-columns: 1fr; }
+  .photo-placeholder {
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    aspect-ratio: 3 / 4;
+  }
+  .sidebar-col > div:last-child {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
 }
 @media (max-width: 480px) {
   /* Stack key/value vertically so long pairs don't overflow and get clipped */
