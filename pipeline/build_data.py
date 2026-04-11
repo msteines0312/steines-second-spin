@@ -33,6 +33,10 @@ with open(EDITORIAL, "r", encoding="utf-8") as f:
     # albums.json uses "id" as the slug field
     editorial = {a["id"]: a for a in json.load(f)}
 
+# Convention: when adding a new review, set "date" in albums.json to the
+# date the review page goes live (YYYY-MM-DD). The "Newest" sort on the
+# reviews page depends on this field being accurate.
+
 with open(CLEAN, "r", encoding="utf-8") as f:
     # albums_clean.json uses "slug"
     clean = {a["slug"]: a for a in json.load(f)}
@@ -82,6 +86,7 @@ for slug in slugs:
         "track_count":     c.get("track_count"),
         "duration_ms":     c.get("duration_ms"),
         "popularity":      c.get("popularity"),
+        "date":            e.get("date"),
         "favorite_track":  e.get("favorite_track"),
         "track_url":       e.get("track_url"),
         "preview_url":     e.get("preview_url"),
