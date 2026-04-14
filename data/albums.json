@@ -137,11 +137,11 @@
       "folk rock"
     ],
     "stars": 4,
-    "second_spin": false,
+    "second_spin": true,
     "art": "https://upload.wikimedia.org/wikipedia/en/4/4e/Cameron_Winter_-_Heavy_Metal.png",
     "spotify_url": "https://open.spotify.com/album/7mOrnQqDad3RgYQsJGaaqk",
-    "review_url": "#",
-    "date": "2025-01-01",
+    "review_url": "reviews/heavy-metal.html",
+    "date": "2026-04-14",
     "favorite_track": "Love Takes Miles",
     "track_url": "https://open.spotify.com/track/2zf1izCOz2F22PF27uhxRF",
     "preview_url": null
@@ -368,13 +368,13 @@
       "dark pop",
       "pop"
     ],
-    "stars": 4,
-    "second_spin": false,
-    "review_url": "#",
+    "stars": 5,
+    "second_spin": true,
+    "review_url": "reviews/after-hours.html",
     "spotify_url": "https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj",
-    "date": "2025-01-01",
-    "favorite_track": "",
-    "track_url": "",
+    "date": "2026-04-14",
+    "favorite_track": "After Hours",
+    "track_url": "https://open.spotify.com/track/2p8IUWQDrpjuFltbdgLOag",
     "preview_url": null
   },
   {
