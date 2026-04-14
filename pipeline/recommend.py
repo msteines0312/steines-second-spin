@@ -1,45 +1,102 @@
 """
 recommend.py
-Builds a content-based recommendation engine using cosine similarity.
-For each album in albums_clean.json, finds the 3 most similar other albums
-based on genre overlap, release year, and popularity.
+Builds a content-based recommendation engine using cosine similarity with
+TF-IDF weighted genre tags and Last.fm listener counts.
 
-Genres come from albums_clean.json, which merges the manually curated tags
-from albums.json with any Last.fm tags fetched by fetch_lastfm.py. This gives
-the recommender a richer signal than either source alone.
+Improvements over the original binary genre approach:
+  - Tags are weighted by their Last.fm association score (TF), multiplied by
+    inverse document frequency (IDF) so rare shared tags score higher than
+    ubiquitous ones like "pop" or "rock."
+  - Last.fm listener count replaces Spotify popularity (which returns null
+    under Client Credentials auth) as the mainstream/underground signal.
 
-This is step 3 of the pipeline:
-    fetch_spotify.py  ->  fetch_lastfm.py  ->  clean_data.py
-                      ->  recommend.py  ->  build_data.py
+This is step 4 of the pipeline:
+    fetch_spotify.py -> fetch_lastfm.py -> clean_data.py
+                     -> recommend.py -> build_data.py
 
 Run from the project root:
     python pipeline/recommend.py
 """
 
 import json
+import math
 from pathlib import Path
 
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.preprocessing import MinMaxScaler, MultiLabelBinarizer
+from sklearn.preprocessing import MinMaxScaler
 
 
 # ── Config ───────────────────────────────────────────────────────────────────
 ROOT       = Path(__file__).resolve().parent.parent
-CLEAN_FILE = ROOT / "data" / "albums_clean.json"   # merged genres + Spotify metadata
+CLEAN_FILE = ROOT / "data" / "albums_clean.json"
 OUT_FILE   = ROOT / "data" / "recommendations.json"
 
-TOP_N = 10   # number of recommendations to store per album (review pages show 3, discover page shows 5)
+TOP_N = 10   # recommendations to store per album (review pages show 3, discover shows 5)
 
 # Feature weights applied before cosine similarity.
-# Genre is the primary signal; year and popularity are secondary.
-GENRE_WEIGHT = 3.0
-YEAR_WEIGHT  = 0.5
-POP_WEIGHT   = 0.5
+# Tag signal is primary; year and listener count are secondary.
+TAG_WEIGHT       = 3.0
+YEAR_WEIGHT      = 0.5
+LISTENERS_WEIGHT = 0.5
 # ─────────────────────────────────────────────────────────────────────────────
 
 
-# ── build_rec_objects ────────────────────────────────────────────────────────
+def build_tfidf_matrix(albums: list[dict]) -> tuple[np.ndarray, list[str]]:
+    """Build a TF-IDF weighted tag matrix for the album corpus.
+
+    TF (term frequency): the Last.fm association weight for a tag on this
+    album, normalized to [0, 1]. Stored in album["tag_weights"].
+
+    IDF (inverse document frequency): log((N+1) / (df+1)) where N is the
+    corpus size and df is the number of albums carrying that tag. This form
+    guarantees non-negative values and naturally down-weights ubiquitous tags:
+      - A tag in every album gets IDF = log(1) = 0 (no discriminating power).
+      - A tag in only one album gets the maximum IDF value.
+
+    Two albums sharing a rare tag like "afrobeat" score much higher than two
+    albums that both carry "rock" — which is exactly what we want.
+
+    Parameters
+    ----------
+    albums : list[dict]
+        Albums loaded from albums_clean.json. Each must have a "tag_weights"
+        key mapping tag name to float weight.
+
+    Returns
+    -------
+    matrix : np.ndarray
+        Shape (n_albums, n_unique_tags). Cell [i][j] = TF * IDF for album i,
+        tag j. Zero if album i does not carry tag j.
+    all_tags : list[str]
+        Sorted list of all unique tags (column labels for the matrix).
+    """
+    all_tags = sorted({tag for a in albums for tag in a.get("tag_weights", {})})
+    n = len(albums)
+
+    # Document frequency: how many albums carry each tag
+    df_per_tag = {
+        tag: sum(1 for a in albums if tag in a.get("tag_weights", {}))
+        for tag in all_tags
+    }
+
+    # IDF: higher for rare tags, 0 for tags present in every album
+    idf_per_tag = {
+        tag: math.log((n + 1) / (df_per_tag[tag] + 1))
+        for tag in all_tags
+    }
+
+    tag_idx = {tag: i for i, tag in enumerate(all_tags)}
+    matrix  = np.zeros((n, len(all_tags)))
+
+    for i, album in enumerate(albums):
+        for tag, weight in album.get("tag_weights", {}).items():
+            if tag in tag_idx:
+                matrix[i, tag_idx[tag]] = weight * idf_per_tag[tag]
+
+    return matrix, all_tags
+
+
 def build_rec_objects(album, albums, sim_scores, slugs, top_n):
     """Build recommendation objects for one album.
 
@@ -62,7 +119,6 @@ def build_rec_objects(album, albums, sim_scores, slugs, top_n):
     list[dict]
         Each dict has keys: slug (str), score (float, 2 dp), shared_tags (list[str]).
     """
-    # Build a slug-to-index dict for O(1) lookup instead of O(n) list.index()
     slug_to_idx = {s: i for i, s in enumerate(slugs)}
     i = slug_to_idx[album["slug"]]
     ranked = sorted(
@@ -74,6 +130,8 @@ def build_rec_objects(album, albums, sim_scores, slugs, top_n):
         {
             "slug":        slugs[j],
             "score":       round(float(score), 2),
+            # shared_tags uses the display genres list (not tag_weights) so
+            # the frontend shows human-readable genre labels, not ML internals
             "shared_tags": sorted(set(album["genres"]) & set(albums[j]["genres"])),
         }
         for j, score in ranked[:top_n]
@@ -82,75 +140,72 @@ def build_rec_objects(album, albums, sim_scores, slugs, top_n):
 
 if __name__ == "__main__":
     # ── Step 1: Load clean data ──────────────────────────────────────────────
-    # albums_clean.json already contains merged genres (manual + Last.fm) from
-    # the clean_data.py step, so no secondary load of albums.json is needed here.
-
     with open(CLEAN_FILE, "r", encoding="utf-8") as f:
-        albums = json.load(f)   # list ordered by slug (alphabetical from clean step)
+        albums = json.load(f)
 
     slugs = [a["slug"] for a in albums]
     print(f"Loaded {len(albums)} albums\n")
 
-    print("Genre tags per album:")
+    print("Tag weights per album (top 5 shown):")
     for a in albums:
-        print(f"  {a['name']}: {', '.join(a['genres']) or '(none)'}")
+        weights = a.get("tag_weights", {})
+        top5 = sorted(weights.items(), key=lambda x: x[1], reverse=True)[:5]
+        top5_str = ", ".join(f"{k}({v:.2f})" for k, v in top5) or "(none)"
+        print(f"  {a['name']}: {top5_str}")
     print()
 
 
     # ── Step 2: Build the feature matrix ────────────────────────────────────
-    # We combine three signals into one numeric vector per album:
+    # Three signals combined into one numeric vector per album:
     #
-    #   A) Genre (one-hot)   -- captures stylistic similarity; the primary signal
-    #   B) Release year      -- captures era proximity (e.g. early 2010s vs. 2020s)
-    #   C) Popularity        -- captures mainstream vs. underground feel
-    #
-    # All numeric features are normalized to [0, 1] so no single feature
-    # dominates due to scale differences (raw year ~2000 vs. a 0/1 genre flag).
+    #   A) TF-IDF tags  -- rare shared tags score higher than generic ones
+    #   B) Release year -- captures era proximity (e.g. early 2010s vs. 2020s)
+    #   C) Listeners    -- Last.fm listener count as a mainstream/underground proxy
+    #                      (replaces Spotify popularity, which is null under
+    #                       Client Credentials auth)
 
-    # A) Genre: MultiLabelBinarizer converts lists of strings into a binary matrix.
-    #    Each column represents one unique genre tag across the whole corpus.
-    #    An album gets a 1 in column j if it has that genre tag, 0 otherwise.
-    mlb = MultiLabelBinarizer()
-    genre_matrix = mlb.fit_transform([a["genres"] for a in albums])
-    # shape: (n_albums, n_unique_genres)
+    # A) TF-IDF weighted tag matrix
+    tfidf_matrix, all_tags = build_tfidf_matrix(albums)
 
-    print(f"Unique genre tags ({len(mlb.classes_)}): {', '.join(mlb.classes_)}\n")
+    idf_values = [
+        math.log((len(albums) + 1) / (
+            sum(1 for a in albums if t in a.get("tag_weights", {})) + 1
+        ))
+        for t in all_tags
+    ]
+    print(f"TF-IDF tag matrix: {tfidf_matrix.shape[0]} albums x {tfidf_matrix.shape[1]} unique tags")
+    print(f"  IDF range: {min(idf_values):.3f} – {max(idf_values):.3f}\n")
 
-    # B) Release year: scale the 4-digit years to [0, 1]
+    # B) Release year: scale 4-digit years to [0, 1]
     years = np.array([a["release_year"] for a in albums], dtype=float).reshape(-1, 1)
     year_scaled = MinMaxScaler().fit_transform(years)
-    # shape: (n_albums, 1)
 
-    # C) Popularity: scale 0-100 score to [0, 1].
-    #    Client Credentials auth returns null for popularity -- treat as 50 (neutral
-    #    midpoint) so it contributes a flat signal rather than skewing the scores.
-    raw_pop = [a["popularity"] if a["popularity"] is not None else 50 for a in albums]
-    pop = np.array(raw_pop, dtype=float).reshape(-1, 1)
-    pop_scaled = MinMaxScaler().fit_transform(pop)
-    # shape: (n_albums, 1)
+    # C) Last.fm listeners: use corpus median as fill value for albums without data.
+    #    Listener count is a better proxy for mainstream vs. underground feel than
+    #    Spotify popularity, which returns null under Client Credentials auth.
+    raw_listeners   = [a.get("listeners") for a in albums]
+    valid_listeners = [l for l in raw_listeners if l is not None]
+    median_listeners = int(np.median(valid_listeners)) if valid_listeners else 100_000
+    filled_listeners = [l if l is not None else median_listeners for l in raw_listeners]
 
-    # Stack all features side by side into one matrix.
-    # Weights applied here so genre (the strongest signal) gets 3x the influence
-    # of year or popularity. This way the similarity score reflects style more than era.
+    listeners_scaled = MinMaxScaler().fit_transform(
+        np.array(filled_listeners, dtype=float).reshape(-1, 1)
+    )
+
+    # Stack all features, applying weights so tag similarity dominates
     feature_matrix = np.hstack([
-        genre_matrix * GENRE_WEIGHT,
-        year_scaled  * YEAR_WEIGHT,
-        pop_scaled   * POP_WEIGHT,
+        tfidf_matrix     * TAG_WEIGHT,
+        year_scaled      * YEAR_WEIGHT,
+        listeners_scaled * LISTENERS_WEIGHT,
     ])
-    # shape: (n_albums, n_unique_genres + 2)
-
     print(f"Feature matrix: {feature_matrix.shape[0]} albums x {feature_matrix.shape[1]} features")
-    print(f"  {genre_matrix.shape[1]} genre columns  |  1 year column  |  1 popularity column\n")
+    print(f"  {tfidf_matrix.shape[1]} TF-IDF tag columns  |  1 year column  |  1 listeners column\n")
 
 
     # ── Step 3: Compute pairwise cosine similarity ───────────────────────────
-    # cosine_similarity returns an (n x n) matrix where entry [i][j] is the
-    # cosine similarity between album i and album j. Scores range from 0 (nothing
-    # in common) to 1 (identical vectors). The diagonal is always 1.0 (self).
-    #
-    # Cosine similarity is a good fit here because it measures the angle between
-    # vectors, not magnitude -- so an album with 4 genre tags isn't penalized vs.
-    # one with 2 just because its vector is longer.
+    # cosine_similarity measures the angle between vectors, not magnitude —
+    # so an album with 8 genre tags isn't penalized vs. one with 3. Scores
+    # range from 0 (nothing in common) to 1 (identical vectors).
     sim_matrix = cosine_similarity(feature_matrix)
 
 
@@ -158,9 +213,6 @@ if __name__ == "__main__":
     print("Recommendations\n" + "-" * 48)
 
     output = []
-
-    # Build a slug-to-album dict once so the print loop below is O(1) per lookup
-    # instead of scanning the list on every iteration.
     slug_to_album = {a["slug"]: a for a in albums}
 
     for i, album in enumerate(albums):
@@ -174,7 +226,7 @@ if __name__ == "__main__":
 
         print(f"  {album['name']}")
         for r in recs:
-            rec_album = slug_to_album[r['slug']]
+            rec_album = slug_to_album[r["slug"]]
             print(f"    {r['score']:.2f}  {rec_album['name']}  "
                   f"[{', '.join(r['shared_tags']) or 'no shared tags'}]")
         print()

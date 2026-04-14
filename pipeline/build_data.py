@@ -80,12 +80,20 @@ for slug in slugs:
         "second_spin":     e.get("second_spin"),
         "blurb":           e.get("blurb"),
         "review_url":      e.get("review_url"),
-        "genres":          c.get("genres", e.get("genres", [])),  # merged (manual + Last.fm) from clean step
+        # Sort genres by tag weight so the most meaningful tags appear first.
+        # Review pages slice to the first 3 for display; the full list is kept
+        # here so the Discover page cluster filter still has complete genre data.
+        "genres":          sorted(
+                               c.get("genres", e.get("genres", [])),
+                               key=lambda g: c.get("tag_weights", {}).get(g.lower(), 0.0),
+                               reverse=True,
+                           ),
         "cover_art":       cover_art,
         "spotify_id":      c.get("spotify_id"),
         "track_count":     c.get("track_count"),
         "duration_ms":     c.get("duration_ms"),
         "popularity":      c.get("popularity"),
+        "listeners":       c.get("listeners"),
         "date":            e.get("date"),
         "favorite_track":  e.get("favorite_track"),
         "track_url":       e.get("track_url"),

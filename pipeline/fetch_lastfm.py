@@ -36,24 +36,65 @@ ALBUMS_FILE = ROOT / "data" / "albums.json"
 LASTFM_DIR  = ROOT / "data" / "lastfm"
 API_BASE    = "http://ws.audioscrobbler.com/2.0/"
 
-TOP_N        = 5     # max tags to keep per album
+TOP_N        = 10    # max tags to keep per album (more tags = richer TF-IDF signal)
 REQUEST_GAP  = 0.5   # seconds between API calls (be polite)
 
-# Tags to always discard — garbage or meta tags that don't describe genre/style
+# Tags to always discard — garbage or meta tags that don't describe genre/style.
+# Substring matches are checked case-insensitively against the full tag name.
 JUNK_SUBSTRINGS = [
     "seen live",
     "favourite",
     "favorites",
     "under 2000 listeners",
+    "best of",           # ranking tags: "best of 2020", "best of all time"
+    "album of the year",
+    "i love",            # personal collection tags: "i love singing along"
+    "i like",
+    "i can",             # "albums i can listen to all the way through"
+    "where is",          # joke tags: "where is my bong"
+    "my top",            # list tags: "my top songs"
+    "fav ",              # "fav albums" — trailing space avoids matching "favourite"
+    "cum",               # vulgar joke tags: "cum metal", "cum music"
+    "goodness",          # "shoegazing goodness" and similar praise-noise tags
 ]
 
 # Exact-match tags to discard (case-insensitive).
-# Covers mood tags, geographic tags, award tags, and overly generic labels
-# that carry no useful signal for genre-based recommendations.
 _JUNK_EXACT = {
-    "short", "happy", "chill", "indie", "aoty",
-    "usa", "american", "texas",
-    "2020s", "90s", "80s", "70s", "60s",
+    # Vague genre labels (too broad to add useful signal)
+    "indie", "alternative", "progressive",
+    # Generic meta / collection tags
+    "aoty", "albums", "all", "classic albums", "vinyl", "hiphop",
+    # Quality / rating / hype tags
+    "peak", "goated", "goat", "masterpiece", "hot", "hype",
+    "fresh", "beautiful", "classic", "special", "good", "great",
+    "good stuff", "full", "long", "new", "slaps", "drumless",
+    # Mood / descriptor tags (not genre descriptors)
+    "atmospheric", "melancholic", "melancholy", "melodic", "energetic",
+    "aggressive", "sexual", "romantic", "hedonistic", "playful", "powerful",
+    "positive", "warm", "complex", "yearning", "sweet", "soothing", "dreamy",
+    "intense", "bombastic", "witty", "heartbreak", "drugs", "nocturnal",
+    "emotional", "moody", "boisterous", "rhythmic", "bass", "heavy",
+    "funky", "introspective", "sensual", "sexy", "fun", "rage", "slow jams",
+    # Geographic tags
+    "usa", "american", "texas", "california", "london", "los angeles",
+    "toronto", "new jersey", "sweden", "swedish", "british", "canadian",
+    "southern", "urban", "united states", "america", "colombian", "alabama",
+    # Decade tags
+    "2020s", "2010s", "90s", "80s", "70s", "60s",
+    # Demographic tags
+    "male vocalists", "female vocalists", "male vocals", "female vocalist", "diva",
+    # Geographic tags (expanded)
+    "maryland", "ohio", "georgia", "florida", "michigan", "chicago",
+    "new york", "detroit", "atlanta", "houston", "brooklyn", "queens",
+    "uk", "england", "australian", "irish", "german", "french", "japanese",
+    # Label / industry tags
+    "domino", "domino records", "columbia", "interscope", "def jam",
+    "atlantic", "republic", "sub pop", "matador", "4ad",
+    # Community / random noise
+    "happy", "short", "chill", "wikipedia", "fob", "mixtaperoom",
+    "xotwod", "windmill scene", "post-darling-core", "elevator music",
+    "science", "cover", "bbc", "deposito", "prosty", "synth fumk",
+    "pussy music",
 }
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -101,8 +142,11 @@ def is_junk(tag_name: str) -> bool:
         return True
     if name.isdigit():
         return True
-    # Decade tags ("2020s", "90s") and any other tags starting with a digit
+    # Tags starting with a digit (decade tags like "90s", "2020s")
     if name[0].isdigit():
+        return True
+    # Tags containing a 4-digit sequence (year-based community tags like "ch2023")
+    if re.search(r'\d{4}', name):
         return True
     lower = name.lower()
     if lower in _JUNK_EXACT:
@@ -114,8 +158,8 @@ def is_junk(tag_name: str) -> bool:
     return False
 
 
-def extract_tags(tag_list: list, top_n: int = TOP_N) -> list[str]:
-    """Filter, normalize, and return the top N tag names from a Last.fm tag list.
+def extract_tags(tag_list: list, top_n: int = TOP_N) -> list[dict]:
+    """Filter, normalize, and return the top N tags with their weights.
 
     Parameters
     ----------
@@ -126,8 +170,10 @@ def extract_tags(tag_list: list, top_n: int = TOP_N) -> list[str]:
 
     Returns
     -------
-    list[str]
-        Filtered and normalized tag names, sorted by count descending.
+    list[dict]
+        Each dict has "name" (normalized tag string) and "weight" (float 0.0-1.0).
+        Weight is the Last.fm count normalized to [0, 1] — higher means stronger
+        association. Sorted by weight descending.
     """
     filtered = [
         t for t in tag_list
@@ -135,7 +181,41 @@ def extract_tags(tag_list: list, top_n: int = TOP_N) -> list[str]:
     ]
     # Last.fm returns tags pre-sorted by count, but sort explicitly to be safe
     filtered.sort(key=lambda t: t["count"], reverse=True)
-    return [normalize_tag(t["name"]) for t in filtered[:top_n]]
+    return [
+        {"name": normalize_tag(t["name"]), "weight": round(t["count"] / 100.0, 4)}
+        for t in filtered[:top_n]
+    ]
+
+
+def fetch_album_info(artist: str, album: str) -> tuple[int | None, int | None]:
+    """Call album.getinfo and return (listeners, playcount).
+
+    Last.fm scrobble counts serve as a proxy for mainstream reach in the
+    recommendation engine — useful for distinguishing underground vs. widely-
+    heard albums (replaces Spotify popularity, which returns null under
+    Client Credentials auth).
+
+    Returns (None, None) on any network or API error.
+    """
+    params = {
+        "method":  "album.getinfo",
+        "artist":  artist,
+        "album":   album,
+        "api_key": API_KEY,
+        "format":  "json",
+    }
+    try:
+        resp = requests.get(API_BASE, params=params, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+        a = data.get("album", {})
+        # Last.fm returns listener/playcount as strings, not ints
+        listeners = int(a["listeners"]) if a.get("listeners") else None
+        playcount = int(a["playcount"]) if a.get("playcount") else None
+        return listeners, playcount
+    except Exception as exc:
+        print(f"    [warn] album.getinfo failed: {exc}")
+        return None, None
 
 
 def fetch_album_tags(artist: str, album: str) -> tuple[list, dict]:
@@ -211,6 +291,10 @@ def main():
         artist_tags, artist_raw = fetch_artist_tags(artist)
         time.sleep(REQUEST_GAP)
 
+        # ── Call 3: Album info (listeners, playcount) ────────────────────────
+        listeners, playcount = fetch_album_info(artist, title)
+        time.sleep(REQUEST_GAP)
+
         # ── Choose the better set ────────────────────────────────────────────
         # Prefer album tags when we get at least 3 results; otherwise fall back
         # to artist tags which tend to be more populated.
@@ -221,12 +305,24 @@ def main():
             chosen_tags = artist_tags
             source = "artist (fallback)"
 
-        print(f"    source: {source}  |  tags: {', '.join(chosen_tags) or '(none)'}")
+        # Remove tags that are just the artist's name — common on Last.fm.
+        # Normalize by stripping non-alphanumeric chars so "JAY-Z" matches "jay z".
+        artist_key = re.sub(r'[^a-z0-9]', '', artist.lower())
+        chosen_tags = [
+            t for t in chosen_tags
+            if re.sub(r'[^a-z0-9]', '', t["name"]) != artist_key
+        ]
+
+        tag_summary = ", ".join(f"{t['name']}({t['weight']:.2f})" for t in chosen_tags) or "(none)"
+        print(f"    source: {source}  |  tags: {tag_summary}")
+        print(f"    listeners: {listeners:,}" if listeners is not None else "    listeners: n/a")
 
         # ── Save raw responses to data/lastfm/{slug}.json ────────────────────
         out = {
             "slug":         slug,
-            "chosen_tags":  chosen_tags,
+            "chosen_tags":  chosen_tags,   # [{name, weight}, ...] — weights are Last.fm counts / 100
+            "listeners":    listeners,
+            "playcount":    playcount,
             "album_raw":    album_raw,
             "artist_raw":   artist_raw,
         }

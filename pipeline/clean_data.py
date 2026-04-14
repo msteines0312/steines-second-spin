@@ -33,14 +33,57 @@ OUT_FILE     = ROOT / "data" / "albums_clean.json"
 #    stale lastfm JSON files are cleaned even if they predate these rules) ────
 _VALID_TAG_RE = re.compile(r"^[a-zA-Z0-9 \-&]+$")
 
+# Substring checks applied to tag names (case-insensitive) — mirrors
+# fetch_lastfm.py's JUNK_SUBSTRINGS so stale cached files are cleaned on re-run.
+_JUNK_SUBSTRINGS = [
+    "seen live", "favourite", "favorites", "under 2000 listeners",
+    "best of", "album of the year",
+    "i love", "i like", "i can",   # "albums i can listen to all the way through"
+    "where is", "my top",
+    "fav ",     # trailing space avoids catching "favourite"
+    "cum",
+    "goodness", # "shoegazing goodness" etc.
+]
+
 # Exact-match tags to discard (case-insensitive) — mirrors fetch_lastfm.py.
 # Applied here too so stale lastfm JSON files written before these rules
 # existed are cleaned retroactively when clean_data.py runs.
 _JUNK_TAGS = {
-    "synth fumk",                                       # known typo
-    "short", "happy", "chill", "indie", "aoty",         # mood/award/generic
-    "usa", "american", "texas",                          # geographic
-    "2020s", "90s", "80s", "70s", "60s",                # decade tags
+    # Vague genre labels
+    "indie", "alternative", "progressive",
+    # Generic meta / collection tags
+    "aoty", "albums", "all", "classic albums", "vinyl", "hiphop",
+    # Quality / rating / hype tags
+    "peak", "goated", "goat", "masterpiece", "hot", "hype",
+    "fresh", "beautiful", "classic", "special", "good", "great",
+    "good stuff", "full", "long", "new", "slaps", "drumless",
+    # Mood / descriptor tags (not genre descriptors)
+    "atmospheric", "melancholic", "melancholy", "melodic", "energetic",
+    "aggressive", "sexual", "romantic", "hedonistic", "playful", "powerful",
+    "positive", "warm", "complex", "yearning", "sweet", "soothing", "dreamy",
+    "intense", "bombastic", "witty", "heartbreak", "drugs", "nocturnal",
+    "emotional", "moody", "boisterous", "rhythmic", "bass", "heavy",
+    "funky", "introspective", "sensual", "sexy", "fun", "rage", "slow jams",
+    # Geographic tags
+    "usa", "american", "texas", "california", "london", "los angeles",
+    "toronto", "new jersey", "sweden", "swedish", "british", "canadian",
+    "southern", "urban", "united states", "america", "colombian", "alabama",
+    # Decade tags
+    "2020s", "2010s", "90s", "80s", "70s", "60s",
+    # Demographic tags
+    "male vocalists", "female vocalists", "male vocals", "female vocalist", "diva",
+    # Geographic tags (expanded)
+    "maryland", "ohio", "georgia", "florida", "michigan", "chicago",
+    "new york", "detroit", "atlanta", "houston", "brooklyn", "queens",
+    "uk", "england", "australian", "irish", "german", "french", "japanese",
+    # Label / industry tags
+    "domino", "domino records", "columbia", "interscope", "def jam",
+    "atlantic", "republic", "sub pop", "matador", "4ad",
+    # Community / random noise
+    "happy", "short", "chill", "wikipedia", "fob", "mixtaperoom",
+    "xotwod", "windmill scene", "post-darling-core", "elevator music",
+    "science", "cover", "bbc", "deposito", "prosty", "synth fumk",
+    "pussy music",
 }
 
 def _normalize_tag(tag: str) -> str:
@@ -55,29 +98,52 @@ def _normalize_tag(tag: str) -> str:
     return t
 
 
-def _clean_lastfm_tags(tags: list[str]) -> list[str]:
-    """Re-apply normalization and character filtering to saved lastfm tags.
+def _parse_lastfm_tags(tags: list) -> dict[str, float]:
+    """Parse lastfm chosen_tags into a normalized name-to-weight dict.
 
-    Catches tags that were persisted before the current filtering rules were
-    in place (e.g. typos like "synth fumk", un-normalized "hip hop").
-    Deduplicates after normalization so two tags that collapse to the same
-    string (e.g. "hip hop" and "Hip Hop") don't both appear.
+    Handles both the old string format (["r&b", "pop"]) and the new weighted
+    dict format ([{"name": "r&b", "weight": 0.95}]) so that existing cached
+    lastfm files continue to work before fetch_lastfm.py is re-run.
+
+    Old-format tags receive a default weight of 0.5 since their original
+    Last.fm counts were not stored. Re-applies normalization and character
+    filtering so stale files are cleaned on the fly.
+
+    Returns
+    -------
+    dict[str, float]
+        Normalized tag name -> weight (0.0-1.0), deduped.
     """
-    seen    = set()
-    cleaned = []
+    DEFAULT_WEIGHT = 0.5
+    seen   = set()
+    result = {}
+
     for tag in tags:
-        tag = tag.strip()
-        if not _VALID_TAG_RE.match(tag):
-            continue                            # drop tags with bad characters
-        if tag and tag[0].isdigit():
-            continue                            # drop decade tags ("2020s", "90s", etc.)
-        if tag.lower() in _JUNK_TAGS:
-            continue                            # drop mood/geographic/generic junk
-        normalized = _normalize_tag(tag)
+        if isinstance(tag, dict):
+            name   = str(tag.get("name", "")).strip()
+            weight = float(tag.get("weight", DEFAULT_WEIGHT))
+        else:
+            name   = str(tag).strip()
+            weight = DEFAULT_WEIGHT
+
+        if not name or not _VALID_TAG_RE.match(name):
+            continue
+        if name[0].isdigit():
+            continue
+        if re.search(r'\d{4}', name):   # catches year-based tags like "ch2023"
+            continue
+        lower = name.lower()
+        if lower in _JUNK_TAGS:
+            continue
+        if any(sub in lower for sub in _JUNK_SUBSTRINGS):
+            continue
+
+        normalized = _normalize_tag(name)
         if normalized not in seen:
             seen.add(normalized)
-            cleaned.append(normalized)
-    return cleaned
+            result[normalized] = weight
+
+    return result
 
 
 def merge_genres(manual: list[str], lastfm: list[str]) -> list[str]:
@@ -104,7 +170,9 @@ def merge_genres(manual: list[str], lastfm: list[str]) -> list[str]:
 
 
 def extract_album(slug: str, raw: dict, manual_genres: list[str],
-                  lastfm_tags: list[str]) -> dict:
+                  lastfm_weights: dict[str, float],
+                  listeners: int | None,
+                  playcount: int | None) -> dict:
     """Flatten one raw Spotify response into a clean, analysis-ready dictionary.
 
     Parameters
@@ -117,8 +185,12 @@ def extract_album(slug: str, raw: dict, manual_genres: list[str],
         "album_metadata", "tracks", and "audio_features".
     manual_genres : list[str]
         Hand-curated genre tags from albums.json.
-    lastfm_tags : list[str]
-        Tags fetched from the Last.fm API (empty list if not available).
+    lastfm_weights : dict[str, float]
+        Tag name -> weight (0.0-1.0) from the Last.fm API. Empty dict if not available.
+    listeners : int | None
+        Last.fm unique listener count. None if unavailable.
+    playcount : int | None
+        Last.fm total play count. None if unavailable.
 
     Returns
     -------
@@ -147,13 +219,24 @@ def extract_album(slug: str, raw: dict, manual_genres: list[str],
     # --- Popularity --- (0-100 score from Spotify, based on recent stream counts)
     popularity = meta.get("popularity")
 
-    # --- Genres ---
+    # --- Genres (display list) ---
     # Spotify's album-level genres field is almost always empty — genres are
     # attached to artists in Spotify's data model. We use the manually curated
     # tags from albums.json merged with any Last.fm tags fetched by
     # fetch_lastfm.py instead. Manual tags come first; Last.fm tags are
     # appended if they aren't already represented.
-    genres = merge_genres(manual_genres, lastfm_tags)
+    genres = merge_genres(manual_genres, list(lastfm_weights.keys()))
+
+    # --- Tag weights (ML feature dict) ---
+    # Combines editorial genres (fixed default weight) with Last.fm weights
+    # (actual association scores). This dict is used by recommend.py to build
+    # a TF-IDF matrix. Stored separately from the display genres list so the
+    # frontend pill count stays manageable while the ML model gets richer signal.
+    MANUAL_DEFAULT = 0.7   # editorial intent is a strong but unquantified signal
+    tag_weights = {_normalize_tag(g): MANUAL_DEFAULT for g in manual_genres}
+    for name, weight in lastfm_weights.items():
+        # Last.fm weights override the manual default for the same tag
+        tag_weights[name] = weight
 
     # --- Track-level aggregations ---
     # Use the top-level "tracks" list (fully paginated by fetch_spotify.py),
@@ -175,7 +258,10 @@ def extract_album(slug: str, raw: dict, manual_genres: list[str],
         "artist_id":    artist_id,
         "release_year": release_year,
         "popularity":   popularity,
-        "genres":       genres,
+        "genres":       genres,        # merged display list (manual + Last.fm)
+        "tag_weights":  tag_weights,   # ML feature dict (name -> weight)
+        "listeners":    listeners,     # Last.fm unique listener count
+        "playcount":    playcount,     # Last.fm total play count
         "track_count":  track_count,
         "duration_ms":  duration_ms,
         "cover_art":    cover_art,
@@ -202,23 +288,28 @@ def main():
         with open(path, "r", encoding="utf-8") as f:
             raw = json.load(f)
 
-        # Load Last.fm tags if available (produced by fetch_lastfm.py).
-        # Re-apply normalization so stale JSON files are cleaned on the fly.
+        # Load Last.fm data if available (produced by fetch_lastfm.py).
+        # _parse_lastfm_tags handles both the old string format and the new
+        # weighted dict format, so existing cached files work without re-fetching.
         lastfm_path = LASTFM_DIR / f"{slug}.json"
         if lastfm_path.exists():
             with open(lastfm_path, "r", encoding="utf-8") as f:
-                raw_tags = json.load(f).get("chosen_tags", [])
-            lastfm_tags = _clean_lastfm_tags(raw_tags)
+                lastfm_data = json.load(f)
+            lastfm_weights = _parse_lastfm_tags(lastfm_data.get("chosen_tags", []))
+            listeners      = lastfm_data.get("listeners")
+            playcount      = lastfm_data.get("playcount")
         else:
-            lastfm_tags = []
+            lastfm_weights = {}
+            listeners      = None
+            playcount      = None
 
         manual_genres = manual_map.get(slug, [])
 
-        album = extract_album(slug, raw, manual_genres, lastfm_tags)
+        album = extract_album(slug, raw, manual_genres, lastfm_weights, listeners, playcount)
         cleaned.append(album)
 
         duration_min = album["duration_ms"] / 60_000
-        lastfm_note  = f"  |  +{len(lastfm_tags)} lastfm tags" if lastfm_tags else ""
+        lastfm_note  = f"  |  +{len(lastfm_weights)} lastfm tags (weighted)" if lastfm_weights else ""
         print(f"  {album['name']} -- {album['artist']}")
         print(f"    {album['track_count']} tracks  |  {duration_min:.1f} min  |  popularity {album['popularity']}{lastfm_note}")
         print(f"    genres: {', '.join(album['genres']) or '(none)'}")

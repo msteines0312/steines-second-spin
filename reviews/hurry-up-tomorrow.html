@@ -638,6 +638,7 @@ fetch('../data/albums_final.json')
     // Genre tags
     const genreRow = document.getElementById('genreRow');
     genreRow.innerHTML = (album.genres || [])
+      .slice(0, 3)
       .map(g => `<span class="genre-tag">${g}</span>`)
       .join('');
 
