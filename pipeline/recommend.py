@@ -28,17 +28,19 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 # ── Config ───────────────────────────────────────────────────────────────────
-ROOT       = Path(__file__).resolve().parent.parent
-CLEAN_FILE = ROOT / "data" / "albums_clean.json"
-OUT_FILE   = ROOT / "data" / "recommendations.json"
+ROOT           = Path(__file__).resolve().parent.parent
+CLEAN_FILE     = ROOT / "data" / "albums_clean.json"
+EMBEDDINGS_DIR = ROOT / "data" / "embeddings"
+OUT_FILE       = ROOT / "data" / "recommendations.json"
 
 TOP_N = 10   # recommendations to store per album (review pages show 3, discover shows 5)
 
 # Feature weights applied before cosine similarity.
-# Tag signal is primary; year and listener count are secondary.
+# Tag signal is primary; review embeddings add tonal/prose signal where available.
 TAG_WEIGHT       = 3.0
 YEAR_WEIGHT      = 0.5
 LISTENERS_WEIGHT = 0.5
+REVIEW_WEIGHT    = 1.5   # blended in only when both albums have embeddings
 # ─────────────────────────────────────────────────────────────────────────────
 
 
@@ -146,6 +148,18 @@ if __name__ == "__main__":
     slugs = [a["slug"] for a in albums]
     print(f"Loaded {len(albums)} albums\n")
 
+    # ── Step 1b: Load SBERT review embeddings (optional) ────────────────────
+    # Albums without a published review have no embedding file; they get a zero
+    # row so the review signal is neutral for them (doesn't help or hurt).
+    raw_embeddings = {}
+    for slug in slugs:
+        emb_path = EMBEDDINGS_DIR / f"{slug}.npy"
+        if emb_path.exists():
+            raw_embeddings[slug] = np.load(emb_path)
+
+    embedding_dim = next(iter(raw_embeddings.values())).shape[0] if raw_embeddings else 0
+    print(f"Loaded {len(raw_embeddings)} review embedding(s) (dim={embedding_dim})\n")
+
     print("Tag weights per album (top 5 shown):")
     for a in albums:
         weights = a.get("tag_weights", {})
@@ -192,14 +206,27 @@ if __name__ == "__main__":
         np.array(filled_listeners, dtype=float).reshape(-1, 1)
     )
 
+    # D) SBERT review embeddings: zero row for albums without a review.
+    #    Weight is only meaningful when BOTH albums have embeddings; a zero row
+    #    contributes nothing to cosine similarity for unreviewed albums.
+    if embedding_dim > 0:
+        emb_matrix = np.zeros((len(albums), embedding_dim))
+        for i, album in enumerate(albums):
+            if album["slug"] in raw_embeddings:
+                emb_matrix[i] = raw_embeddings[album["slug"]]
+    else:
+        emb_matrix = np.zeros((len(albums), 1))
+
     # Stack all features, applying weights so tag similarity dominates
     feature_matrix = np.hstack([
         tfidf_matrix     * TAG_WEIGHT,
         year_scaled      * YEAR_WEIGHT,
         listeners_scaled * LISTENERS_WEIGHT,
+        emb_matrix       * REVIEW_WEIGHT,
     ])
+    emb_label = f"  |  {embedding_dim} SBERT review columns" if embedding_dim > 0 else "  |  no review embeddings"
     print(f"Feature matrix: {feature_matrix.shape[0]} albums x {feature_matrix.shape[1]} features")
-    print(f"  {tfidf_matrix.shape[1]} TF-IDF tag columns  |  1 year column  |  1 listeners column\n")
+    print(f"  {tfidf_matrix.shape[1]} TF-IDF tag columns  |  1 year column  |  1 listeners column{emb_label}\n")
 
 
     # ── Step 3: Compute pairwise cosine similarity ───────────────────────────

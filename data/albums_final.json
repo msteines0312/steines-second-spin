@@ -32,7 +32,7 @@
     "recommendations": [
       {
         "slug": "projector",
-        "score": 0.59,
+        "score": 0.58,
         "shared_tags": [
           "art punk",
           "art rock",
@@ -52,7 +52,7 @@
       },
       {
         "slug": "deadbeat",
-        "score": 0.3,
+        "score": 0.31,
         "shared_tags": [
           "indie rock",
           "psychedelic rock"
@@ -60,7 +60,7 @@
       },
       {
         "slug": "aeroplane-over-the-sea",
-        "score": 0.3,
+        "score": 0.29,
         "shared_tags": [
           "indie rock"
         ]
@@ -91,20 +91,20 @@
         ]
       },
       {
-        "slug": "quebec",
+        "slug": "heavy-metal",
         "score": 0.22,
+        "shared_tags": [
+          "indie rock"
+        ]
+      },
+      {
+        "slug": "quebec",
+        "score": 0.21,
         "shared_tags": [
           "alternative rock",
           "art rock",
           "indie rock",
           "psychedelic rock"
-        ]
-      },
-      {
-        "slug": "heavy-metal",
-        "score": 0.21,
-        "shared_tags": [
-          "indie rock"
         ]
       },
       {
@@ -656,7 +656,7 @@
     "recommendations": [
       {
         "slug": "getting-killed",
-        "score": 0.59,
+        "score": 0.58,
         "shared_tags": [
           "art punk",
           "art rock",
@@ -720,7 +720,7 @@
       },
       {
         "slug": "heavy-metal",
-        "score": 0.24,
+        "score": 0.23,
         "shared_tags": [
           "indie rock"
         ]
@@ -767,7 +767,7 @@
     "recommendations": [
       {
         "slug": "aeroplane-over-the-sea",
-        "score": 0.3,
+        "score": 0.29,
         "shared_tags": [
           "folk",
           "indie rock",
@@ -777,7 +777,7 @@
       },
       {
         "slug": "quebec",
-        "score": 0.29,
+        "score": 0.28,
         "shared_tags": [
           "folk rock",
           "indie rock",
@@ -786,7 +786,7 @@
       },
       {
         "slug": "projector",
-        "score": 0.24,
+        "score": 0.23,
         "shared_tags": [
           "indie rock"
         ]
@@ -801,7 +801,7 @@
       },
       {
         "slug": "coastal-grooves",
-        "score": 0.23,
+        "score": 0.22,
         "shared_tags": [
           "lo-fi",
           "soul"
@@ -809,14 +809,14 @@
       },
       {
         "slug": "getting-killed",
-        "score": 0.21,
+        "score": 0.22,
         "shared_tags": [
           "indie rock"
         ]
       },
       {
         "slug": "deadbeat",
-        "score": 0.2,
+        "score": 0.21,
         "shared_tags": [
           "indie rock"
         ]
@@ -837,7 +837,7 @@
       },
       {
         "slug": "thursday",
-        "score": 0.17,
+        "score": 0.16,
         "shared_tags": [
           "lo-fi",
           "soul"
@@ -882,7 +882,7 @@
     "recommendations": [
       {
         "slug": "mercurial-world",
-        "score": 0.71,
+        "score": 0.7,
         "shared_tags": [
           "chillwave",
           "dance-pop",
@@ -896,7 +896,7 @@
       },
       {
         "slug": "currents",
-        "score": 0.57,
+        "score": 0.56,
         "shared_tags": [
           "dream pop",
           "indie pop",
@@ -907,7 +907,7 @@
       },
       {
         "slug": "dawn-fm",
-        "score": 0.48,
+        "score": 0.47,
         "shared_tags": [
           "dance-pop",
           "electropop",
@@ -966,7 +966,7 @@
       },
       {
         "slug": "deadbeat",
-        "score": 0.31,
+        "score": 0.32,
         "shared_tags": [
           "dream pop",
           "neo-psychedelia",
@@ -984,7 +984,7 @@
       },
       {
         "slug": "submarine",
-        "score": 0.3,
+        "score": 0.29,
         "shared_tags": [
           "dream pop",
           "indie pop"
@@ -1027,7 +1027,7 @@
     "recommendations": [
       {
         "slug": "kiss-land",
-        "score": 0.4,
+        "score": 0.39,
         "shared_tags": [
           "alternative r&b",
           "dark r&b",
@@ -1047,7 +1047,7 @@
       },
       {
         "slug": "wasteland",
-        "score": 0.32,
+        "score": 0.31,
         "shared_tags": [
           "alternative r&b",
           "dark r&b",
@@ -1056,7 +1056,7 @@
       },
       {
         "slug": "icon",
-        "score": 0.24,
+        "score": 0.23,
         "shared_tags": [
           "alternative r&b",
           "dark r&b",
@@ -1065,7 +1065,7 @@
       },
       {
         "slug": "after-hours",
-        "score": 0.22,
+        "score": 0.23,
         "shared_tags": [
           "alternative r&b",
           "pop",
@@ -1116,7 +1116,7 @@
       },
       {
         "slug": "house-of-balloons",
-        "score": 0.17,
+        "score": 0.16,
         "shared_tags": [
           "alternative r&b",
           "dark r&b",
@@ -1186,7 +1186,7 @@
       },
       {
         "slug": "deadbeat",
-        "score": 0.24,
+        "score": 0.23,
         "shared_tags": [
           "neo-psychedelia",
           "psychedelic rock"
@@ -1467,7 +1467,7 @@
       },
       {
         "slug": "deadbeat",
-        "score": 0.14,
+        "score": 0.13,
         "shared_tags": [
           "indie rock"
         ]
@@ -2082,7 +2082,7 @@
     "recommendations": [
       {
         "slug": "beauty-behind-the-madness",
-        "score": 0.88,
+        "score": 0.87,
         "shared_tags": [
           "alternative r&b",
           "dark pop",
@@ -2093,7 +2093,7 @@
       },
       {
         "slug": "starboy",
-        "score": 0.86,
+        "score": 0.85,
         "shared_tags": [
           "alternative r&b",
           "dark pop",
@@ -2105,7 +2105,7 @@
       },
       {
         "slug": "dawn-fm",
-        "score": 0.8,
+        "score": 0.78,
         "shared_tags": [
           "alternative r&b",
           "dark pop",
@@ -2127,7 +2127,7 @@
       },
       {
         "slug": "currents",
-        "score": 0.32,
+        "score": 0.31,
         "shared_tags": [
           "alternative r&b",
           "synth-pop",
@@ -2145,7 +2145,7 @@
       },
       {
         "slug": "mayhem",
-        "score": 0.28,
+        "score": 0.27,
         "shared_tags": [
           "dark pop",
           "pop",
@@ -2155,7 +2155,7 @@
       },
       {
         "slug": "igor",
-        "score": 0.27,
+        "score": 0.26,
         "shared_tags": [
           "alternative r&b",
           "pop",
@@ -2164,7 +2164,7 @@
       },
       {
         "slug": "kiss-land",
-        "score": 0.25,
+        "score": 0.24,
         "shared_tags": [
           "alternative r&b",
           "r&b",
@@ -2649,7 +2649,7 @@
     "recommendations": [
       {
         "slug": "the-slow-rush",
-        "score": 0.84,
+        "score": 0.83,
         "shared_tags": [
           "dream pop",
           "electronic",
@@ -2676,6 +2676,15 @@
         ]
       },
       {
+        "slug": "imaginal-disk",
+        "score": 0.32,
+        "shared_tags": [
+          "dream pop",
+          "neo-psychedelia",
+          "synth-pop"
+        ]
+      },
+      {
         "slug": "red-moon-in-venus",
         "score": 0.31,
         "shared_tags": [
@@ -2684,31 +2693,22 @@
         ]
       },
       {
-        "slug": "imaginal-disk",
+        "slug": "getting-killed",
         "score": 0.31,
         "shared_tags": [
-          "dream pop",
-          "neo-psychedelia",
-          "synth-pop"
+          "indie rock",
+          "psychedelic rock"
         ]
       },
       {
         "slug": "currents",
-        "score": 0.31,
+        "score": 0.3,
         "shared_tags": [
           "dream pop",
           "neo-psychedelia",
           "psychedelic pop",
           "psychedelic rock",
           "synth-pop"
-        ]
-      },
-      {
-        "slug": "getting-killed",
-        "score": 0.3,
-        "shared_tags": [
-          "indie rock",
-          "psychedelic rock"
         ]
       },
       {
@@ -2801,7 +2801,7 @@
       },
       {
         "slug": "heavy-metal",
-        "score": 0.3,
+        "score": 0.29,
         "shared_tags": [
           "folk",
           "indie rock",
@@ -2811,7 +2811,7 @@
       },
       {
         "slug": "getting-killed",
-        "score": 0.3,
+        "score": 0.29,
         "shared_tags": [
           "indie rock"
         ]
@@ -3627,7 +3627,7 @@
     "recommendations": [
       {
         "slug": "heavy-metal",
-        "score": 0.29,
+        "score": 0.28,
         "shared_tags": [
           "folk rock",
           "indie rock",
@@ -3679,7 +3679,7 @@
       },
       {
         "slug": "getting-killed",
-        "score": 0.22,
+        "score": 0.21,
         "shared_tags": [
           "alternative rock",
           "art rock",
@@ -3899,7 +3899,7 @@
       },
       {
         "slug": "mr-morale",
-        "score": 0.28,
+        "score": 0.27,
         "shared_tags": [
           "alternative hip-hop",
           "experimental hip-hop",
@@ -3929,7 +3929,7 @@
       },
       {
         "slug": "flower-boy",
-        "score": 0.22,
+        "score": 0.21,
         "shared_tags": [
           "alternative hip-hop",
           "hip-hop",
@@ -4363,7 +4363,7 @@
     "recommendations": [
       {
         "slug": "deadbeat",
-        "score": 0.84,
+        "score": 0.83,
         "shared_tags": [
           "dream pop",
           "electronic",
@@ -4523,7 +4523,7 @@
       },
       {
         "slug": "imaginal-disk",
-        "score": 0.57,
+        "score": 0.56,
         "shared_tags": [
           "dream pop",
           "indie pop",
@@ -5651,7 +5651,7 @@
       },
       {
         "slug": "deadbeat",
-        "score": 0.16,
+        "score": 0.15,
         "shared_tags": [
           "dance",
           "electronic",
@@ -6070,7 +6070,7 @@
       },
       {
         "slug": "hurry-up-tomorrow",
-        "score": 0.32,
+        "score": 0.31,
         "shared_tags": [
           "alternative r&b",
           "dark r&b",
@@ -6437,6 +6437,14 @@
         ]
       },
       {
+        "slug": "kiss-land",
+        "score": 0.35,
+        "shared_tags": [
+          "art pop",
+          "synth-pop"
+        ]
+      },
+      {
         "slug": "imaginal-disk",
         "score": 0.35,
         "shared_tags": [
@@ -6447,14 +6455,6 @@
           "pop rock",
           "synth-pop",
           "synthpop"
-        ]
-      },
-      {
-        "slug": "kiss-land",
-        "score": 0.35,
-        "shared_tags": [
-          "art pop",
-          "synth-pop"
         ]
       },
       {
@@ -7397,7 +7397,7 @@
       },
       {
         "slug": "deadbeat",
-        "score": 0.24,
+        "score": 0.23,
         "shared_tags": [
           "dream pop",
           "synth-pop"
@@ -9286,7 +9286,7 @@
     "recommendations": [
       {
         "slug": "imaginal-disk",
-        "score": 0.71,
+        "score": 0.7,
         "shared_tags": [
           "chillwave",
           "dance-pop",
@@ -11009,7 +11009,7 @@
       },
       {
         "slug": "hurry-up-tomorrow",
-        "score": 0.4,
+        "score": 0.39,
         "shared_tags": [
           "alternative r&b",
           "dark r&b",
@@ -11645,7 +11645,7 @@
     "recommendations": [
       {
         "slug": "after-hours",
-        "score": 0.8,
+        "score": 0.78,
         "shared_tags": [
           "alternative r&b",
           "dark pop",
@@ -11696,7 +11696,7 @@
       },
       {
         "slug": "imaginal-disk",
-        "score": 0.48,
+        "score": 0.47,
         "shared_tags": [
           "dance-pop",
           "electropop",
@@ -11810,7 +11810,7 @@
       },
       {
         "slug": "after-hours",
-        "score": 0.86,
+        "score": 0.85,
         "shared_tags": [
           "alternative r&b",
           "dark pop",
@@ -11948,7 +11948,7 @@
       },
       {
         "slug": "after-hours",
-        "score": 0.88,
+        "score": 0.87,
         "shared_tags": [
           "alternative r&b",
           "dark pop",
@@ -13685,6 +13685,15 @@
         ]
       },
       {
+        "slug": "damn",
+        "score": 0.28,
+        "shared_tags": [
+          "hip-hop",
+          "pop rap",
+          "rap"
+        ]
+      },
+      {
         "slug": "bully",
         "score": 0.28,
         "shared_tags": [
@@ -13692,15 +13701,6 @@
           "experimental hip-hop",
           "hip-hop",
           "pop rap"
-        ]
-      },
-      {
-        "slug": "damn",
-        "score": 0.28,
-        "shared_tags": [
-          "hip-hop",
-          "pop rap",
-          "rap"
         ]
       },
       {
@@ -13864,16 +13864,6 @@
         ]
       },
       {
-        "slug": "after-hours",
-        "score": 0.28,
-        "shared_tags": [
-          "dark pop",
-          "pop",
-          "synth-pop",
-          "synthpop"
-        ]
-      },
-      {
         "slug": "beauty-behind-the-madness",
         "score": 0.27,
         "shared_tags": [
@@ -13882,6 +13872,16 @@
           "electropop",
           "pop",
           "synth-pop"
+        ]
+      },
+      {
+        "slug": "after-hours",
+        "score": 0.27,
+        "shared_tags": [
+          "dark pop",
+          "pop",
+          "synth-pop",
+          "synthpop"
         ]
       },
       {
