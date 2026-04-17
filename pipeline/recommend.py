@@ -105,7 +105,7 @@ def build_rec_objects(album, albums, sim_scores, slugs, top_n):
     Parameters
     ----------
     album : dict
-        The source album. Must have 'slug' and 'genres' keys.
+        The source album. Must have 'slug', 'artist', and 'genres' keys.
     albums : list[dict]
         All albums in the catalog.
     sim_scores : np.ndarray
@@ -120,11 +120,17 @@ def build_rec_objects(album, albums, sim_scores, slugs, top_n):
     -------
     list[dict]
         Each dict has keys: slug (str), score (float, 2 dp), shared_tags (list[str]).
+        Same-artist albums are excluded — recommending an artist's other work
+        to someone already on that artist's page adds no discovery value.
     """
     slug_to_idx = {s: i for i, s in enumerate(slugs)}
     i = slug_to_idx[album["slug"]]
     ranked = sorted(
-        [(j, sim_scores[j]) for j in range(len(albums)) if j != i],
+        [
+            (j, sim_scores[j])
+            for j in range(len(albums))
+            if j != i and albums[j]["artist"] != album["artist"]
+        ],
         key=lambda x: x[1],
         reverse=True,
     )

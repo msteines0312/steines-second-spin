@@ -474,6 +474,9 @@
   <div class="recs-grid" id="recsGrid"></div>
 </section>
 
+<!-- MORE BY ARTIST — dynamically populated by js/review.js -->
+<section id="more-by-artist"></section>
+
 <!-- FOOTER -->
 <footer class="site-footer">
   <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
@@ -636,10 +639,8 @@ fetch('../data/albums_final.json')
 
     if (recAlbums.length === 0) {
       recsGrid.innerHTML = '<p style="color:rgba(255,255,255,0.3);font-family:var(--sans);font-size:13px;">No recommendations yet.</p>';
-      return;
-    }
-
-    recsGrid.innerHTML = recAlbums.map(rec => {
+    } else {
+      recsGrid.innerHTML = recAlbums.map(rec => {
       const hasReview = rec.review_url && rec.review_url !== '#';
       const tag  = 'a';
       const href = hasReview ? `href="${rec.id}.html"` : `href="../coming-soon.html#${rec.id}"`;
@@ -655,6 +656,9 @@ fetch('../data/albums_final.json')
         </div>
       </${tag}>`;
     }).join('');
+    }
+
+    renderMoreByArtist(album, albums);
   })
   .catch(() => {
     document.getElementById('albumTitle').textContent = 'Could not load album data.';
@@ -662,6 +666,7 @@ fetch('../data/albums_final.json')
       'Run a local server: python -m http.server 8000 from the project root.';
   });
 </script>
+<script src="../js/review.js"></script>
 <script src="../js/main.js"></script>
 </body>
 </html>
