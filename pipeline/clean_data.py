@@ -38,7 +38,7 @@ _VALID_TAG_RE = re.compile(r"^[a-zA-Z0-9 \-&]+$")
 _JUNK_SUBSTRINGS = [
     "seen live", "favourite", "favorites", "under 2000 listeners",
     "best of", "album of the year",
-    "i love", "i like", "i can",   # "albums i can listen to all the way through"
+    "i love", "i like", "i can", "i own",   # "albums i can...", "cd i own"
     "where is", "my top",
     "fav ",     # trailing space avoids catching "favourite"
     "cum",
@@ -75,7 +75,7 @@ _JUNK_TAGS = {
     # Geographic tags (expanded)
     "maryland", "ohio", "georgia", "florida", "michigan", "chicago",
     "new york", "detroit", "atlanta", "houston", "brooklyn", "queens",
-    "uk", "england", "australian", "irish", "german", "french", "japanese",
+    "uk", "england", "united kingdom", "australian", "irish", "german", "french", "japanese",
     # Label / industry tags
     "domino", "domino records", "columbia", "interscope", "def jam",
     "atlantic", "republic", "sub pop", "matador", "4ad",

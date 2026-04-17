@@ -9,6 +9,10 @@ For each album we make two calls:
 The top 5 filtered tags are extracted from whichever call returns more useful
 results. Raw API responses are saved to data/lastfm/{slug}.json for debugging.
 
+By default, albums that already have a file in data/lastfm/ are skipped so
+that re-running the script only fetches new additions. Pass --force to
+re-fetch every album regardless.
+
 This is an optional enrichment step that runs before clean_data.py so that
 the merged genre tags are available for the recommendation engine:
 
@@ -16,10 +20,12 @@ the merged genre tags are available for the recommendation engine:
                       ->  recommend.py  ->  build_data.py
 
 Run from the project root:
-    python pipeline/fetch_lastfm.py
+    python pipeline/fetch_lastfm.py           # skip already-fetched albums
+    python pipeline/fetch_lastfm.py --force   # re-fetch everything
 """
 
 import json
+import sys
 import time
 from pathlib import Path
 
@@ -51,6 +57,7 @@ JUNK_SUBSTRINGS = [
     "i love",            # personal collection tags: "i love singing along"
     "i like",
     "i can",             # "albums i can listen to all the way through"
+    "i own",             # "cd i own", "albums i own"
     "where is",          # joke tags: "where is my bong"
     "my top",            # list tags: "my top songs"
     "fav ",              # "fav albums" — trailing space avoids matching "favourite"
@@ -86,7 +93,7 @@ _JUNK_EXACT = {
     # Geographic tags (expanded)
     "maryland", "ohio", "georgia", "florida", "michigan", "chicago",
     "new york", "detroit", "atlanta", "houston", "brooklyn", "queens",
-    "uk", "england", "australian", "irish", "german", "french", "japanese",
+    "uk", "england", "united kingdom", "australian", "irish", "german", "french", "japanese",
     # Label / industry tags
     "domino", "domino records", "columbia", "interscope", "def jam",
     "atlantic", "republic", "sub pop", "matador", "4ad",
@@ -269,14 +276,25 @@ def fetch_artist_tags(artist: str) -> tuple[list, dict]:
 
 
 def main():
+    force = "--force" in sys.argv
+
     LASTFM_DIR.mkdir(parents=True, exist_ok=True)
 
     with open(ALBUMS_FILE, "r", encoding="utf-8") as f:
         albums = json.load(f)
 
-    print(f"Fetching Last.fm tags for {len(albums)} albums...\n")
+    to_fetch = albums if force else [a for a in albums if not (LASTFM_DIR / f"{a['id']}.json").exists()]
+    skipped  = len(albums) - len(to_fetch)
 
-    for album in albums:
+    if skipped:
+        print(f"Skipping {skipped} already-fetched album(s). Pass --force to re-fetch all.\n")
+    if not to_fetch:
+        print("All albums already fetched. Nothing to do.")
+        return
+
+    print(f"Fetching Last.fm tags for {len(to_fetch)} album(s)...\n")
+
+    for album in to_fetch:
         slug   = album["id"]
         title  = album["title"]
         artist = album["artist"]
@@ -329,7 +347,7 @@ def main():
         with open(LASTFM_DIR / f"{slug}.json", "w", encoding="utf-8") as f:
             json.dump(out, f, indent=2, ensure_ascii=False)
 
-    print(f"\nDone. Raw responses saved to {LASTFM_DIR.relative_to(ROOT)}/")
+    print(f"\nDone. {len(to_fetch)} album(s) saved to {LASTFM_DIR.relative_to(ROOT)}/")
 
 
 if __name__ == "__main__":

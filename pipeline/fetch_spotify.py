@@ -4,11 +4,17 @@ Connects to the Spotify Web API and fetches album metadata and track-level
 audio features for every album listed in data/albums.json. Saves one raw
 JSON file per album to data/raw/{album-id}.json.
 
+By default, albums that already have a file in data/raw/ are skipped so that
+re-running the script only fetches new additions. Pass --force to re-fetch
+every album regardless.
+
 Run from the project root:
-    python pipeline/fetch_spotify.py
+    python pipeline/fetch_spotify.py           # skip already-fetched albums
+    python pipeline/fetch_spotify.py --force   # re-fetch everything
 """
 
 import json
+import sys
 import time
 from pathlib import Path
 
@@ -105,6 +111,8 @@ def fetch_album(sp: spotipy.Spotify, spotify_album_id: str) -> dict:
 
 
 def main():
+    force = "--force" in sys.argv
+
     # Load SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET from .env
     load_dotenv()
     sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
@@ -114,10 +122,19 @@ def main():
 
     RAW_OUT.mkdir(parents=True, exist_ok=True)
 
-    print(f"Fetching Spotify data for {len(albums)} album(s)...\n")
+    to_fetch = albums if force else [a for a in albums if not (RAW_OUT / f"{a['id']}.json").exists()]
+    skipped  = len(albums) - len(to_fetch)
 
-    for entry in albums:
-        slug       = entry["id"]            # e.g. "mr-morale" (our internal slug)
+    if skipped:
+        print(f"Skipping {skipped} already-fetched album(s). Pass --force to re-fetch all.\n")
+    if not to_fetch:
+        print("All albums already fetched. Nothing to do.")
+        return
+
+    print(f"Fetching Spotify data for {len(to_fetch)} album(s)...\n")
+
+    for entry in to_fetch:
+        slug       = entry["id"]
         spotify_id = extract_spotify_id(entry["spotify_url"])
 
         print(f"  -> {entry['title']} by {entry['artist']}  [{spotify_id}]")
@@ -134,7 +151,6 @@ def main():
             print(f"     {track_count} tracks, {feature_count} audio feature rows  ->  {out_path.name}")
 
         except spotipy.SpotifyException as e:
-            # Catch API errors per album so one failure doesn't abort the whole run
             print(f"     [ERROR] Spotify API error: {e}")
 
         time.sleep(RATE_LIMIT_DELAY)
