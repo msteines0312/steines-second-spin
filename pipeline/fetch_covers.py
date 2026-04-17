@@ -17,6 +17,7 @@ Run from the project root:
     python pipeline/fetch_covers.py
 """
 
+import argparse
 import json
 import time
 from pathlib import Path
@@ -37,6 +38,10 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; steines-second-spin/1.0)"
 }
 # ─────────────────────────────────────────────────────────────────────────────
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--force", action="store_true", help="Re-download covers that already exist")
+args = parser.parse_args()
 
 COVERS_OUT.mkdir(parents=True, exist_ok=True)
 
@@ -73,6 +78,10 @@ for slug in slugs:
 
     if not candidates:
         print(f"  [SKIP] {slug} — no art URL found in either source")
+        continue
+
+    if out_path.exists() and not args.force:
+        print(f"  [SKIP] {slug} — already downloaded")
         continue
 
     saved = False
