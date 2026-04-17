@@ -484,6 +484,10 @@
 
 <script>
 // Vinyl Player
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 let vinylPlaying = false;
 
 function initVinylPlayer(album) {

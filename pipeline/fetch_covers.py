@@ -80,7 +80,7 @@ for slug in slugs:
         print(f"  [SKIP] {slug} — no art URL found in either source")
         continue
 
-    if out_path.exists() and not args.force:
+    if out_path.exists() and out_path.stat().st_size > 0 and not args.force:
         print(f"  [SKIP] {slug} — already downloaded")
         continue
 

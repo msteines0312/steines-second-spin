@@ -488,6 +488,10 @@
 // vinylPlaying declared first so initVinylPlayer (called from the fetch
 // callback below) can reference it without a temporal dead zone issue.
 
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 let vinylPlaying = false;
 
 function initVinylPlayer(album) {
