@@ -249,6 +249,10 @@
 </footer>
 
 <script>
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 function starMarks(n) {
   return Array.from({ length: 5 }, (_, i) =>
     `<span class="star${i < n ? ' filled' : ''}">★</span>`
@@ -260,15 +264,15 @@ function cardHTML(album) {
   return `
     <div class="acard" id="${album.id}">
       <div class="acard-art">
-        <img src="${album.cover_art}" alt="${album.title}" loading="lazy" onerror="this.style.opacity='0'">
+        <img src="${esc(album.cover_art)}" alt="${esc(album.title)}" loading="lazy" onerror="this.style.opacity='0'">
       </div>
       <div class="acard-body">
         <div class="acard-meta">
           <span class="meta-pill">${album.year}</span>
-          <span class="meta-pill">${genre}</span>
+          <span class="meta-pill">${esc(genre)}</span>
         </div>
-        <h3 class="acard-title">${album.title}</h3>
-        <p class="acard-artist">${album.artist}</p>
+        <h3 class="acard-title">${esc(album.title)}</h3>
+        <p class="acard-artist">${esc(album.artist)}</p>
         <span class="in-queue-tag">Review in Queue</span>
       </div>
     </div>`;

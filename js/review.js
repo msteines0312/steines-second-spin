@@ -9,6 +9,14 @@
  *     has no other albums in the catalog.
  */
 
+function esc(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function renderMoreByArtist(album, allAlbums) {
   const section = document.getElementById('more-by-artist');
   if (!section) return;
@@ -30,13 +38,13 @@ function renderMoreByArtist(album, allAlbums) {
     const hasReview = a.review_url && a.review_url !== '#';
     const href      = hasReview ? `${a.id}.html` : `../coming-soon.html#${a.id}`;
     return `
-    <a class="acard${hasReview ? '' : ' acard--locked'}" href="${href}">
+    <a class="acard${hasReview ? '' : ' acard--locked'}" href="${esc(href)}">
       <div class="acard-art">
-        <img src="../${a.cover_art || ''}" alt="${a.title}" loading="lazy" onerror="this.style.background='#888'">
+        <img src="../${esc(a.cover_art || '')}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.background='#888'">
       </div>
       <div class="acard-body">
-        <h3 class="acard-title">${a.title}</h3>
-        <p class="acard-artist">${a.year}</p>
+        <h3 class="acard-title">${esc(a.title)}</h3>
+        <p class="acard-artist">${esc(a.year)}</p>
         ${hasReview ? `<div class="star-row">${stars(a.stars || 0)}</div>` : ''}
       </div>
     </a>`;
@@ -45,7 +53,7 @@ function renderMoreByArtist(album, allAlbums) {
   section.className = 'recs-section';
   section.innerHTML = `
     <div class="recs-header">
-      <div class="recs-eyebrow">More by ${album.artist}</div>
+      <div class="recs-eyebrow">More by ${esc(album.artist)}</div>
       <h2 class="recs-title">From the Same Artist</h2>
     </div>
     <div class="recs-grid">${cards}</div>

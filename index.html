@@ -472,6 +472,10 @@
 </footer>
 
 <script>
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 function starMarks(n) {
   return Array.from({ length: 5 }, (_, i) =>
     `<span class="star${i < n ? ' filled' : ''}">★</span>`
@@ -486,15 +490,15 @@ function cardHTML(album, index) {
   return `
     <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href} style="transition-delay:${index * 80}ms">
       <div class="acard-art">
-        <img src="${album.cover_art}" alt="${album.title}" loading="lazy" onerror="this.style.opacity='0'">
+        <img src="${esc(album.cover_art)}" alt="${esc(album.title)}" loading="lazy" onerror="this.style.opacity='0'">
       </div>
       <div class="acard-body">
         <div class="acard-meta">
           <span class="meta-pill">${album.year}</span>
-          <span class="meta-pill">${(album.genres || [])[0] || ''}</span>
+          <span class="meta-pill">${esc((album.genres || [])[0] || '')}</span>
         </div>
-        <h3 class="acard-title">${album.title}</h3>
-        <p class="acard-artist">${album.artist}</p>
+        <h3 class="acard-title">${esc(album.title)}</h3>
+        <p class="acard-artist">${esc(album.artist)}</p>
         <div class="star-row">${starMarks(album.stars)}</div>
         <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
         ${!hasReview ? `<span class="coming-soon">Review coming soon</span>` : ''}

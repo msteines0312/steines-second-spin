@@ -506,6 +506,10 @@
 </footer>
 
 <script>
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 // ── State ─────────────────────────────────────────────────────────────────────
 let allAlbums = [];
 let activeChips = new Set();  // stores cluster labels, not individual genres
@@ -622,14 +626,14 @@ function renderPicker() {
   grid.innerHTML = filtered.map(a => {
     const isSelected = currentSeed && currentSeed.id === a.id;
     return `
-      <button class="picker-card${isSelected ? ' selected' : ''}" data-slug="${a.id}" aria-label="${a.title} by ${a.artist}">
+      <button class="picker-card${isSelected ? ' selected' : ''}" data-slug="${esc(a.id)}" aria-label="${esc(a.title)} by ${esc(a.artist)}">
         <div class="picker-art">
-          <img src="assets/covers/${a.id}.jpg" alt="${a.title}" loading="lazy" onerror="this.style.background='#888'">
+          <img src="assets/covers/${esc(a.id)}.jpg" alt="${esc(a.title)}" loading="lazy" onerror="this.style.background='#888'">
           ${isSelected ? `<div class="picker-selected-indicator"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>` : ''}
         </div>
         <div class="picker-body">
-          <p class="picker-title">${a.title}</p>
-          <p class="picker-artist">${a.artist}</p>
+          <p class="picker-title">${esc(a.title)}</p>
+          <p class="picker-artist">${esc(a.artist)}</p>
         </div>
       </button>`;
   }).join('');
@@ -640,6 +644,7 @@ function renderPicker() {
     const card = e.target.closest('.picker-card');
     if (!card) return;
     const clicked = allAlbums.find(a => a.id === card.dataset.slug);
+    if (!clicked) return;
     if (currentSeed && currentSeed.id === clicked.id) {
       currentSeed = null;
       renderPicker();
@@ -689,16 +694,16 @@ function renderResults(seed) {
     const hasReview = album.review_url && album.review_url !== '#';
     const pct       = Math.round(rec.score * 100);
     const tagChips  = rec.shared_tags && rec.shared_tags.length > 0
-      ? `<div class="result-tags">${rec.shared_tags.map(t => `<span class="tag-chip">${t}</span>`).join('')}</div>`
+      ? `<div class="result-tags">${rec.shared_tags.map(t => `<span class="tag-chip">${esc(t)}</span>`).join('')}</div>`
       : '';
 
     return `
       <${hasReview ? 'a' : 'div'}
         class="result-card${hasReview ? '' : ' result-card--locked'}"
-        ${hasReview ? `href="${album.review_url}"` : ''}
+        ${hasReview ? `href="${esc(album.review_url)}"` : ''}
       >
         <div class="result-art">
-          <img src="${album.cover_art}" alt="${album.title}" loading="lazy" onerror="this.style.background='#888'">
+          <img src="${esc(album.cover_art)}" alt="${esc(album.title)}" loading="lazy" onerror="this.style.background='#888'">
         </div>
         <div class="result-body">
           <div class="result-score-wrap">
@@ -710,8 +715,8 @@ function renderResults(seed) {
               <div class="result-bar-fill" style="width:${pct}%"></div>
             </div>
           </div>
-          <h3 class="result-title">${album.title}</h3>
-          <p class="result-artist">${album.artist}</p>
+          <h3 class="result-title">${esc(album.title)}</h3>
+          <p class="result-artist">${esc(album.artist)}</p>
           ${tagChips}
           ${hasReview ? `<div class="star-row">${starMarks(album.stars || 0)}</div>` : ''}
           ${hasReview && album.second_spin ? `<span class="spin-badge">Second Spin</span>` : ''}

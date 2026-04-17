@@ -643,7 +643,7 @@ fetch('../data/albums_final.json')
     const genreRow = document.getElementById('genreRow');
     genreRow.innerHTML = (album.genres || [])
       .slice(0, 3)
-      .map(g => `<span class="genre-tag">${g}</span>`)
+      .map(g => `<span class="genre-tag">${esc(g)}</span>`)
       .join('');
 
     // Spotify button href
@@ -656,7 +656,7 @@ fetch('../data/albums_final.json')
     if (album.favorite_track && album.track_url) {
       document.getElementById('favTrack').innerHTML =
         `<p class="fav-track-label">Favorite Track</p>` +
-        `<a class="fav-track-link" href="${album.track_url}" target="_blank" rel="noopener">${album.favorite_track} ↗</a>`;
+        `<a class="fav-track-link" href="${esc(album.track_url)}" target="_blank" rel="noopener">${esc(album.favorite_track)} ↗</a>`;
     }
 
     // ── Recommendations section ──────────────────────────────────────────────
@@ -679,11 +679,11 @@ fetch('../data/albums_final.json')
       return `
       <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href}>
         <div class="acard-art">
-          <img src="${'../' + (rec.cover_art || '')}" alt="${rec.title}" loading="lazy" onerror="this.style.background='#888'">
+          <img src="${'../' + esc(rec.cover_art || '')}" alt="${esc(rec.title)}" loading="lazy" onerror="this.style.background='#888'">
         </div>
         <div class="acard-body">
-          <h3 class="acard-title">${rec.title}</h3>
-          <p class="acard-artist">${rec.artist}</p>
+          <h3 class="acard-title">${esc(rec.title)}</h3>
+          <p class="acard-artist">${esc(rec.artist)}</p>
           ${hasReview ? `<div class="star-row">${starMarks(rec.stars || 0)}</div>` : ''}
         </div>
       </${tag}>`;
