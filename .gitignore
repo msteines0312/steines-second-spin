@@ -1,6 +1,7 @@
 # Claude Code local settings
 .claude/
 CLAUDE.md
+.superpowers/
 
 # Project-specific
 tasks/

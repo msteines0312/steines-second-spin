@@ -1,4 +1,4 @@
-/* styles.css — Steines' Second Spin */
+/* styles.css - Steines' Second Spin */
 /* Shared across every page: reset, variables, nav, mobile nav, footer */
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -93,7 +93,7 @@ body {
   height: 2px;
   background: var(--ink);
 }
-/* Nav collapses at 900px — 7 items including "Hardware Recommendations" overflow below that */
+/* Nav collapses at 900px - 7 items including "Hardware Recommendations" overflow below that */
 @media (max-width: 900px) {
   .site-nav { flex-wrap: wrap; height: auto; min-height: clamp(52px, 7vh, 64px); }
   .nav-toggle { display: flex; }

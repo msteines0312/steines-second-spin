@@ -15,9 +15,9 @@ from recommend import build_rec_objects
 def test_output_format():
     """Each recommendation should be a dict with slug, score, and shared_tags."""
     albums = [
-        {"slug": "a", "genres": ["rock", "indie"]},
-        {"slug": "b", "genres": ["rock", "pop"]},
-        {"slug": "c", "genres": ["jazz"]},
+        {"slug": "a", "artist": "A", "genres": ["rock", "indie"]},
+        {"slug": "b", "artist": "B", "genres": ["rock", "pop"]},
+        {"slug": "c", "artist": "C", "genres": ["jazz"]},
     ]
     slugs = ["a", "b", "c"]
     sim_scores = np.array([1.0, 0.9, 0.1])
@@ -37,8 +37,8 @@ def test_output_format():
 def test_shared_tags_is_intersection():
     """shared_tags should be the intersection of source and rec album genre lists."""
     albums = [
-        {"slug": "x", "genres": ["post-punk", "art rock", "indie"]},
-        {"slug": "y", "genres": ["post-punk", "art rock", "noise"]},
+        {"slug": "x", "artist": "X", "genres": ["post-punk", "art rock", "indie"]},
+        {"slug": "y", "artist": "Y", "genres": ["post-punk", "art rock", "noise"]},
     ]
     slugs = ["x", "y"]
     sim_scores = np.array([1.0, 0.8])
@@ -48,11 +48,27 @@ def test_shared_tags_is_intersection():
     assert set(recs[0]["shared_tags"]) == {"post-punk", "art rock"}
 
 
+def test_shared_tags_case_insensitive():
+    """Genre matching should ignore case so 'Indie Rock' and 'indie rock' match."""
+    albums = [
+        {"slug": "x", "artist": "X", "genres": ["Indie Rock", "Art Rock"]},
+        {"slug": "y", "artist": "Y", "genres": ["indie rock", "noise"]},
+    ]
+    slugs = ["x", "y"]
+    sim_scores = np.array([1.0, 0.8])
+
+    recs = build_rec_objects(albums[0], albums, sim_scores, slugs, top_n=1)
+
+    # Match should succeed despite differing case between the two genre lists
+    assert len(recs[0]["shared_tags"]) == 1
+    assert recs[0]["shared_tags"][0].lower() == "indie rock"
+
+
 def test_excludes_self():
     """The source album should not appear in its own recommendations."""
     albums = [
-        {"slug": "a", "genres": ["rock"]},
-        {"slug": "b", "genres": ["rock"]},
+        {"slug": "a", "artist": "A", "genres": ["rock"]},
+        {"slug": "b", "artist": "B", "genres": ["rock"]},
     ]
     slugs = ["a", "b"]
     sim_scores = np.array([1.0, 0.9])
@@ -65,8 +81,8 @@ def test_excludes_self():
 def test_score_rounded_to_two_decimals():
     """Scores should be rounded to 2 decimal places."""
     albums = [
-        {"slug": "a", "genres": ["rock"]},
-        {"slug": "b", "genres": ["rock"]},
+        {"slug": "a", "artist": "A", "genres": ["rock"]},
+        {"slug": "b", "artist": "B", "genres": ["rock"]},
     ]
     slugs = ["a", "b"]
     sim_scores = np.array([1.0, 0.876543])
@@ -78,7 +94,7 @@ def test_score_rounded_to_two_decimals():
 
 def test_top_n_respected():
     """Returns at most top_n results."""
-    albums = [{"slug": str(i), "genres": ["rock"]} for i in range(5)]
+    albums = [{"slug": str(i), "artist": f"Artist{i}", "genres": ["rock"]} for i in range(5)]
     slugs = [str(i) for i in range(5)]
     sim_scores = np.array([1.0, 0.9, 0.8, 0.7, 0.6])
 
@@ -90,10 +106,10 @@ def test_top_n_respected():
 def test_results_ordered_by_score_descending():
     """Recommendations should be returned highest-score first."""
     albums = [
-        {"slug": "a", "genres": ["rock"]},
-        {"slug": "b", "genres": ["rock"]},
-        {"slug": "c", "genres": ["rock"]},
-        {"slug": "d", "genres": ["rock"]},
+        {"slug": "a", "artist": "A", "genres": ["rock"]},
+        {"slug": "b", "artist": "B", "genres": ["rock"]},
+        {"slug": "c", "artist": "C", "genres": ["rock"]},
+        {"slug": "d", "artist": "D", "genres": ["rock"]},
     ]
     slugs = ["a", "b", "c", "d"]
     sim_scores = np.array([1.0, 0.3, 0.8, 0.6])

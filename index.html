@@ -394,7 +394,7 @@
 }
 @media (max-width: 560px) {
   .album-grid { grid-template-columns: 1fr; }
-  /* Stack form fields vertically — two columns is too cramped on narrow phones */
+  /* Stack form fields vertically - two columns is too cramped on narrow phones */
   .recommend-form { grid-template-columns: 1fr; }
 }
 
@@ -431,9 +431,9 @@
 <section class="grid-section">
   <div class="section-header">
     <h2 class="section-title">Recent Reviews</h2>
-    <span class="section-count" id="albumCount">—</span>
+    <span class="section-count" id="albumCount">...</span>
   </div>
-  <!-- NOTE: fetch() requires a local server (e.g. python -m http.server) — won't work over file:// -->
+  <!-- NOTE: fetch() requires a local server (e.g. python -m http.server) - won't work over file:// -->
   <div class="album-grid" id="albumGrid">
     <div class="grid-message">Loading reviews…</div>
   </div>
@@ -483,7 +483,7 @@ function starMarks(n) {
 }
 
 function cardHTML(album, index) {
-  // Only link the card if there's a real review URL — not "#", null, or missing
+  // Only link the card if there's a real review URL - not "#", null, or missing
   const hasReview = album.review_url && album.review_url !== '#';
   const tag  = hasReview ? 'a' : 'div';
   const href = hasReview ? `href="${album.review_url}"` : '';
@@ -534,7 +534,7 @@ fetch('data/albums_final.json')
       '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
   });
 
-// Recommendation form — opens mailto: in a new tab so the user stays on the page
+// Recommendation form - opens mailto: in a new tab so the user stays on the page
 document.getElementById('recommendForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const album  = document.getElementById('recAlbum').value.trim();

@@ -48,7 +48,7 @@ COVERS_OUT.mkdir(parents=True, exist_ok=True)
 with open(ALBUMS_IN, "r", encoding="utf-8") as f:
     albums = {a["id"]: a for a in json.load(f)}
 
-# albums_clean.json has the Spotify CDN URLs (640x640) — prefer these
+# albums_clean.json has the Spotify CDN URLs (640x640) - prefer these
 with open(CLEAN_IN, "r", encoding="utf-8") as f:
     clean = {a["slug"]: a for a in json.load(f)}
 
@@ -69,7 +69,7 @@ for slug in slugs:
     out_path = COVERS_OUT / f"{slug}.jpg"
 
     # Try sources in priority order: Spotify CDN (reliable, server-side only),
-    # then Wikipedia (fallback — URLs sometimes rot or rate-limit).
+    # then Wikipedia (fallback - URLs sometimes rot or rate-limit).
     candidates = []
     if cl.get("cover_art"):
         candidates.append(("Spotify CDN", cl["cover_art"]))
@@ -77,11 +77,11 @@ for slug in slugs:
         candidates.append(("Wikipedia", ed["art"]))
 
     if not candidates:
-        print(f"  [SKIP] {slug} — no art URL found in either source")
+        print(f"  [SKIP] {slug} - no art URL found in either source")
         continue
 
     if out_path.exists() and out_path.stat().st_size > 0 and not args.force:
-        print(f"  [SKIP] {slug} — already downloaded")
+        print(f"  [SKIP] {slug} - already downloaded")
         continue
 
     saved = False
@@ -92,9 +92,9 @@ for slug in slugs:
             size_kb = try_download(url, out_path)
             print(f"    Saved {size_kb:.1f} KB -> {out_path.relative_to(ROOT)}")
             saved = True
-            break  # success — skip remaining candidates
+            break  # success - skip remaining candidates
         except requests.RequestException as e:
-            print(f"    [WARNING] {source} failed: {e} — trying next source...")
+            print(f"    [WARNING] {source} failed: {e} - trying next source...")
 
     if not saved:
         print(f"    [ERROR] All sources failed for {slug}")

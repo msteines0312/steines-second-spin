@@ -57,7 +57,7 @@ def build_tfidf_matrix(albums: list[dict]) -> tuple[np.ndarray, list[str]]:
       - A tag in only one album gets the maximum IDF value.
 
     Two albums sharing a rare tag like "afrobeat" score much higher than two
-    albums that both carry "rock" — which is exactly what we want.
+    albums that both carry "rock" - which is exactly what we want.
 
     Parameters
     ----------
@@ -120,7 +120,7 @@ def build_rec_objects(album, albums, sim_scores, slugs, top_n):
     -------
     list[dict]
         Each dict has keys: slug (str), score (float, 2 dp), shared_tags (list[str]).
-        Same-artist albums are excluded — recommending an artist's other work
+        Same-artist albums are excluded - recommending an artist's other work
         to someone already on that artist's page adds no discovery value.
     """
     slug_to_idx = {s: i for i, s in enumerate(slugs)}
@@ -134,13 +134,20 @@ def build_rec_objects(album, albums, sim_scores, slugs, top_n):
         key=lambda x: x[1],
         reverse=True,
     )
+    # Case-insensitive intersection so "Indie Rock" and "indie rock" still match.
+    # Manual genres come from albums.json at whatever case the author typed;
+    # Last.fm tags are normalized to lowercase. Without this, same-named genres
+    # from different sources silently fail to match.
+    source_genres_lower = {g.lower() for g in album["genres"]}
     return [
         {
             "slug":        slugs[j],
             "score":       round(float(score), 2),
             # shared_tags uses the display genres list (not tag_weights) so
             # the frontend shows human-readable genre labels, not ML internals
-            "shared_tags": sorted(set(album["genres"]) & set(albums[j]["genres"])),
+            "shared_tags": sorted({
+                g for g in albums[j]["genres"] if g.lower() in source_genres_lower
+            }),
         }
         for j, score in ranked[:top_n]
     ]
@@ -236,7 +243,7 @@ if __name__ == "__main__":
 
 
     # ── Step 3: Compute pairwise cosine similarity ───────────────────────────
-    # cosine_similarity measures the angle between vectors, not magnitude —
+    # cosine_similarity measures the angle between vectors, not magnitude -
     # so an album with 8 genre tags isn't penalized vs. one with 3. Scores
     # range from 0 (nothing in common) to 1 (identical vectors).
     sim_matrix = cosine_similarity(feature_matrix)

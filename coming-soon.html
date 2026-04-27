@@ -76,7 +76,7 @@
   border-left: 1px solid var(--faint);
 }
 
-/* Each card is anchored — recommendation links can jump directly to it */
+/* Each card is anchored - recommendation links can jump directly to it */
 .acard {
   display: block;
   text-decoration: none;
@@ -235,9 +235,9 @@
 <!-- GRID -->
 <main class="main-content">
   <div class="results-header">
-    <span class="results-count" id="resultsCount">—</span>
+    <span class="results-count" id="resultsCount">...</span>
   </div>
-  <!-- NOTE: fetch() requires a local server — run: python -m http.server 8000 from project root -->
+  <!-- NOTE: fetch() requires a local server - run: python -m http.server 8000 from project root -->
   <div class="album-grid" id="albumGrid">
     <div class="grid-message">Loading queue…</div>
   </div>
@@ -285,7 +285,7 @@ fetch('data/albums_final.json')
     const queued = albums.filter(a => !a.review_url || a.review_url === '#');
     const grid = document.getElementById('albumGrid');
     if (queued.length === 0) {
-      grid.innerHTML = '<div class="grid-message">All caught up — no reviews in queue.</div>';
+      grid.innerHTML = '<div class="grid-message">All caught up. No reviews in queue.</div>';
     } else {
       grid.innerHTML = queued.map(cardHTML).join('');
     }

@@ -56,7 +56,7 @@ def fetch_album(sp: spotipy.Spotify, spotify_album_id: str) -> dict:
       1. Full album metadata (name, release date, cover images, label, etc.)
       2. A flat list of every track on the album, handling pagination so that
          double albums (like Mr. Morale & The Big Steppers) are fully covered.
-      3. Audio features per track — danceability, energy, valence, tempo, etc.
+      3. Audio features per track - danceability, energy, valence, tempo, etc.
          These may come back as None if your Spotify app hasn't been granted
          extended quota mode. The rest of the pipeline treats missing features
          as optional, so this is non-fatal.
@@ -76,7 +76,7 @@ def fetch_album(sp: spotipy.Spotify, spotify_album_id: str) -> dict:
     # 1. Full album metadata
     album_meta = sp.album(spotify_album_id)
 
-    # 2. Track list — Spotify paginates at 50 tracks per page, so we loop
+    # 2. Track list - Spotify paginates at 50 tracks per page, so we loop
     #    until response["next"] is None. Most albums fit in one page.
     tracks = []
     page = sp.album_tracks(spotify_album_id, limit=50)
@@ -84,7 +84,7 @@ def fetch_album(sp: spotipy.Spotify, spotify_album_id: str) -> dict:
         tracks.extend(page["items"])
         page = sp.next(page) if page["next"] else None
 
-    # 3. Audio features — batched in groups of 100 (Spotify's max per request).
+    # 3. Audio features - batched in groups of 100 (Spotify's max per request).
     #    This has its own try/except so a tier-restriction error on this endpoint
     #    doesn't prevent the metadata and tracks (fetched above) from being saved.
     track_ids = [t["id"] for t in tracks if t.get("id")]

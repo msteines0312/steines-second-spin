@@ -49,7 +49,7 @@ def extract_review_text(html_path: Path) -> str:
         return ""
 
     paragraphs = body.find_all("p")
-    # Drop the last paragraph — it's always "Favorites: Track, Track, Track"
+    # Drop the last paragraph - it's always "Favorites: Track, Track, Track"
     text_paragraphs = paragraphs[:-1] if len(paragraphs) > 1 else paragraphs
     return " ".join(p.get_text(separator=" ", strip=True) for p in text_paragraphs)
 
@@ -81,12 +81,12 @@ def main():
         html_path  = ROOT / album["review_url"]
 
         if not html_path.exists():
-            print(f"  [skip] {album['title']} — HTML not found at {html_path}")
+            print(f"  [skip] {album['title']} - HTML not found at {html_path}")
             continue
 
         text = extract_review_text(html_path)
         if not text:
-            print(f"  [skip] {album['title']} — no .review-body found")
+            print(f"  [skip] {album['title']} - no .review-body found")
             continue
 
         embedding = model.encode(text, convert_to_numpy=True)

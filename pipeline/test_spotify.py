@@ -23,7 +23,7 @@ print("=" * 60)
 
 albums = results.get("albums", {}).get("items", [])
 if not albums:
-    print("No album found — check your search query.")
+    print("No album found - check your search query.")
 else:
     album_id = albums[0]["id"]
     tracks = sp.album_tracks(album_id)

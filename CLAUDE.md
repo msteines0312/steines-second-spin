@@ -1,13 +1,13 @@
 # CLAUDE.md — Steines' Second Spin
 
-> Auto-generated project memory. Last updated: 2026-04-13
+> Auto-generated project memory. Last updated: 2026-04-16
 > Do not delete — used by Claude Code for session continuity.
 
 ---
 
 ## What This Project Is
 
-A personal music review site (30+ albums, growing) with a Python data pipeline that pulls metadata from Spotify and Last.fm, builds a cosine similarity recommendation engine, and produces a static JSON file the frontend reads. Reviews include star ratings, favorite track callouts, a vinyl disc animation, and algorithm-driven "You Might Also Like" sections.
+A personal music review site (116 albums, growing) with a Python data pipeline that pulls metadata from Spotify and Last.fm, builds a cosine similarity recommendation engine, and produces a static JSON file the frontend reads. Reviews include star ratings, favorite track callouts, a vinyl disc animation, and algorithm-driven "You Might Also Like" sections.
 
 ---
 
@@ -45,6 +45,8 @@ steines-second-spin/
 │   ├── deadbeat.html            # live review (Tame Impala, 3 stars, Second Spin)
 │   ├── bully.html               # live review (Kanye West, 2026)
 │   ├── imaginal-disk.html       # live review (Magdalena Bay, 2024)
+│   ├── heavy-metal.html         # live review
+│   ├── after-hours.html         # live review
 │   └── template.html            # template for new reviews
 ├── assets/covers/           # downloaded cover art JPGs
 ├── css/styles.css           # shared base CSS
@@ -63,8 +65,8 @@ steines-second-spin/
 ## Current Status
 
 - **Phase:** Active development
-- **Catalog size:** 32 albums
-- **Reviews published:** 5 (getting-killed, hurry-up-tomorrow, deadbeat, bully, imaginal-disk)
+- **Catalog size:** 116 albums
+- **Reviews published:** 7 (getting-killed, hurry-up-tomorrow, deadbeat, bully, imaginal-disk, heavy-metal, after-hours)
 - **What works:** Full pipeline, recommendation engine, all review/grid pages, Discover page (mobile-responsive)
 - **What's in progress:** Adding new albums as they're reviewed
 - **What's next:** More review pages
@@ -73,12 +75,14 @@ steines-second-spin/
 
 ## Key Decisions and Conventions
 
-- **No shared CSS/JS per page** — Every HTML file has its own `<style>` block (300-500 lines) and inline `<script>`. Any nav/footer change must be made in all 10 files manually (7 root pages + 3 review subpages).
+- **No shared CSS/JS per page** — Every HTML file has its own `<style>` block (300-500 lines) and inline `<script>`. Any nav/footer change must be made in all 14 files manually (7 root pages + 7 review subpages including template).
 - **Nav order (all pages):** Reviews, Discover, Coming Soon, Hardware Recommendations, About, Favorites, Spotify. Root pages use `discover.html`; review subpages use `../discover.html`.
 - **`data/albums.json` is source of truth** — Add a new album here first; pipeline pulls everything else.
-- **Pipeline run order:** `fetch_spotify.py` → `fetch_lastfm.py` → `clean_data.py` → `recommend.py` → `build_data.py`
+- **Pipeline run order:** `fetch_spotify.py` → `fetch_lastfm.py` → `clean_data.py` → `embed_reviews.py` → `recommend.py` → `build_data.py` → `fetch_covers.py`
+- **Pipeline optimization (added 2026-04-16):** `fetch_spotify.py`, `fetch_lastfm.py`, and `fetch_covers.py` all skip albums/covers that are already cached. Pass `--force` to re-fetch everything. The downstream scripts (clean, recommend, build) always run fully since they produce global outputs.
+- **Never pipe fetch script output** — running `fetch_spotify.py` or `fetch_lastfm.py` with any piped output (`| tail`, `2>&1 > file`, etc.) shells them into the background, stacks multiple instances, and triggers the Spotify rate limit. Run them plain with no output redirection.
 - **Recommendation data format (as of 2026-03-24):** Each rec is an object `{slug, score, shared_tags}`, not a bare string. Read `rec.slug`, not `rec` directly. 10 recs stored per album; review pages show 3 (`.slice(0,3)`), Discover page shows up to 5 (backfill).
-- **Recommendation weights:** genre x3.0, year x0.5, popularity x0.5 before cosine similarity.
+- **Recommendation weights:** genre x3.0, year x0.5, Last.fm listeners x0.5, SBERT review embedding x1.5. Albums without a published review get a zero embedding row (no signal, no penalty).
 - **Discover page genre filter (as of 2026-03-24 polish pass):** Filter chips are collapsed by default behind a toggle button. Chips are 8 keyword-based clusters (Rock, Hip-Hop, Electronic, Folk, R&B/Soul, Pop, Metal, Experimental), not individual genre tags. `activeChips` stores cluster labels; `albumMatchesCluster()` does substring matching against `CLUSTERS` keywords. Adding new albums requires no maintenance to the filter. The 130+ raw Last.fm genre tags are intentionally not exposed in the UI.
 - **Discover page seed picker:** Clicking an already-selected album deselects it and hides the results section. Selecting a new seed always shows results.
 - **No em dashes anywhere** — Not in copy, comments, commit messages, meta tags, or docstrings. Use a period, comma, or restructured sentence instead.
@@ -94,6 +98,7 @@ steines-second-spin/
 ## Known Issues / Gotchas
 
 - `review_url` is `"#"` for albums in the catalog that don't have a written review yet. All conditional UI (stars, badge, links) gates on `review_url !== "#"`.
+- **Last.fm tag noise filtering** is handled in both `fetch_lastfm.py` (`is_junk()`) and `clean_data.py` (`_parse_lastfm_tags`). Both files must be kept in sync. The two filter sets are `JUNK_SUBSTRINGS` (substring match) and `_JUNK_EXACT` / `_JUNK_TAGS` (exact match). Geography, decade, label, mood, demographic, and community tags are all filtered.
 - Spotify Client Credentials auth returns `null` for `popularity` — treated as 50 (neutral midpoint) in the pipeline.
 - `template.html` was historically out of sync with `getting-killed.html` (missing Coming Soon nav item, missing hamburger button). Fixed 2026-03-24; keep them in sync going forward.
 - All `<title>` and `og:title` tags now use hyphens. `discover.html` was the original reference; all others were updated 2026-04-13.

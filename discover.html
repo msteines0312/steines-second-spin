@@ -409,7 +409,7 @@
   /* Tighten horizontal padding so cards have room to breathe */
   .main-content { padding-left: 16px; padding-right: 16px; }
 
-  /* Picker: 4 columns — enough to see art without being too small */
+  /* Picker: 4 columns - enough to see art without being too small */
   .picker-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
   .picker-title { font-size: 9px; }
   .picker-artist { display: none; }
@@ -676,7 +676,7 @@ function renderResults(seed) {
     const recAlbum = allAlbums.find(a => a.id === rec.slug);
     if (!recAlbum) continue;
     // If chips active, skip albums that don't match any selected genre
-    if (activeChips.size > 0 && !(recAlbum.genres || []).some(g => activeChips.has(g))) continue;
+    if (activeChips.size > 0 && ![...activeChips].some(label => albumMatchesCluster(recAlbum, label))) continue;
     results.push({ rec, album: recAlbum });
   }
 

@@ -4,7 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<title>Hurry Up Tomorrow - Steines' Second Spin</title>
+<title>Hurry Up Tomorrow by The Weeknd - Steines' Second Spin</title>
+<meta name="description" content="A review of Hurry Up Tomorrow by The Weeknd (2025). Abel closes his Weeknd era with a cinematic, cohesive finale to the Divine Trilogy.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hurry Up Tomorrow by The Weeknd - Steines' Second Spin">
+<meta property="og:description" content="A review of Hurry Up Tomorrow by The Weeknd (2025). Abel closes his Weeknd era with a cinematic, cohesive finale to the Divine Trilogy.">
+<meta property="og:image" content="../assets/covers/hurry-up-tomorrow.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../css/vinyl.css">
 <style>
@@ -227,7 +233,7 @@
 }
 .review-section .review-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
 
-/* Lead paragraph — Archivo italic, larger */
+/* Lead paragraph - Archivo italic, larger */
 .review-body p:first-of-type {
   font-family: var(--sans);
   font-style: italic;
@@ -345,7 +351,7 @@
   margin: 2px 0 clamp(16px, 3vh, 26px);
 }
 
-/* Favorites callout — last paragraph inside .review-body */
+/* Favorites callout - last paragraph inside .review-body */
 .review-body p:last-of-type {
   font-family: var(--sans);
   font-size: clamp(11px, 1vw, 13px);
@@ -387,7 +393,7 @@
 </head>
 <body>
 
-<!-- NAV — paths go up one level (../) since this file lives in reviews/ -->
+<!-- NAV - paths go up one level (../) since this file lives in reviews/ -->
 <nav class="site-nav">
   <a class="wordmark" href="../index.html">Steines'<span> Second Spin</span></a>
   <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -404,7 +410,7 @@
   </ul>
 </nav>
 
-<!-- ALBUM HEADER — dynamically populated by JS -->
+<!-- ALBUM HEADER - dynamically populated by JS -->
 <header class="album-header" id="albumHeader">
   <div class="vinyl-player">
     <div class="vinyl-stage" onclick="toggleVinyl()">
@@ -466,7 +472,7 @@
   </article>
 </section>
 
-<!-- RECOMMENDATIONS — dynamically populated by JS from album.recommendations -->
+<!-- RECOMMENDATIONS - dynamically populated by JS from album.recommendations -->
 <section class="recs-section">
   <div class="recs-header">
     <div class="recs-eyebrow">More From The Archives</div>
@@ -475,7 +481,7 @@
   <div class="recs-grid" id="recsGrid"></div>
 </section>
 
-<!-- MORE BY ARTIST — dynamically populated by js/review.js -->
+<!-- MORE BY ARTIST - dynamically populated by js/review.js -->
 <section id="more-by-artist"></section>
 
 <!-- FOOTER -->
@@ -501,11 +507,11 @@ function initVinylPlayer(album) {
   const audio = document.getElementById('vinylAudio');
 
   if (album.preview_url) {
-    // 30-second preview available — wire up the audio element
+    // 30-second preview available - wire up the audio element
     audio.src = album.preview_url;
     audio.addEventListener('ended', resetVinyl);
   } else if (album.track_url) {
-    // Spotify deprecated preview URLs — fall back to the track embed widget.
+    // Spotify deprecated preview URLs - fall back to the track embed widget.
     // The iframe is injected dynamically here rather than hard-coded in HTML
     // so pages without a track_url stay clean.
     const embedUrl = album.track_url
@@ -520,7 +526,7 @@ function initVinylPlayer(album) {
     document.querySelector('.vinyl-player').appendChild(wrapper);
   }
 
-  // Auto-start playing state on load — disc spins and tonearm swings in
+  // Auto-start playing state on load - disc spins and tonearm swings in
   vinylPlaying = true;
   document.getElementById('vinylDisc').classList.add('playing');
   document.getElementById('tonearm').classList.add('playing');
@@ -609,7 +615,7 @@ fetch('../data/albums_final.json')
     // Update <title> tag
     document.title = `${album.title} - Steines' Second Spin`;
 
-    // Vinyl player — sets cover art on the disc label and loads the track embed
+    // Vinyl player - sets cover art on the disc label and loads the track embed
     initVinylPlayer(album);
 
     // Ghost background word: first word of the album title, uppercase
@@ -656,7 +662,7 @@ fetch('../data/albums_final.json')
         `https://open.spotify.com/album/${album.spotify_id}`;
     }
 
-    // Favorite track — show name and link to track on Spotify
+    // Favorite track - show name and link to track on Spotify
     if (album.favorite_track && album.track_url) {
       document.getElementById('favTrack').innerHTML =
         `<p class="fav-track-label">Favorite Track</p>` +
@@ -665,7 +671,7 @@ fetch('../data/albums_final.json')
 
     // ── Recommendations section ──────────────────────────────────────────────
     // Look up each recommended slug in the full albums array, then render cards.
-    // Links point to {slug}.html — sibling files in the same reviews/ directory.
+    // Links point to {slug}.html - sibling files in the same reviews/ directory.
     const recsGrid = document.getElementById('recsGrid');
     const recAlbums = (album.recommendations || [])
       .slice(0, 3)

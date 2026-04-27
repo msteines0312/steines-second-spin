@@ -16,8 +16,9 @@ Run from the project root:
 """
 
 import json
-import re
 from pathlib import Path
+
+from tag_filters import is_junk, normalize_tag
 
 
 # ── Config ───────────────────────────────────────────────────────────────────
@@ -27,75 +28,6 @@ ALBUMS_FILE  = ROOT / "data" / "albums.json"   # manual editorial data
 LASTFM_DIR   = ROOT / "data" / "lastfm"        # raw Last.fm responses
 OUT_FILE     = ROOT / "data" / "albums_clean.json"
 # ─────────────────────────────────────────────────────────────────────────────
-
-
-# ── Tag normalization (mirrors fetch_lastfm.py, applied again here so that
-#    stale lastfm JSON files are cleaned even if they predate these rules) ────
-_VALID_TAG_RE = re.compile(r"^[a-zA-Z0-9 \-&]+$")
-
-# Substring checks applied to tag names (case-insensitive) — mirrors
-# fetch_lastfm.py's JUNK_SUBSTRINGS so stale cached files are cleaned on re-run.
-_JUNK_SUBSTRINGS = [
-    "seen live", "favourite", "favorites", "under 2000 listeners",
-    "best of", "album of the year",
-    "i love", "i like", "i can", "i own",   # "albums i can...", "cd i own"
-    "where is", "my top",
-    "fav ",     # trailing space avoids catching "favourite"
-    "cum",
-    "goodness", # "shoegazing goodness" etc.
-]
-
-# Exact-match tags to discard (case-insensitive) — mirrors fetch_lastfm.py.
-# Applied here too so stale lastfm JSON files written before these rules
-# existed are cleaned retroactively when clean_data.py runs.
-_JUNK_TAGS = {
-    # Vague genre labels
-    "indie", "alternative", "progressive",
-    # Generic meta / collection tags
-    "aoty", "albums", "all", "classic albums", "vinyl", "hiphop",
-    # Quality / rating / hype tags
-    "peak", "goated", "goat", "masterpiece", "hot", "hype",
-    "fresh", "beautiful", "classic", "special", "good", "great",
-    "good stuff", "full", "long", "new", "slaps", "drumless",
-    # Mood / descriptor tags (not genre descriptors)
-    "atmospheric", "melancholic", "melancholy", "melodic", "energetic",
-    "aggressive", "sexual", "romantic", "hedonistic", "playful", "powerful",
-    "positive", "warm", "complex", "yearning", "sweet", "soothing", "dreamy",
-    "intense", "bombastic", "witty", "heartbreak", "drugs", "nocturnal",
-    "emotional", "moody", "boisterous", "rhythmic", "bass", "heavy",
-    "funky", "introspective", "sensual", "sexy", "fun", "rage", "slow jams",
-    # Geographic tags
-    "usa", "american", "texas", "california", "london", "los angeles",
-    "toronto", "new jersey", "sweden", "swedish", "british", "canadian",
-    "southern", "urban", "united states", "america", "colombian", "alabama",
-    # Decade tags
-    "2020s", "2010s", "90s", "80s", "70s", "60s",
-    # Demographic tags
-    "male vocalists", "female vocalists", "male vocals", "female vocalist", "diva",
-    # Geographic tags (expanded)
-    "maryland", "ohio", "georgia", "florida", "michigan", "chicago",
-    "new york", "detroit", "atlanta", "houston", "brooklyn", "queens",
-    "uk", "england", "united kingdom", "australian", "irish", "german", "french", "japanese",
-    # Label / industry tags
-    "domino", "domino records", "columbia", "interscope", "def jam",
-    "atlantic", "republic", "sub pop", "matador", "4ad",
-    # Community / random noise
-    "happy", "short", "chill", "wikipedia", "fob", "mixtaperoom",
-    "xotwod", "windmill scene", "post-darling-core", "elevator music",
-    "science", "cover", "bbc", "deposito", "prosty", "synth fumk",
-    "pussy music",
-}
-
-def _normalize_tag(tag: str) -> str:
-    """Lowercase, then apply canonical normalizations.
-
-    Uses word-boundary substitution for "rnb" so that compound tags like
-    "alternative rnb" are also corrected to "alternative r&b".
-    """
-    t = tag.lower().strip()
-    t = t.replace("hip hop", "hip-hop")        # exact phrase replacement
-    t = re.sub(r"\brnb\b", "r&b", t)           # word-boundary: catches "alternative rnb" too
-    return t
 
 
 def _parse_lastfm_tags(tags: list) -> dict[str, float]:
@@ -126,19 +58,10 @@ def _parse_lastfm_tags(tags: list) -> dict[str, float]:
             name   = str(tag).strip()
             weight = DEFAULT_WEIGHT
 
-        if not name or not _VALID_TAG_RE.match(name):
-            continue
-        if name[0].isdigit():
-            continue
-        if re.search(r'\d{4}', name):   # catches year-based tags like "ch2023"
-            continue
-        lower = name.lower()
-        if lower in _JUNK_TAGS:
-            continue
-        if any(sub in lower for sub in _JUNK_SUBSTRINGS):
+        if not name or is_junk(name):
             continue
 
-        normalized = _normalize_tag(name)
+        normalized = normalize_tag(name)
         if normalized not in seen:
             seen.add(normalized)
             result[normalized] = weight
@@ -220,7 +143,7 @@ def extract_album(slug: str, raw: dict, manual_genres: list[str],
     popularity = meta.get("popularity")
 
     # --- Genres (display list) ---
-    # Spotify's album-level genres field is almost always empty — genres are
+    # Spotify's album-level genres field is almost always empty - genres are
     # attached to artists in Spotify's data model. We use the manually curated
     # tags from albums.json merged with any Last.fm tags fetched by
     # fetch_lastfm.py instead. Manual tags come first; Last.fm tags are
@@ -233,7 +156,7 @@ def extract_album(slug: str, raw: dict, manual_genres: list[str],
     # a TF-IDF matrix. Stored separately from the display genres list so the
     # frontend pill count stays manageable while the ML model gets richer signal.
     MANUAL_DEFAULT = 0.7   # editorial intent is a strong but unquantified signal
-    tag_weights = {_normalize_tag(g): MANUAL_DEFAULT for g in manual_genres}
+    tag_weights = {normalize_tag(g): MANUAL_DEFAULT for g in manual_genres}
     for name, weight in lastfm_weights.items():
         # Last.fm weights override the manual default for the same tag
         tag_weights[name] = weight
