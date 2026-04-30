@@ -184,6 +184,11 @@ function applyFiltersAndSort() {
   } else {
     badgeEl.classList.remove('visible');
   }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.acard').forEach(card => observer.observe(card));
 }
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
