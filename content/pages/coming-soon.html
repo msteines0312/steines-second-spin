@@ -1,0 +1,68 @@
+<!-- PAGE HEADER -->
+<header class="page-strip">
+  <div class="page-eyebrow">In Queue</div>
+  <h1 class="page-title">Reviews <em>coming soon.</em></h1>
+  <p class="page-subtitle">Albums I've spun but haven't written up yet. Full reviews are on the way. Until then, here's what's in the queue.</p>
+</header>
+
+<!-- GRID -->
+<main class="main-content">
+  <div class="results-header">
+    <span class="results-count" id="resultsCount">...</span>
+  </div>
+  <div class="album-grid" id="albumGrid">
+    <div class="grid-message">Loading queue…</div>
+  </div>
+</main>
+
+<script>
+function starMarks(n) {
+  return Array.from({ length: 5 }, (_, i) =>
+    `<span class="star${i < n ? ' filled' : ''}">★</span>`
+  ).join('');
+}
+
+function cardHTML(album) {
+  const genre = (album.genres || [])[0] || '';
+  return `
+    <div class="acard" id="${album.id}">
+      <div class="acard-art">
+        <img src="${esc(album.cover_art)}" alt="${esc(album.title)}" loading="lazy" onerror="this.style.opacity='0'">
+      </div>
+      <div class="acard-body">
+        <div class="acard-meta">
+          <span class="meta-pill">${album.year}</span>
+          <span class="meta-pill">${esc(genre)}</span>
+        </div>
+        <h3 class="acard-title">${esc(album.title)}</h3>
+        <p class="acard-artist">${esc(album.artist)}</p>
+        <span class="in-queue-tag">Review in Queue</span>
+      </div>
+    </div>`;
+}
+
+fetch('data/albums_final.json')
+  .then(r => r.json())
+  .then(albums => {
+    const queued = albums.filter(a => !a.review_url || a.review_url === '#');
+    const grid = document.getElementById('albumGrid');
+    if (queued.length === 0) {
+      grid.innerHTML = '<div class="grid-message">All caught up. No reviews in queue.</div>';
+    } else {
+      grid.innerHTML = queued.map(cardHTML).join('');
+    }
+    document.getElementById('resultsCount').textContent =
+      `${queued.length} Album${queued.length !== 1 ? 's' : ''} in Queue`;
+
+    if (window.location.hash) {
+      const target = document.getElementById(window.location.hash.slice(1));
+      if (target) {
+        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+    }
+  })
+  .catch(() => {
+    document.getElementById('albumGrid').innerHTML =
+      '<div class="grid-message">Run a local server to load the queue (python -m http.server in project root).</div>';
+  });
+</script>

@@ -26,11 +26,23 @@ The name is a nod to the idea that a record worth owning deserves more than one 
 
 ## Pipeline
 
-```
-fetch_spotify.py -> fetch_lastfm.py -> clean_data.py -> embed_reviews.py -> recommend.py -> build_data.py
+To update the entire site (fetch data, recalculate recommendations, and build HTML), run:
+
+```bash
+python pipeline/run_all.py
 ```
 
-Adding a new album means dropping an entry in `data/albums.json` and running the pipeline. Spotify and Last.fm fetches skip albums that already have cached data. `embed_reviews.py` extracts text from published review HTML, encodes it with SBERT, and saves 384-dimensional embeddings. The recommender blends all signals into one feature matrix before computing cosine similarity.
+This master script orchestrates the following flow:
+1. `fetch_spotify.py` — Fetches metadata and audio features.
+2. `fetch_lastfm.py` — Enriches genres and listener counts.
+3. `clean_data.py` — Normalizes and merges raw JSON.
+4. `embed_reviews.py` — Generates SBERT embeddings for review text.
+5. `recommend.py` — Calculates cosine similarity matches.
+6. `build_data.py` — Merges all signals into the final frontend JSON.
+7. `fetch_covers.py` — Downloads missing album art.
+8. `build_html.py` — Generates the static site from templates and content.
+
+Adding a new album means dropping an entry in `data/albums.json` and running the pipeline. Spotify and Last.fm fetches skip albums that already have cached data.
 
 ## What I Learned
 

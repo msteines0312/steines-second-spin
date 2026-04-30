@@ -13,7 +13,7 @@ from recommend import build_rec_objects
 
 
 def test_output_format():
-    """Each recommendation should be a dict with slug, score, and shared_tags."""
+    """Verify basic rec object keys and types."""
     albums = [
         {"slug": "a", "artist": "A", "genres": ["rock", "indie"]},
         {"slug": "b", "artist": "B", "genres": ["rock", "pop"]},
@@ -35,7 +35,7 @@ def test_output_format():
 
 
 def test_shared_tags_is_intersection():
-    """shared_tags should be the intersection of source and rec album genre lists."""
+    """Tags should be the overlap between albums."""
     albums = [
         {"slug": "x", "artist": "X", "genres": ["post-punk", "art rock", "indie"]},
         {"slug": "y", "artist": "Y", "genres": ["post-punk", "art rock", "noise"]},
@@ -49,7 +49,7 @@ def test_shared_tags_is_intersection():
 
 
 def test_shared_tags_case_insensitive():
-    """Genre matching should ignore case so 'Indie Rock' and 'indie rock' match."""
+    """Matching should ignore case."""
     albums = [
         {"slug": "x", "artist": "X", "genres": ["Indie Rock", "Art Rock"]},
         {"slug": "y", "artist": "Y", "genres": ["indie rock", "noise"]},
@@ -65,7 +65,7 @@ def test_shared_tags_case_insensitive():
 
 
 def test_excludes_self():
-    """The source album should not appear in its own recommendations."""
+    """Don't recommend the same album."""
     albums = [
         {"slug": "a", "artist": "A", "genres": ["rock"]},
         {"slug": "b", "artist": "B", "genres": ["rock"]},
@@ -79,7 +79,7 @@ def test_excludes_self():
 
 
 def test_score_rounded_to_two_decimals():
-    """Scores should be rounded to 2 decimal places."""
+    """Round scores to 2 places."""
     albums = [
         {"slug": "a", "artist": "A", "genres": ["rock"]},
         {"slug": "b", "artist": "B", "genres": ["rock"]},
@@ -93,7 +93,7 @@ def test_score_rounded_to_two_decimals():
 
 
 def test_top_n_respected():
-    """Returns at most top_n results."""
+    """Limit results to top_n."""
     albums = [{"slug": str(i), "artist": f"Artist{i}", "genres": ["rock"]} for i in range(5)]
     slugs = [str(i) for i in range(5)]
     sim_scores = np.array([1.0, 0.9, 0.8, 0.7, 0.6])
@@ -104,7 +104,7 @@ def test_top_n_respected():
 
 
 def test_results_ordered_by_score_descending():
-    """Recommendations should be returned highest-score first."""
+    """Sort by score desc."""
     albums = [
         {"slug": "a", "artist": "A", "genres": ["rock"]},
         {"slug": "b", "artist": "B", "genres": ["rock"]},

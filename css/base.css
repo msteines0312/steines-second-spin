@@ -1,13 +1,11 @@
-/* styles.css - Steines' Second Spin */
-/* Shared across every page: reset, variables, nav, mobile nav, footer */
-
+/* base.css */
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-/* === RESET === */
+/* Reset */
 html, body { margin: 0; padding: 0; overflow-x: hidden; }
 *, *::before, *::after { box-sizing: border-box; }
 
-/* === CUSTOM PROPERTIES === */
+/* Variables */
 :root {
   --bg:    #ffffff;
   --ink:   #0d0d0d;
@@ -19,7 +17,7 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; }
   --sans:  'Archivo', sans-serif;
 }
 
-/* === BASE === */
+/* Base */
 body {
   background: var(--bg);
   color: var(--ink);
@@ -29,7 +27,7 @@ body {
   line-height: 1.65;
 }
 
-/* === NAV === */
+/* Nav */
 .site-nav {
   position: sticky;
   top: 0;
@@ -76,7 +74,7 @@ body {
 .nav-links a:hover { color: var(--ink); border-bottom-color: var(--ink); }
 .nav-links a.here  { color: var(--ink); border-bottom-color: var(--ink); }
 
-/* === MOBILE NAV === */
+/* Mobile Nav */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -93,7 +91,6 @@ body {
   height: 2px;
   background: var(--ink);
 }
-/* Nav collapses at 900px - 7 items including "Hardware Recommendations" overflow below that */
 @media (max-width: 900px) {
   .site-nav { flex-wrap: wrap; height: auto; min-height: clamp(52px, 7vh, 64px); }
   .nav-toggle { display: flex; }
@@ -103,7 +100,7 @@ body {
   .site-nav.nav-open .nav-links { display: flex; }
 }
 
-/* === FOOTER === */
+/* Footer */
 .site-footer {
   border-top: 1px solid var(--rule);
   padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);

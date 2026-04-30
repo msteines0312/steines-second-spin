@@ -6,435 +6,15 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <title>Reviews - Steines' Second Spin</title>
 <meta property="og:title" content="Reviews - Steines' Second Spin">
-<meta property="og:description" content="Album reviews with ratings, favorite tracks, and honest opinions. No filler.">
+<meta property="og:description" content="">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="css/styles.css">
-<style>
 
-/* === PAGE HEADER === */
-.page-strip {
-  background: var(--ink);
-  padding: clamp(36px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem) clamp(24px, 4vh, 48px);
-  position: relative;
-}
-.page-eyebrow {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 10px;
-  display: flex; align-items: center; gap: 10px;
-}
-.page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
-.page-title {
-  font-family: var(--sans);
-  font-size: clamp(28px, 5vw, 60px);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0;
-  line-height: 1.05;
-}
-.page-title em { font-style: italic; color: rgba(255,255,255,0.5); }
-
-/* === FILTER / SORT BAR === */
-.controls-bar {
-  background: var(--bg);
-  border-bottom: 1px solid var(--rule);
-  padding: 0 clamp(1.5rem, 6vw, 5rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0;
-  min-height: clamp(48px, 6vh, 60px);
-  position: sticky;
-  top: clamp(52px, 7vh, 64px);
-  z-index: 90;
-}
-
-.filter-group {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-}
-
-.filter-btn {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 0 clamp(10px, 1.5vw, 18px);
-  height: clamp(48px, 6vh, 60px);
-  border: none;
-  background: transparent;
-  color: var(--mid);
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
-  white-space: nowrap;
-}
-.filter-btn:hover { color: var(--ink); }
-.filter-btn.active { color: var(--ink); border-bottom-color: var(--ink); }
-
-.sort-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: clamp(8px,1.5vh,12px) 0;
-  border-left: 1px solid var(--faint);
-  padding-left: clamp(12px, 2vw, 20px);
-}
-.sort-label {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
-.sort-select {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--faint);
-  padding: 4px 8px;
-  cursor: pointer;
-  appearance: none;
-  padding-right: 22px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23555555' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 6px center;
-}
-
-/* === MAIN CONTENT === */
-.main-content {
-  padding: clamp(32px, 5vh, 56px) clamp(1.5rem, 6vw, 5rem);
-}
-
-.results-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: clamp(16px, 3vh, 28px);
-}
-.results-count {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-.active-filter-badge {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: rgba(232,24,30,0.08);
-  color: var(--red);
-  border: 1px solid rgba(232,24,30,0.2);
-  padding: 2px 10px;
-  display: none;
-}
-.active-filter-badge.visible { display: inline-block; }
-
-/* === ALBUM GRID === */
-.album-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-left: 1px solid var(--faint);
-}
-
-.acard {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: var(--bg);
-  border-right: 1px solid var(--faint);
-  border-bottom: 1px solid var(--faint);
-  transition: background 0.2s;
-}
-.acard:hover {
-  background: #f7f7f7;
-}
-.acard.hidden {
-  display: none;
-}
-.acard-art {
-  aspect-ratio: 1;
-  background: var(--faint);
-  overflow: hidden;
-}
-.acard-art img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.acard-body {
-  padding: clamp(12px, 2vw, 18px);
-  border-top: 1px solid var(--faint);
-}
-.acard-meta {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-.meta-pill {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-  background: var(--bg);
-  padding: 2px 8px;
-  border: 1px solid var(--faint);
-}
-.acard-title {
-  font-family: var(--sans);
-  font-size: clamp(13px, 1.3vw, 16px);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  line-height: 1.15;
-  margin: 0 0 4px;
-}
-.acard-artist {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--mid);
-  margin: 0 0 10px;
-}
-.star-row {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-.star {
-  font-family: var(--sans);
-  font-size: 13px;
-  line-height: 1;
-  color: var(--faint);
-}
-.star.filled { color: var(--ink); }
-.spin-badge {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 2px 7px;
-  margin-top: 6px;
-  display: inline-block;
-  background: none;
-}
-.spin-badge.yes { color: var(--ink); border: 1.5px solid var(--ink); }
-.spin-badge.no  { color: var(--mid); border: 1px solid var(--faint); }
-.acard-blurb {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.65;
-  color: var(--mid);
-  margin: 8px 0 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* === RECORD CRATE === */
-.crate-card {
-  grid-column: 1 / -1;
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: var(--bg);
-  border-right: 1px solid var(--faint);
-  border-bottom: 1px solid var(--faint);
-  padding: clamp(32px, 5vw, 56px) clamp(24px, 6vw, 80px) 0;
-  cursor: pointer;
-  transition: background 0.2s;
-  overflow: hidden;
-}
-.crate-card:hover { background: #faf8f5; }
-
-.crate-stage {
-  display: flex;
-  justify-content: center;
-}
-
-/* Outer wrapper sets total width of the drawn crate */
-.crate-visual {
-  position: relative;
-  width: clamp(280px, 62vw, 720px);
-}
-
-/* The open top of the crate - records live here */
-.crate-opening {
-  display: flex;
-  align-items: flex-end;
-  height: clamp(120px, 16vw, 200px);
-  /* Inset matches the corner post width so records sit inside */
-  padding: 0 clamp(16px, 2.2vw, 26px);
-  background: linear-gradient(to bottom, rgba(180,140,60,0.08), rgba(180,140,60,0.18));
-  border-left: clamp(16px, 2.2vw, 26px) solid #c9a456;
-  border-right: clamp(16px, 2.2vw, 26px) solid #c9a456;
-  overflow: hidden;
-  gap: clamp(4px, 0.6vw, 8px);
-}
-
-/* Packed spine strips - many thin coloured slices like a full crate */
-.crate-spines {
-  display: flex;
-  align-items: flex-end;
-  gap: 2px;
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  height: 100%;
-}
-.crate-spine {
-  flex-shrink: 0;
-  width: clamp(4px, 0.55vw, 7px);
-  border-radius: 1px 1px 0 0;
-  align-self: flex-end;
-}
-
-/* The 3 featured album covers */
-.crate-featured {
-  display: flex;
-  align-items: flex-end;
-  gap: clamp(3px, 0.4vw, 6px);
-  flex-shrink: 0;
-}
-.crate-album {
-  width: clamp(72px, 10.5vw, 136px);
-  height: clamp(72px, 10.5vw, 136px);
-  flex-shrink: 0;
-  box-shadow: -2px 4px 14px rgba(0,0,0,0.32);
-}
-.crate-album img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.crate-album:nth-child(1) { transform: rotate(-4deg); margin-bottom: 4px; }
-.crate-album:nth-child(2) { transform: rotate(1deg);  margin-bottom: 10px; }
-.crate-album:nth-child(3) { transform: rotate(5deg);  margin-bottom: 2px; }
-
-/* The wooden crate body - light birch with horizontal planks */
-.crate-body {
-  position: relative;
-  height: clamp(52px, 7vw, 90px);
-  /* Three planks separated by darker grooves */
-  background:
-    linear-gradient(to bottom,
-      #b8924a 0px, #b8924a 2px,          /* top rim */
-      #e0c27a 2px,  #e0c27a 33%,         /* plank 1 */
-      #b8924a 33%,  #b8924a calc(33% + 2px),
-      #ddbf74 calc(33% + 2px), #ddbf74 66%,  /* plank 2 */
-      #b8924a 66%,  #b8924a calc(66% + 2px),
-      #d9ba6e calc(66% + 2px), #d9ba6e 100%  /* plank 3 */
-    );
-}
-
-/* Corner posts - slightly darker, with screw dots */
-.crate-post {
-  position: absolute;
-  top: 0; bottom: 0;
-  width: clamp(16px, 2.2vw, 26px);
-  background: #c9a456;
-  border-top: 2px solid #b8924a;
-}
-.crate-post.l { left: 0;  border-left:  2px solid #a07c38; }
-.crate-post.r { right: 0; border-right: 2px solid #a07c38; }
-/* Screw dots */
-.crate-post::before,
-.crate-post::after {
-  content: '';
-  position: absolute;
-  left: 50%; transform: translateX(-50%);
-  width: 5px; height: 5px;
-  background: #8c6830;
-  border-radius: 50%;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.3);
-}
-.crate-post::before { top: 20%; }
-.crate-post::after  { top: 68%; }
-
-.crate-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: clamp(10px, 1.5vw, 16px) 0 clamp(14px, 2vw, 22px);
-  border-top: 1px solid var(--faint);
-}
-.crate-label {
-  font-family: var(--sans);
-  font-size: clamp(12px, 1.1vw, 14px);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-.crate-count {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-.crate-cta {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--red);
-}
-.crate-card:hover .crate-cta { text-decoration: underline; }
-
-.grid-message {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 60px 20px;
-  font-family: var(--sans);
-  font-size: 13px;
-  color: var(--mid);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 900px) { .album-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) {
-  .album-grid { grid-template-columns: 1fr; }
-  .sort-group { display: none; }
-  /* Let filter buttons wrap to a second row rather than overflow off-screen */
-  .filter-group { flex-wrap: wrap; gap: 4px; padding: 8px 0; }
-  .filter-btn { height: auto; padding: 8px clamp(10px, 2vw, 14px); }
-  .controls-bar { padding: 0 clamp(1.5rem, 6vw, 5rem); min-height: auto; }
-}
-
-</style>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/reviews.css">
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="site-nav">
   <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
   <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -442,14 +22,15 @@
   </button>
   <ul class="nav-links">
     <li><a href="reviews.html" class="here">Reviews</a></li>
-    <li><a href="discover.html">Discover</a></li>
-    <li><a href="coming-soon.html">Coming Soon</a></li>
-    <li><a href="gear-page-v2.html">Hardware Recommendations</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="favorites.html">Favorites</a></li>
+    <li><a href="discover.html" class="">Discover</a></li>
+    <li><a href="coming-soon.html" class="">Coming Soon</a></li>
+    <li><a href="gear-page-v2.html" class="">Hardware Recommendations</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="favorites.html" class="">Favorites</a></li>
     <li><a href="https://open.spotify.com/user/msteines12" target="_blank" rel="noopener">Spotify ↗</a></li>
   </ul>
 </nav>
+
 
 <!-- PAGE HEADER -->
 <header class="page-strip">
@@ -483,37 +64,23 @@
     <span class="results-count" id="resultsCount">...</span>
     <span class="active-filter-badge" id="filterBadge"></span>
   </div>
-  <!-- NOTE: fetch() requires a local server - run: python -m http.server 8000 from project root -->
   <div class="album-grid" id="albumGrid">
     <div class="grid-message">Loading reviews…</div>
   </div>
 </main>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
-</footer>
-
 <script>
-function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
 let allAlbums = [];
 let activeGenre = 'all';
 let activeSort = 'newest';
 
-// Maps each filter button to substrings to look for in genre tags.
-// An album matches a category if ANY of its genres contains ANY of these substrings.
 const GENRE_KEYWORDS = {
   'Hip-Hop': ['hip-hop', 'hip hop', 'rap', 'trap', 'drill', 'grime'],
   'R&B':     ['r&b', 'soul', 'neo-soul', 'neo soul', 'rhythm and blues', 'funk'],
-  'Pop':     ['pop'],  // matches synth-pop, indie pop, dream pop, electropop, etc.
+  'Pop':     ['pop'],
   'Rock':    ['rock', 'punk', 'shoegaze', 'lo-fi', 'metal', 'grunge'],
 };
 
-// Returns true if the genre list matches a filter category.
-// "Other" shows albums that don't fit any of the four main categories.
 function matchesGenreFilter(genres, category) {
   if (category === 'all') return true;
   const keywords = GENRE_KEYWORDS[category];
@@ -553,7 +120,6 @@ function cardHTML(album) {
 }
 
 function crateHTML(queued) {
-  // 3 random featured covers
   const picks = [...queued].sort(() => Math.random() - 0.5).slice(0, 3);
   const featured = picks.map(a =>
     `<div class="crate-album">
@@ -561,12 +127,7 @@ function crateHTML(queued) {
     </div>`
   ).join('');
 
-  // Packed spine strips - random colours from a warm/varied palette
-  const palette = [
-    '#e8181e','#d4880a','#2563a8','#1a7a42','#8b3fad','#c95c1a',
-    '#0e7f7f','#b52d6e','#4a6fa5','#c4a020','#5a3ea0','#2e8b57',
-    '#a03030','#e06020','#206080','#806020','#604080','#208060',
-  ];
+  const palette = ['#e8181e','#d4880a','#2563a8','#1a7a42','#8b3fad','#c95c1a','#0e7f7f','#b52d6e','#4a6fa5','#c4a020','#5a3ea0','#2e8b57','#a03030','#e06020','#206080','#806020','#604080','#208060'];
   const spineCount = 28;
   const spines = Array.from({ length: spineCount }, (_, i) => {
     const color = palette[i % palette.length];
@@ -597,21 +158,16 @@ function crateHTML(queued) {
 }
 
 function applyFiltersAndSort() {
-  // Only published reviews go in the grid - queued albums live in the crate
   const published = allAlbums.filter(a => a.review_url && a.review_url !== '#');
   const queued    = allAlbums.filter(a => !a.review_url || a.review_url === '#');
-
   const sorted = [...published].sort((a, b) => {
     if (activeSort === 'newest') return new Date(b.date) - new Date(a.date);
     if (activeSort === 'rating') return b.stars - a.stars;
     if (activeSort === 'az') return a.title.localeCompare(b.title);
     return 0;
   });
-
   const grid = document.getElementById('albumGrid');
   grid.innerHTML = sorted.map(cardHTML).join('') + crateHTML(queued);
-
-  // Genre filter applies only to the published review cards
   let visible = 0;
   document.querySelectorAll('.acard').forEach(card => {
     const genres = (card.dataset.genres || '').split(',').filter(Boolean);
@@ -619,11 +175,9 @@ function applyFiltersAndSort() {
     card.classList.toggle('hidden', !match);
     if (match) visible++;
   });
-
   const countEl = document.getElementById('resultsCount');
   const badgeEl = document.getElementById('filterBadge');
   countEl.textContent = `${visible} Review${visible !== 1 ? 's' : ''}`;
-
   if (activeGenre !== 'all') {
     badgeEl.textContent = activeGenre;
     badgeEl.classList.add('visible');
@@ -632,7 +186,6 @@ function applyFiltersAndSort() {
   }
 }
 
-// Filter buttons
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -642,13 +195,11 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// Sort select
 document.getElementById('sortSelect').addEventListener('change', (e) => {
   activeSort = e.target.value;
   applyFiltersAndSort();
 });
 
-// Load data
 fetch('data/albums_final.json')
   .then(r => r.json())
   .then(albums => {
@@ -656,10 +207,16 @@ fetch('data/albums_final.json')
     applyFiltersAndSort();
   })
   .catch(() => {
-    document.getElementById('albumGrid').innerHTML =
-      '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
+    document.getElementById('albumGrid').innerHTML = '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
   });
 </script>
+
+
+<footer class="site-footer">
+  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
+</footer>
+
+
 <script src="js/main.js"></script>
 </body>
 </html>

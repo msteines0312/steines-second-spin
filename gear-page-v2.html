@@ -4,298 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<title>Hardware Recommendations - Steines' Second Spin</title>
-<meta property="og:title" content="Hardware Recommendations - Steines' Second Spin">
-<meta property="og:description" content="Hardware recommendations for getting the best out of your vinyl setup.">
+<title>Gear-page-v2 - Steines' Second Spin</title>
+<meta property="og:title" content="Gear-page-v2 - Steines' Second Spin">
+<meta property="og:description" content="">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="css/styles.css">
-<style>
 
-/* === HERO === */
-.hero {
-  background: var(--ink);
-  padding: clamp(48px, 9vh, 96px) clamp(1.5rem, 6vw, 5rem);
-  position: relative;
-  overflow: hidden;
-}
-.hero-bg-word {
-  position: absolute;
-  right: -2%; bottom: -10%;
-  font-family: var(--sans);
-  font-size: clamp(100px, 22vw, 280px);
-  font-weight: 900;
-  color: rgba(255,255,255,0.022);
-  pointer-events: none; user-select: none;
-  line-height: 1; letter-spacing: -0.06em;
-}
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: clamp(14px, 2.5vh, 24px);
-}
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: clamp(20px, 3vw, 36px);
-  height: 1px;
-  background: var(--red);
-}
-.hero-hed {
-  font-family: var(--sans);
-  font-size: clamp(32px, 6vw, 76px);
-  font-weight: 900;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: #fff;
-  max-width: 14ch;
-  margin: 0 0 clamp(12px, 2vh, 20px);
-}
-.hero-dek {
-  font-family: var(--sans);
-  font-size: clamp(13px, 1.4vw, 16px);
-  font-weight: 300;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.5);
-  max-width: 50ch;
-  margin: 0;
-}
-
-/* === GEAR SECTION === */
-.gear-section {
-  padding: clamp(40px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem);
-}
-
-.section-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: clamp(24px, 4vh, 40px);
-  border-bottom: 1px solid var(--faint);
-  padding-bottom: 14px;
-}
-.section-title {
-  font-family: var(--sans);
-  font-size: clamp(18px, 2.2vw, 26px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin: 0;
-}
-.section-count {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-
-/* === GEAR GRID === */
-.gear-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-left: 1px solid var(--faint);
-}
-
-/* === GEAR CARD === */
-.gcard {
-  background: var(--bg);
-  border-right: 1px solid var(--faint);
-  border-bottom: 1px solid var(--faint);
-  display: flex;
-  flex-direction: column;
-}
-
-.gcard-image {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  background: #f5f5f5;
-  overflow: hidden;
-}
-.gcard-image img {
-  width: 100%; height: 100%;
-  object-fit: contain;
-  display: block;
-  padding: 12px;
-  transition: transform 0.4s ease;
-}
-.gcard:hover .gcard-image img { transform: scale(1.04); }
-
-/* Image fallback - shown when img fails to load */
-.gcard-image img[data-loaded="false"],
-.gcard-image .img-fallback {
-  display: none;
-}
-.gcard-image.img-error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.gcard-image.img-error::after {
-  content: attr(data-name);
-  font-family: var(--sans);
-  font-style: italic;
-  font-size: clamp(11px, 1.1vw, 14px);
-  color: var(--mid);
-  text-align: center;
-  padding: 16px;
-}
-
-.badge-row {
-  position: absolute;
-  top: 10px; left: 10px;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.badge {
-  font-family: var(--sans);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border: 1px solid;
-}
-.badge--tier {
-  color: var(--ink);
-  background: rgba(255,255,255,0.92);
-  border-color: var(--faint);
-}
-.badge--own {
-  color: #fff;
-  background: var(--red);
-  border-color: var(--red);
-}
-
-.gcard-body {
-  padding: clamp(14px, 2vw, 20px);
-  border-top: 1px solid var(--faint);
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.gcard-price {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--mid);
-  margin: 0 0 6px;
-}
-
-.gcard-name {
-  font-family: var(--sans);
-  font-size: clamp(14px, 1.4vw, 18px);
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.2;
-  margin: 0 0 10px;
-}
-
-.gcard-blurb {
-  font-family: var(--sans);
-  font-size: clamp(11px, 1.05vw, 13px);
-  font-weight: 300;
-  line-height: 1.65;
-  color: var(--mid);
-  margin: 0 0 16px;
-  flex: 1;
-}
-
-.gcard-link {
-  display: inline-block;
-  align-self: flex-start;
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: clamp(8px, 1.2vh, 11px) clamp(14px, 2vw, 20px);
-  background: var(--ink);
-  color: #fff;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.gcard-link:hover { background: #333; }
-
-/* === EDITORIAL NOTE === */
-.editorial-note {
-  padding: clamp(28px, 5vh, 48px) clamp(1.5rem, 6vw, 5rem);
-  background: var(--ink);
-  text-align: center;
-}
-.editorial-note p {
-  font-family: var(--sans);
-  font-style: italic;
-  font-size: clamp(13px, 1.4vw, 17px);
-  color: rgba(255,255,255,0.4);
-  margin: 0;
-  max-width: 60ch;
-  margin-inline: auto;
-}
-.editorial-note p::before,
-.editorial-note p::after {
-  content: '"';
-  color: var(--red);
-}
-
-/* === FOOTER === */
-.site-footer {
-  border-top: 1.5px solid var(--ink);
-  padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-wordmark { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); }
-.footer-wordmark span { color: var(--red); }
-.footer-note { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; color: var(--mid); text-transform: uppercase; }
-
-/* === RESPONSIVE === */
-@media (max-width: 960px) {
-  .gear-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px) {
-  .gear-grid { grid-template-columns: 1fr; }
-  /* Section titles like "Turntables & Record Players" are too long to sit inline with the count */
-  .section-header { flex-wrap: wrap; gap: 2px; }
-}
-
-</style>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/gear-page-v2.css">
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="site-nav">
   <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
   <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
-    <li><a href="reviews.html">Reviews</a></li>
-    <li><a href="discover.html">Discover</a></li>
-    <li><a href="coming-soon.html">Coming Soon</a></li>
-    <li><a href="gear-page-v2.html" class="here">Hardware Recommendations</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="favorites.html">Favorites</a></li>
+    <li><a href="reviews.html" class="">Reviews</a></li>
+    <li><a href="discover.html" class="">Discover</a></li>
+    <li><a href="coming-soon.html" class="">Coming Soon</a></li>
+    <li><a href="gear-page-v2.html" class="">Hardware Recommendations</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="favorites.html" class="">Favorites</a></li>
     <li><a href="https://open.spotify.com/user/msteines12" target="_blank" rel="noopener">Spotify ↗</a></li>
   </ul>
 </nav>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -312,19 +47,13 @@
     <span class="section-count">3 picks</span>
   </div>
   <div class="gear-grid">
-
-    <!-- AT-LP60X -->
     <div class="gcard">
       <div class="gcard-image" data-name="Audio-Technica AT-LP60X">
         <div class="badge-row">
           <span class="badge badge--tier">Budget Pick</span>
           <span class="badge badge--own">I Own This</span>
         </div>
-        <img
-          src="assets/gear/at-lp60x.webp"
-          alt="Audio-Technica AT-LP60X"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <img src="assets/gear/at-lp60x.webp" alt="Audio-Technica AT-LP60X" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">~$179</p>
@@ -332,18 +61,10 @@
         <a class="gcard-link" href="https://www.audio-technica.com/en-us/at-lp60x" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
-    <!-- AT-LP120XUSB -->
     <div class="gcard">
       <div class="gcard-image" data-name="Audio-Technica AT-LP120XUSB">
-        <div class="badge-row">
-          <span class="badge badge--tier">Best Value</span>
-        </div>
-        <img
-          src="assets/gear/at-lp120xusb.webp"
-          alt="Audio-Technica AT-LP120XUSB"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Best Value</span></div>
+        <img src="assets/gear/at-lp120xusb.webp" alt="Audio-Technica AT-LP120XUSB" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">$349–$449</p>
@@ -351,18 +72,10 @@
         <a class="gcard-link" href="https://www.audio-technica.com/en-us/at-lp120xusb" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
-    <!-- Pro-Ject Debut EVO 2 -->
     <div class="gcard">
       <div class="gcard-image" data-name="Pro-Ject Debut EVO 2">
-        <div class="badge-row">
-          <span class="badge badge--tier">Premium Pick</span>
-        </div>
-        <img
-          src="assets/gear/project-debut-evo-2.jpg"
-          alt="Pro-Ject Debut EVO 2"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Premium Pick</span></div>
+        <img src="assets/gear/project-debut-evo-2.jpg" alt="Pro-Ject Debut EVO 2" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">$699–$799</p>
@@ -370,7 +83,6 @@
         <a class="gcard-link" href="https://www.project-audio.com/en/product/debut-evo-2/" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -381,18 +93,10 @@
     <span class="section-count">3 picks</span>
   </div>
   <div class="gear-grid">
-
-    <!-- Edifier R1280T -->
     <div class="gcard">
       <div class="gcard-image" data-name="Edifier R1280T">
-        <div class="badge-row">
-          <span class="badge badge--tier">Budget Pick</span>
-        </div>
-        <img
-          src="assets/gear/edifier-r1280t.jpg"
-          alt="Edifier R1280T"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Budget Pick</span></div>
+        <img src="assets/gear/edifier-r1280t.jpg" alt="Edifier R1280T" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">$120–$150</p>
@@ -400,18 +104,10 @@
         <a class="gcard-link" href="https://www.edifier.com/us/en/speakers/r1280t.html" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
-    <!-- Klipsch R-51PM -->
     <div class="gcard">
       <div class="gcard-image" data-name="Klipsch R-51PM">
-        <div class="badge-row">
-          <span class="badge badge--tier">Best Value</span>
-        </div>
-        <img
-          src="assets/gear/klipsch-r51pm.jpg"
-          alt="Klipsch R-51PM"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Best Value</span></div>
+        <img src="assets/gear/klipsch-r51pm.jpg" alt="Klipsch R-51PM" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">~$349</p>
@@ -419,18 +115,10 @@
         <a class="gcard-link" href="https://www.klipsch.com/products/r-51pm-powered-speaker" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
-    <!-- KEF Q150 -->
     <div class="gcard">
       <div class="gcard-image" data-name="KEF Q150">
-        <div class="badge-row">
-          <span class="badge badge--tier">Premium Pick</span>
-        </div>
-        <img
-          src="assets/gear/kef-q150.jpg"
-          alt="KEF Q150"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Premium Pick</span></div>
+        <img src="assets/gear/kef-q150.jpg" alt="KEF Q150" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">$349–$399</p>
@@ -438,7 +126,6 @@
         <a class="gcard-link" href="https://us.kef.com/products/q150-bookshelf-speaker" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -449,18 +136,10 @@
     <span class="section-count">3 picks</span>
   </div>
   <div class="gear-grid">
-
-    <!-- BCW Poly Sleeves -->
     <div class="gcard">
       <div class="gcard-image" data-name="BCW Inner + Outer Poly Sleeves">
-        <div class="badge-row">
-          <span class="badge badge--tier">Budget Pick</span>
-        </div>
-        <img
-          src="assets/gear/bcw-sleeves.jpg"
-          alt="BCW Poly Inner and Outer Sleeves"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Budget Pick</span></div>
+        <img src="assets/gear/bcw-sleeves.jpg" alt="BCW Poly Inner and Outer Sleeves" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">$10–$20 / 50–100 pack</p>
@@ -468,18 +147,10 @@
         <a class="gcard-link" href="https://www.bcwsupplies.com/audio-video/vinyl-records" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
-    <!-- Mobile Fidelity Inner Sleeves -->
     <div class="gcard">
       <div class="gcard-image" data-name="Mobile Fidelity Original Master Inner Sleeves">
-        <div class="badge-row">
-          <span class="badge badge--tier">Best Value</span>
-        </div>
-        <img
-          src="assets/gear/mofi-sleeves.jpg"
-          alt="Mobile Fidelity Original Master Inner Sleeves"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Best Value</span></div>
+        <img src="assets/gear/mofi-sleeves.jpg" alt="Mobile Fidelity Original Master Inner Sleeves" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">$20–$25 / 50 pack</p>
@@ -487,18 +158,10 @@
         <a class="gcard-link" href="https://www.musicdirect.com/p/mobile-fidelity-sound-lab-original-master-sleeves" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
-    <!-- Nagaoka No.102 -->
     <div class="gcard">
       <div class="gcard-image" data-name="Nagaoka No.102 Anti-Static Inner Sleeves">
-        <div class="badge-row">
-          <span class="badge badge--tier">Premium Pick</span>
-        </div>
-        <img
-          src="assets/gear/nagaoka-sleeves.jpg"
-          alt="Nagaoka No.102 Anti-Static Inner Sleeves"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Premium Pick</span></div>
+        <img src="assets/gear/nagaoka-sleeves.jpg" alt="Nagaoka No.102 Anti-Static Inner Sleeves" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">$20–$30 / 50 pack</p>
@@ -506,7 +169,6 @@
         <a class="gcard-link" href="https://www.needledoctor.com/nagaoka-no-102-anti-static-inner-sleeves" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -517,18 +179,10 @@
     <span class="section-count">3 picks</span>
   </div>
   <div class="gear-grid">
-
-    <!-- Carbon Fiber Brush -->
     <div class="gcard">
       <div class="gcard-image" data-name="Carbon Fiber Anti-Static Record Brush">
-        <div class="badge-row">
-          <span class="badge badge--tier">Budget Pick</span>
-        </div>
-        <img
-          src="assets/gear/carbon-brush.jpg"
-          alt="Carbon Fiber Anti-Static Record Brush"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Budget Pick</span></div>
+        <img src="assets/gear/carbon-brush.jpg" alt="Carbon Fiber Anti-Static Record Brush" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">$15–$25</p>
@@ -536,18 +190,10 @@
         <a class="gcard-link" href="https://www.amazon.com/s?k=carbon+fiber+anti-static+record+brush" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
-    <!-- Spin Clean -->
     <div class="gcard">
       <div class="gcard-image" data-name="Spin Clean Record Washer System Mk II">
-        <div class="badge-row">
-          <span class="badge badge--tier">Best Value</span>
-        </div>
-        <img
-          src="assets/gear/spin-clean.jpg"
-          alt="Spin Clean Record Washer System Mk II"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Best Value</span></div>
+        <img src="assets/gear/spin-clean.jpg" alt="Spin Clean Record Washer System Mk II" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">~$80</p>
@@ -555,18 +201,10 @@
         <a class="gcard-link" href="https://www.spinclean.com/product-page/spin-clean-record-washer-system-mkii" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
-    <!-- Pro-Ject VC-S3 -->
     <div class="gcard">
       <div class="gcard-image" data-name="Pro-Ject VC-S3 Vacuum Record Cleaner">
-        <div class="badge-row">
-          <span class="badge badge--tier">Premium Pick</span>
-        </div>
-        <img
-          src="assets/gear/project-vc-s3.jpg"
-          alt="Pro-Ject VC-S3 Vacuum Record Cleaner"
-          loading="lazy"
-          onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
+        <div class="badge-row"><span class="badge badge--tier">Premium Pick</span></div>
+        <img src="assets/gear/project-vc-s3.jpg" alt="Pro-Ject VC-S3 Vacuum Record Cleaner" loading="lazy" onerror="this.parentElement.classList.add('img-error'); this.style.display='none'">
       </div>
       <div class="gcard-body">
         <p class="gcard-price">~$799</p>
@@ -574,7 +212,6 @@
         <a class="gcard-link" href="https://www.project-audio.com/en/product/vc-s3/" target="_blank" rel="noopener">Buy / Learn More ↗</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -583,19 +220,20 @@
   <p>No sponsored content. No affiliate links. Just what I'd actually buy.</p>
 </div>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
-</footer>
-
-<script src="js/main.js"></script>
 <script>
-  // Auto-update each section's "X picks" count based on actual gcard elements present
   document.querySelectorAll('.gear-section').forEach(function(section) {
     var count = section.querySelectorAll('.gcard').length;
     var label = section.querySelector('.section-count');
     if (label) label.textContent = count + (count === 1 ? ' pick' : ' picks');
   });
 </script>
+
+
+<footer class="site-footer">
+  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
+</footer>
+
+
+<script src="js/main.js"></script>
 </body>
 </html>

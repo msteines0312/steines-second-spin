@@ -1,0 +1,113 @@
+<section class="hero">
+  <div class="hero-eyebrow">Independent Music Reviews</div>
+  <h1 class="hero-hed">Everything deserves a <em>second spin.</em></h1>
+  <p class="hero-dek">Personal album reviews from Madison, Wisconsin. No algorithms, no affiliate links. Just honest takes from someone who listens too much.</p>
+  <a class="hero-cta" href="reviews.html">Browse All Reviews</a>
+</section>
+
+<section class="grid-section">
+  <div class="section-header">
+    <h2 class="section-title">Recent Reviews</h2>
+    <span class="section-count" id="albumCount">...</span>
+  </div>
+  <div class="album-grid" id="albumGrid">
+    <div class="grid-message">Loading reviews…</div>
+  </div>
+</section>
+
+<section class="recommend-section">
+  <div class="recommend-header">
+    <div class="recommend-eyebrow">Reader Picks</div>
+    <h2 class="recommend-hed">What Should I<br>Spin Next?</h2>
+    <p class="recommend-dek">Got a record you think deserves a closer listen? Drop a recommendation. I read every one.</p>
+  </div>
+  <form class="recommend-form" id="recommendForm">
+    <div class="form-field">
+      <label class="form-label" for="recAlbum">Album</label>
+      <input class="form-input" type="text" id="recAlbum" name="album" placeholder="Album title" required>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="recArtist">Artist</label>
+      <input class="form-input" type="text" id="recArtist" name="artist" placeholder="Artist name" required>
+    </div>
+    <div class="form-field full">
+      <label class="form-label" for="recNote">Why should I hear it? <span style="opacity:0.5">(optional)</span></label>
+      <textarea class="form-textarea" id="recNote" name="note" placeholder="Tell me what makes it worth spinning…"></textarea>
+    </div>
+    <div class="form-field">
+      <button class="form-submit" type="submit">Send It</button>
+    </div>
+    <p class="form-thanks" id="formThanks">Your email app should have opened. If it didn't, send it directly to msteines0312@gmail.com.</p>
+  </form>
+</section>
+
+<script>
+function starMarks(n) {
+  return Array.from({ length: 5 }, (_, i) =>
+    `<span class="star${i < n ? ' filled' : ''}">★</span>`
+  ).join('');
+}
+
+function cardHTML(album, index) {
+  const hasReview = album.review_url && album.review_url !== '#';
+  const tag  = hasReview ? 'a' : 'div';
+  const href = hasReview ? `href="${album.review_url}"` : '';
+  return `
+    <${tag} class="acard${hasReview ? '' : ' acard--locked'}" ${href} style="transition-delay:${index * 80}ms">
+      <div class="acard-art">
+        <img src="${esc(album.cover_art)}" alt="${esc(album.title)}" loading="lazy" onerror="this.style.opacity='0'">
+      </div>
+      <div class="acard-body">
+        <div class="acard-meta">
+          <span class="meta-pill">${album.year}</span>
+          <span class="meta-pill">${esc((album.genres || [])[0] || '')}</span>
+        </div>
+        <h3 class="acard-title">${esc(album.title)}</h3>
+        <p class="acard-artist">${esc(album.artist)}</p>
+        <div class="star-row">${starMarks(album.stars)}</div>
+        <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
+        ${!hasReview ? `<span class="coming-soon">Review coming soon</span>` : ''}
+      </div>
+    </${tag}>`;
+}
+
+function setupObserver() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.acard').forEach(card => observer.observe(card));
+}
+
+fetch('data/albums_final.json')
+  .then(r => r.json())
+  .then(albums => {
+    albums.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const reviewed = albums.filter(a => a.review_url && a.review_url !== '#');
+    const grid = document.getElementById('albumGrid');
+    grid.innerHTML = reviewed.map(cardHTML).join('');
+    document.getElementById('albumCount').textContent = `${reviewed.length} Reviews`;
+    setupObserver();
+  })
+  .catch(() => {
+    document.getElementById('albumGrid').innerHTML =
+      '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
+  });
+
+document.getElementById('recommendForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const album  = document.getElementById('recAlbum').value.trim();
+  const artist = document.getElementById('recArtist').value.trim();
+  const note   = document.getElementById('recNote').value.trim();
+  const body = `Album: ${album}\nArtist: ${artist}\nNote: ${note || '(none)'}`;
+  const subject = encodeURIComponent(`Spin Recommendation: ${album} by ${artist}`);
+  const bodyEnc = encodeURIComponent(body);
+  window.open(`mailto:msteines0312@gmail.com?subject=${subject}&body=${bodyEnc}`, '_blank');
+  document.getElementById('formThanks').style.display = 'block';
+  this.reset();
+});
+</script>

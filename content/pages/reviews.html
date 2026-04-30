@@ -1,0 +1,178 @@
+<!-- PAGE HEADER -->
+<header class="page-strip">
+  <div class="page-eyebrow">All Reviews</div>
+  <h1 class="page-title">Every <em>record</em>, ranked.</h1>
+</header>
+
+<!-- FILTER / SORT BAR -->
+<div class="controls-bar">
+  <div class="filter-group">
+    <button class="filter-btn active" data-genre="all">All</button>
+    <button class="filter-btn" data-genre="Hip-Hop">Hip-Hop</button>
+    <button class="filter-btn" data-genre="R&B">R&amp;B</button>
+    <button class="filter-btn" data-genre="Pop">Pop</button>
+    <button class="filter-btn" data-genre="Rock">Rock</button>
+    <button class="filter-btn" data-genre="Other">Other</button>
+  </div>
+  <div class="sort-group">
+    <span class="sort-label">Sort</span>
+    <select class="sort-select" id="sortSelect">
+      <option value="newest">Newest</option>
+      <option value="rating">Highest Rated</option>
+      <option value="az">A – Z</option>
+    </select>
+  </div>
+</div>
+
+<!-- GRID -->
+<main class="main-content">
+  <div class="results-header">
+    <span class="results-count" id="resultsCount">...</span>
+    <span class="active-filter-badge" id="filterBadge"></span>
+  </div>
+  <div class="album-grid" id="albumGrid">
+    <div class="grid-message">Loading reviews…</div>
+  </div>
+</main>
+
+<script>
+let allAlbums = [];
+let activeGenre = 'all';
+let activeSort = 'newest';
+
+const GENRE_KEYWORDS = {
+  'Hip-Hop': ['hip-hop', 'hip hop', 'rap', 'trap', 'drill', 'grime'],
+  'R&B':     ['r&b', 'soul', 'neo-soul', 'neo soul', 'rhythm and blues', 'funk'],
+  'Pop':     ['pop'],
+  'Rock':    ['rock', 'punk', 'shoegaze', 'lo-fi', 'metal', 'grunge'],
+};
+
+function matchesGenreFilter(genres, category) {
+  if (category === 'all') return true;
+  const keywords = GENRE_KEYWORDS[category];
+  if (!keywords) {
+    return !Object.values(GENRE_KEYWORDS).some(kws =>
+      genres.some(g => kws.some(kw => g.includes(kw)))
+    );
+  }
+  return genres.some(g => keywords.some(kw => g.includes(kw)));
+}
+
+function starMarks(n) {
+  return Array.from({ length: 5 }, (_, i) =>
+    `<span class="star${i < n ? ' filled' : ''}">★</span>`
+  ).join('');
+}
+
+function cardHTML(album) {
+  const genre = (album.genres || [])[0] || '';
+  const allGenres = (album.genres || []).map(g => g.toLowerCase()).join(',');
+  return `
+    <a class="acard" href="${esc(album.review_url)}" data-genre="${esc(genre)}" data-genres="${esc(allGenres)}" data-rating="${album.stars}" data-date="${esc(album.date)}" data-title="${esc(album.title)}">
+      <div class="acard-art">
+        <img src="${esc(album.cover_art)}" alt="${esc(album.title)}" loading="lazy" onerror="this.style.opacity='0'">
+      </div>
+      <div class="acard-body">
+        <div class="acard-meta">
+          <span class="meta-pill">${album.year}</span>
+          <span class="meta-pill">${esc(genre)}</span>
+        </div>
+        <h3 class="acard-title">${esc(album.title)}</h3>
+        <p class="acard-artist">${esc(album.artist)}</p>
+        <div class="star-row">${starMarks(album.stars)}</div>
+        <div class="spin-badge ${album.second_spin ? 'yes' : 'no'}">${album.second_spin ? 'Second Spin ✓' : 'One &amp; Done'}</div>
+      </div>
+    </a>`;
+}
+
+function crateHTML(queued) {
+  const picks = [...queued].sort(() => Math.random() - 0.5).slice(0, 3);
+  const featured = picks.map(a =>
+    `<div class="crate-album">
+      <img src="${a.cover_art}" alt="${a.title}" loading="lazy" onerror="this.style.opacity='0.15'">
+    </div>`
+  ).join('');
+
+  const palette = ['#e8181e','#d4880a','#2563a8','#1a7a42','#8b3fad','#c95c1a','#0e7f7f','#b52d6e','#4a6fa5','#c4a020','#5a3ea0','#2e8b57','#a03030','#e06020','#206080','#806020','#604080','#208060'];
+  const spineCount = 28;
+  const spines = Array.from({ length: spineCount }, (_, i) => {
+    const color = palette[i % palette.length];
+    const heightPct = 55 + Math.floor(Math.random() * 42);
+    return `<div class="crate-spine" style="background:${color};height:${heightPct}%"></div>`;
+  }).join('');
+
+  return `
+    <a href="coming-soon.html" class="crate-card">
+      <div class="crate-stage">
+        <div class="crate-visual">
+          <div class="crate-opening">
+            <div class="crate-spines">${spines}</div>
+            <div class="crate-featured">${featured}</div>
+          </div>
+          <div class="crate-body">
+            <div class="crate-post l"></div>
+            <div class="crate-post r"></div>
+          </div>
+        </div>
+      </div>
+      <div class="crate-footer">
+        <span class="crate-label">In the crate</span>
+        <span class="crate-count">${queued.length} albums in queue</span>
+        <span class="crate-cta">Browse all →</span>
+      </div>
+    </a>`;
+}
+
+function applyFiltersAndSort() {
+  const published = allAlbums.filter(a => a.review_url && a.review_url !== '#');
+  const queued    = allAlbums.filter(a => !a.review_url || a.review_url === '#');
+  const sorted = [...published].sort((a, b) => {
+    if (activeSort === 'newest') return new Date(b.date) - new Date(a.date);
+    if (activeSort === 'rating') return b.stars - a.stars;
+    if (activeSort === 'az') return a.title.localeCompare(b.title);
+    return 0;
+  });
+  const grid = document.getElementById('albumGrid');
+  grid.innerHTML = sorted.map(cardHTML).join('') + crateHTML(queued);
+  let visible = 0;
+  document.querySelectorAll('.acard').forEach(card => {
+    const genres = (card.dataset.genres || '').split(',').filter(Boolean);
+    const match = matchesGenreFilter(genres, activeGenre);
+    card.classList.toggle('hidden', !match);
+    if (match) visible++;
+  });
+  const countEl = document.getElementById('resultsCount');
+  const badgeEl = document.getElementById('filterBadge');
+  countEl.textContent = `${visible} Review${visible !== 1 ? 's' : ''}`;
+  if (activeGenre !== 'all') {
+    badgeEl.textContent = activeGenre;
+    badgeEl.classList.add('visible');
+  } else {
+    badgeEl.classList.remove('visible');
+  }
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeGenre = btn.dataset.genre;
+    applyFiltersAndSort();
+  });
+});
+
+document.getElementById('sortSelect').addEventListener('change', (e) => {
+  activeSort = e.target.value;
+  applyFiltersAndSort();
+});
+
+fetch('data/albums_final.json')
+  .then(r => r.json())
+  .then(albums => {
+    allAlbums = albums;
+    applyFiltersAndSort();
+  })
+  .catch(() => {
+    document.getElementById('albumGrid').innerHTML = '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
+  });
+</script>

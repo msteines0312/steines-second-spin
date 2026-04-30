@@ -1,0 +1,284 @@
+import json
+import os
+from pathlib import Path
+
+ROOT          = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = ROOT / "pipeline" / "templates"
+CONTENT_DIR   = ROOT / "content"
+ALBUMS_FILE   = ROOT / "data" / "albums_final.json"
+OUT_DIR       = ROOT
+
+def load_template(name):
+    return (TEMPLATES_DIR / f"{name}.html").read_text(encoding="utf-8")
+
+def build_nav(relative_path, active_page=None):
+    nav = load_template("nav")
+    pages = ["reviews", "discover", "coming-soon", "gear", "about", "favorites"]
+    for page in pages:
+        key = f"{page.upper().replace('-', '_')}_ACTIVE"
+        val = "here" if active_page == page else ""
+        nav = nav.replace(f"{{{{ {key} }}}}", val)
+    return nav.replace("{{ RELATIVE_PATH }}", relative_path)
+
+def build_page(content_name, title, description, relative_path="", active_page=None):
+    base    = load_template("base")
+    nav     = build_nav(relative_path, active_page)
+    footer  = load_template("footer")
+    content = (CONTENT_DIR / "pages" / f"{content_name}.html").read_text(encoding="utf-8")
+
+    css_links = f'<link rel="stylesheet" href="{relative_path}css/base.css">\n'
+    css_links += f'<link rel="stylesheet" href="{relative_path}css/components.css">'
+    
+    # Optional page-specific CSS
+    if (ROOT / "css" / f"{content_name}.css").exists():
+        css_links += f'\n<link rel="stylesheet" href="{{{{ RELATIVE_PATH }}}}css/{content_name}.css">'
+
+    js_links = f'<script src="{relative_path}js/main.js"></script>'
+
+    page = base.replace("{{ TITLE }}", title) \
+               .replace("{{ DESCRIPTION }}", description) \
+               .replace("{{ TYPE }}", "website") \
+               .replace("{{ EXTRA_META }}", "") \
+               .replace("{{ CSS_LINKS }}", css_links) \
+               .replace("{{ NAV }}", nav) \
+               .replace("{{ CONTENT }}", content) \
+               .replace("{{ FOOTER }}", footer) \
+               .replace("{{ JS_LINKS }}", js_links) \
+               .replace("{{ RELATIVE_PATH }}", relative_path)
+
+    out_path = OUT_DIR / f"{content_name}.html"
+    out_path.write_text(page, encoding="utf-8")
+    print(f"  Built {out_path.name}")
+
+def build_review(album, albums_map):
+    base    = load_template("base")
+    nav     = build_nav("../", "reviews")
+    footer  = load_template("footer")
+    
+    content_path = CONTENT_DIR / "reviews" / f"{album['id']}.html"
+    if not content_path.exists():
+        print(f"  [SKIP] Review content missing for {album['id']}")
+        return
+    
+    review_body = content_path.read_text(encoding="utf-8")
+    
+    # Review Header Template (Logic from getting-killed.html)
+    # We build this dynamically based on album data
+    header_html = f'''
+<header class="album-header" id="albumHeader">
+  <div class="vinyl-player">
+    <div class="vinyl-stage" onclick="toggleVinyl()">
+      <div class="vinyl-disc" id="vinylDisc">
+        <div class="vinyl-label">
+          <img id="vinylArt" src="" alt="" onerror="this.style.background='#C84B2F'"/>
+        </div>
+      </div>
+      <div class="tonearm-wrap" id="tonearm">
+        <svg viewBox="0 0 80 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="68" cy="18" r="7" fill="#2a2a26" stroke="#3a3a34" stroke-width="1.5"/>
+          <circle cx="68" cy="18" r="3" fill="#D4A853"/>
+          <path d="M 68 25 Q 50 60 30 140 L 26 155 L 34 157 L 36 142 Q 56 65 68 25 Z"
+                fill="#2a2a26" stroke="#3a3a34" stroke-width="0.5"/>
+          <path d="M 24 153 L 20 165 L 36 168 L 38 155 Z"
+                fill="#1e1e1a" stroke="#3a3a34" stroke-width="0.5"/>
+          <line x1="28" y1="166" x2="27" y2="174" stroke="#888" stroke-width="1.2"/>
+          <circle cx="27" cy="174" r="1.5" fill="#D4A853"/>
+        </svg>
+      </div>
+      <div class="play-hint">
+        <svg id="playIcon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/>
+          <polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>
+        </svg>
+      </div>
+    </div>
+    <audio id="vinylAudio" preload="none"></audio>
+  </div>
+  <div class="album-meta">
+    <a class="back-link" href="../reviews.html">All Reviews</a>
+    <div class="album-eyebrow" id="albumEyebrow">{album['artist']} · {album['year']}</div>
+    <h1 class="album-title" id="albumTitle">{album['title']}</h1>
+    <p class="album-artist" id="albumArtist">{album['artist']}</p>
+    <div class="album-stats" id="albumStats"></div>
+    <div class="star-row" id="starRow"></div>
+    <div id="spinBadge"></div>
+    <div class="genre-row" id="genreRow"></div>
+    <div class="fav-track" id="favTrack"></div>
+    <a class="spotify-btn" id="spotifyBtn" href="#" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.208c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 11-.277-1.215c3.809-.87 7.077-.496 9.712 1.115a.623.623 0 01.207.856zm1.223-2.722a.78.78 0 01-1.072.257c-2.687-1.652-6.786-2.131-9.965-1.166a.78.78 0 01-.973-.519.78.78 0 01.52-.973c3.632-1.102 8.147-.568 11.234 1.329a.78.78 0 01.256 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.937.937 0 11-.543-1.793c3.563-1.08 9.484-.871 13.22 1.37a.937.937 0 01-.06 1.58z"/>
+      </svg>
+      Listen on Spotify
+    </a>
+    <div class="album-header-bg" id="headerBgWord">{album['title'].split(' ')[0].upper()}</div>
+  </div>
+</header>
+
+<section class="review-section">
+  <div class="review-eyebrow">Review</div>
+  <p class="review-byline">By Matt Steines</p>
+  <article class="review-body">
+    {review_body}
+  </article>
+</section>
+
+<section class="recs-section">
+  <div class="recs-header">
+    <div class="recs-eyebrow">More From The Archives</div>
+    <h2 class="recs-title">You Might Also Like</h2>
+  </div>
+  <div class="recs-grid" id="recsGrid"></div>
+</section>
+
+<section id="more-by-artist"></section>
+'''
+
+    # Scripts logic (remains mostly same as in getting-killed.html but wrapped)
+    script_html = f'''
+<script>
+let vinylPlaying = false;
+function initVinylPlayer(album) {{
+  document.getElementById('vinylArt').src = '../' + album.cover_art;
+  document.getElementById('vinylArt').alt = album.title;
+  const audio = document.getElementById('vinylAudio');
+  if (album.preview_url) {{
+    audio.src = album.preview_url;
+    audio.addEventListener('ended', resetVinyl);
+  }} else if (album.track_url) {{
+    const embedUrl = album.track_url.replace('open.spotify.com/track/', 'open.spotify.com/embed/track/') + '?theme=0';
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'width:100%; border-radius:12px; overflow:hidden; margin-top:4px;';
+    wrapper.innerHTML = `<iframe style="border-radius:12px" src="${{embedUrl}}" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+    document.querySelector('.vinyl-player').appendChild(wrapper);
+  }}
+  vinylPlaying = true;
+  document.getElementById('vinylDisc').classList.add('playing');
+  document.getElementById('tonearm').classList.add('playing');
+  document.getElementById('playIcon').innerHTML = `<circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/><rect x="14" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/><rect x="25" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>`;
+  if (audio.src) audio.play();
+}}
+
+function toggleVinyl() {{
+  vinylPlaying = !vinylPlaying;
+  const disc    = document.getElementById('vinylDisc');
+  const tonearm = document.getElementById('tonearm');
+  const playIcon = document.getElementById('playIcon');
+  const audio   = document.getElementById('vinylAudio');
+  if (vinylPlaying) {{
+    disc.classList.add('playing');
+    tonearm.classList.add('playing');
+    if (audio.src) audio.play();
+    playIcon.innerHTML = `<circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/><rect x="14" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/><rect x="25" y="13" width="5" height="18" rx="1" fill="#F5F0E8"/>`;
+  }} else {{
+    disc.classList.remove('playing');
+    tonearm.classList.remove('playing');
+    if (audio.src) audio.pause();
+    playIcon.innerHTML = `<circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/><polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>`;
+  }}
+}}
+
+function resetVinyl() {{
+  vinylPlaying = false;
+  document.getElementById('vinylDisc').classList.remove('playing');
+  document.getElementById('tonearm').classList.remove('playing');
+  document.getElementById('playIcon').innerHTML = `<circle cx="22" cy="22" r="22" fill="rgba(245,240,232,0.15)"/><polygon points="17,13 35,22 17,31" fill="#F5F0E8"/>`;
+}}
+
+function starMarks(n) {{
+  return Array.from({{ length: 5 }}, (_, i) => `<span class="star${{i < n ? ' filled' : ''}}">★</span>`).join('');
+}}
+
+function formatDuration(ms) {{
+  const totalMin = Math.round(ms / 60000);
+  const hrs = Math.floor(totalMin / 60);
+  const mins = totalMin % 60;
+  return hrs > 0 ? `${{hrs}} hr ${{mins}} min` : `${{mins}} min`;
+}}
+
+const slug = "{album['id']}";
+
+fetch('../data/albums_final.json')
+  .then(r => r.json())
+  .then(albums => {{
+    const album = albums.find(a => a.id === slug);
+    if (!album) return;
+    initVinylPlayer(album);
+    const statsEl = document.getElementById('albumStats');
+    const durationStr = album.duration_ms ? formatDuration(album.duration_ms) : null;
+    const pills = [album.year, album.track_count ? `${{album.track_count}} Tracks` : null, durationStr, album.popularity != null ? `Spotify Popularity: ${{album.popularity}}/100` : null].filter(Boolean);
+    statsEl.innerHTML = pills.map(p => `<span class="stat-pill">${{p}}</span>`).join('');
+    document.getElementById('starRow').innerHTML = starMarks(album.stars || 0);
+    const badge = document.getElementById('spinBadge');
+    badge.className = `spin-badge ${{album.second_spin ? 'yes' : 'no'}}`;
+    badge.textContent = album.second_spin ? 'Second Spin ✓' : 'One & Done';
+    const genreRow = document.getElementById('genreRow');
+    genreRow.innerHTML = (album.genres || []).slice(0, 3).map(g => `<span class="genre-tag">${{esc(g)}}</span>`).join('');
+    if (album.spotify_id) document.getElementById('spotifyBtn').href = `https://open.spotify.com/album/${{album.spotify_id}}`;
+    if (album.favorite_track && album.track_url) {{
+      document.getElementById('favTrack').innerHTML = `<p class="fav-track-label">Favorite Track</p><a class="fav-track-link" href="${{esc(album.track_url)}}" target="_blank" rel="noopener">${{esc(album.favorite_track)}} ↗</a>`;
+    }}
+    const recsGrid = document.getElementById('recsGrid');
+    const recAlbums = (album.recommendations || []).slice(0, 3).map(rec => albums.find(a => a.id === rec.slug)).filter(Boolean);
+    if (recAlbums.length === 0) {{
+      recsGrid.innerHTML = '<p style="color:rgba(255,255,255,0.3);font-family:var(--sans);font-size:13px;">No recommendations yet.</p>';
+    }} else {{
+      recsGrid.innerHTML = recAlbums.map(rec => {{
+        const hasReview = rec.review_url && rec.review_url !== '#';
+        const href = hasReview ? `${{rec.id}}.html` : `../coming-soon.html#${{rec.id}}`;
+        return `<a class="acard${{hasReview ? '' : ' acard--locked'}}" href="${{href}}"><div class="acard-art"><img src="../${{esc(rec.cover_art || '')}}" alt="${{esc(rec.title)}}" loading="lazy" onerror="this.style.background='#888'"></div><div class="acard-body"><h3 class="acard-title">${{esc(rec.title)}}</h3><p class="acard-artist">${{esc(rec.artist)}}</p>${{hasReview ? `<div class="star-row">${{starMarks(rec.stars || 0)}}</div>` : ''}}</div></a>`;
+      }}).join('');
+    }}
+    renderMoreByArtist(album, albums);
+  }});
+</script>
+'''
+
+    css_links = f'<link rel="stylesheet" href="../css/base.css">\n'
+    css_links += f'<link rel="stylesheet" href="../css/components.css">\n'
+    css_links += f'<link rel="stylesheet" href="../css/review.css">\n'
+    css_links += f'<link rel="stylesheet" href="../css/vinyl.css">'
+
+    js_links = f'<script src="../js/review.js"></script>\n'
+    js_links += f'<script src="../js/main.js"></script>'
+
+    page = base.replace("{{ TITLE }}", f"{album['title']} - Steines' Second Spin") \
+               .replace("{{ DESCRIPTION }}", f"A review of {album['title']} by {album['artist']} ({album['year']}).") \
+               .replace("{{ TYPE }}", "article") \
+               .replace("{{ EXTRA_META }}", f'<meta property="og:image" content="../{album["cover_art"]}"><meta name="twitter:card" content="summary_large_image">') \
+               .replace("{{ CSS_LINKS }}", css_links) \
+               .replace("{{ NAV }}", nav) \
+               .replace("{{ CONTENT }}", header_html) \
+               .replace("{{ FOOTER }}", footer) \
+               .replace("{{ JS_LINKS }}", script_html + js_links) \
+               .replace("{{ RELATIVE_PATH }}", "../")
+
+    out_path = OUT_DIR / "reviews" / f"{album['id']}.html"
+    out_path.write_text(page, encoding="utf-8")
+    print(f"  Built review: {out_path.name}")
+
+def main():
+    print("Building HTML pages...")
+    
+    # Root pages
+    build_page("index", "Steines' Second Spin", "Record reviews, listening notes, and gear picks.", relative_path="", active_page=None)
+    build_page("discover", "Discover - Steines' Second Spin", "Pick an album you know. Find your next listen.", relative_path="", active_page="discover")
+    
+    # Check if other pages exist in content/pages
+    for p in (CONTENT_DIR / "pages").glob("*.html"):
+        if p.stem not in ["index", "discover"]:
+            # Need titles/descriptions for these too, but let's start with what we have
+            build_page(p.stem, f"{p.stem.capitalize()} - Steines' Second Spin", "", relative_path="", active_page=p.stem)
+
+    # Reviews
+    with open(ALBUMS_FILE, "r", encoding="utf-8") as f:
+        albums = json.load(f)
+    
+    albums_map = {a["id"]: a for a in albums}
+    reviewed = [a for a in albums if a["review_url"] != "#"]
+    
+    print(f"Building {len(reviewed)} review pages...")
+    for album in reviewed:
+        build_review(album, albums_map)
+
+if __name__ == "__main__":
+    main()

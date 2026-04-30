@@ -1,9 +1,22 @@
-// main.js
-// Shared client-side logic for Steines' Second Spin.
+/* main.js */
 
-// Mobile nav toggle -- runs on every page
-document.querySelector('.nav-toggle').addEventListener('click', function() {
-  var nav = document.querySelector('.site-nav');
-  var open = nav.classList.toggle('nav-open');
-  this.setAttribute('aria-expanded', open);
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
 });
+
+// Global escape helper for dynamic HTML
+function esc(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}

@@ -1,0 +1,240 @@
+<header class="page-strip">
+  <div class="page-eyebrow">Find Your Next Listen</div>
+  <h1 class="page-title">Dig Through<br>The Crate</h1>
+</header>
+
+<main class="main-content">
+  <section class="chips-section">
+    <button class="chips-toggle" id="chipsToggle" aria-expanded="false">
+      Filter by genre
+      <span class="chips-toggle-count" id="chipsCount"></span>
+      <svg class="chips-toggle-chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="2,3.5 5,6.5 8,3.5"/>
+      </svg>
+    </button>
+    <div class="chips-wrap" id="chipContainer"></div>
+  </section>
+
+  <p class="section-label" id="pickerLabel">Pick an album to start</p>
+  <div class="picker-grid" id="pickerGrid"></div>
+
+  <section class="results-section" id="resultsSection">
+    <div class="results-header">
+      <div class="results-eyebrow">Similar to</div>
+      <h2 class="results-seed" id="resultsSeed"></h2>
+    </div>
+    <div class="results-grid" id="resultsGrid"></div>
+  </section>
+</main>
+
+<script>
+let allAlbums = [];
+let activeChips = new Set();
+let currentSeed = null;
+
+const CLUSTERS = [
+  { label: 'Rock',        keywords: ['rock', 'punk', 'shoegaze', 'grunge', 'lo-fi', 'noise pop', 'emo', 'krautrock', 'britpop'] },
+  { label: 'Hip-Hop',     keywords: ['hip-hop', 'hip hop', 'rap', 'trap', 'sampling', 'west coast', 'jazz rap', 'dance-rap', 'hip house'] },
+  { label: 'Electronic',  keywords: ['electronic', 'synth', 'electro', 'house', 'edm', 'dance', 'indietronica', 'darkwave', 'industrial', 'ebm', 'synthwave'] },
+  { label: 'Folk',        keywords: ['folk', 'americana', 'country', 'singer-songwriter'] },
+  { label: 'R&B / Soul',  keywords: ['r&b', 'soul', 'funk', 'rhythm and blues'] },
+  { label: 'Pop',         keywords: ['pop'] },
+  { label: 'Metal',       keywords: ['metal', 'djent', 'hardcore', 'screamo'] },
+  { label: 'Experimental',keywords: ['experimental', 'avant-garde', 'progressive', 'psychedelic', 'art rock', 'abstract', 'spoken word', 'instrumental'] },
+];
+
+function albumMatchesCluster(album, clusterLabel) {
+  const cluster = CLUSTERS.find(c => c.label === clusterLabel);
+  if (!cluster) return false;
+  return (album.genres || []).some(genre =>
+    cluster.keywords.some(kw => genre.toLowerCase().includes(kw.toLowerCase()))
+  );
+}
+
+function starMarks(n) {
+  return Array.from({ length: 5 }, (_, i) =>
+    `<span class="star${i < n ? ' filled' : ''}">★</span>`
+  ).join('');
+}
+
+function getFilteredAlbums() {
+  if (activeChips.size === 0) return allAlbums;
+  return allAlbums.filter(a => [...activeChips].some(label => albumMatchesCluster(a, label)));
+}
+
+function updateChipsCount() {
+  const countEl = document.getElementById('chipsCount');
+  if (activeChips.size > 0) {
+    countEl.textContent = `(${activeChips.size})`;
+    countEl.classList.add('visible');
+  } else {
+    countEl.textContent = '';
+    countEl.classList.remove('visible');
+  }
+}
+
+function buildChips() {
+  const container = document.getElementById('chipContainer');
+  container.innerHTML =
+    CLUSTERS.map(c => `<button class="chip" data-genre="${c.label}">${c.label}</button>`).join('') +
+    `<button class="chip-clear" id="clearChips">Clear</button>`;
+
+  container.addEventListener('click', e => {
+    if (e.target.classList.contains('chip')) {
+      const label = e.target.dataset.genre;
+      if (activeChips.has(label)) {
+        activeChips.delete(label);
+        e.target.classList.remove('active');
+      } else {
+        activeChips.add(label);
+        e.target.classList.add('active');
+      }
+      updateChipsCount();
+      renderPicker();
+      if (currentSeed) renderResults(currentSeed);
+    }
+    if (e.target.id === 'clearChips') {
+      activeChips.clear();
+      container.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
+      updateChipsCount();
+      renderPicker();
+      if (currentSeed) renderResults(currentSeed);
+    }
+  });
+
+  const toggle = document.getElementById('chipsToggle');
+  toggle.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    container.classList.toggle('open', !isOpen);
+  });
+}
+
+function renderPicker() {
+  const filtered = getFilteredAlbums();
+  const grid = document.getElementById('pickerGrid');
+  const label = document.getElementById('pickerLabel');
+
+  label.textContent = activeChips.size > 0
+    ? `${filtered.length} album${filtered.length !== 1 ? 's' : ''} match`
+    : 'Pick an album to start';
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-block">
+        <span class="empty-eyebrow">No results</span>
+        <p class="empty-headline">Nothing fits<br>that filter</p>
+        <p class="empty-sub">Try clearing a genre chip.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(a => {
+    const isSelected = currentSeed && currentSeed.id === a.id;
+    return `
+      <button class="picker-card${isSelected ? ' selected' : ''}" data-slug="${esc(a.id)}" aria-label="${esc(a.title)} by ${esc(a.artist)}">
+        <div class="picker-art">
+          <img src="assets/covers/${esc(a.id)}.webp" alt="${esc(a.title)}" loading="lazy" onerror="this.style.background='#888'">
+          ${isSelected ? `<div class="picker-selected-indicator"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>` : ''}
+        </div>
+        <div class="picker-body">
+          <p class="picker-title">${esc(a.title)}</p>
+          <p class="picker-artist">${esc(a.artist)}</p>
+        </div>
+      </button>`;
+  }).join('');
+
+  grid.onclick = e => {
+    const card = e.target.closest('.picker-card');
+    if (!card) return;
+    const clicked = allAlbums.find(a => a.id === card.dataset.slug);
+    if (!clicked) return;
+    if (currentSeed && currentSeed.id === clicked.id) {
+      currentSeed = null;
+      renderPicker();
+      document.getElementById('resultsSection').style.display = 'none';
+    } else {
+      currentSeed = clicked;
+      renderPicker();
+      renderResults(currentSeed);
+      document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+}
+
+function renderResults(seed) {
+  const section = document.getElementById('resultsSection');
+  const grid    = document.getElementById('resultsGrid');
+  const seedEl  = document.getElementById('resultsSeed');
+
+  section.style.display = 'block';
+  seedEl.textContent = seed.title;
+
+  const recs    = seed.recommendations || [];
+  const results = [];
+
+  for (const rec of recs) {
+    if (results.length >= 5) break;
+    const recAlbum = allAlbums.find(a => a.id === rec.slug);
+    if (!recAlbum) continue;
+    if (activeChips.size > 0 && ![...activeChips].some(label => albumMatchesCluster(recAlbum, label))) continue;
+    results.push({ rec, album: recAlbum });
+  }
+
+  if (results.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-block">
+        <span class="empty-eyebrow">No matches</span>
+        <p class="empty-headline">Nothing lines up<br>with those filters</p>
+        <p class="empty-sub">Clear some genre chips to see more.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = results.map(({ rec, album }) => {
+    const hasReview = album.review_url && album.review_url !== '#';
+    const pct       = Math.round(rec.score * 100);
+    const tagChips  = rec.shared_tags && rec.shared_tags.length > 0
+      ? `<div class="result-tags">${rec.shared_tags.map(t => `<span class="tag-chip">${esc(t)}</span>`).join('')}</div>`
+      : '';
+
+    return `
+      <${hasReview ? 'a' : 'div'}
+        class="result-card${hasReview ? '' : ' result-card--locked'}"
+        ${hasReview ? `href="${esc(album.review_url)}"` : ''}
+      >
+        <div class="result-art">
+          <img src="${esc(album.cover_art)}" alt="${esc(album.title)}" loading="lazy" onerror="this.style.background='#888'">
+        </div>
+        <div class="result-body">
+          <div class="result-score-wrap">
+            <div class="result-score-header">
+              <span class="result-score-label">Match score</span>
+              <span class="result-score-num">${pct}%</span>
+            </div>
+            <div class="result-bar-track">
+              <div class="result-bar-fill" style="width:${pct}%"></div>
+            </div>
+          </div>
+          <h3 class="result-title">${esc(album.title)}</h3>
+          <p class="result-artist">${esc(album.artist)}</p>
+          ${tagChips}
+          ${hasReview ? `<div class="star-row">${starMarks(album.stars || 0)}</div>` : ''}
+          ${hasReview && album.second_spin ? `<span class="spin-badge">Second Spin</span>` : ''}
+        </div>
+      </${hasReview ? 'a' : 'div'}>`;
+  }).join('');
+}
+
+fetch('data/albums_final.json')
+  .then(r => r.json())
+  .then(albums => {
+    allAlbums = albums;
+    buildChips();
+    renderPicker();
+  })
+  .catch(() => {
+    document.getElementById('pickerGrid').innerHTML =
+      '<p class="empty-state">Could not load album data. Run a local server: python -m http.server 8000</p>';
+  });
+</script>

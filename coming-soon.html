@@ -4,226 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<title>Coming Soon - Steines' Second Spin</title>
-<meta property="og:title" content="Coming Soon - Steines' Second Spin">
-<meta property="og:description" content="Albums queued up for review. What's next in the crate.">
+<title>Coming-soon - Steines' Second Spin</title>
+<meta property="og:title" content="Coming-soon - Steines' Second Spin">
+<meta property="og:description" content="">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="css/styles.css">
-<style>
 
-/* === PAGE HEADER === */
-.page-strip {
-  background: var(--ink);
-  padding: clamp(36px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem) clamp(24px, 4vh, 48px);
-  position: relative;
-}
-.page-eyebrow {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 10px;
-  display: flex; align-items: center; gap: 10px;
-}
-.page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
-.page-title {
-  font-family: var(--sans);
-  font-size: clamp(28px, 5vw, 60px);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0;
-  line-height: 1.05;
-}
-.page-title em { font-style: italic; color: rgba(255,255,255,0.5); }
-.page-subtitle {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.55);
-  margin: 14px 0 0;
-  max-width: 520px;
-}
-
-/* === MAIN CONTENT === */
-.main-content {
-  padding: clamp(32px, 5vh, 56px) clamp(1.5rem, 6vw, 5rem);
-}
-
-.results-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: clamp(16px, 3vh, 28px);
-}
-.results-count {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-
-/* === ALBUM GRID === */
-.album-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-left: 1px solid var(--faint);
-}
-
-/* Each card is anchored - recommendation links can jump directly to it */
-.acard {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: var(--bg);
-  border-right: 1px solid var(--faint);
-  border-bottom: 1px solid var(--faint);
-  scroll-margin-top: clamp(52px, 7vh, 64px); /* offset for sticky nav */
-}
-.acard-art {
-  aspect-ratio: 1;
-  background: var(--faint);
-  overflow: hidden;
-  position: relative;
-}
-.acard-art img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
-/* Subtle overlay to signal "not yet published" */
-.acard-art::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.08);
-  pointer-events: none;
-}
-.acard-body {
-  padding: clamp(12px, 2vw, 18px);
-  border-top: 1px solid var(--faint);
-}
-.acard-meta {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-.meta-pill {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-  background: var(--bg);
-  padding: 2px 8px;
-  border: 1px solid var(--faint);
-}
-.acard-title {
-  font-family: var(--sans);
-  font-size: clamp(13px, 1.3vw, 16px);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  line-height: 1.15;
-  margin: 0 0 4px;
-}
-.acard-artist {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--mid);
-  margin: 0 0 10px;
-}
-.star-row {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-.star {
-  font-family: var(--sans);
-  font-size: 13px;
-  line-height: 1;
-  color: var(--faint);
-}
-.star.filled { color: var(--ink); }
-.spin-badge {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 2px 7px;
-  margin-top: 6px;
-  display: inline-block;
-  background: none;
-}
-.spin-badge.yes { color: var(--ink); border: 1.5px solid var(--ink); }
-.spin-badge.no  { color: var(--mid); border: 1px solid var(--faint); }
-.acard-blurb {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.65;
-  color: var(--mid);
-  margin: 8px 0 0;
-}
-.in-queue-tag {
-  display: inline-block;
-  margin-top: 10px;
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--red);
-  border: 1px solid rgba(232,24,30,0.25);
-  padding: 2px 8px;
-}
-
-.grid-message {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 60px 20px;
-  font-family: var(--sans);
-  font-size: 13px;
-  color: var(--mid);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 900px) { .album-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) {
-  .album-grid { grid-template-columns: 1fr; }
-}
-
-</style>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/coming-soon.css">
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="site-nav">
   <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
   <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
-    <li><a href="reviews.html">Reviews</a></li>
-    <li><a href="discover.html">Discover</a></li>
+    <li><a href="reviews.html" class="">Reviews</a></li>
+    <li><a href="discover.html" class="">Discover</a></li>
     <li><a href="coming-soon.html" class="here">Coming Soon</a></li>
-    <li><a href="gear-page-v2.html">Hardware Recommendations</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="favorites.html">Favorites</a></li>
+    <li><a href="gear-page-v2.html" class="">Hardware Recommendations</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="favorites.html" class="">Favorites</a></li>
     <li><a href="https://open.spotify.com/user/msteines12" target="_blank" rel="noopener">Spotify ↗</a></li>
   </ul>
 </nav>
+
 
 <!-- PAGE HEADER -->
 <header class="page-strip">
@@ -237,22 +44,12 @@
   <div class="results-header">
     <span class="results-count" id="resultsCount">...</span>
   </div>
-  <!-- NOTE: fetch() requires a local server - run: python -m http.server 8000 from project root -->
   <div class="album-grid" id="albumGrid">
     <div class="grid-message">Loading queue…</div>
   </div>
 </main>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
-</footer>
-
 <script>
-function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
 function starMarks(n) {
   return Array.from({ length: 5 }, (_, i) =>
     `<span class="star${i < n ? ' filled' : ''}">★</span>`
@@ -281,7 +78,6 @@ function cardHTML(album) {
 fetch('data/albums_final.json')
   .then(r => r.json())
   .then(albums => {
-    // Only show albums without a published review
     const queued = albums.filter(a => !a.review_url || a.review_url === '#');
     const grid = document.getElementById('albumGrid');
     if (queued.length === 0) {
@@ -292,7 +88,6 @@ fetch('data/albums_final.json')
     document.getElementById('resultsCount').textContent =
       `${queued.length} Album${queued.length !== 1 ? 's' : ''} in Queue`;
 
-    // If URL has a hash, scroll to that album card after rendering
     if (window.location.hash) {
       const target = document.getElementById(window.location.hash.slice(1));
       if (target) {
@@ -305,6 +100,13 @@ fetch('data/albums_final.json')
       '<div class="grid-message">Run a local server to load the queue (python -m http.server in project root).</div>';
   });
 </script>
+
+
+<footer class="site-footer">
+  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
+</footer>
+
+
 <script src="js/main.js"></script>
 </body>
 </html>

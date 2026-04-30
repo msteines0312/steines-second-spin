@@ -6,420 +6,32 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <title>Steines' Second Spin</title>
 <meta property="og:title" content="Steines' Second Spin">
-<meta property="og:description" content="Record reviews, listening notes, and gear picks from a serious music listener in Madison, WI.">
+<meta property="og:description" content="Record reviews, listening notes, and gear picks.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="css/styles.css">
-<style>
 
-/* === HERO === */
-.hero {
-  background: var(--ink);
-  padding: clamp(48px, 9vh, 96px) clamp(1.5rem, 6vw, 5rem);
-  position: relative;
-}
-
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: clamp(14px, 2.5vh, 24px);
-}
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: clamp(20px, 3vw, 36px);
-  height: 1px;
-  background: var(--red);
-}
-
-.hero-hed {
-  font-family: var(--sans);
-  font-size: clamp(52px, 8vw, 96px);
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: #fff;
-  max-width: 16ch;
-  margin: 0 0 clamp(12px, 2vh, 20px);
-}
-.hero-hed em {
-  font-style: italic;
-  color: rgba(255,255,255,0.5);
-}
-
-.hero-dek {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.5);
-  max-width: 50ch;
-  margin: 0 0 clamp(24px, 4vh, 40px);
-}
-
-.hero-cta {
-  display: inline-block;
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: clamp(10px,1.5vh,14px) clamp(20px,3vw,30px);
-  background: var(--red);
-  color: #fff;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.hero-cta:hover { background: #c41018; }
-
-/* === GRID SECTION === */
-.grid-section {
-  padding: clamp(40px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem);
-}
-
-.section-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: clamp(20px, 4vh, 36px);
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 14px;
-}
-
-.section-title {
-  font-family: var(--sans);
-  font-size: clamp(16px, 2vw, 22px);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin: 0;
-}
-
-.section-count {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-
-.album-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-left: 1px solid var(--faint);
-}
-
-/* === ALBUM CARD === */
-.acard {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: var(--bg);
-  border-right: 1px solid var(--faint);
-  border-bottom: 1px solid var(--faint);
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.55s ease, transform 0.55s ease, background 0.2s;
-}
-.acard.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.acard:hover {
-  background: #f7f7f7;
-}
-
-.acard-art {
-  aspect-ratio: 1;
-  background: var(--faint);
-  overflow: hidden;
-}
-.acard-art img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.acard-body {
-  padding: clamp(12px, 2vw, 18px);
-  border-top: 1px solid var(--faint);
-}
-
-.acard-meta {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-
-.meta-pill {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-  background: var(--bg);
-  padding: 2px 8px;
-  border: 1px solid var(--faint);
-}
-
-.acard-title {
-  font-family: var(--sans);
-  font-size: clamp(13px, 1.3vw, 16px);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  line-height: 1.15;
-  margin: 0 0 4px;
-}
-
-.acard-artist {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--mid);
-  margin: 0 0 10px;
-}
-
-.star-row {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.star {
-  font-family: var(--sans);
-  font-size: 13px;
-  line-height: 1;
-  color: var(--faint);
-}
-.star.filled { color: var(--ink); }
-
-.spin-badge {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 2px 7px;
-  margin-top: 6px;
-  display: inline-block;
-  background: none;
-}
-.spin-badge.yes { color: var(--ink); border: 1.5px solid var(--ink); }
-.spin-badge.no  { color: var(--mid); border: 1px solid var(--faint); }
-
-.acard-blurb {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.65;
-  color: var(--mid);
-  margin: 8px 0 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Cards without a published review */
-.acard--locked { cursor: default; }
-.acard--locked:hover { background: var(--bg); }
-.coming-soon {
-  display: inline-block;
-  margin-top: 8px;
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
-
-/* === EMPTY / ERROR STATE === */
-.grid-message {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 60px 20px;
-  font-family: var(--sans);
-  font-size: 13px;
-  color: var(--mid);
-}
-
-/* === RECOMMEND FORM === */
-.recommend-section {
-  padding: clamp(40px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem);
-  background: var(--ink);
-  position: relative;
-}
-
-.recommend-header {
-  margin-bottom: clamp(24px, 4vh, 40px);
-}
-
-.recommend-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: clamp(10px, 1.5vh, 16px);
-}
-.recommend-eyebrow::before {
-  content: '';
-  display: block;
-  width: clamp(20px, 3vw, 36px);
-  height: 1px;
-  background: var(--red);
-}
-
-.recommend-hed {
-  font-family: var(--sans);
-  font-size: clamp(24px, 4vw, 52px);
-  font-weight: 900;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0 0 clamp(8px, 1.5vh, 14px);
-}
-
-.recommend-dek {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.4);
-  max-width: 52ch;
-  line-height: 1.65;
-  margin: 0;
-}
-
-.recommend-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(12px, 2vw, 18px);
-  max-width: 680px;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.form-field.full { grid-column: 1 / -1; }
-
-.form-label {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-}
-
-.form-input,
-.form-textarea {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 300;
-  color: #fff;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: clamp(10px, 1.5vh, 14px) clamp(12px, 1.5vw, 16px);
-  outline: none;
-  transition: border-color 0.2s, background 0.2s;
-  width: 100%;
-}
-.form-input::placeholder,
-.form-textarea::placeholder {
-  color: rgba(255,255,255,0.2);
-}
-.form-input:focus,
-.form-textarea:focus {
-  border-color: rgba(232,24,30,0.6);
-  background: rgba(255,255,255,0.09);
-}
-
-.form-textarea {
-  resize: vertical;
-  min-height: 90px;
-}
-
-.form-submit {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: clamp(11px, 1.6vh, 15px) clamp(24px, 3vw, 34px);
-  background: var(--red);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s;
-  align-self: end;
-}
-.form-submit:hover { background: #c41018; }
-
-.form-thanks {
-  display: none;
-  grid-column: 1 / -1;
-  font-family: var(--sans);
-  font-style: italic;
-  font-size: 13px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.7);
-  padding: clamp(12px, 2vh, 18px) 0 0;
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 900px) {
-  .album-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px) {
-  .album-grid { grid-template-columns: 1fr; }
-  /* Stack form fields vertically - two columns is too cramped on narrow phones */
-  .recommend-form { grid-template-columns: 1fr; }
-}
-
-</style>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="site-nav">
   <a class="wordmark" href="index.html">Steines'<span> Second Spin</span></a>
   <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
-    <li><a href="reviews.html">Reviews</a></li>
-    <li><a href="discover.html">Discover</a></li>
-    <li><a href="coming-soon.html">Coming Soon</a></li>
-    <li><a href="gear-page-v2.html">Hardware Recommendations</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="favorites.html">Favorites</a></li>
+    <li><a href="reviews.html" class="">Reviews</a></li>
+    <li><a href="discover.html" class="">Discover</a></li>
+    <li><a href="coming-soon.html" class="">Coming Soon</a></li>
+    <li><a href="gear-page-v2.html" class="">Hardware Recommendations</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="favorites.html" class="">Favorites</a></li>
     <li><a href="https://open.spotify.com/user/msteines12" target="_blank" rel="noopener">Spotify ↗</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
+
 <section class="hero">
   <div class="hero-eyebrow">Independent Music Reviews</div>
   <h1 class="hero-hed">Everything deserves a <em>second spin.</em></h1>
@@ -427,19 +39,16 @@
   <a class="hero-cta" href="reviews.html">Browse All Reviews</a>
 </section>
 
-<!-- REVIEWS GRID -->
 <section class="grid-section">
   <div class="section-header">
     <h2 class="section-title">Recent Reviews</h2>
     <span class="section-count" id="albumCount">...</span>
   </div>
-  <!-- NOTE: fetch() requires a local server (e.g. python -m http.server) - won't work over file:// -->
   <div class="album-grid" id="albumGrid">
     <div class="grid-message">Loading reviews…</div>
   </div>
 </section>
 
-<!-- RECOMMEND FORM -->
 <section class="recommend-section">
   <div class="recommend-header">
     <div class="recommend-eyebrow">Reader Picks</div>
@@ -466,16 +75,7 @@
   </form>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
-</footer>
-
 <script>
-function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
 function starMarks(n) {
   return Array.from({ length: 5 }, (_, i) =>
     `<span class="star${i < n ? ' filled' : ''}">★</span>`
@@ -483,7 +83,6 @@ function starMarks(n) {
 }
 
 function cardHTML(album, index) {
-  // Only link the card if there's a real review URL - not "#", null, or missing
   const hasReview = album.review_url && album.review_url !== '#';
   const tag  = hasReview ? 'a' : 'div';
   const href = hasReview ? `href="${album.review_url}"` : '';
@@ -518,7 +117,6 @@ function setupObserver() {
   document.querySelectorAll('.acard').forEach(card => observer.observe(card));
 }
 
-// Sort newest first by date
 fetch('data/albums_final.json')
   .then(r => r.json())
   .then(albums => {
@@ -534,27 +132,26 @@ fetch('data/albums_final.json')
       '<div class="grid-message">Run a local server to load reviews (python -m http.server in project root).</div>';
   });
 
-// Recommendation form - opens mailto: in a new tab so the user stays on the page
 document.getElementById('recommendForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const album  = document.getElementById('recAlbum').value.trim();
   const artist = document.getElementById('recArtist').value.trim();
   const note   = document.getElementById('recNote').value.trim();
-
   const body = `Album: ${album}\nArtist: ${artist}\nNote: ${note || '(none)'}`;
   const subject = encodeURIComponent(`Spin Recommendation: ${album} by ${artist}`);
   const bodyEnc = encodeURIComponent(body);
-
-  // window.open keeps the user on this page; window.location.href would navigate away
-  window.open(
-    `mailto:msteines0312@gmail.com?subject=${subject}&body=${bodyEnc}`,
-    '_blank'
-  );
-
+  window.open(`mailto:msteines0312@gmail.com?subject=${subject}&body=${bodyEnc}`, '_blank');
   document.getElementById('formThanks').style.display = 'block';
   this.reset();
 });
 </script>
+
+
+<footer class="site-footer">
+  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
+</footer>
+
+
 <script src="js/main.js"></script>
 </body>
 </html>

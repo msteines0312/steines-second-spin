@@ -1,0 +1,83 @@
+/* favorites.css */
+.page-strip {
+  background: var(--ink);
+  padding: clamp(48px, 10vh, 100px) clamp(1.5rem, 6vw, 5rem);
+}
+.page-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
+.page-title {
+  font-family: var(--sans);
+  font-size: clamp(32px, 6vw, 76px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 16px;
+}
+.page-title em { font-style: italic; color: var(--red); }
+.page-dek {
+  font-family: var(--sans);
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.fav-section {
+  padding: clamp(40px, 8vh, 80px) clamp(1.5rem, 6vw, 5rem);
+  border-bottom: 1px solid var(--faint);
+}
+
+.section-header {
+  display: flex; align-items: flex-start; gap: 20px; margin-bottom: 40px;
+}
+.section-num {
+  font-family: var(--sans); font-size: 12px; font-weight: 900; color: var(--red);
+  padding-top: 4px;
+}
+.section-title {
+  font-family: var(--sans); font-size: clamp(24px, 3.5vw, 40px); font-weight: 900;
+  text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; margin: 0 0 8px;
+}
+.section-sub {
+  font-family: var(--sans); font-size: 15px; font-weight: 300; color: var(--mid); margin: 0;
+}
+
+.album-grid--three {
+  grid-template-columns: repeat(3, 1fr);
+  border-left: 1px solid var(--faint);
+}
+@media (max-width: 900px) { .album-grid--three { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .album-grid--three { grid-template-columns: 1fr; } }
+
+.acard-year {
+  font-family: var(--sans); font-size: 10px; font-weight: 700; color: var(--mid);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; display: block;
+}
+
+.playlists-section {
+  background: var(--ink);
+  padding: clamp(48px, 10vh, 100px) clamp(1.5rem, 6vw, 5rem);
+}
+.playlists-header { margin-bottom: 32px; }
+.playlists-eyebrow {
+  font-family: var(--sans); font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.25em; color: var(--red); margin-bottom: 4px;
+}
+.playlists-title {
+  font-family: var(--sans); font-size: clamp(24px, 4vw, 44px); font-weight: 900;
+  text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.1; color: #fff; margin: 0;
+}
+.embeds-stack { display: flex; flex-direction: column; gap: 16px; max-width: 600px; }

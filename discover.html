@@ -8,446 +8,10 @@
 <meta property="og:title" content="Discover - Steines' Second Spin">
 <meta property="og:description" content="Pick an album you know. Find your next listen.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="css/styles.css">
-<style>
 
-/* === PAGE HEADER === */
-.page-strip {
-  background: var(--ink);
-  padding: clamp(36px, 7vh, 72px) clamp(1.5rem, 6vw, 5rem) clamp(24px, 4vh, 48px);
-}
-.page-eyebrow {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 10px;
-  display: flex; align-items: center; gap: 10px;
-}
-.page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--red); }
-.page-title {
-  font-family: var(--sans);
-  font-size: clamp(28px, 5vw, 60px);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0;
-  line-height: 1.05;
-}
-
-/* === MAIN CONTENT === */
-.main-content {
-  padding: clamp(32px, 5vh, 56px) clamp(1.5rem, 6vw, 5rem);
-}
-
-/* === GENRE CHIPS === */
-.chips-section {
-  margin-bottom: clamp(24px, 4vh, 40px);
-}
-.chips-toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-  transition: color 0.15s;
-}
-.chips-toggle:hover { color: var(--ink); }
-.chips-toggle[aria-expanded="true"] { color: var(--ink); margin-bottom: 12px; }
-.chips-toggle-count {
-  font-size: 9px;
-  font-weight: 700;
-  color: var(--red);
-  display: none;
-}
-.chips-toggle-count.visible { display: inline; }
-.chips-toggle-chevron {
-  width: 10px;
-  height: 10px;
-  flex-shrink: 0;
-  transition: transform 0.2s;
-}
-.chips-toggle[aria-expanded="true"] .chips-toggle-chevron {
-  transform: rotate(180deg);
-}
-.chips-wrap {
-  display: none;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.chips-wrap.open { display: flex; }
-.chip {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border: 1px solid var(--faint);
-  background: var(--bg);
-  color: var(--mid);
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-}
-.chip:hover { border-color: var(--ink); color: var(--ink); }
-.chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
-.chip-clear {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border: 1px solid rgba(232,24,30,0.3);
-  background: none;
-  color: var(--red);
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.chip-clear:hover { background: rgba(232,24,30,0.06); }
-
-/* === ALBUM PICKER === */
-.section-label {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-  margin-bottom: 14px;
-}
-.picker-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: clamp(8px, 1.2vw, 14px);
-  margin-bottom: clamp(40px, 6vh, 64px);
-}
-.picker-card {
-  background: none;
-  border: 2px solid transparent;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
-  transition: border-color 0.2s, transform 0.2s;
-  width: 100%;
-  min-width: 0;
-}
-.picker-card:hover { transform: translateY(-2px); }
-.picker-card.selected { border-color: var(--red); }
-.picker-art {
-  aspect-ratio: 1;
-  background: var(--faint);
-  overflow: hidden;
-  position: relative;
-}
-.picker-selected-indicator {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 18px;
-  height: 18px;
-  background: var(--red);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-.picker-selected-indicator svg {
-  width: 10px;
-  height: 10px;
-}
-.picker-art img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.picker-body {
-  padding: 6px 2px 2px;
-}
-.picker-title {
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin: 0 0 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.picker-artist {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 300;
-  color: var(--mid);
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* === RESULTS PANEL === */
-.results-section {
-  display: none;
-  border-top: 1px solid var(--faint);
-  padding-top: clamp(32px, 5vh, 48px);
-}
-.results-header {
-  margin-bottom: clamp(20px, 3vh, 32px);
-  padding-bottom: clamp(16px, 2.5vh, 24px);
-  border-bottom: 2px solid var(--ink);
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.results-eyebrow {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--red);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.results-eyebrow::before {
-  content: '';
-  display: block;
-  width: 18px;
-  height: 1px;
-  background: var(--red);
-}
-.results-seed {
-  font-family: var(--sans);
-  font-size: clamp(18px, 2.5vw, 28px);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin: 0;
-}
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: clamp(14px, 2vw, 20px);
-}
-.result-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid var(--faint);
-  background: var(--bg);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.result-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
-.result-card--locked { cursor: default; }
-.result-card--locked:hover { transform: none; box-shadow: none; }
-.result-art {
-  aspect-ratio: 1;
-  background: var(--faint);
-  overflow: hidden;
-}
-.result-art img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.result-body {
-  padding: clamp(10px, 1.5vw, 16px);
-  border-top: 1px solid var(--faint);
-}
-.result-score-wrap {
-  margin-bottom: 10px;
-}
-.result-score-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 4px;
-}
-.result-score-label {
-  font-family: var(--sans);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-.result-score-num {
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 900;
-  color: var(--red);
-}
-.result-bar-track {
-  height: 2px;
-  background: var(--faint);
-}
-.result-bar-fill {
-  height: 2px;
-  background: var(--red);
-}
-.result-title {
-  font-family: var(--sans);
-  font-size: clamp(12px, 1.2vw, 15px);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin: 0 0 3px;
-}
-.result-artist {
-  font-family: var(--sans);
-  font-style: italic;
-  font-size: 12px;
-  color: var(--mid);
-  margin: 0 0 6px;
-}
-.result-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin: 0 0 6px;
-}
-.tag-chip {
-  font-family: var(--sans);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 2px 7px;
-  border: 1px solid var(--faint);
-  color: var(--mid);
-}
-.star-row { display: flex; gap: 2px; margin-bottom: 4px; }
-.star { font-size: 12px; color: var(--faint); }
-.star.filled { color: var(--ink); }
-.spin-badge {
-  font-family: var(--sans);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 2px 7px;
-  border: 1.5px solid var(--ink);
-  color: var(--ink);
-  display: inline-block;
-}
-.empty-block {
-  padding: 24px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.empty-eyebrow {
-  font-family: var(--sans);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-.empty-headline {
-  font-family: var(--sans);
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-.empty-sub {
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--mid);
-}
-
-/* === FOOTER === */
-.site-footer {
-  border-top: 1px solid var(--rule);
-  background: var(--ink);
-  padding: clamp(20px,4vh,32px) clamp(1.5rem,6vw,5rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-wordmark { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-.footer-wordmark span { color: var(--red); }
-
-/* Tablets (≤900px) */
-@media (max-width: 900px) {
-  .picker-grid { grid-template-columns: repeat(5, 1fr); }
-  .results-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* Small tablets / large phones (≤680px) */
-@media (max-width: 680px) {
-  .picker-grid { grid-template-columns: repeat(4, 1fr); }
-  .results-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* Phones (≤480px) */
-@media (max-width: 480px) {
-  /* Tighten horizontal padding so cards have room to breathe */
-  .main-content { padding-left: 16px; padding-right: 16px; }
-
-  /* Picker: 4 columns - enough to see art without being too small */
-  .picker-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .picker-title { font-size: 9px; }
-  .picker-artist { display: none; }
-
-  /* Results: single column */
-  .results-grid { grid-template-columns: 1fr; }
-
-  /* Result cards: horizontal layout to save vertical space */
-  .result-card {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-  }
-  .result-art {
-    aspect-ratio: unset;
-    height: 100%;
-    min-height: 90px;
-  }
-  .result-body { border-top: none; border-left: 1px solid var(--faint); }
-
-  /* Results header: stack so long titles don't overflow */
-  .results-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-  .results-eyebrow { white-space: normal; }
-  .results-seed { font-size: clamp(16px, 5vw, 22px); }
-
-  /* Chips: bigger tap targets */
-  .chip, .chip-clear { padding: 7px 14px; font-size: 11px; }
-  .chips-toggle { min-height: 44px; }
-  .chips-section { margin-bottom: 16px; }
-
-  /* Section label: less space above grid */
-  .section-label { margin-bottom: 10px; }
-}
-
-</style>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/discover.css">
 </head>
 <body>
 
@@ -457,15 +21,16 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
-    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="reviews.html" class="">Reviews</a></li>
     <li><a href="discover.html" class="here">Discover</a></li>
-    <li><a href="coming-soon.html">Coming Soon</a></li>
-    <li><a href="gear-page-v2.html">Hardware Recommendations</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="favorites.html">Favorites</a></li>
+    <li><a href="coming-soon.html" class="">Coming Soon</a></li>
+    <li><a href="gear-page-v2.html" class="">Hardware Recommendations</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="favorites.html" class="">Favorites</a></li>
     <li><a href="https://open.spotify.com/user/msteines12" target="_blank" rel="noopener">Spotify ↗</a></li>
   </ul>
 </nav>
+
 
 <header class="page-strip">
   <div class="page-eyebrow">Find Your Next Listen</div>
@@ -473,8 +38,6 @@
 </header>
 
 <main class="main-content">
-
-  <!-- Genre filter chips -->
   <section class="chips-section">
     <button class="chips-toggle" id="chipsToggle" aria-expanded="false">
       Filter by genre
@@ -486,11 +49,9 @@
     <div class="chips-wrap" id="chipContainer"></div>
   </section>
 
-  <!-- Album picker grid -->
   <p class="section-label" id="pickerLabel">Pick an album to start</p>
   <div class="picker-grid" id="pickerGrid"></div>
 
-  <!-- Results panel (hidden until seed selected) -->
   <section class="results-section" id="resultsSection">
     <div class="results-header">
       <div class="results-eyebrow">Similar to</div>
@@ -498,27 +59,13 @@
     </div>
     <div class="results-grid" id="resultsGrid"></div>
   </section>
-
 </main>
 
-<footer class="site-footer">
-  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
-</footer>
-
 <script>
-function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-// ── State ─────────────────────────────────────────────────────────────────────
 let allAlbums = [];
-let activeChips = new Set();  // stores cluster labels, not individual genres
+let activeChips = new Set();
 let currentSeed = null;
 
-// ── Genre clusters ─────────────────────────────────────────────────────────────
-// Keyword-based: an album belongs to a cluster if any of its genre tags
-// contains one of the cluster's keywords (case-insensitive substring match).
-// Clusters are checked in order; first match wins per genre tag.
 const CLUSTERS = [
   { label: 'Rock',        keywords: ['rock', 'punk', 'shoegaze', 'grunge', 'lo-fi', 'noise pop', 'emo', 'krautrock', 'britpop'] },
   { label: 'Hip-Hop',     keywords: ['hip-hop', 'hip hop', 'rap', 'trap', 'sampling', 'west coast', 'jazz rap', 'dance-rap', 'hip house'] },
@@ -538,8 +85,6 @@ function albumMatchesCluster(album, clusterLabel) {
   );
 }
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
 function starMarks(n) {
   return Array.from({ length: 5 }, (_, i) =>
     `<span class="star${i < n ? ' filled' : ''}">★</span>`
@@ -550,8 +95,6 @@ function getFilteredAlbums() {
   if (activeChips.size === 0) return allAlbums;
   return allAlbums.filter(a => [...activeChips].some(label => albumMatchesCluster(a, label)));
 }
-
-// ── Genre cluster chips ────────────────────────────────────────────────────────
 
 function updateChipsCount() {
   const countEl = document.getElementById('chipsCount');
@@ -593,7 +136,6 @@ function buildChips() {
     }
   });
 
-  // Toggle button opens/closes the chip panel
   const toggle = document.getElementById('chipsToggle');
   toggle.addEventListener('click', () => {
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
@@ -601,8 +143,6 @@ function buildChips() {
     container.classList.toggle('open', !isOpen);
   });
 }
-
-// ── Album picker ──────────────────────────────────────────────────────────────
 
 function renderPicker() {
   const filtered = getFilteredAlbums();
@@ -628,7 +168,7 @@ function renderPicker() {
     return `
       <button class="picker-card${isSelected ? ' selected' : ''}" data-slug="${esc(a.id)}" aria-label="${esc(a.title)} by ${esc(a.artist)}">
         <div class="picker-art">
-          <img src="assets/covers/${esc(a.id)}.jpg" alt="${esc(a.title)}" loading="lazy" onerror="this.style.background='#888'">
+          <img src="assets/covers/${esc(a.id)}.webp" alt="${esc(a.title)}" loading="lazy" onerror="this.style.background='#888'">
           ${isSelected ? `<div class="picker-selected-indicator"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div>` : ''}
         </div>
         <div class="picker-body">
@@ -638,8 +178,6 @@ function renderPicker() {
       </button>`;
   }).join('');
 
-  // Attach click handler to the re-rendered grid.
-  // Clicking the already-selected album deselects it and hides results.
   grid.onclick = e => {
     const card = e.target.closest('.picker-card');
     if (!card) return;
@@ -658,8 +196,6 @@ function renderPicker() {
   };
 }
 
-// ── Results panel ─────────────────────────────────────────────────────────────
-
 function renderResults(seed) {
   const section = document.getElementById('resultsSection');
   const grid    = document.getElementById('resultsGrid');
@@ -675,7 +211,6 @@ function renderResults(seed) {
     if (results.length >= 5) break;
     const recAlbum = allAlbums.find(a => a.id === rec.slug);
     if (!recAlbum) continue;
-    // If chips active, skip albums that don't match any selected genre
     if (activeChips.size > 0 && ![...activeChips].some(label => albumMatchesCluster(recAlbum, label))) continue;
     results.push({ rec, album: recAlbum });
   }
@@ -725,8 +260,6 @@ function renderResults(seed) {
   }).join('');
 }
 
-// ── Bootstrap ─────────────────────────────────────────────────────────────────
-
 fetch('data/albums_final.json')
   .then(r => r.json())
   .then(albums => {
@@ -739,6 +272,13 @@ fetch('data/albums_final.json')
       '<p class="empty-state">Could not load album data. Run a local server: python -m http.server 8000</p>';
   });
 </script>
+
+
+<footer class="site-footer">
+  <span class="footer-wordmark">Steines'<span> Second Spin</span></span>
+</footer>
+
+
 <script src="js/main.js"></script>
 </body>
 </html>

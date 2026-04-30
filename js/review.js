@@ -1,13 +1,4 @@
-/**
- * review.js
- * Shared logic for all review pages.
- *
- * Currently exposes:
- *   renderMoreByArtist(album, allAlbums)
- *     Populates the #more-by-artist section with other catalog entries
- *     by the same artist. Hides the section automatically when the artist
- *     has no other albums in the catalog.
- */
+/* review.js */
 
 function esc(s) {
   return String(s)
