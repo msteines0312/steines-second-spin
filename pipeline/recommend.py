@@ -50,6 +50,24 @@ def build_tfidf_matrix(albums: list[dict]) -> tuple[np.ndarray, list[str]]:
 
     return matrix, all_tags
 
+def fill_missing_listeners(raw_listeners: list, fallback: int = 100_000) -> list:
+    """Replace missing listener counts with the corpus median, or a fallback if none exist."""
+    valid = [l for l in raw_listeners if l is not None]
+    median = int(np.median(valid)) if valid else fallback
+    return [l if l is not None else median for l in raw_listeners]
+
+def build_embedding_matrix(albums: list[dict], raw_embeddings: dict) -> np.ndarray:
+    """Stack per-album SBERT embeddings into a matrix, zero-filling albums with none."""
+    embedding_dim = next(iter(raw_embeddings.values())).shape[0] if raw_embeddings else 0
+    if embedding_dim == 0:
+        return np.zeros((len(albums), 1))
+
+    matrix = np.zeros((len(albums), embedding_dim))
+    for i, album in enumerate(albums):
+        if album["slug"] in raw_embeddings:
+            matrix[i] = raw_embeddings[album["slug"]]
+    return matrix
+
 def build_rec_objects(album, albums, sim_scores, slugs, top_n):
     """Build recommendation objects for one album, excluding same artist."""
     slug_to_idx = {s: i for i, s in enumerate(slugs)}
@@ -90,7 +108,6 @@ if __name__ == "__main__":
         if emb_path.exists():
             raw_embeddings[slug] = np.load(emb_path)
 
-    embedding_dim = next(iter(raw_embeddings.values())).shape[0] if raw_embeddings else 0
     print(f"Loaded {len(raw_embeddings)} review embedding(s)\n")
 
     # Build feature signals
@@ -99,22 +116,14 @@ if __name__ == "__main__":
     years = np.array([a["release_year"] for a in albums], dtype=float).reshape(-1, 1)
     year_scaled = MinMaxScaler().fit_transform(years)
 
-    raw_listeners   = [a.get("listeners") for a in albums]
-    valid_listeners = [l for l in raw_listeners if l is not None]
-    median_listeners = int(np.median(valid_listeners)) if valid_listeners else 100_000
-    filled_listeners = [l if l is not None else median_listeners for l in raw_listeners]
+    raw_listeners = [a.get("listeners") for a in albums]
+    filled_listeners = fill_missing_listeners(raw_listeners)
 
     listeners_scaled = MinMaxScaler().fit_transform(
         np.array(filled_listeners, dtype=float).reshape(-1, 1)
     )
 
-    if embedding_dim > 0:
-        emb_matrix = np.zeros((len(albums), embedding_dim))
-        for i, album in enumerate(albums):
-            if album["slug"] in raw_embeddings:
-                emb_matrix[i] = raw_embeddings[album["slug"]]
-    else:
-        emb_matrix = np.zeros((len(albums), 1))
+    emb_matrix = build_embedding_matrix(albums, raw_embeddings)
 
     # Combine signals
     feature_matrix = np.hstack([

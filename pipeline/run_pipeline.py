@@ -3,10 +3,11 @@ run_pipeline.py
 Runs the full data pipeline in order:
   1. fetch_spotify.py  -- Spotify metadata (skips cached)
   2. fetch_lastfm.py   -- Last.fm tags (skips cached)
-  3. clean_data.py     -- merge and flatten
-  4. recommend.py      -- cosine similarity recommendations
-  5. build_data.py     -- final JSON for the frontend
-  6. fetch_covers.py   -- cover art (skips cached)
+  3. embed_reviews.py  -- SBERT review embeddings (skips cached)
+  4. clean_data.py     -- merge and flatten
+  5. recommend.py      -- cosine similarity recommendations
+  6. build_data.py     -- final JSON for the frontend
+  7. fetch_covers.py   -- cover art (skips cached)
 
 Usage:
   python pipeline/run_pipeline.py           skip already-cached albums
@@ -25,6 +26,7 @@ PIPELINE = Path(__file__).resolve().parent
 STEPS = [
     ("Spotify metadata",   "fetch_spotify.py",  True),
     ("Last.fm tags",       "fetch_lastfm.py",   True),
+    ("Review embeddings",  "embed_reviews.py",  True),
     ("Clean and merge",    "clean_data.py",      False),
     ("Recommendations",    "recommend.py",       False),
     ("Build final JSON",   "build_data.py",      False),
