@@ -18,7 +18,7 @@ from tag_filters import is_junk, normalize_tag
 ROOT        = Path(__file__).resolve().parent.parent
 ALBUMS_FILE = ROOT / "data" / "albums.json"
 LASTFM_DIR  = ROOT / "data" / "lastfm"
-API_BASE    = "http://ws.audioscrobbler.com/2.0/"
+API_BASE    = "https://ws.audioscrobbler.com/2.0/"
 TOP_N        = 10
 REQUEST_GAP  = 0.5
 

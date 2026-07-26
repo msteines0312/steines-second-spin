@@ -8,6 +8,7 @@ import json
 import sys
 import time
 from pathlib import Path
+from urllib.parse import urlparse
 import spotipy
 from dotenv import load_dotenv
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -20,10 +21,11 @@ RATE_LIMIT_DELAY = 0.5
 
 def extract_spotify_id(spotify_url: str) -> str:
     """Parse a Spotify album URL and return the album ID."""
-    return spotify_url.rstrip("/").split("/")[-1]
+    path = urlparse(spotify_url).path
+    return path.rstrip("/").split("/")[-1]
 
 def fetch_album(sp: spotipy.Spotify, spotify_album_id: str) -> dict:
-    """Fetch metadata, tracks, and audio features for an album."""
+    """Fetch metadata and tracks for an album."""
     album_meta = sp.album(spotify_album_id)
 
     tracks = []
@@ -32,23 +34,9 @@ def fetch_album(sp: spotipy.Spotify, spotify_album_id: str) -> dict:
         tracks.extend(page["items"])
         page = sp.next(page) if page["next"] else None
 
-    track_ids = [t["id"] for t in tracks if t.get("id")]
-    audio_features = []
-
-    for i in range(0, len(track_ids), 100):
-        batch = track_ids[i : i + 100]
-        try:
-            result = sp.audio_features(batch)
-            if result:
-                audio_features.extend(result)
-        except spotipy.SpotifyException as e:
-            print(f"     [WARNING] Audio features unavailable: {e.msg}")
-            break
-
     return {
         "album_metadata": album_meta,
         "tracks": tracks,
-        "audio_features": audio_features,
     }
 
 def main():

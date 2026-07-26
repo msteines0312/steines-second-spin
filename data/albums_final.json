@@ -6,7 +6,6 @@
     "year": 2026,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie",
@@ -120,7 +119,6 @@
     "year": 2026,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "free jazz",
@@ -258,7 +256,6 @@
     "year": 2016,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "avant-pop",
@@ -368,7 +365,6 @@
     "year": 2025,
     "stars": 4,
     "second_spin": true,
-    "blurb": null,
     "review_url": "reviews/getting-killed.html",
     "genres": [
       "indie rock",
@@ -480,7 +476,6 @@
     "year": 2026,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "r&b",
@@ -612,7 +607,6 @@
     "year": 2026,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "psychedelic trap",
@@ -732,7 +726,6 @@
     "year": 2026,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "rap",
@@ -864,7 +857,6 @@
     "year": 2025,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -978,7 +970,6 @@
     "year": 2022,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie rock",
@@ -1082,7 +1073,6 @@
     "year": 2024,
     "stars": 4,
     "second_spin": true,
-    "blurb": null,
     "review_url": "reviews/heavy-metal.html",
     "genres": [
       "singer-songwriter",
@@ -1193,7 +1183,6 @@
     "year": 2024,
     "stars": 4,
     "second_spin": true,
-    "blurb": null,
     "review_url": "reviews/imaginal-disk.html",
     "genres": [
       "synthpop",
@@ -1336,7 +1325,6 @@
     "year": 2025,
     "stars": 5,
     "second_spin": true,
-    "blurb": null,
     "review_url": "reviews/hurry-up-tomorrow.html",
     "genres": [
       "dark r&b",
@@ -1464,7 +1452,6 @@
     "year": 2020,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "art rock",
@@ -1580,7 +1567,6 @@
     "year": 2023,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -1701,7 +1687,6 @@
     "year": 2022,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "post-rock",
@@ -1811,7 +1796,6 @@
     "year": 2022,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -1925,7 +1909,6 @@
     "year": 2023,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie rock",
@@ -2034,7 +2017,6 @@
     "year": 1990,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "dream pop",
@@ -2142,7 +2124,6 @@
     "year": 2024,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie pop",
@@ -2265,7 +2246,6 @@
     "year": 2023,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "post-punk",
@@ -2374,7 +2354,6 @@
     "year": 2020,
     "stars": 5,
     "second_spin": true,
-    "blurb": null,
     "review_url": "reviews/after-hours.html",
     "genres": [
       "synth-pop",
@@ -2497,7 +2476,6 @@
     "year": 2024,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "neo soul",
@@ -2638,7 +2616,6 @@
     "year": 2021,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "west coast rap",
@@ -2771,7 +2748,6 @@
     "year": 2025,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "hip-hop",
@@ -2902,7 +2878,6 @@
     "year": 2025,
     "stars": 3,
     "second_spin": true,
-    "blurb": null,
     "review_url": "reviews/deadbeat.html",
     "genres": [
       "psychedelic rock",
@@ -3016,7 +2991,6 @@
     "year": 1998,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie rock",
@@ -3126,7 +3100,6 @@
     "year": 2003,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "progressive rock",
@@ -3240,7 +3213,6 @@
     "year": 2011,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "post-hardcore",
@@ -3344,7 +3316,6 @@
     "year": 2008,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "pop punk",
@@ -3450,7 +3421,6 @@
     "year": 2025,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "electronic",
@@ -3561,7 +3531,6 @@
     "year": 2020,
     "stars": 4,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "nu-metal",
@@ -3650,7 +3619,6 @@
     "year": 1992,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "shoegaze",
@@ -3756,7 +3724,6 @@
     "year": 1997,
     "stars": 5,
     "second_spin": true,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative rock",
@@ -3870,7 +3837,6 @@
     "year": 2003,
     "stars": 4,
     "second_spin": true,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie rock",
@@ -3990,7 +3956,6 @@
     "year": 2006,
     "stars": 5,
     "second_spin": true,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "instrumental hip-hop",
@@ -4109,7 +4074,6 @@
     "year": 2026,
     "stars": 1,
     "second_spin": false,
-    "blurb": null,
     "review_url": "reviews/bully.html",
     "genres": [
       "hip-hop",
@@ -4234,7 +4198,6 @@
     "year": 2026,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "funk",
@@ -4358,7 +4321,6 @@
     "year": 1970,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "garage rock",
@@ -4471,7 +4433,6 @@
     "year": 2021,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "gospel",
@@ -4601,7 +4562,6 @@
     "year": 2020,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "psychedelic pop",
@@ -4728,7 +4688,6 @@
     "year": 2015,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "psychedelic pop",
@@ -4858,7 +4817,6 @@
     "year": 2026,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "hip-hop",
@@ -4986,7 +4944,6 @@
     "year": 2018,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative hip-hop",
@@ -5119,7 +5076,6 @@
     "year": 2019,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "neo-soul",
@@ -5246,7 +5202,6 @@
     "year": 2018,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "west coast rap",
@@ -5374,7 +5329,6 @@
     "year": 2021,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "melodic rap",
@@ -5505,7 +5459,6 @@
     "year": 2019,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "melodic rap",
@@ -5621,7 +5574,6 @@
     "year": 2025,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "latin trap",
@@ -5712,7 +5664,6 @@
     "year": 2024,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "r&b",
@@ -5834,7 +5785,6 @@
     "year": 2022,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "r&b",
@@ -5955,7 +5905,6 @@
     "year": 2018,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie r&b",
@@ -6080,7 +6029,6 @@
     "year": 2011,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "r&b",
@@ -6201,7 +6149,6 @@
     "year": 2022,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "r&b",
@@ -6337,7 +6284,6 @@
     "year": 2021,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "funk",
@@ -6463,7 +6409,6 @@
     "year": 2016,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "conscious hip-hop",
@@ -6599,7 +6544,6 @@
     "year": 2023,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "synth-pop",
@@ -6737,7 +6681,6 @@
     "year": 2016,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "funk",
@@ -6870,7 +6813,6 @@
     "year": 2013,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "hip-hop",
@@ -7019,7 +6961,6 @@
     "year": 2024,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative hip-hop",
@@ -7154,7 +7095,6 @@
     "year": 2024,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative r&b",
@@ -7284,7 +7224,6 @@
     "year": 2024,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie pop",
@@ -7408,7 +7347,6 @@
     "year": 2021,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie pop",
@@ -7520,7 +7458,6 @@
     "year": 2019,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "bedroom pop",
@@ -7645,7 +7582,6 @@
     "year": 2023,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -7768,7 +7704,6 @@
     "year": 2025,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "trap",
@@ -7898,7 +7833,6 @@
     "year": 2025,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "r&b",
@@ -8019,7 +7953,6 @@
     "year": 2023,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative r&b",
@@ -8151,7 +8084,6 @@
     "year": 2018,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative hip-hop",
@@ -8291,7 +8223,6 @@
     "year": 2024,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "trap",
@@ -8414,7 +8345,6 @@
     "year": 2023,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "rap",
@@ -8541,7 +8471,6 @@
     "year": 2021,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative r&b",
@@ -8668,7 +8597,6 @@
     "year": 2012,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "neo-soul",
@@ -8803,7 +8731,6 @@
     "year": 2016,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative r&b",
@@ -8946,7 +8873,6 @@
     "year": 2017,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "hip-hop",
@@ -9065,7 +8991,6 @@
     "year": 2023,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative r&b",
@@ -9188,7 +9113,6 @@
     "year": 2024,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "r&b",
@@ -9323,7 +9247,6 @@
     "year": 2018,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "rap",
@@ -9457,7 +9380,6 @@
     "year": 2021,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "synthpop",
@@ -9594,7 +9516,6 @@
     "year": 2025,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "pop",
@@ -9709,7 +9630,6 @@
     "year": 2024,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "indie pop",
@@ -9837,7 +9757,6 @@
     "year": 2023,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "electronic",
@@ -9959,7 +9878,6 @@
     "year": 2017,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "neo-soul",
@@ -10086,7 +10004,6 @@
     "year": 2019,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -10217,7 +10134,6 @@
     "year": 2021,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -10348,7 +10264,6 @@
     "year": 1971,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -10477,7 +10392,6 @@
     "year": 1976,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -10604,7 +10518,6 @@
     "year": 1970,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -10725,7 +10638,6 @@
     "year": 1968,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "classic rock",
@@ -10838,7 +10750,6 @@
     "year": 1981,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "progressive rock",
@@ -10946,7 +10857,6 @@
     "year": 2005,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "hip-hop",
@@ -11087,7 +10997,6 @@
     "year": 2013,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "dark r&b",
@@ -11219,7 +11128,6 @@
     "year": 2011,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative r&b",
@@ -11352,7 +11260,6 @@
     "year": 2011,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "dark r&b",
@@ -11483,7 +11390,6 @@
     "year": 2011,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative r&b",
@@ -11621,7 +11527,6 @@
     "year": 2018,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "r&b",
@@ -11750,7 +11655,6 @@
     "year": 2022,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "synth-pop",
@@ -11895,7 +11799,6 @@
     "year": 2016,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "synth-pop",
@@ -12024,7 +11927,6 @@
     "year": 2015,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "synth-pop",
@@ -12148,7 +12050,6 @@
     "year": 2019,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "neo-soul",
@@ -12282,7 +12183,6 @@
     "year": 2017,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "neo-soul",
@@ -12420,7 +12320,6 @@
     "year": 2005,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "chamber pop",
@@ -12542,7 +12441,6 @@
     "year": 2021,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -12670,7 +12568,6 @@
     "year": 2020,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "bass music",
@@ -12801,7 +12698,6 @@
     "year": 2020,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "r&b",
@@ -12944,7 +12840,6 @@
     "year": 1979,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",
@@ -13066,7 +12961,6 @@
     "year": 2024,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "rap",
@@ -13190,7 +13084,6 @@
     "year": 2022,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "jazz rap",
@@ -13346,7 +13239,6 @@
     "year": 2012,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "hip-hop",
@@ -13463,7 +13355,6 @@
     "year": 2017,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "rap",
@@ -13593,7 +13484,6 @@
     "year": 2015,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "jazz rap",
@@ -13725,7 +13615,6 @@
     "year": 2018,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "neo-psychedelia",
@@ -13858,7 +13747,6 @@
     "year": 2025,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "synth-pop",
@@ -13996,7 +13884,6 @@
     "year": 2020,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "alternative r&b",
@@ -14132,7 +14019,6 @@
     "year": 1978,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "progressive rock",
@@ -14236,7 +14122,6 @@
     "year": 2022,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "latin trap",
@@ -14342,7 +14227,6 @@
     "year": 2022,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "dream pop",
@@ -14463,7 +14347,6 @@
     "year": 2015,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "dream pop",
@@ -14579,7 +14462,6 @@
     "year": 1966,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "baroque pop",
@@ -14690,7 +14572,6 @@
     "year": 2019,
     "stars": null,
     "second_spin": false,
-    "blurb": null,
     "review_url": "#",
     "genres": [
       "soul",

@@ -70,6 +70,14 @@
 </main>
 
 <script>
+function esc(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 let allAlbums = [];
 let activeGenre = 'all';
 let activeSort = 'newest';
@@ -123,7 +131,7 @@ function crateHTML(queued) {
   const picks = [...queued].sort(() => Math.random() - 0.5).slice(0, 3);
   const featured = picks.map(a =>
     `<div class="crate-album">
-      <img src="${a.cover_art}" alt="${a.title}" loading="lazy" onerror="this.style.opacity='0.15'">
+      <img src="${esc(a.cover_art)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.opacity='0.15'">
     </div>`
   ).join('');
 
