@@ -8,14 +8,25 @@ function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
+function setupCardObserver() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.acard').forEach(card => observer.observe(card));
+}
+
 function renderMoreByArtist(album, allAlbums) {
   const section = document.getElementById('more-by-artist');
-  if (!section) return;
+  if (!section) {
+    setupCardObserver();
+    return;
+  }
 
   const others = allAlbums.filter(a => a.artist === album.artist && a.id !== album.id);
 
   if (others.length === 0) {
     section.style.display = 'none';
+    setupCardObserver();
     return;
   }
 
@@ -49,4 +60,6 @@ function renderMoreByArtist(album, allAlbums) {
     </div>
     <div class="recs-grid">${cards}</div>
   `;
+
+  setupCardObserver();
 }

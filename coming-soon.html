@@ -88,6 +88,11 @@ fetch('data/albums_final.json')
     document.getElementById('resultsCount').textContent =
       `${queued.length} Album${queued.length !== 1 ? 's' : ''} in Queue`;
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.acard').forEach(card => observer.observe(card));
+
     if (window.location.hash) {
       const target = document.getElementById(window.location.hash.slice(1));
       if (target) {
