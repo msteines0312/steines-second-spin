@@ -1,5 +1,69 @@
 [
   {
+    "id": "you-seem-pretty-sad-for-a-girl-so-in-love",
+    "title": "You Seem Pretty Sad for a Girl So in Love",
+    "artist": "Olivia Rodrigo",
+    "year": 2026,
+    "genres": [
+      "indie",
+      "pop rock",
+      "dream pop",
+      "new wave",
+      "synth-pop"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/1/18/Olivia_Rodrigo_-_You_Seem_Pretty_Sad_for_a_Girl_So_in_Love.png",
+    "spotify_url": "https://open.spotify.com/album/3WZZF72ihlKPZBS4zSsNHl",
+    "review_url": "#",
+    "date": "2026-06-12",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "oh-yeah",
+    "title": "Oh yeah?",
+    "artist": "Steve Lacy",
+    "year": 2026,
+    "genres": [
+      "neo-soul",
+      "indie r&b",
+      "pop rock",
+      "alt-soul"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/289GZwycrFReuNB706obBx",
+    "review_url": "#",
+    "date": "2026-07-17",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "freetown-sound",
+    "title": "Freetown Sound",
+    "artist": "Blood Orange",
+    "year": 2016,
+    "genres": [
+      "avant-pop",
+      "funk",
+      "r&b",
+      "alternative r&b"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/2/2d/Freetown_Sound_Cover.jpg",
+    "spotify_url": "https://open.spotify.com/album/3Z2XUjgVj5ZkCGpU7b2qtY",
+    "review_url": "#",
+    "date": "2016-06-28",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
     "id": "getting-killed",
     "title": "Getting Killed",
     "artist": "Geese",
