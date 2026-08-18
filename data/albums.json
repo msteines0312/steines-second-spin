@@ -1,5 +1,89 @@
 [
   {
+    "id": "reality-awaits",
+    "title": "Reality Awaits",
+    "artist": "The Strokes",
+    "year": 2026,
+    "genres": [
+      "indie rock",
+      "art rock",
+      "experimental rock",
+      "prog-influenced"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/3/32/Reality_Awaits.jpg",
+    "spotify_url": "https://open.spotify.com/album/6x0nmCMjHeuN3rYBmI5Bor",
+    "review_url": "#",
+    "date": "2026-07-24",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "the-new-abnormal",
+    "title": "The New Abnormal",
+    "artist": "The Strokes",
+    "year": 2020,
+    "genres": [
+      "indie rock",
+      "new wave",
+      "post-punk revival",
+      "synth-pop"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/f/f8/The_Strokes_-_The_New_Abnormal.png",
+    "spotify_url": "https://open.spotify.com/album/2xkZV2Hl1Omi8rk2D7t5lN",
+    "review_url": "#",
+    "date": "2020-04-10",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "sunshine",
+    "title": "Sunshine",
+    "artist": "Jungle",
+    "year": 2026,
+    "genres": [
+      "neo soul",
+      "funk",
+      "dance-pop",
+      "soul"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/f/f7/Sunshine_Jungle_Album_cover.jpg",
+    "spotify_url": "https://open.spotify.com/album/6xvFXJsIgOC70xQMwho7do",
+    "review_url": "#",
+    "date": "2026-08-14",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "lost-weekend",
+    "title": "Lost Weekend",
+    "artist": "Phoebe Bridgers",
+    "year": 2026,
+    "genres": [
+      "indie folk",
+      "americana",
+      "folktronica",
+      "ambient"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/b/bb/Lost_Weekend_%28Phoebe_Bridgers_album%29.jpg",
+    "spotify_url": "https://open.spotify.com/album/2NSzwyYvQvdOQAoEjrlw9c",
+    "review_url": "#",
+    "date": "2026-08-14",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
     "id": "you-seem-pretty-sad-for-a-girl-so-in-love",
     "title": "You Seem Pretty Sad for a Girl So in Love",
     "artist": "Olivia Rodrigo",
