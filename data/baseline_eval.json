@@ -1,0 +1,10 @@
+{
+  "top_n": 3,
+  "total_recs_checked": 396,
+  "production_model_rate": 0.9949,
+  "genre_only_baseline_rate": 0.9949,
+  "random_baseline_rate": 0.5089,
+  "random_baseline_std": 0.0236,
+  "random_baseline_trials": 1000,
+  "random_baseline_seed": 42
+}
