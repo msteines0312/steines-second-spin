@@ -1,5 +1,194 @@
 [
   {
+    "id": "notes-on-a-conditional-form",
+    "title": "Notes on a Conditional Form",
+    "artist": "The 1975",
+    "year": 2020,
+    "genres": [
+      "rock",
+      "pop",
+      "electronic",
+      "experimental"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/0/00/The_1975_Notes_on_a_Conditional_Form_New_Album_Art.jpg",
+    "spotify_url": "https://open.spotify.com/album/0o5xjCboti8vXhdoUG9LYi",
+    "review_url": "#",
+    "date": "2020-05-22",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "the-1975",
+    "title": "The 1975",
+    "artist": "The 1975",
+    "year": 2013,
+    "genres": [
+      "electropop",
+      "pop rock",
+      "indie pop",
+      "pop"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/0/03/The_1975_%28album%29_by_The_1975.png",
+    "spotify_url": "https://open.spotify.com/album/33ZqJmmqFE8Z7Ak1Lxbnfb",
+    "review_url": "#",
+    "date": "2013-09-02",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "a-brief-inquiry-into-online-relationships",
+    "title": "A Brief Inquiry Into Online Relationships",
+    "artist": "The 1975",
+    "year": 2018,
+    "genres": [
+      "art pop",
+      "electropop",
+      "indie rock",
+      "experimental"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/2/2d/A_Brief_Inquiry_into_Online_Relationships.png",
+    "spotify_url": "https://open.spotify.com/album/6PWXKiakqhI17mTYM4y6oY",
+    "review_url": "#",
+    "date": "2018-11-30",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "being-funny-in-a-foreign-language",
+    "title": "Being Funny in a Foreign Language",
+    "artist": "The 1975",
+    "year": 2022,
+    "genres": [
+      "pop rock",
+      "folk rock",
+      "indie pop",
+      "synthwave"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/d/d7/The_1975_-_Being_Funny_in_a_Foreign_Language.png",
+    "spotify_url": "https://open.spotify.com/album/6dVCpQ7oGJD1oYs2fv1t5M",
+    "review_url": "#",
+    "date": "2022-10-14",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "romance",
+    "title": "Romance",
+    "artist": "Fontaines D.C.",
+    "year": 2024,
+    "genres": [
+      "alternative rock",
+      "post-punk",
+      "gothic pop",
+      "shoegaze"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/3/31/Romance_Fontaines_D.C._album_cover.jpg",
+    "spotify_url": "https://open.spotify.com/album/287QQ922OsJYh8aFNGdJG5",
+    "review_url": "#",
+    "date": "2024-08-23",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "prima",
+    "title": "Prima",
+    "artist": "ADÉLA",
+    "year": 2026,
+    "genres": [
+      "pop",
+      "electropop",
+      "hyperpop",
+      "dance-pop"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "",
+    "spotify_url": "https://open.spotify.com/album/7Ifiyhu4wyMHojKPy2jJlb",
+    "review_url": "#",
+    "date": "2026-09-04",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "wild",
+    "title": "Wild",
+    "artist": "KATSEYE",
+    "year": 2026,
+    "genres": [
+      "dance-pop",
+      "edm",
+      "synth-pop",
+      "hyperpop"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/e/e0/Wild_%28Katseye_EP%29.jpg",
+    "spotify_url": "https://open.spotify.com/album/2d0AkZUJV30oIOJAeEyzC6",
+    "review_url": "#",
+    "date": "2026-08-14",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "petal",
+    "title": "Petal",
+    "artist": "Ariana Grande",
+    "year": 2026,
+    "genres": [
+      "pop",
+      "r&b",
+      "synth-pop",
+      "dream pop"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/3/3e/Ariana_Grande_-_Petal.png",
+    "spotify_url": "https://open.spotify.com/album/2k4FmEtXR0WiDW0Ac2QArT",
+    "review_url": "#",
+    "date": "2026-07-31",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
+    "id": "worst-girl-in-america",
+    "title": "WOR$T GIRL IN AMERICA",
+    "artist": "Slayyyter",
+    "year": 2026,
+    "genres": [
+      "electroclash",
+      "electropop",
+      "industrial hip-hop",
+      "punk"
+    ],
+    "stars": null,
+    "second_spin": false,
+    "art": "https://upload.wikimedia.org/wikipedia/en/7/7a/Worst_Girl_in_America.jpg",
+    "spotify_url": "https://open.spotify.com/album/5siV9C6eK0NpAqER2FfCVA",
+    "review_url": "#",
+    "date": "2026-03-27",
+    "favorite_track": "",
+    "track_url": "",
+    "preview_url": null
+  },
+  {
     "id": "reality-awaits",
     "title": "Reality Awaits",
     "artist": "The Strokes",
