@@ -1,6 +1,6 @@
 # Steines' Second Spin
 
-A personal music review site. Every record I review gets a write-up, a star rating, and a favorite track pick. The site covers 116 albums across hip-hop, rock, R&B, pop, and indie, with more in the queue.
+A personal music review site. Every record I review gets a write-up, a star rating, and a favorite track pick. The site covers 132 albums across hip-hop, rock, R&B, pop, and indie, with more in the queue.
 
 ## What It Is
 
@@ -26,23 +26,22 @@ The name is a nod to the idea that a record worth owning deserves more than one 
 
 ## Pipeline
 
-To update the entire site (fetch data, recalculate recommendations, and build HTML), run:
+To refresh the data (fetch new metadata, recalculate recommendations, rebuild the frontend JSON), run:
 
 ```bash
-python pipeline/run_all.py
+python pipeline/run_pipeline.py
 ```
 
-This master script orchestrates the following flow:
-1. `fetch_spotify.py` — Fetches metadata and audio features.
-2. `fetch_lastfm.py` — Enriches genres and listener counts.
-3. `clean_data.py` — Normalizes and merges raw JSON.
-4. `embed_reviews.py` — Generates SBERT embeddings for review text.
-5. `recommend.py` — Calculates cosine similarity matches.
-6. `build_data.py` — Merges all signals into the final frontend JSON.
-7. `fetch_covers.py` — Downloads missing album art.
-8. `build_html.py` — Generates the static site from templates and content.
+This orchestrator runs the following steps in order, as subprocesses:
+1. `fetch_spotify.py`, fetches album metadata and track lists.
+2. `fetch_lastfm.py`, enriches genres and listener counts.
+3. `embed_reviews.py`, generates SBERT embeddings for written review text.
+4. `clean_data.py`, normalizes and merges raw JSON.
+5. `recommend.py`, calculates cosine similarity matches.
+6. `build_data.py`, merges all signals into the final frontend JSON.
+7. `fetch_covers.py`, downloads missing album art.
 
-Adding a new album means dropping an entry in `data/albums.json` and running the pipeline. Spotify and Last.fm fetches skip albums that already have cached data.
+The site itself is static HTML/CSS/JS, not generated from templates. Adding a new album means dropping an entry in `data/albums.json` and running the pipeline. Spotify and Last.fm fetches skip albums that already have cached data; pass `--force` to re-fetch everything.
 
 ## What I Learned
 
