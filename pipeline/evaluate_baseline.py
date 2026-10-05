@@ -14,27 +14,21 @@ Usage:
 import json
 import random
 import sys
+from collections import Counter
 from pathlib import Path
 
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.preprocessing import MinMaxScaler
 
 sys.path.insert(0, str(Path(__file__).parent))
 from recommend import (
-    build_tfidf_matrix,
-    fill_missing_listeners,
-    build_embedding_matrix,
     build_rec_objects,
+    build_similarity_matrix,
+    load_embeddings,
     TAG_WEIGHT,
-    YEAR_WEIGHT,
-    LISTENERS_WEIGHT,
-    REVIEW_WEIGHT,
 )
 
 ROOT           = Path(__file__).resolve().parent.parent
 CLEAN_FILE     = ROOT / "data" / "albums_clean.json"
-EMBEDDINGS_DIR = ROOT / "data" / "embeddings"
 OUT_FILE       = ROOT / "data" / "baseline_eval.json"
 
 TOP_N = 3
@@ -48,37 +42,7 @@ def load_albums():
         albums = json.load(f)
 
     slugs = [a["slug"] for a in albums]
-
-    raw_embeddings = {}
-    for slug in slugs:
-        emb_path = EMBEDDINGS_DIR / f"{slug}.npy"
-        if emb_path.exists():
-            raw_embeddings[slug] = np.load(emb_path)
-
-    return albums, slugs, raw_embeddings
-
-
-def build_feature_matrix(albums, raw_embeddings, tag_weight, year_weight, listeners_weight, review_weight):
-    """Build the same weighted feature matrix recommend.py builds, with configurable weights."""
-    tfidf_matrix, _ = build_tfidf_matrix(albums)
-
-    years = np.array([a["release_year"] for a in albums], dtype=float).reshape(-1, 1)
-    year_scaled = MinMaxScaler().fit_transform(years)
-
-    raw_listeners = [a.get("listeners") for a in albums]
-    filled_listeners = fill_missing_listeners(raw_listeners)
-    listeners_scaled = MinMaxScaler().fit_transform(
-        np.array(filled_listeners, dtype=float).reshape(-1, 1)
-    )
-
-    emb_matrix = build_embedding_matrix(albums, raw_embeddings)
-
-    return np.hstack([
-        tfidf_matrix     * tag_weight,
-        year_scaled      * year_weight,
-        listeners_scaled * listeners_weight,
-        emb_matrix       * review_weight,
-    ])
+    return albums, slugs, load_embeddings(slugs)
 
 
 def genre_match_rate(albums, slugs, sim_matrix):
@@ -94,6 +58,29 @@ def genre_match_rate(albums, slugs, sim_matrix):
                 matches += 1
 
     return matches / total, total
+
+
+def catalog_coverage(albums, slugs, sim_matrix):
+    """
+    How evenly recommendations spread across the catalog.
+
+    Genre-match rate alone can't catch a model that sends everyone to the same
+    handful of albums, so this reports the fraction of albums that appear in at
+    least one top-3 list, plus the single most-recommended album.
+
+    Returns
+    -------
+    coverage : float
+        Share of the catalog appearing in any top-3 list.
+    top_album : tuple[str, int]
+        The most frequently recommended slug and how many top-3 lists it is in.
+    """
+    appearances = Counter(
+        rec["slug"]
+        for i, album in enumerate(albums)
+        for rec in build_rec_objects(album, albums, sim_matrix[i], slugs, TOP_N)
+    )
+    return len(appearances) / len(albums), appearances.most_common(1)[0]
 
 
 def random_baseline_match_rate(albums, trials, seed):
@@ -126,15 +113,12 @@ def main():
     print(f"Loaded {len(albums)} albums, {len(raw_embeddings)} review embedding(s)\n")
 
     # 1. Real model: the actual production weights from recommend.py
-    real_matrix = build_feature_matrix(
-        albums, raw_embeddings, TAG_WEIGHT, YEAR_WEIGHT, LISTENERS_WEIGHT, REVIEW_WEIGHT
-    )
-    real_sim = cosine_similarity(real_matrix)
+    real_sim = build_similarity_matrix(albums, raw_embeddings)
     real_rate, real_total = genre_match_rate(albums, slugs, real_sim)
+    coverage, (top_slug, top_count) = catalog_coverage(albums, slugs, real_sim)
 
-    # 2. Genre-only baseline: same cosine similarity, but year/listeners/review weights zeroed out
-    genre_only_matrix = build_feature_matrix(albums, raw_embeddings, TAG_WEIGHT, 0.0, 0.0, 0.0)
-    genre_only_sim = cosine_similarity(genre_only_matrix)
+    # 2. Genre-only baseline: same blend, but year/listeners/review weights zeroed out
+    genre_only_sim = build_similarity_matrix(albums, raw_embeddings, TAG_WEIGHT, 0.0, 0.0, 0.0)
     genre_only_rate, _ = genre_match_rate(albums, slugs, genre_only_sim)
 
     # 3. Random baseline: random picks from the same same-artist-excluded pool
@@ -145,6 +129,8 @@ def main():
     print(f"  Genre-only baseline (tags weighted, nothing else):      {genre_only_rate:.1%}")
     print(f"  Random baseline ({RANDOM_TRIALS} trials):                        {random_rate:.1%}  (std: {random_std:.1%})")
     print(f"\n  Model vs. random: {real_rate / random_rate:.1f}x more likely to share a genre tag")
+    print(f"\nCatalog coverage: {coverage:.1%} of albums appear in at least one top-3 list")
+    print(f"Most recommended: {top_slug} ({top_count} top-3 lists)")
 
     results = {
         "top_n": TOP_N,
@@ -155,6 +141,8 @@ def main():
         "random_baseline_std": round(random_std, 4),
         "random_baseline_trials": RANDOM_TRIALS,
         "random_baseline_seed": RANDOM_SEED,
+        "catalog_coverage": round(coverage, 4),
+        "most_recommended": {"slug": top_slug, "top3_appearances": top_count},
     }
     with open(OUT_FILE, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)

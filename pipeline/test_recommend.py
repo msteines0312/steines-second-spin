@@ -14,6 +14,8 @@ from recommend import (
     build_tfidf_matrix,
     fill_missing_listeners,
     build_embedding_matrix,
+    build_similarity_matrix,
+    closeness_similarity,
 )
 
 
@@ -187,3 +189,75 @@ def test_build_embedding_matrix_fills_missing_with_zeros():
     assert matrix.shape == (2, 3)
     assert np.array_equal(matrix[0], [1.0, 2.0, 3.0])
     assert np.array_equal(matrix[1], [0.0, 0.0, 0.0])
+
+
+def _album(slug, tags, year=2020, listeners=1000):
+    """Minimal clean-album record for similarity tests."""
+    return {"slug": slug, "tag_weights": tags, "release_year": year, "listeners": listeners}
+
+
+def test_closeness_similarity_is_one_on_diagonal_and_zero_at_extremes():
+    """Identical values score 1; the two most distant values in the corpus score 0."""
+    sim = closeness_similarity(np.array([1970.0, 2000.0, 2020.0]))
+
+    assert np.allclose(np.diag(sim), 1.0)
+    assert sim[0, 2] == pytest.approx(0.0)
+    assert sim[0, 1] == pytest.approx(0.4)
+
+
+def test_closeness_similarity_constant_values_are_all_similar():
+    """With no spread at all, every pair is a perfect match instead of dividing by zero."""
+    sim = closeness_similarity(np.array([5.0, 5.0]))
+
+    assert np.all(sim == 1.0)
+
+
+def test_similarity_matrix_stays_in_unit_range():
+    """The blended score is a weighted average, so it must land in [0, 1]."""
+    albums = [
+        _album("a", {"rock": 1.0}, 1970, 100),
+        _album("b", {"rock": 1.0, "pop": 0.5}, 2020, 1_000_000),
+        _album("c", {"jazz": 1.0}, 1995, 5000),
+    ]
+
+    sim = build_similarity_matrix(albums, {})
+
+    assert sim.min() >= 0.0
+    assert sim.max() <= 1.0 + 1e-9
+
+
+def test_missing_review_is_not_a_penalty():
+    """
+    An album without a review should score the same whether or not other albums
+    have reviews. This is the bug the late-fusion design fixes: zero-filled
+    embeddings used to drag down any candidate that did have one.
+    """
+    albums = [
+        _album("source", {"rock": 1.0}),
+        _album("reviewed", {"rock": 1.0}),
+        _album("unreviewed", {"rock": 1.0}),
+    ]
+    embeddings = {"reviewed": np.array([1.0, 0.0])}
+
+    sim = build_similarity_matrix(albums, embeddings)
+
+    # Source has no review, so the reviewed and unreviewed candidates tie
+    assert sim[0, 1] == pytest.approx(sim[0, 2])
+
+
+def test_shared_review_signal_changes_ranking():
+    """When both albums have reviews, similar review text should lift the score."""
+    albums = [
+        _album("source", {"rock": 1.0}),
+        _album("similar_review", {"rock": 1.0}),
+        _album("different_review", {"rock": 1.0}),
+    ]
+    embeddings = {
+        "source":           np.array([1.0, 0.0]),
+        "similar_review":   np.array([1.0, 0.0]),
+        "different_review": np.array([0.0, 1.0]),
+    }
+
+    sim = build_similarity_matrix(albums, embeddings)
+
+    assert sim[0, 1] > sim[0, 2]
